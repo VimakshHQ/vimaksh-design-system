@@ -1,0 +1,3 @@
+# Generated files are hashed (brand/SHA256SUMS.txt): keep them byte-for-byte.
+dist/** -text
+* text=auto eol=lf
