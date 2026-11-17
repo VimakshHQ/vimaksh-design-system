@@ -20,7 +20,7 @@ Pick a colour by its job. Every surface and text colour is a role with a light a
 | \`--chip\` | The translucent fill under a backdrop blur. |
 
 ### Red is for action
-\`--red #E42114\` marks the primary action, the ">" chevron, the focused input underline and errors. Nothing else is red. Coral \`#FF5E55\` is the mark's colour and the accent on the dark footer.
+\`--red #E42114\` marks the primary action, the ">" chevron, the one hero highlight (.hl), the focused input underline and errors. Nothing else is red. Coral \`#FF5E55\` is the mark's colour and the accent on the dark footer.
 
 ### The footer is always night
 The footer stays dark in both themes (\`--night #0D0E1C\` with the dark pattern). Its text colours are fixed footer tokens.

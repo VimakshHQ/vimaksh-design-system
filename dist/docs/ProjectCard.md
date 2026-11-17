@@ -6,8 +6,9 @@ Vimaksh design system 0.1.0. HTML: /components/project-card/ (local docs site). 
 
 ## Use it
 
-- Real products only, with real recorded video and the product's own logo.
-- Three per row on desktop, two below 1100px, one below 760px.
+- Real products only, with real recorded video and the product's own logo. Product logos and videos are not part of the design system: get them from the product (the docs examples use copies from the website).
+- Three per row on desktop, two below 1100px, one below 760px. With fewer items the grid keeps three columns and leaves the space empty, as the site's CSS does.
+- No video yet: keep the .media frame (it has the --card background) with the logo chip and a visible mono [PLACEHOLDER: product video] inside it. Do not use a still from another product or a mock-up.
 
 Needs: `vimaksh.css` and `vimaksh.js`.
 
@@ -49,7 +50,7 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 | `a.media` | element | Video link, tabindex -1 and aria-hidden: the visit bar is the one real link. |
 | `video` | element | muted loop playsinline preload="metadata" with a poster; plays only while on screen. |
 | `.veil` | element | Light top-to-bottom darkening plus grain at .35 overlay. |
-| `.num.t-mono` | element | Large white number, 01–06, bottom left. |
+| `.num.t-mono` | element | Large white number, bottom left. Optional: numbering is an open voice question (see Voice), so leave it out of new work until Vimaksh decides. |
 | `.plogo` | element | The product logo on a paper chip (see Logo chip). |
 | `.meta > h3 + .kind` | element | Title and a lowercase mono kind ("travel saas"). |
 | `a.bar.t-mono` | element | "Visit host >", opens in a new tab with a visually hidden "(opens in a new tab)". |

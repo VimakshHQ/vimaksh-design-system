@@ -7,6 +7,8 @@ Vimaksh design system 0.1.0. HTML: /components/footer/ (local docs site). Source
 ## Use it
 
 - On every page.
+- Columns hold real links and facts only: navigation, products, contact. The website's street address, live clock and two-working-days promise are open voice questions (see Voice): do not copy them into new work.
+- The right-hand slot holds either the light brief card (.fbrief) or the large email button.
 
 Needs: `vimaksh.css` and `vimaksh.js`.
 
@@ -70,7 +72,7 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 ## Do
 
 - Keep it dark in both themes.
-- Keep facts factual: real email, real address, real coordinates.
+- Keep facts factual: real links, real email.
 
 ## Don't
 

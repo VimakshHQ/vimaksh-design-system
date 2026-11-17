@@ -1007,7 +1007,7 @@
         {
           "name": ".num.t-mono",
           "kind": "element",
-          "description": "Large white number, 01–06, bottom left."
+          "description": "Large white number, bottom left. Optional: numbering is an open voice question (see Voice), so leave it out of new work until Vimaksh decides."
         },
         {
           "name": ".plogo",
@@ -1026,8 +1026,9 @@
         }
       ],
       "use": [
-        "Real products only, with real recorded video and the product's own logo.",
-        "Three per row on desktop, two below 1100px, one below 760px."
+        "Real products only, with real recorded video and the product's own logo. Product logos and videos are not part of the design system: get them from the product (the docs examples use copies from the website).",
+        "Three per row on desktop, two below 1100px, one below 760px. With fewer items the grid keeps three columns and leaves the space empty, as the site's CSS does.",
+        "No video yet: keep the .media frame (it has the --card background) with the logo chip and a visible mono [PLACEHOLDER: product video] inside it. Do not use a still from another product or a mock-up."
       ],
       "do": [
         "Write the description as one plain sentence about what the product does.",
@@ -1169,7 +1170,7 @@
         "Only on project media."
       ],
       "do": [
-        "Use the product's own logo file unchanged."
+        "Use the product's own logo file unchanged, even when it breaks a Vimaksh rule (Vaat's icon has rounded corners and its own indigo: keep them)."
       ],
       "dont": [
         "Do not recolour a product logo to Vimaksh colours."
@@ -1491,7 +1492,8 @@
         }
       ],
       "use": [
-        "Home page only. It is the one always-moving visual."
+        "Home page only (a site's landing page; a one-page product site counts as one). It is the one always-moving visual.",
+        "The .hl highlight (red, wrapped in \"<\" \">\") marks at most one phrase in the hero headline."
       ],
       "do": [
         "Keep the headline short enough to stay inside the copy box.",
@@ -2037,7 +2039,8 @@
         }
       ],
       "use": [
-        "Wherever a phone number is asked for."
+        "Wherever a phone number is asked for.",
+        "The grey example number inside the field comes from intl-tel-input (as on the site); it is a format hint, not a label: keep the mono label above."
       ],
       "do": [
         "Validate on the server too (the site uses libphonenumber-js in its worker)."
@@ -2147,11 +2150,13 @@
         }
       ],
       "use": [
-        "On every page."
+        "On every page.",
+        "Columns hold real links and facts only: navigation, products, contact. The website's street address, live clock and two-working-days promise are open voice questions (see Voice): do not copy them into new work.",
+        "The right-hand slot holds either the light brief card (.fbrief) or the large email button."
       ],
       "do": [
         "Keep it dark in both themes.",
-        "Keep facts factual: real email, real address, real coordinates."
+        "Keep facts factual: real links, real email."
       ],
       "dont": [
         "Do not use the heat gradient anywhere else.",

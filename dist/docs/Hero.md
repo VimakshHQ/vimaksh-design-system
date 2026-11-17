@@ -6,7 +6,8 @@ Vimaksh design system 0.1.0. HTML: /components/hero/ (local docs site). Source o
 
 ## Use it
 
-- Home page only. It is the one always-moving visual.
+- Home page only (a site's landing page; a one-page product site counts as one). It is the one always-moving visual.
+- The .hl highlight (red, wrapped in "<" ">") marks at most one phrase in the hero headline.
 
 Needs: `vimaksh.css` and `vimaksh.js + pixel-hero.js`.
 

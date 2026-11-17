@@ -11,7 +11,7 @@ export const prompt = BASE => `Give this project the Vimaksh design language: th
    Phone field: ${BASE}vimaksh-phone.js, ${BASE}vendor/intl-tel-input.css and ${BASE}vendor/img/flags.webp, flags@2x.webp, flags.png, flags@2x.png (same folder)
    Tailwind: ${BASE}tokens.css plus ${BASE}tailwind-preset.cjs (v3) or ${BASE}tailwind.css (v4)
 3. Build with the documented markup (${BASE}docs/<Component>.md) and check every item:
-   - Colour: paper #F4F2EE (dark #0F1020) with the cross-and-dot pattern, ink/strong text; red #E42114 only for the primary action and the ">" chevron; footer always dark night #0D0E1C.
+   - Colour: paper #F4F2EE (dark #0F1020) with the cross-and-dot pattern, ink/strong text; red #E42114 only for the primary action, the ">" chevron and the hero's one <highlight>; footer always dark night #0D0E1C.
    - Themes: light and dark through <html data-theme>, set before first paint; test both.
    - Type: Inter Tight for everything read, weight 500 headings with tight negative tracking and the clamp() sizes; JetBrains Mono 500, 11–11.5px, uppercase, wide tracking for labels, nav and buttons. Labels start with a red ">".
    - Spacing and grid: full-width pages, gutter --pad clamp(16px,2.6vw,40px), 14px card gaps, big fluid section padding; breakpoints max-width 1100px and 760px.
@@ -83,7 +83,7 @@ MUST
 - Support light and dark through \`<html data-theme>\`, set before first paint. The footer stays dark in both.
 - Put \`background: var(--pattern), var(--paper)\` on the page and on every section.
 - Keep every corner square (radius 0). The theme toggle is the only rounded element.
-- Use red (\`--red #E42114\`) only for the primary button, the ">" chevron, the focused input underline and errors.
+- Use red (\`--red #E42114\`) only for the primary button, the ">" chevron, the hero's one .hl highlight, the focused input underline and errors.
 - Start section labels with a red chevron: \`<p class="t-mono label"><span class="chev">&gt;</span> Label</p>\`.
 - Use the real wordmark SVG inline with \`fill="currentColor"\`; never type the name as a logo.
 - Keep the full-width layout with the \`--pad\` gutter and the 1100px / 760px max-width breakpoints.

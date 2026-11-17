@@ -7,6 +7,7 @@ Vimaksh design system 0.1.0. HTML: /components/phone-field/ (local docs site). S
 ## Use it
 
 - Wherever a phone number is asked for.
+- The grey example number inside the field comes from intl-tel-input (as on the site); it is a format hint, not a label: keep the mono label above.
 
 Needs: `vimaksh.css` and `vimaksh-phone.js`.
 

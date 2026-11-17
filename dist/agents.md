@@ -55,7 +55,7 @@ MUST
 - Support light and dark through `<html data-theme>`, set before first paint. The footer stays dark in both.
 - Put `background: var(--pattern), var(--paper)` on the page and on every section.
 - Keep every corner square (radius 0). The theme toggle is the only rounded element.
-- Use red (`--red #E42114`) only for the primary button, the ">" chevron, the focused input underline and errors.
+- Use red (`--red #E42114`) only for the primary button, the ">" chevron, the hero's one .hl highlight, the focused input underline and errors.
 - Start section labels with a red chevron: `<p class="t-mono label"><span class="chev">&gt;</span> Label</p>`.
 - Use the real wordmark SVG inline with `fill="currentColor"`; never type the name as a logo.
 - Keep the full-width layout with the `--pad` gutter and the 1100px / 760px max-width breakpoints.

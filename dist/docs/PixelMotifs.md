@@ -15,7 +15,7 @@ Pixel graphics are drawn square by square on a small grid and scaled up with `im
 </script>
 ```
 
-vimaksh.js already draws every `canvas.px` (`data-px="saas"` and `data-px="desk"`) and every `canvas.edge`, and redraws them when the theme changes.
+vimaksh.js already draws every `canvas.px` (`data-px="saas"` and `data-px="desk"`) and every `canvas.edge`. The tiles and edges are redrawn when the theme changes; the desk looks the same in both themes.
 
 | Motif | Group | Grid | PNG | SVG |
 | --- | --- | --- | --- | --- |

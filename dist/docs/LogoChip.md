@@ -30,7 +30,7 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 
 ## Do
 
-- Use the product's own logo file unchanged.
+- Use the product's own logo file unchanged, even when it breaks a Vimaksh rule (Vaat's icon has rounded corners and its own indigo: keep them).
 
 ## Don't
 
