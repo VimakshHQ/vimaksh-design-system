@@ -1,3 +1,4 @@
-# Generated files are hashed (brand/SHA256SUMS.txt): keep them byte-for-byte.
-dist/** -text
 * text=auto eol=lf
+# Generated files are hashed (brand/SHA256SUMS.txt) and source/ is a byte-exact snapshot of the website: keep both as-is.
+dist/** -text
+source/** -text
