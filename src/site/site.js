@@ -69,5 +69,48 @@ addEventListener('storage', e => {
   document.documentElement.dataset.theme = e.newValue; dispatchEvent(new Event('themechange'));
 });
 
-// Contents collapse on narrow screens.
-if (matchMedia('(max-width:1100px)').matches) $$('.ds-side details').forEach(d => d.removeAttribute('open'));
+// Sidebar as a drawer on narrow screens.
+const menu = $('[data-ds-menu]'), scrim = $('[data-ds-scrim]');
+const setNav = open => { document.body.classList.toggle('ds-nav-open', open); menu?.setAttribute('aria-expanded', open); if (scrim) scrim.hidden = !open; };
+menu?.addEventListener('click', () => setNav(!document.body.classList.contains('ds-nav-open')));
+scrim?.addEventListener('click', () => setNav(false));
+addEventListener('keydown', e => { if (e.key === 'Escape' && document.body.classList.contains('ds-nav-open')) { setNav(false); menu?.focus(); } });
+const curLink = $('.ds-side [aria-current]');
+if (curLink) { const side = $('.ds-side'); side.scrollTop = curLink.offsetTop - side.clientHeight / 2; }
+
+// Find a page: filters the sidebar; Enter opens the first match. "/" focuses it.
+const find = $('[data-ds-find]');
+const matches = () => $$('.ds-side li').filter(li => !li.hidden);
+find?.addEventListener('input', () => {
+  const q = find.value.trim().toLowerCase();
+  $$('.ds-side li').forEach(li => { li.hidden = !!q && !li.firstElementChild.dataset.find.includes(q); });
+  $$('.ds-side-k').forEach(k => { k.hidden = !!q && !$$('li', k.nextElementSibling).some(li => !li.hidden); });
+  $('.ds-side-none').hidden = !q || matches().length > 0;
+});
+find?.addEventListener('keydown', e => { if (e.key === 'Enter') { const a = matches()[0]?.firstElementChild; if (a) location.href = a.href; } });
+addEventListener('keydown', e => { if (e.key === '/' && document.activeElement === document.body && find && find.offsetParent) { e.preventDefault(); find.focus(); } });
+
+// On this page: the h2s of the visible panel (or of the overview).
+const toc = $('.ds-toc');
+const spy = () => {
+  if (!toc || toc.hidden) return;
+  const links = $$('a', toc); let cur = links[0];
+  for (const a of links) { const h = document.getElementById(a.hash.slice(1)); if (h && h.getBoundingClientRect().top < 140) cur = a; }
+  links.forEach(a => a.toggleAttribute('aria-current', a === cur));
+};
+const buildToc = () => {
+  if (!toc) return;
+  const scope = $('.ds-panel:not([hidden])') || $('.ds-doc');
+  const hs = $$('h2.ds-h2', scope);
+  toc.hidden = hs.length < 2;
+  $('ul', toc).replaceChildren(...hs.map((h, i) => {
+    if (!h.id) h.id = h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 's' + i;
+    const li = document.createElement('li');
+    li.append(Object.assign(document.createElement('a'), { href: '#' + h.id, textContent: h.textContent }));
+    return li;
+  }));
+  spy();
+};
+addEventListener('scroll', () => requestAnimationFrame(spy), { passive: true });
+tabs.forEach(t => t.addEventListener('click', () => setTimeout(buildToc)));
+buildToc();

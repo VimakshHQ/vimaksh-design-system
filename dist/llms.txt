@@ -12,6 +12,7 @@
 
 ## Guides
 
+- [Overview](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Overview.md): The design language of work.vimaksh.in, extracted from its code: tokens, one CSS file, the site’s behaviour, brand assets, and docs that people and agents can use
 - [Getting started](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/GettingStarted.md): Put the Vimaksh look into a project: one CSS file, two fonts, one script, the wordmark
 - [For agents](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Agents.md): The Copy brand identity prompt, agents.md and every machine-readable file, with their stable URLs.
 

@@ -25,6 +25,14 @@
   },
   "pages": [
     {
+      "name": "Overview",
+      "title": "Overview",
+      "kind": "guide",
+      "group": "Start",
+      "summary": "The design language of work.vimaksh.in, extracted from its code: tokens, one CSS file, the site’s behaviour, brand assets, and docs that people and agents can use. Every value cites the website line it comes from.",
+      "markdown": "docs/Overview.md"
+    },
+    {
       "name": "GettingStarted",
       "title": "Getting started",
       "kind": "guide",
@@ -361,6 +369,7 @@
     "docs/LogoChip.md",
     "docs/Motion.md",
     "docs/NavigationStack.md",
+    "docs/Overview.md",
     "docs/Patterns.md",
     "docs/PhoneField.md",
     "docs/Pill.md",

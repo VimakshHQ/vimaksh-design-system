@@ -28,6 +28,7 @@ const MARK = readFileSync(root('source/marks/vimaksh-mark.svg'), 'utf8').trim().
 // ---------------------------------------------------------------- pages registry
 const P = [];
 const add = (p, kind, url) => { const o = { ...p, kind, url, md: `${p.name}.md`, title: p.title || p.name.replace(/([a-z])([A-Z])/g, '$1 $2') }; P.push(o); return o; };
+add({ slug: 'overview', name: 'Overview', group: 'Start', summary: 'The design language of work.vimaksh.in, extracted from its code: tokens, one CSS file, the site’s behaviour, brand assets, and docs that people and agents can use. Every value cites the website line it comes from.' }, 'guide', '/');
 add({ slug: 'getting-started', name: 'GettingStarted', title: 'Getting started', group: 'Start', summary: 'Put the Vimaksh look into a project: one CSS file, two fonts, one script, the wordmark. Or the tokens with Tailwind.' }, 'guide', '/getting-started/');
 add({ slug: 'agents', name: 'Agents', title: 'For agents', group: 'Start', summary: 'The Copy brand identity prompt, agents.md and every machine-readable file, with their stable URLs.' }, 'guide', '/agents/');
 for (const f of FOUNDATIONS) add(f, 'foundation', `/foundations/${f.slug}/`);
@@ -276,6 +277,25 @@ ${Object.entries(PATCHES).flatMap(([f, ps]) => ps.map(p => `- ${f}: ${p[0]}`)).j
 ### Not included
 React wrappers (the site has no React; the HTML is the component). Storybook runs locally: \`npm run storybook\`.`;
 
+const OVERVIEW_MD = () => `### Copy brand identity
+Paste this into an agent working on another project:
+
+\`\`\`
+${PROMPT}
+\`\`\`
+
+### Start here
+- [Getting started](doc:GettingStarted): put the look into a project.
+- [For agents](doc:Agents): the prompt, agents.md and every machine-readable file.
+- [Color](doc:Color) and the other foundations: the values, named.
+- [Brand](doc:Brand): mark, wordmark, downloads.
+
+### Foundations
+${P.filter(p => p.kind === 'foundation').map(p => `- [${p.title}](doc:${p.name}): ${p.summary.split('. ')[0].replace(/\.$/, '')}.`).join('\n')}
+
+### Components
+${P.filter(p => p.kind === 'component').map(p => `- [${p.title}](doc:${p.name}): ${p.summary.split('. ')[0].replace(/\.$/, '')}.`).join('\n')}`;
+
 const AGENTS_PAGE_MD = () => `### Copy brand identity
 Paste this into an agent working on another project. It points at stable URLs instead of pasting the system:
 
@@ -298,56 +318,23 @@ ${PROMPT}
 | [tokens.json](${BASE}tokens.json) | The W3C design tokens source |
 | [docs/<Name>.md](${BASE}docs/Button.md) | One page as Markdown |`;
 
-// ---------------------------------------------------------------- HTML shell
-const NAV = [['Start', P.filter(p => p.group === 'Start')], ['Foundations', P.filter(p => p.kind === 'foundation')], ...['Navigation', 'Actions', 'Feedback', 'Layout', 'Content', 'Forms'].map(g => [g, P.filter(p => p.kind === 'component' && p.group === g)]), ['Brand', P.filter(p => p.kind === 'brand')]];
-const sidebar = cur => `<nav class="ds-side" aria-label="Docs"><details class="ds-side-in" open><summary class="t-mono">Contents</summary>${NAV.map(([g, list]) => `<p class="t-mono ds-side-k">${g}</p><ul>${list.map(p => `<li><a href="${p.url}"${p === cur ? ' aria-current="page"' : ''}>${esc(p.title)}</a></li>`).join('')}</ul>`).join('')}</details></nav>`;
-const HEADER = `<header class="hdr">
-  <a class="brandlink" href="/" aria-label="Vimaksh design system, home">${WM}<span class="ds-brand-sub t-mono">Design system</span></a>
-  <div class="hdr-r">
-    ${pageSrc('index.html').slice(22, 30).join('\n')}
+// ---------------------------------------------------------------- HTML shell (a docs app: fixed bar, sidebar, content, slim footer)
+const NAV = [['Start', P.filter(p => p.group === 'Start')], ['Foundations', P.filter(p => p.kind === 'foundation')], ...['Navigation', 'Actions', 'Feedback', 'Layout', 'Content', 'Forms'].map(g => [`Components / ${g}`, P.filter(p => p.kind === 'component' && p.group === g)]), ['Brand', P.filter(p => p.kind === 'brand')]];
+const sidebar = cur => `<nav class="ds-side" id="ds-side" aria-label="Docs">${NAV.map(([g, list]) => `<p class="t-mono ds-side-k">${g}</p><ul>${list.map(p => `<li><a href="${p.url}" data-find="${esc((p.title + ' ' + g + ' ' + p.summary).toLowerCase())}"${p === cur ? ' aria-current="page"' : ''}>${esc(p.title)}</a></li>`).join('')}</ul>`).join('')}<p class="ds-side-none soft" hidden>No page matches.</p></nav>`;
+const TOGGLE = pageSrc('index.html').slice(22, 30).join('\n');
+const BAR = `<header class="ds-bar">
+  <button class="ds-menu pill t-mono" type="button" aria-expanded="false" aria-controls="ds-side" data-ds-menu>Contents</button>
+  <a class="ds-brand" href="/" aria-label="Vimaksh design system, overview">${WM}<span class="t-mono">Design system</span></a>
+  <span class="ds-ver t-mono">${VERSION}</span>
+  <div class="ds-bar-r">
+    <label class="ds-find"><span class="sr">Find a page</span><input type="search" placeholder="Find a page" autocomplete="off" data-ds-find></label>
+    <button class="btn ds-bar-btn" type="button" data-copy-prompt><span>Copy brand identity</span><span class="chev" aria-hidden="true">&gt;</span></button>
+    ${TOGGLE}
   </div>
 </header>`;
-const navLink = (href, t) => `<a href="${href}"><span class="c" aria-hidden="true">&gt;</span><span class="t">${t}</span><span class="c" aria-hidden="true">&lt;</span></a>`;
-const NAVBOX = `<nav class="navbox" aria-label="Main" data-navbox>
-    ${navLink('/foundations/color/', 'Foundations')}
-    ${navLink('/components/button/', 'Components')}
-    ${navLink('/brand/', 'Brand')}
-    ${navLink('/agents/', 'For agents')}
-    <button class="menubox" type="button" aria-label="Show navigation" aria-expanded="false" data-menu-btn><span class="t">Menu</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
-  </nav>`;
-const FOOTER = `<footer class="foot" id="footer" data-tone="dark">
-  <canvas class="edge edge--top" data-edge="night" aria-hidden="true"></canvas>
-  <div class="foot-in">
-    <div class="foot-top">
-      <div class="foot-say">
-        <div class="fmark" role="img" aria-label="Vimaksh mark">${MARK}</div>
-        <div class="foot-copy">
-        <p class="t-mono label"><span class="chev">&gt;</span> Vimaksh design system</p>
-        <h2 class="t-statement">The look of<br>work.vimaksh.in.</h2>
-        <p class="foot-sub">Every value comes from the website's code. Where the site has no rule, the gap is marked, not filled.</p>
-        </div>
-      </div>
-      <div class="block fbrief">
-        <div class="row row--brief"><span>Copy brand identity</span><button class="pill t-mono" type="button" data-copy-prompt>Copy prompt</button></div>
-        <div class="row"><span>agents.md</span><button class="pill t-mono" type="button" data-copy="${BASE}agents.md">Copy URL</button></div>
-        <div class="row"><span>llms-full.txt</span><button class="pill t-mono" type="button" data-copy="${BASE}llms-full.txt">Copy URL</button></div>
-        <div class="row"><span>vimaksh.css</span><button class="pill t-mono" type="button" data-copy="${BASE}vimaksh.css">Copy URL</button></div>
-      </div>
-    </div>
-    <div class="cols">
-      <div><p class="t-mono k">Foundations</p><ul>${P.filter(p => p.kind === 'foundation').slice(0, 6).map(p => `<li><a href="${p.url}">${esc(p.title)}</a></li>`).join('')}</ul></div>
-      <div><p class="t-mono k">Components</p><ul>${['Header', 'Button', 'ProjectCard', 'BriefForm', 'Footer'].map(n => `<li><a href="${byName[n].url}">${esc(byName[n].title)}</a></li>`).join('')}</ul></div>
-      <div><p class="t-mono k">Brand</p><ul>${P.filter(p => p.kind === 'brand').map(p => `<li><a href="${p.url}">${esc(p.title)}</a></li>`).join('')}</ul></div>
-      <div><p class="t-mono k">Source</p><ul><li><a href="${REPO_URL}">Design system repo</a></li><li><a href="${SITE_LIVE}">work.vimaksh.in</a></li><li><a href="/agents/">For agents</a></li></ul></div>
-    </div>
-  </div>
-  <div class="foot-base heat" data-pixel-mask>
-    <div class="giant" aria-hidden="true">${WM}</div>
-    <div class="fine t-mono"><span>© <span data-year>2026</span> Vimaksh</span><span>Design system ${VERSION} · source ${SITE_SHA.slice(0, 7)}</span></div>
-  </div>
-</footer>`;
-const shell = ({ title, desc, page = 'inner', body, md = '' }) => `<!DOCTYPE html>
-<html lang="en" data-page="${page}">
+const FOOT = `<footer class="ds-foot t-mono"><span>© <span data-year>2026</span> Vimaksh</span><span>Design system ${VERSION} · extracted from <a href="${SITE_LIVE}">work.vimaksh.in</a> @ ${SITE_SHA.slice(0, 7)}</span><span><a href="${REPO_URL}">GitHub</a> · <a href="/agents/">For agents</a></span></footer>`;
+const shell = ({ title, desc, cur, content, md = '' }) => `<!DOCTYPE html>
+<html lang="en" data-page="docs">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -364,47 +351,50 @@ const shell = ({ title, desc, page = 'inner', body, md = '' }) => `<!DOCTYPE htm
 <link rel="stylesheet" href="/dist/vimaksh.css">
 <link rel="stylesheet" href="/site.css">
 </head>
-<body>
+<body class="ds-app">
 <a class="skip" href="#main">Skip to content</a>
-${HEADER}
-${NAVBOX}
+${BAR}
+${sidebar(cur)}
+<div class="ds-scrim" data-ds-scrim hidden></div>
 <div class="tip t-mono" aria-hidden="true">Copy</div>
 <script type="text/plain" id="ds-prompt">${esc(PROMPT)}</script>
 ${md ? `<script type="text/plain" id="ds-md">${esc(md)}</script>` : ''}
-${body}
-${FOOTER}
+<main id="main" class="ds-main">
+  <article class="ds-doc">
+${content}
+  </article>
+  <aside class="ds-toc" aria-label="On this page" hidden><p class="t-mono">On this page</p><ul></ul></aside>
+  ${FOOT}
+</main>
 <script type="module" src="/dist/vimaksh.js"></script>
 <script type="module" src="/site.js"></script>
 </body>
 </html>
 `;
+const pageHead = (label, title, lead, action = true) => `<header class="ds-head">
+      <p class="t-mono label"><span class="chev">&gt;</span> ${esc(label)}</p>
+      <div class="ds-head-row"><h1 class="t-section ds-title">${esc(title)}</h1>${action ? '<button class="btn btn--ghost" type="button" data-copy-md><span>Copy for LLM</span><span class="chev" aria-hidden="true">&gt;</span></button>' : ''}</div>
+      <p class="ds-lead">${inline(lead)}</p>
+    </header>`;
 
 function docPage(p, md) {
   const exs = p.kind === 'component' ? (p.examples || []).map((ex, i) => {
     const file = examplePage(p, ex, i), code = exampleHtml(p, ex);
     return `<figure class="ds-ex"><figcaption class="ds-ex-bar t-mono"><span>${esc(ex.title)}</span><span class="ds-ex-act"><button type="button" class="pill t-mono" data-w="100%" aria-pressed="true">Desktop</button><button type="button" class="pill t-mono" data-w="390px" aria-pressed="false">390</button><a class="pill t-mono" href="${file}" target="_blank" rel="noopener">Open<span class="sr"> (opens in a new tab)</span></a></span></figcaption><div class="ds-frame"><iframe src="${file}" title="${esc(p.title)}: ${esc(ex.title)}" loading="lazy" style="height:${ex.height || 260}px"></iframe></div>${codeBlock(code, 'HTML')}</figure>`;
   }).join('') : '';
-  const preview = p.kind === 'component' ? `${exs}
+  const preview = p.kind === 'component' ? `<h2 class="ds-h2">Examples</h2>${exs}
     ${(p.code || []).map(([t, c]) => codeBlock(c, t)).join('')}
     <h2 class="ds-h2">Use it</h2><ul class="ds-list">${p.use.map(x => `<li>${inline(x)}</li>`).join('')}</ul><p class="soft">Needs <code>vimaksh.css</code>${p.js ? ` and <code>${esc(p.js)}</code>` : ' only (no JavaScript)'}.</p>
     <h2 class="ds-h2">API</h2><div class="ds-table"><table><thead><tr><th>Name</th><th>Kind</th><th>What it does</th></tr></thead><tbody>${p.api.map(([n, k, d]) => `<tr><td><code>${esc(n)}</code></td><td class="t-mono soft">${esc(k)}</td><td>${inline(d)}</td></tr>`).join('')}</tbody></table></div>`
     : p.kind === 'foundation' || p.kind === 'brand' && p.visual ? `${p.visual ? `<div class="ds-visual">${VISUALS[p.visual]()}</div>` : ''}<div class="ds-prose">${md2html(p.body)}</div>`
     : `<div class="ds-prose">${p.html || md2html(p.mdBody)}</div>`;
-  const dodont = (p.do?.length || p.dont?.length) ? `<div class="ds-dd"><div><h2 class="ds-h2"><span class="ds-yes">Do</span></h2><ul class="ds-list">${(p.do || []).map(x => `<li>${inline(x)}</li>`).join('')}</ul></div><div><h2 class="ds-h2"><span class="ds-no">Don't</span></h2><ul class="ds-list">${(p.dont || []).map(x => `<li>${inline(x)}</li>`).join('')}</ul></div></div>` : '';
+  const dodont = (p.do?.length || p.dont?.length) ? `<h2 class="ds-h2">Do and don't</h2><div class="ds-dd"><div><p class="t-mono ds-yes">Do</p><ul class="ds-list">${(p.do || []).map(x => `<li>${inline(x)}</li>`).join('')}</ul></div><div><p class="t-mono ds-no">Don't</p><ul class="ds-list">${(p.dont || []).map(x => `<li>${inline(x)}</li>`).join('')}</ul></div></div>` : '';
   const a11y = p.a11y?.length ? `<h2 class="ds-h2">Accessibility</h2><ul class="ds-list">${p.a11y.map(x => `<li>${inline(x)}</li>`).join('')}</ul>` : '';
   const tokens = p.tokens?.length ? `<h2 class="ds-h2">Connected foundations</h2>${md2html(tokenTable(p.tokens))}` : '';
   const src = srcLinks(p);
   const sourceTab = `<p>Extracted from <a href="${SITE_LIVE}">${SITE_LIVE}</a>, repository <a href="${siteLink('', 0)}">${SITE_REPO_SHORT()}</a>.</p>${src.length ? `<ul class="ds-src">${src.map(s => `<li><a href="${s.url}"><span class="t-mono">${esc(s.file)}:${s.a}${s.b && s.b !== s.a ? '–' + s.b : ''}</span><span>${esc(s.what)}</span></a></li>`).join('')}</ul>` : ''}<p class="soft">In this repository: <a href="${blob('dist/vimaksh.css')}">dist/vimaksh.css</a> (each rule is tagged with its <code>v5.css</code> line), <a href="${blob('content/' + (p.kind === 'component' ? 'components' : 'foundations') + '.mjs')}">content</a>, <a href="${blob('dist/docs/' + p.md)}">dist/docs/${p.md}</a>.</p>`;
   const groupLabel = p.kind === 'component' ? `Components / ${p.group}` : p.group;
-  const body = `<main id="main" class="ds">
-  ${sidebar(p)}
-  <article class="ds-doc">
-    <div class="sec-head ds-head">
-      <p class="t-mono label"><span class="chev">&gt;</span> ${esc(groupLabel)}</p>
-      <h1 class="t-section">${esc(p.title)}</h1>
-      <button class="btn btn--ghost" type="button" data-copy-md><span>Copy for LLM</span><span class="chev" aria-hidden="true">&gt;</span></button>
-    </div>
-    <p class="ds-lead">${inline(p.summary)}</p>
+  const content = `    ${pageHead(groupLabel, p.title, p.summary)}
     <div class="ds-tabs" role="tablist" aria-label="View">
       <button role="tab" type="button" class="t-mono" id="tab-preview" aria-controls="panel-preview" aria-selected="true">Preview</button>
       <button role="tab" type="button" class="t-mono" id="tab-md" aria-controls="panel-md" aria-selected="false" tabindex="-1">Markdown</button>
@@ -412,10 +402,8 @@ function docPage(p, md) {
     </div>
     <section class="ds-panel" role="tabpanel" id="panel-preview" aria-labelledby="tab-preview">${preview}${dodont}${a11y}${tokens}</section>
     <section class="ds-panel" role="tabpanel" id="panel-md" aria-labelledby="tab-md" hidden><p class="soft">This page as Markdown: <a href="/dist/docs/${p.md}">/dist/docs/${p.md}</a> · raw: <a href="${BASE}docs/${p.md}">${BASE}docs/${p.md}</a></p>${codeBlock(md, p.md)}</section>
-    <section class="ds-panel" role="tabpanel" id="panel-src" aria-labelledby="tab-src" hidden>${sourceTab}</section>
-  </article>
-</main>`;
-  write(join(SITE, p.url, 'index.html'), shell({ title: `${p.title} — Vimaksh design system`, desc: p.summary, body, md }));
+    <section class="ds-panel" role="tabpanel" id="panel-src" aria-labelledby="tab-src" hidden>${sourceTab}</section>`;
+  write(join(SITE, p.url, 'index.html'), shell({ title: `${p.title} — Vimaksh design system`, desc: p.summary, cur: p, content, md }));
 }
 
 // ---------------------------------------------------------------- build all pages
@@ -424,6 +412,7 @@ byName.PixelMotifs.html = motifsGrid() + md2html(MOTIFS_MD.split('\n| Motif')[0]
 byName.Downloads.mdBody = DOWNLOADS_MD();
 byName.Downloads.html = md2html(DOWNLOADS_MD().split('### Every file')[0]) + `<p><a href="/dist/brand/SHA256SUMS.txt">All ${manifest.files.length} files with SHA-256</a></p>`;
 byName.GettingStarted.mdBody = GETTING_STARTED_MD();
+byName.Overview.mdBody = OVERVIEW_MD();
 byName.Agents.mdBody = AGENTS_PAGE_MD();
 byName.Agents.html = `<div class="block ds-prompt-block"><div class="row row--brief"><span>Copy brand identity</span><button class="pill t-mono" type="button" data-copy-prompt>Copy prompt</button></div></div>` + md2html(AGENTS_PAGE_MD());
 // components first: their examples feed their Markdown
@@ -432,58 +421,41 @@ const MD = {};
 for (const p of P.filter(p => p.kind === 'component')) p.examples.forEach((ex, i) => examplePage(p, ex, i));
 for (const p of P) MD[p.name] = pageMd(p);
 EX.length = 0;   // docPage registers examples again (same files) while rendering
-for (const p of P) { docPage(p, MD[p.name]); write(root('dist/docs', p.md), MD[p.name]); }
+for (const p of P) { if (p.name !== 'Overview') docPage(p, MD[p.name]); write(root('dist/docs', p.md), MD[p.name]); }
 
-// ---------------------------------------------------------------- home
-const home = `<main id="main">
-<section class="hero" id="top" aria-label="Vimaksh design system">
-  <div class="hero-in">
-    <canvas id="stage" aria-label="The Vimaksh six-arrow mark, built from moving pixels" role="img"></canvas>
-    <img class="stage-fallback" src="/dist/brand/svg/vimaksh-mark.svg" alt="" aria-hidden="true">
-    <div class="hero-copy">
-      <p class="t-mono label"><span class="chev">&gt;</span> Vimaksh design system</p>
-      <h1>Everything that makes work.vimaksh.in look like <span class="hl"><i aria-hidden="true">&lt;</i>Vimaksh<i aria-hidden="true">&gt;</i></span>, ready for people and agents.</h1>
-      <div class="hero-cta"><button class="btn" type="button" data-copy-prompt><span>Copy brand identity</span><span class="chev" aria-hidden="true">&gt;</span></button><a class="btn btn--ghost" href="/getting-started/"><span>Get started</span></a></div>
+// ---------------------------------------------------------------- overview (the home page: a docs page, not a landing page)
+const first = s => s.split('. ')[0].replace(/\.$/, '') + '.';
+const tile = (p, label) => `<a class="ds-tile" href="${p.url}"><span class="t-mono soft">${esc(label)}</span><span class="ds-tile-t">${esc(p.title)}</span><span class="ds-tile-d">${esc(first(p.summary))}</span><span class="chev" aria-hidden="true">&gt;</span></a>`;
+const linkList = list => `<ul class="ds-links">${list.map(p => `<li><a href="${p.url}"><span>${esc(p.title)}</span><span class="soft">${esc(first(p.summary))}</span></a></li>`).join('')}</ul>`;
+const homeContent = `    ${pageHead('Overview', 'Vimaksh design system', byName.Overview.summary)}
+    <dl class="ds-facts t-mono"><div><dt>Version</dt><dd>${VERSION}</dd></div><div><dt>Tokens</dt><dd>${T.ALL.length}</dd></div><div><dt>Components</dt><dd>${COMPONENTS.length}</dd></div><div><dt>Themes</dt><dd>Light · dark</dd></div><div><dt>Source</dt><dd><a href="${siteLink('', 0)}">${SITE_SHA.slice(0, 7)}</a></dd></div></dl>
+
+    <h2 class="ds-h2" id="copy-brand-identity">Copy brand identity</h2>
+    <div class="block ds-prompt-block"><div class="row row--brief"><span>Copy brand identity</span><button class="pill t-mono" type="button" data-copy-prompt>Copy prompt</button></div>
+      <div class="ds-prompt-note"><p>Paste it into an agent working on another project. It sends the agent to <code>agents.md</code> and <code>llms-full.txt</code>, lists the files to download, gives it the checklist and asks it to compare its page with work.vimaksh.in.</p>
+      <details><summary class="t-mono">Show the prompt</summary><pre class="ds-prompt-pre"><code>${esc(PROMPT)}</code></pre></details></div></div>
+
+    <h2 class="ds-h2" id="start-here">Start here</h2>
+    <div class="ds-tiles">${tile(byName.GettingStarted, 'Developers')}${tile(byName.Agents, 'Agents')}${tile(byName.Color, 'Designers')}${tile(byName.Brand, 'Brand')}</div>
+
+    <h2 class="ds-h2" id="foundations">Foundations</h2>
+    ${linkList(P.filter(p => p.kind === 'foundation'))}
+
+    <h2 class="ds-h2" id="components">Components</h2>
+    ${linkList(P.filter(p => p.kind === 'component'))}
+
+    <h2 class="ds-h2" id="brand">Brand and assets</h2>
+    <div class="ds-home-brand">
+      <a href="/brand/" class="ds-home-tile"><img src="/dist/brand/svg/vimaksh-mark-tight.svg" alt=""><span class="t-mono">Brand</span></a>
+      <a href="/pixel-motifs/" class="ds-home-tile"><img src="/dist/brand/pixel/png/build-ai-light.png" alt="" style="image-rendering:pixelated"><span class="t-mono">Pixel motifs</span></a>
+      <a href="/icons/" class="ds-home-tile"><span class="ds-home-chev">&gt; &lt;</span><span class="t-mono">Icons</span></a>
+      <a href="/downloads/" class="ds-home-tile"><img src="/dist/brand/svg/vimaksh-wordmark.svg" alt=""><span class="t-mono">Downloads</span></a>
     </div>
-    <p class="hero-meta t-mono"><span>Design system / ${VERSION}</span><span>${T.ALL.length} tokens · ${COMPONENTS.length} components</span><span>Source ${SITE_SHA.slice(0, 7)}</span></p>
-  </div>
-  <div class="hero-dim" aria-hidden="true"></div>
-</section>
 
-<section class="work rise" id="identity" aria-labelledby="id-h">
-  <canvas class="edge edge--top" data-edge="paper" aria-hidden="true"></canvas>
-  <div class="sec-head">
-    <p class="t-mono label"><span class="chev">&gt;</span> Copy brand identity</p>
-    <h2 id="id-h" class="t-section">One prompt.<br>The same studio, anywhere.</h2>
-    <a class="more t-mono" href="/agents/">For agents <span class="chev" aria-hidden="true">&gt;</span></a>
-  </div>
-  <div class="ds-home-prompt">
-    <p class="ds-lead">Paste it into an agent working on another project. It tells the agent where to fetch the rules, tokens, fonts and logos, gives it a strict checklist and asks it to check its work against work.vimaksh.in.</p>
-    <div class="block"><div class="row row--brief"><span>Copy brand identity</span><button class="pill t-mono" type="button" data-copy-prompt>Copy prompt</button></div><pre class="ds-prompt-pre"><code>${esc(PROMPT)}</code></pre></div>
-  </div>
-</section>
+    <h2 class="ds-h2" id="machine-readable">Machine-readable files</h2>
+    ${md2html(AGENTS_PAGE_MD().split('### Machine-readable files')[1])}`;
+write(join(SITE, 'index.html'), shell({ title: 'Vimaksh design system', desc: 'The design language of work.vimaksh.in: tokens, components, brand assets and agent-readable docs.', cur: byName.Overview, content: homeContent, md: MD.Overview }));
 
-<section class="ds-home-sec" aria-labelledby="f-h">
-  <div class="sec-head"><p class="t-mono label"><span class="chev">&gt;</span> Foundations</p><h2 id="f-h" class="t-section">The values, named.</h2><a class="more t-mono" href="/foundations/color/">Start with colour <span class="chev" aria-hidden="true">&gt;</span></a></div>
-  <ul class="ds-index">${P.filter(p => p.kind === 'foundation').map(p => `<li><a href="${p.url}"><span class="ds-index-t">${esc(p.title)}</span><span class="ds-index-d">${esc(p.summary.split('. ')[0].replace(/\.$/, ''))}.</span><span class="chev" aria-hidden="true">&gt;</span></a></li>`).join('')}</ul>
-</section>
-
-<section class="ds-home-sec" aria-labelledby="c-h">
-  <div class="sec-head"><p class="t-mono label"><span class="chev">&gt;</span> Components</p><h2 id="c-h" class="t-section">Everything the site uses,<br>as it uses it.</h2><a class="more t-mono" href="/components/button/">All components <span class="chev" aria-hidden="true">&gt;</span></a></div>
-  <ul class="ds-index">${P.filter(p => p.kind === 'component').map(p => `<li><a href="${p.url}"><span class="ds-index-t">${esc(p.title)}</span><span class="ds-index-d">${esc(p.summary.split('. ')[0].replace(/\.$/, ''))}.</span><span class="chev" aria-hidden="true">&gt;</span></a></li>`).join('')}</ul>
-</section>
-
-<section class="ds-home-sec" aria-labelledby="b-h">
-  <div class="sec-head"><p class="t-mono label"><span class="chev">&gt;</span> Brand</p><h2 id="b-h" class="t-section">Mark, wordmark, pixels.</h2><a class="more t-mono" href="/downloads/">Downloads <span class="chev" aria-hidden="true">&gt;</span></a></div>
-  <div class="ds-home-brand">
-    <a href="/brand/" class="ds-home-tile"><img src="/dist/brand/svg/vimaksh-mark-tight.svg" alt=""><span class="t-mono">Brand</span></a>
-    <a href="/pixel-motifs/" class="ds-home-tile"><img src="/dist/brand/pixel/png/build-ai-light.png" alt="" style="image-rendering:pixelated"><span class="t-mono">Pixel motifs</span></a>
-    <a href="/icons/" class="ds-home-tile"><span class="ds-home-chev">&gt; &lt;</span><span class="t-mono">Icons</span></a>
-    <a href="/downloads/" class="ds-home-tile"><img src="/dist/brand/svg/vimaksh-wordmark.svg" alt=""><span class="t-mono">Downloads</span></a>
-  </div>
-</section>
-</main>`;
-write(join(SITE, 'index.html'), shell({ title: 'Vimaksh design system', desc: 'The design language of work.vimaksh.in: tokens, components, brand assets and agent-readable docs.', page: 'home', body: home }));
 
 // ---------------------------------------------------------------- machine files
 const llms = `# Vimaksh design system
