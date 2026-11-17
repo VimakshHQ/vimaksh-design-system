@@ -240,7 +240,7 @@ ${manifest.packs.map(p => { const f = fileRow(p.file); return `| [${p.file.repla
 All hashes: [SHA256SUMS.txt](${BASE}brand/SHA256SUMS.txt), [manifest.json](${BASE}brand/manifest.json). The ZIPs are reproducible: the same source gives the same hash.
 
 ### Fonts and licences
-Inter Tight (variable, 100–900) and JetBrains Mono 500, both licensed under the SIL Open Font License 1.1: free to use, embed and redistribute, not to sell on their own; keep the licence with the files. Licence texts: [InterTight-OFL.txt](${BASE}fonts/InterTight-OFL.txt), [JetBrainsMono-OFL.txt](${BASE}fonts/JetBrainsMono-OFL.txt). The Vimaksh name, mark and wordmark are not covered by these licences.
+Inter Tight (variable, 100–900) and JetBrains Mono 500, both licensed under the SIL Open Font License 1.1: free to use, embed and redistribute, not to sell on their own; keep the licence with the files. Licence texts: [InterTight-OFL.txt](${BASE}fonts/InterTight-OFL.txt), [JetBrainsMono-OFL.txt](${BASE}fonts/JetBrainsMono-OFL.txt). The Vimaksh name, mark and wordmark are not covered by these licences. The same font files are in \`fonts/\` (next to vimaksh.css, which loads them from there) and in \`brand/fonts/\` (the brand pack).
 
 ### Code
 - [vimaksh.css](${BASE}vimaksh.css): tokens + type + every component, one file.
@@ -255,7 +255,7 @@ Inter Tight (variable, 100–900) and JetBrains Mono 500, both licensed under th
 ${manifest.files.map(f => `| [${f.path}](${BASE}brand/${f.path}) | ${f.bytes} | \`${f.sha256.slice(0, 16)}…\` |`).join('\n')}`;
 
 const GETTING_STARTED_MD = () => `### 1. Copy the files
-From ${BASE} (or \`npm i github:yakosasam797/vimaksh-design-system\`): \`vimaksh.css\`, \`fonts/\`, \`vimaksh.js\` with its \`chunk-*.js\` files, \`brand/svg/\`. Keep \`fonts/\` next to \`vimaksh.css\`.
+From ${BASE} (or \`npm i github:yakosasam797/vimaksh-design-system\`): \`vimaksh.css\`, \`fonts/\`, \`vimaksh.js\`, \`brand/svg/\`; with a phone field \`vimaksh-phone.js\` and \`vendor/\`; with the hero \`pixel-hero.js\` (it reads \`brand/svg/vimaksh-mark.svg\` relative to itself). Keep \`fonts/\` next to \`vimaksh.css\`.
 
 ### 2. The page shell
 Copy the head from [agents.md](${BASE}agents.md), section 1: the pre-paint theme script, the stylesheet, the skip link, the header, the navigation stack, \`<main id="main">\`, the footer and the module script. Set \`data-page="home"\` on the home page.

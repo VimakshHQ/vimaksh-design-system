@@ -5,7 +5,7 @@
 Vimaksh design system 0.1.0. HTML: /getting-started/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
 
 ### 1. Copy the files
-From https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/ (or `npm i github:yakosasam797/vimaksh-design-system`): `vimaksh.css`, `fonts/`, `vimaksh.js` with its `chunk-*.js` files, `brand/svg/`. Keep `fonts/` next to `vimaksh.css`.
+From https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/ (or `npm i github:yakosasam797/vimaksh-design-system`): `vimaksh.css`, `fonts/`, `vimaksh.js`, `brand/svg/`; with a phone field `vimaksh-phone.js` and `vendor/`; with the hero `pixel-hero.js` (it reads `brand/svg/vimaksh-mark.svg` relative to itself). Keep `fonts/` next to `vimaksh.css`.
 
 ### 2. The page shell
 Copy the head from [agents.md](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/agents.md), section 1: the pre-paint theme script, the stylesheet, the skip link, the header, the navigation stack, `<main id="main">`, the footer and the module script. Set `data-page="home"` on the home page.
@@ -25,6 +25,8 @@ vimaksh.js is the site's own script with these changes:
 - main.js: intl-tel-input moved to vimaksh-phone.js, so pages without a phone field do not load it
 - main.js: phone field set-up moved to vimaksh-phone.js (same options)
 - main.js: the brief posts to the form's action attribute (default /api/brief, as on the site)
+- main.js: the success message can be set with data-sent on the form ({name} and {email} are filled in); the default is the site wording
+- main.js: the fallback email in the error message can be set with data-email on the form (default hq@vimaksh.in)
 - main.js: the hero module is loaded next to this file
 - pixelhero.js: the mark is read from the brand folder next to this file
 

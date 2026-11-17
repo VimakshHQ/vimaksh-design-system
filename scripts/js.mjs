@@ -51,8 +51,8 @@ initPhone();
 for (const f of readdirSync(root('dist')).filter(f => /^(chunk-|vimaksh.*\.js|pixel-hero\.js)/.test(f))) rmSync(root('dist', f));
 await build({
   entryPoints: { vimaksh: root('src/js/vimaksh.js'), 'vimaksh-phone': root('src/js/vimaksh-phone.js'), 'pixel-hero': root('src/js/pixel-hero.js') },
-  outdir: root('dist'), bundle: true, splitting: true, format: 'esm', minify: true, target: 'es2020',
-  chunkNames: 'chunk-[hash]', legalComments: 'inline', logLevel: 'warning',
+  outdir: root('dist'), bundle: true, splitting: false, format: 'esm', minify: true, target: 'es2020',
+  legalComments: 'inline', logLevel: 'warning',
   banner: { js: '/* Vimaksh design system: https://github.com/yakosasam797/vimaksh-design-system */' },
 });
 // The pixel drawing functions as plain modules, for drawing motifs at any size.

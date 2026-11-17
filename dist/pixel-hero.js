@@ -1,5 +1,5 @@
 /* Vimaksh design system: https://github.com/yakosasam797/vimaksh-design-system */
-import"./chunk-G2DLDKEG.js";var I="attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}",z=`
+var I="attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}",z=`
 precision highp float;
 uniform vec2 uRes;        // canvas size in device px
 uniform float uCell;      // cell size in device px

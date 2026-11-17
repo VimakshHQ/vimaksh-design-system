@@ -39,14 +39,14 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 | --- | --- | --- |
 | `.btn` | class | Primary: red, white label, 16px 20px padding, 28px gap to the chevron. |
 | `.btn--ghost` | modifier | Transparent with a --rule2 border; red chevron. |
-| `.btn > .chev` | element | The ">" chevron, aria-hidden. On primary it is #FFD9D6. |
+| `.btn > .chev` | element | The ">" chevron, aria-hidden. Always on primary (#FFD9D6); optional on ghost (red when present; the hero ghost has none). |
 | `[disabled] in .brief-form` | state | opacity .7, cursor: progress (while sending). |
 | `.brief-form.sent .btn` | state | Green #16a34a while the "Sent" confirmation shows. |
 | `.tbtn` | class | Square 52×48 icon button for the track arrows (46×44 on phones). |
 
 ## Do
 
-- Always end primary buttons with the chevron.
+- Always end primary buttons with the chevron; the ghost may go without.
 - Use <a> for navigation and <button> for actions.
 
 ## Don't

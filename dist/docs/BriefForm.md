@@ -42,6 +42,9 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 | `i (inside the label)` | element | "(optional)" at 70% opacity. |
 | `[data-check=email|phone]` | attribute | Live checks; the message goes in the label's .ferr. |
 | `.f-foot > .btn + p.note[data-brief-note]` | element | Submit and the result line (.is-ok green, .is-err red). |
+| `form[action]` | attribute | Where the JSON is posted. Default /api/brief. The endpoint must answer {"ok":true} or {"ok":false,"error":"…"}. |
+| `form[data-sent]` | attribute | Success message; {name} and {email} are filled in. Default: "Thanks, {name}. Your brief is with us, and a confirmation is on its way to {email}." |
+| `form[data-email]` | attribute | The email offered in the error message. Default hq@vimaksh.in. |
 | `.fbrief` | class | The light brief card on the dark footer (resets the light theme tokens locally). |
 
 ## Do

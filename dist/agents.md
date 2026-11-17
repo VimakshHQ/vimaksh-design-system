@@ -34,9 +34,19 @@ All files: https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/
 </html>
 ```
 
-Files to copy next to the page: `vimaksh.css`, `fonts/inter-tight.woff2`, `fonts/jetbrains-mono-500.woff2`, `vimaksh.js` (and its `chunk-*.js` siblings listed in https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/catalog.json), `brand/svg/*`. With a phone field also `vimaksh-phone.js`, `vendor/intl-tel-input.css` and `vendor/img/*`. `data-page="home"` shows the full navigation stack on load; use any other value on inner pages.
+Files to copy next to the page: `vimaksh.css`, `fonts/inter-tight.woff2`, `fonts/jetbrains-mono-500.woff2`, `vimaksh.js`, `brand/svg/*`. With the hero also `pixel-hero.js` (it reads `brand/svg/vimaksh-mark.svg` relative to itself). With a phone field also `vimaksh-phone.js`, `vendor/intl-tel-input.css` and `vendor/img/*`. Each script is one self-contained file. `data-page="home"` shows the full navigation stack on load; use any other value on inner pages.
 
 Tailwind: load `tokens.css` (or `vimaksh.css`) first, then use `tailwind-preset.cjs` (v3, `presets: [require('./tailwind-preset.cjs')]`) or `@import "./tailwind.css"` (v4). Colours are CSS variables, so both themes keep working. Still use the component markup: the preset gives you values, not components.
+
+### Pages for Vimaksh products
+
+- The page belongs to Vimaksh: the header and the footer's giant wordmark are the Vimaksh wordmark.
+- A product (Paryatech, Vaat, …) shows its own logo, unchanged, only inside a [Logo chip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/LogoChip.md) on its media. Its name is text in the headings. Product colours stay inside product imagery; never recolour the interface to match.
+- The brief form posts JSON to its `action` (default `/api/brief`). For another product set `data-sent` (success message; `{name}` and `{email}` are filled in) and `data-email` (fallback address). Show success only after the server answers `{"ok":true}`.
+
+### When the site has no component for it
+
+The site has no feature grid, pricing table, FAQ, testimonial or generic card. Do not invent one. Compose from what exists: a [Section header](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/SectionHeader.md); sections padded `var(--section-top) var(--pad) var(--section-bottom)` on `var(--pattern), var(--paper)`; `.t-big` statements; 1px `--rule` hairlines; `--card` blocks with a `--rule2` border; the 14px grid gap; mono labels. Mark each such composition with a code comment `[PLACEHOLDER: component not on work.vimaksh.in]` so it can be reviewed.
 
 ## 2. Hard rules
 
@@ -147,7 +157,7 @@ MUST NOT
 | motion.easing.toggle | `--ease-toggle` | `cubic-bezier(.65,0,.25,1)` |
 | motion.easing.overshoot | `--ease-overshoot` | `cubic-bezier(.34,1.56,.64,1)` |
 
-Type classes: `.t-mono` 11px/1.45 500 .06em; `.t-hero` clamp(44px,6.4vw,112px)/.94 500 -.045em; `.t-statement` clamp(44px,7vw,112px)/.92 500 -.045em; `.t-section` clamp(34px,4.4vw,72px)/.96 500 -.04em; `.t-big` clamp(26px,2.9vw,48px)/1.08 450 -.03em. Everything else: https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/api/tokens.json.
+Type classes: `.t-mono` 11px/1.45 500 .06em; `.t-hero` clamp(44px,6.4vw,112px)/.94 500 -.045em; `.t-statement` clamp(44px,7vw,112px)/.92 500 -.045em; `.t-section` clamp(34px,4.4vw,72px)/.96 500 -.04em; `.t-big` clamp(26px,2.9vw,48px)/1.08 450 -.03em. Every token: https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/api/tokens.json (flat, with light/dark values) or https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tokens.json (the W3C source; same values).
 
 ## 6. Self-check (run it before you finish)
 
@@ -159,7 +169,7 @@ Open your page next to https://work.vimaksh.in at 1440px and at 390px, in light 
 4. No rounded corners except the theme toggle; no shadows except the four listed in Elevation.
 5. Header: wordmark left, theme toggle right, no links. Navigation: the bottom-right stack.
 6. Footer: dark in both themes, pixel edge on top, statement, columns, heat base with the giant white wordmark.
-7. Buttons have the chevron and it nudges on hover; inputs are underlines; errors are short mono lines.
+7. Primary buttons end with the chevron and it nudges on hover (a ghost may go without); inputs are underlines; errors are short mono lines.
 8. Spacing: content touches the --pad gutter, cards are 14px apart, sections have large fluid padding.
 9. Images are real media or pixel motifs; nothing is stock; nothing is tinted.
 10. Copy is short, factual, sentence case; every gap is a visible [PLACEHOLDER: …].

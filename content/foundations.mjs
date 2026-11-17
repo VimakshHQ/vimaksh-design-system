@@ -268,7 +268,7 @@ The live site is the source of truth for the look. Four pieces of live copy conf
 - Everything readable without JavaScript, canvas or animation.
 
 ### Contrast, measured
-The table above is computed from the tokens. Two pairs fail:
+The contrast table on this page is computed from the tokens. Two pairs fail:
 - **Focus ring on dark paper** (Electric on \`#0F1020\`) is about 2.35:1, under the 3:1 needed for focus indicators. \`[PLACEHOLDER: fix approved by Vimaksh, for example the coral or glow focus colour in the dark theme]\`.
 - **Red text on paper** (4.15:1 light, 4.06:1 dark) is under 4.5:1 for small text. On the site it is used for decorative chevrons and short error lines; do not use it for body text.
 

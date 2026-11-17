@@ -1,27 +1,29 @@
 // The two texts written for other agents: the short "Copy brand identity" prompt and agents.md.
 // Both point at stable URLs (BASE) instead of pasting the system.
-export const prompt = BASE => `Give this project the Vimaksh design language: the exact look of https://work.vimaksh.in. Take every value from the Vimaksh design system; do not invent colours, sizes, radii, shadows or copy.
+export const prompt = BASE => `Give this project the Vimaksh design language: the exact look of https://work.vimaksh.in. Take every value from the Vimaksh design system; do not invent colours, sizes, radii, shadows, components or facts.
 
 1. Read ${BASE}agents.md first, then ${BASE}llms-full.txt (every page as Markdown).
 2. Download these into the project and serve them locally. They are raw GitHub files, so do not hotlink them from <link> or <script> tags:
-   ${BASE}vimaksh.css (tokens + every component; keep fonts/ next to it)
-   ${BASE}fonts/inter-tight.woff2 and ${BASE}fonts/jetbrains-mono-500.woff2
-   ${BASE}vimaksh.js (theme, header, navigation, copy, pixel edges, reveal)
-   ${BASE}tokens.json and, if the project uses Tailwind, ${BASE}tailwind-preset.cjs (v3) or ${BASE}tailwind.css (v4)
+   ${BASE}vimaksh.css with ${BASE}fonts/inter-tight.woff2 and ${BASE}fonts/jetbrains-mono-500.woff2 in fonts/ next to it
+   ${BASE}vimaksh.js (theme, header, navigation, copy, forms, pixel art, reveal; one file)
    ${BASE}brand/svg/vimaksh-wordmark.svg and ${BASE}brand/svg/vimaksh-mark.svg
+   Hero: ${BASE}pixel-hero.js next to vimaksh.js (it reads brand/svg/vimaksh-mark.svg relative to itself)
+   Phone field: ${BASE}vimaksh-phone.js, ${BASE}vendor/intl-tel-input.css and ${BASE}vendor/img/flags.webp, flags@2x.webp, flags.png, flags@2x.png (same folder)
+   Tailwind: ${BASE}tokens.css plus ${BASE}tailwind-preset.cjs (v3) or ${BASE}tailwind.css (v4)
 3. Build with the documented markup (${BASE}docs/<Component>.md) and check every item:
    - Colour: paper #F4F2EE (dark #0F1020) with the cross-and-dot pattern, ink/strong text; red #E42114 only for the primary action and the ">" chevron; footer always dark night #0D0E1C.
    - Themes: light and dark through <html data-theme>, set before first paint; test both.
    - Type: Inter Tight for everything read, weight 500 headings with tight negative tracking and the clamp() sizes; JetBrains Mono 500, 11–11.5px, uppercase, wide tracking for labels, nav and buttons. Labels start with a red ">".
    - Spacing and grid: full-width pages, gutter --pad clamp(16px,2.6vw,40px), 14px card gaps, big fluid section padding; breakpoints max-width 1100px and 760px.
    - Surfaces and patterns: square corners everywhere; 1px hairlines; grain in light only; pixel edges where a section meets a different surface; heat gradient only on the footer base.
+   - Brand: the page is Vimaksh's, so header and footer use the Vimaksh wordmark. A product appears with its own logo, unchanged, only in a logo chip on its media; never restyle a product logo.
    - Buttons: .btn red with a mono label and a ">" that nudges 5px on hover; .btn--ghost hairline.
    - Cards: .card with 4:5 media, the product's own logo on a paper chip, title + mono kind, one sentence, visit bar.
    - Forms: underline fields, mono labels above, short mono error lines, the phone field with a country picker.
    - Navigation: wordmark header + theme toggle; the bottom-right navigation stack; no top nav bar.
    - Motion: cubic-bezier(.2,.8,.2,1), .2–.35s colour changes, honour prefers-reduced-motion.
    - Imagery: real product media or the pixel motifs; no stock photos, no rounded images, no shadows on content.
-   - Voice: short declarative sentences in sentence case; no invented facts; mark gaps [PLACEHOLDER: …].
+   - Voice: short declarative sentences in sentence case. Functional UI copy (labels, buttons) follows the voice rules; facts (features, numbers, people, promises) are never invented: mark them [PLACEHOLDER: …].
 4. Self-check before you finish: compare your page with the checklist in agents.md and with https://work.vimaksh.in, in both themes and at 390px wide. Fix every mismatch, then check again.`;
 
 export const agentsMd = ({ BASE, VERSION, components, foundations, tokens }) => `# Building with the Vimaksh design system
@@ -60,9 +62,19 @@ All files: ${BASE} (raw GitHub). Download them into your project; raw GitHub ser
 </html>
 \`\`\`
 
-Files to copy next to the page: \`vimaksh.css\`, \`fonts/inter-tight.woff2\`, \`fonts/jetbrains-mono-500.woff2\`, \`vimaksh.js\` (and its \`chunk-*.js\` siblings listed in ${BASE}catalog.json), \`brand/svg/*\`. With a phone field also \`vimaksh-phone.js\`, \`vendor/intl-tel-input.css\` and \`vendor/img/*\`. \`data-page="home"\` shows the full navigation stack on load; use any other value on inner pages.
+Files to copy next to the page: \`vimaksh.css\`, \`fonts/inter-tight.woff2\`, \`fonts/jetbrains-mono-500.woff2\`, \`vimaksh.js\`, \`brand/svg/*\`. With the hero also \`pixel-hero.js\` (it reads \`brand/svg/vimaksh-mark.svg\` relative to itself). With a phone field also \`vimaksh-phone.js\`, \`vendor/intl-tel-input.css\` and \`vendor/img/*\`. Each script is one self-contained file. \`data-page="home"\` shows the full navigation stack on load; use any other value on inner pages.
 
 Tailwind: load \`tokens.css\` (or \`vimaksh.css\`) first, then use \`tailwind-preset.cjs\` (v3, \`presets: [require('./tailwind-preset.cjs')]\`) or \`@import "./tailwind.css"\` (v4). Colours are CSS variables, so both themes keep working. Still use the component markup: the preset gives you values, not components.
+
+### Pages for Vimaksh products
+
+- The page belongs to Vimaksh: the header and the footer's giant wordmark are the Vimaksh wordmark.
+- A product (Paryatech, Vaat, …) shows its own logo, unchanged, only inside a [Logo chip](${BASE}docs/LogoChip.md) on its media. Its name is text in the headings. Product colours stay inside product imagery; never recolour the interface to match.
+- The brief form posts JSON to its \`action\` (default \`/api/brief\`). For another product set \`data-sent\` (success message; \`{name}\` and \`{email}\` are filled in) and \`data-email\` (fallback address). Show success only after the server answers \`{"ok":true}\`.
+
+### When the site has no component for it
+
+The site has no feature grid, pricing table, FAQ, testimonial or generic card. Do not invent one. Compose from what exists: a [Section header](${BASE}docs/SectionHeader.md); sections padded \`var(--section-top) var(--pad) var(--section-bottom)\` on \`var(--pattern), var(--paper)\`; \`.t-big\` statements; 1px \`--rule\` hairlines; \`--card\` blocks with a \`--rule2\` border; the 14px grid gap; mono labels. Mark each such composition with a code comment \`[PLACEHOLDER: component not on work.vimaksh.in]\` so it can be reviewed.
 
 ## 2. Hard rules
 
@@ -104,7 +116,7 @@ ${tokens.filter(t => t.name.startsWith('color.theme.')).map(t => `| ${t.name} | 
 | --- | --- | --- |
 ${tokens.filter(t => /^(color\.brand|space|motion\.easing|radius|border)\./.test(t.name)).map(t => `| ${t.name} | \`${t.cssVar || ''}\` | \`${t.value}\` |`).join('\n')}
 
-Type classes: ${tokens.filter(t => t.class).map(t => `\`.${t.class}\` ${t.value.fontSize}/${t.value.lineHeight || 'normal'} ${t.value.fontWeight} ${t.value.letterSpacing || ''}`).join('; ')}. Everything else: ${BASE}api/tokens.json.
+Type classes: ${tokens.filter(t => t.class).map(t => `\`.${t.class}\` ${t.value.fontSize}/${t.value.lineHeight || 'normal'} ${t.value.fontWeight} ${t.value.letterSpacing || ''}`).join('; ')}. Every token: ${BASE}api/tokens.json (flat, with light/dark values) or ${BASE}tokens.json (the W3C source; same values).
 
 ## 6. Self-check (run it before you finish)
 
@@ -116,7 +128,7 @@ Open your page next to https://work.vimaksh.in at 1440px and at 390px, in light 
 4. No rounded corners except the theme toggle; no shadows except the four listed in Elevation.
 5. Header: wordmark left, theme toggle right, no links. Navigation: the bottom-right stack.
 6. Footer: dark in both themes, pixel edge on top, statement, columns, heat base with the giant white wordmark.
-7. Buttons have the chevron and it nudges on hover; inputs are underlines; errors are short mono lines.
+7. Primary buttons end with the chevron and it nudges on hover (a ghost may go without); inputs are underlines; errors are short mono lines.
 8. Spacing: content touches the --pad gutter, cards are 14px apart, sections have large fluid padding.
 9. Images are real media or pixel motifs; nothing is stock; nothing is tinted.
 10. Copy is short, factual, sentence case; every gap is a visible [PLACEHOLDER: …].

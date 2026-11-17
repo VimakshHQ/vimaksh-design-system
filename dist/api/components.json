@@ -465,7 +465,7 @@
         {
           "name": ".btn > .chev",
           "kind": "element",
-          "description": "The \">\" chevron, aria-hidden. On primary it is #FFD9D6."
+          "description": "The \">\" chevron, aria-hidden. Always on primary (#FFD9D6); optional on ghost (red when present; the hero ghost has none)."
         },
         {
           "name": "[disabled] in .brief-form",
@@ -488,7 +488,7 @@
         "Labels are verbs in sentence case in the source (\"Explore our work\"); CSS sets them uppercase."
       ],
       "do": [
-        "Always end primary buttons with the chevron.",
+        "Always end primary buttons with the chevron; the ghost may go without.",
         "Use <a> for navigation and <button> for actions."
       ],
       "dont": [
@@ -1738,6 +1738,21 @@
           "name": ".f-foot > .btn + p.note[data-brief-note]",
           "kind": "element",
           "description": "Submit and the result line (.is-ok green, .is-err red)."
+        },
+        {
+          "name": "form[action]",
+          "kind": "attribute",
+          "description": "Where the JSON is posted. Default /api/brief. The endpoint must answer {\"ok\":true} or {\"ok\":false,\"error\":\"…\"}."
+        },
+        {
+          "name": "form[data-sent]",
+          "kind": "attribute",
+          "description": "Success message; {name} and {email} are filled in. Default: \"Thanks, {name}. Your brief is with us, and a confirmation is on its way to {email}.\""
+        },
+        {
+          "name": "form[data-email]",
+          "kind": "attribute",
+          "description": "The email offered in the error message. Default hq@vimaksh.in."
         },
         {
           "name": ".fbrief",

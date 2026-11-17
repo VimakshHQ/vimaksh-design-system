@@ -3,6 +3,8 @@
 //  - intl-tel-input moved to vimaksh-phone.js, so pages without a phone field do not load it
 //  - phone field set-up moved to vimaksh-phone.js (same options)
 //  - the brief posts to the form's action attribute (default /api/brief, as on the site)
+//  - the success message can be set with data-sent on the form ({name} and {email} are filled in); the default is the site wording
+//  - the fallback email in the error message can be set with data-email on the form (default hq@vimaksh.in)
 //  - the hero module is loaded next to this file
 // Vimaksh v5: one script for every page.
 import { checkEmail } from './validate.js';
@@ -115,12 +117,12 @@ $$('[data-brief-form]').forEach(form => form.addEventListener('submit', async e 
     if (!r.ok || !res.ok) throw new Error(res.error || 'Something went wrong.');
     f.reset(); f.classList.add('sent');
     note.classList.add('is-ok');
-    note.textContent = `Thanks${d.name ? ', ' + d.name.trim().split(/\s+/)[0] : ''}. Your brief is with us, and a confirmation is on its way to ${d.email}.`;
+    note.textContent = f.dataset.sent ? f.dataset.sent.replace('{name}', d.name ? d.name.trim().split(/\s+/)[0] : '').replace('{email}', d.email) : `Thanks${d.name ? ', ' + d.name.trim().split(/\s+/)[0] : ''}. Your brief is with us, and a confirmation is on its way to ${d.email}.`;
     label.textContent = 'Sent';
     setTimeout(() => { label.textContent = was; btn.disabled = false; f.classList.remove('sent'); }, 6000);
   } catch (err) {
     note.classList.add('is-err');
-    const a = Object.assign(document.createElement('a'), { href: 'mailto:hq@vimaksh.in', textContent: 'hq@vimaksh.in' });
+    const a = Object.assign(document.createElement('a'), { href: 'mailto:' + (f.dataset.email || 'hq@vimaksh.in'), textContent: f.dataset.email || 'hq@vimaksh.in' });
     note.replaceChildren(`${err.message} Please try again, or write to `, a, '.');
     label.textContent = was; btn.disabled = false;
   } finally { delete f.dataset.busy; }

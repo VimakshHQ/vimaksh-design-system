@@ -40,9 +40,19 @@ All files: https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/
 </html>
 ```
 
-Files to copy next to the page: `vimaksh.css`, `fonts/inter-tight.woff2`, `fonts/jetbrains-mono-500.woff2`, `vimaksh.js` (and its `chunk-*.js` siblings listed in https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/catalog.json), `brand/svg/*`. With a phone field also `vimaksh-phone.js`, `vendor/intl-tel-input.css` and `vendor/img/*`. `data-page="home"` shows the full navigation stack on load; use any other value on inner pages.
+Files to copy next to the page: `vimaksh.css`, `fonts/inter-tight.woff2`, `fonts/jetbrains-mono-500.woff2`, `vimaksh.js`, `brand/svg/*`. With the hero also `pixel-hero.js` (it reads `brand/svg/vimaksh-mark.svg` relative to itself). With a phone field also `vimaksh-phone.js`, `vendor/intl-tel-input.css` and `vendor/img/*`. Each script is one self-contained file. `data-page="home"` shows the full navigation stack on load; use any other value on inner pages.
 
 Tailwind: load `tokens.css` (or `vimaksh.css`) first, then use `tailwind-preset.cjs` (v3, `presets: [require('./tailwind-preset.cjs')]`) or `@import "./tailwind.css"` (v4). Colours are CSS variables, so both themes keep working. Still use the component markup: the preset gives you values, not components.
+
+### Pages for Vimaksh products
+
+- The page belongs to Vimaksh: the header and the footer's giant wordmark are the Vimaksh wordmark.
+- A product (Paryatech, Vaat, …) shows its own logo, unchanged, only inside a [Logo chip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/LogoChip.md) on its media. Its name is text in the headings. Product colours stay inside product imagery; never recolour the interface to match.
+- The brief form posts JSON to its `action` (default `/api/brief`). For another product set `data-sent` (success message; `{name}` and `{email}` are filled in) and `data-email` (fallback address). Show success only after the server answers `{"ok":true}`.
+
+### When the site has no component for it
+
+The site has no feature grid, pricing table, FAQ, testimonial or generic card. Do not invent one. Compose from what exists: a [Section header](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/SectionHeader.md); sections padded `var(--section-top) var(--pad) var(--section-bottom)` on `var(--pattern), var(--paper)`; `.t-big` statements; 1px `--rule` hairlines; `--card` blocks with a `--rule2` border; the 14px grid gap; mono labels. Mark each such composition with a code comment `[PLACEHOLDER: component not on work.vimaksh.in]` so it can be reviewed.
 
 ## 2. Hard rules
 
@@ -153,7 +163,7 @@ MUST NOT
 | motion.easing.toggle | `--ease-toggle` | `cubic-bezier(.65,0,.25,1)` |
 | motion.easing.overshoot | `--ease-overshoot` | `cubic-bezier(.34,1.56,.64,1)` |
 
-Type classes: `.t-mono` 11px/1.45 500 .06em; `.t-hero` clamp(44px,6.4vw,112px)/.94 500 -.045em; `.t-statement` clamp(44px,7vw,112px)/.92 500 -.045em; `.t-section` clamp(34px,4.4vw,72px)/.96 500 -.04em; `.t-big` clamp(26px,2.9vw,48px)/1.08 450 -.03em. Everything else: https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/api/tokens.json.
+Type classes: `.t-mono` 11px/1.45 500 .06em; `.t-hero` clamp(44px,6.4vw,112px)/.94 500 -.045em; `.t-statement` clamp(44px,7vw,112px)/.92 500 -.045em; `.t-section` clamp(34px,4.4vw,72px)/.96 500 -.04em; `.t-big` clamp(26px,2.9vw,48px)/1.08 450 -.03em. Every token: https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/api/tokens.json (flat, with light/dark values) or https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tokens.json (the W3C source; same values).
 
 ## 6. Self-check (run it before you finish)
 
@@ -165,7 +175,7 @@ Open your page next to https://work.vimaksh.in at 1440px and at 390px, in light 
 4. No rounded corners except the theme toggle; no shadows except the four listed in Elevation.
 5. Header: wordmark left, theme toggle right, no links. Navigation: the bottom-right stack.
 6. Footer: dark in both themes, pixel edge on top, statement, columns, heat base with the giant white wordmark.
-7. Buttons have the chevron and it nudges on hover; inputs are underlines; errors are short mono lines.
+7. Primary buttons end with the chevron and it nudges on hover (a ghost may go without); inputs are underlines; errors are short mono lines.
 8. Spacing: content touches the --pad gutter, cards are 14px apart, sections have large fluid padding.
 9. Images are real media or pixel motifs; nothing is stock; nothing is tinted.
 10. Copy is short, factual, sentence case; every gap is a visible [PLACEHOLDER: …].
@@ -183,7 +193,7 @@ Fix every mismatch and check again.
 Vimaksh design system 0.1.0. HTML: /getting-started/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
 
 ### 1. Copy the files
-From https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/ (or `npm i github:yakosasam797/vimaksh-design-system`): `vimaksh.css`, `fonts/`, `vimaksh.js` with its `chunk-*.js` files, `brand/svg/`. Keep `fonts/` next to `vimaksh.css`.
+From https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/ (or `npm i github:yakosasam797/vimaksh-design-system`): `vimaksh.css`, `fonts/`, `vimaksh.js`, `brand/svg/`; with a phone field `vimaksh-phone.js` and `vendor/`; with the hero `pixel-hero.js` (it reads `brand/svg/vimaksh-mark.svg` relative to itself). Keep `fonts/` next to `vimaksh.css`.
 
 ### 2. The page shell
 Copy the head from [agents.md](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/agents.md), section 1: the pre-paint theme script, the stylesheet, the skip link, the header, the navigation stack, `<main id="main">`, the footer and the module script. Set `data-page="home"` on the home page.
@@ -203,6 +213,8 @@ vimaksh.js is the site's own script with these changes:
 - main.js: intl-tel-input moved to vimaksh-phone.js, so pages without a phone field do not load it
 - main.js: phone field set-up moved to vimaksh-phone.js (same options)
 - main.js: the brief posts to the form's action attribute (default /api/brief, as on the site)
+- main.js: the success message can be set with data-sent on the form ({name} and {email} are filled in); the default is the site wording
+- main.js: the fallback email in the error message can be set with data-email on the form (default hq@vimaksh.in)
 - main.js: the hero module is loaded next to this file
 - pixelhero.js: the mark is read from the brand folder next to this file
 
@@ -222,28 +234,30 @@ Vimaksh design system 0.1.0. HTML: /agents/ (local docs site). Source of truth: 
 Paste this into an agent working on another project. It points at stable URLs instead of pasting the system:
 
 ```
-Give this project the Vimaksh design language: the exact look of https://work.vimaksh.in. Take every value from the Vimaksh design system; do not invent colours, sizes, radii, shadows or copy.
+Give this project the Vimaksh design language: the exact look of https://work.vimaksh.in. Take every value from the Vimaksh design system; do not invent colours, sizes, radii, shadows, components or facts.
 
 1. Read https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/agents.md first, then https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/llms-full.txt (every page as Markdown).
 2. Download these into the project and serve them locally. They are raw GitHub files, so do not hotlink them from <link> or <script> tags:
-   https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/vimaksh.css (tokens + every component; keep fonts/ next to it)
-   https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/fonts/inter-tight.woff2 and https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/fonts/jetbrains-mono-500.woff2
-   https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/vimaksh.js (theme, header, navigation, copy, pixel edges, reveal)
-   https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tokens.json and, if the project uses Tailwind, https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tailwind-preset.cjs (v3) or https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tailwind.css (v4)
+   https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/vimaksh.css with https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/fonts/inter-tight.woff2 and https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/fonts/jetbrains-mono-500.woff2 in fonts/ next to it
+   https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/vimaksh.js (theme, header, navigation, copy, forms, pixel art, reveal; one file)
    https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/svg/vimaksh-wordmark.svg and https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/svg/vimaksh-mark.svg
+   Hero: https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/pixel-hero.js next to vimaksh.js (it reads brand/svg/vimaksh-mark.svg relative to itself)
+   Phone field: https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/vimaksh-phone.js, https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/vendor/intl-tel-input.css and https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/vendor/img/flags.webp, flags@2x.webp, flags.png, flags@2x.png (same folder)
+   Tailwind: https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tokens.css plus https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tailwind-preset.cjs (v3) or https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tailwind.css (v4)
 3. Build with the documented markup (https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/<Component>.md) and check every item:
    - Colour: paper #F4F2EE (dark #0F1020) with the cross-and-dot pattern, ink/strong text; red #E42114 only for the primary action and the ">" chevron; footer always dark night #0D0E1C.
    - Themes: light and dark through <html data-theme>, set before first paint; test both.
    - Type: Inter Tight for everything read, weight 500 headings with tight negative tracking and the clamp() sizes; JetBrains Mono 500, 11–11.5px, uppercase, wide tracking for labels, nav and buttons. Labels start with a red ">".
    - Spacing and grid: full-width pages, gutter --pad clamp(16px,2.6vw,40px), 14px card gaps, big fluid section padding; breakpoints max-width 1100px and 760px.
    - Surfaces and patterns: square corners everywhere; 1px hairlines; grain in light only; pixel edges where a section meets a different surface; heat gradient only on the footer base.
+   - Brand: the page is Vimaksh's, so header and footer use the Vimaksh wordmark. A product appears with its own logo, unchanged, only in a logo chip on its media; never restyle a product logo.
    - Buttons: .btn red with a mono label and a ">" that nudges 5px on hover; .btn--ghost hairline.
    - Cards: .card with 4:5 media, the product's own logo on a paper chip, title + mono kind, one sentence, visit bar.
    - Forms: underline fields, mono labels above, short mono error lines, the phone field with a country picker.
    - Navigation: wordmark header + theme toggle; the bottom-right navigation stack; no top nav bar.
    - Motion: cubic-bezier(.2,.8,.2,1), .2–.35s colour changes, honour prefers-reduced-motion.
    - Imagery: real product media or the pixel motifs; no stock photos, no rounded images, no shadows on content.
-   - Voice: short declarative sentences in sentence case; no invented facts; mark gaps [PLACEHOLDER: …].
+   - Voice: short declarative sentences in sentence case. Functional UI copy (labels, buttons) follows the voice rules; facts (features, numbers, people, promises) are never invented: mark them [PLACEHOLDER: …].
 4. Self-check before you finish: compare your page with the checklist in agents.md and with https://work.vimaksh.in, in both themes and at 390px wide. Fix every mismatch, then check again.
 ```
 
@@ -869,7 +883,7 @@ Vimaksh design system 0.1.0. HTML: /foundations/accessibility/ (local docs site)
 - Everything readable without JavaScript, canvas or animation.
 
 ### Contrast, measured
-The table above is computed from the tokens. Two pairs fail:
+The contrast table on this page is computed from the tokens. Two pairs fail:
 - **Focus ring on dark paper** (Electric on `#0F1020`) is about 2.35:1, under the 3:1 needed for focus indicators. `[PLACEHOLDER: fix approved by Vimaksh, for example the coral or glow focus colour in the dark theme]`.
 - **Red text on paper** (4.15:1 light, 4.06:1 dark) is under 4.5:1 for small text. On the site it is used for decorative chevrons and short error lines; do not use it for body text.
 
@@ -1207,14 +1221,14 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 | --- | --- | --- |
 | `.btn` | class | Primary: red, white label, 16px 20px padding, 28px gap to the chevron. |
 | `.btn--ghost` | modifier | Transparent with a --rule2 border; red chevron. |
-| `.btn > .chev` | element | The ">" chevron, aria-hidden. On primary it is #FFD9D6. |
+| `.btn > .chev` | element | The ">" chevron, aria-hidden. Always on primary (#FFD9D6); optional on ghost (red when present; the hero ghost has none). |
 | `[disabled] in .brief-form` | state | opacity .7, cursor: progress (while sending). |
 | `.brief-form.sent .btn` | state | Green #16a34a while the "Sent" confirmation shows. |
 | `.tbtn` | class | Square 52×48 icon button for the track arrows (46×44 on phones). |
 
 ## Do
 
-- Always end primary buttons with the chevron.
+- Always end primary buttons with the chevron; the ghost may go without.
 - Use <a> for navigation and <button> for actions.
 
 ## Don't
@@ -2052,6 +2066,9 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 | `i (inside the label)` | element | "(optional)" at 70% opacity. |
 | `[data-check=email|phone]` | attribute | Live checks; the message goes in the label's .ferr. |
 | `.f-foot > .btn + p.note[data-brief-note]` | element | Submit and the result line (.is-ok green, .is-err red). |
+| `form[action]` | attribute | Where the JSON is posted. Default /api/brief. The endpoint must answer {"ok":true} or {"ok":false,"error":"…"}. |
+| `form[data-sent]` | attribute | Success message; {name} and {email} are filled in. Default: "Thanks, {name}. Your brief is with us, and a confirmation is on its way to {email}." |
+| `form[data-email]` | attribute | The email offered in the error message. Default hq@vimaksh.in. |
 | `.fbrief` | class | The light brief card on the dark footer (resets the light theme tokens locally). |
 
 ## Do
@@ -2704,7 +2721,7 @@ Vimaksh design system 0.1.0. HTML: /downloads/ (local docs site). Source of trut
 All hashes: [SHA256SUMS.txt](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/SHA256SUMS.txt), [manifest.json](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/manifest.json). The ZIPs are reproducible: the same source gives the same hash.
 
 ### Fonts and licences
-Inter Tight (variable, 100–900) and JetBrains Mono 500, both licensed under the SIL Open Font License 1.1: free to use, embed and redistribute, not to sell on their own; keep the licence with the files. Licence texts: [InterTight-OFL.txt](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/fonts/InterTight-OFL.txt), [JetBrainsMono-OFL.txt](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/fonts/JetBrainsMono-OFL.txt). The Vimaksh name, mark and wordmark are not covered by these licences.
+Inter Tight (variable, 100–900) and JetBrains Mono 500, both licensed under the SIL Open Font License 1.1: free to use, embed and redistribute, not to sell on their own; keep the licence with the files. Licence texts: [InterTight-OFL.txt](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/fonts/InterTight-OFL.txt), [JetBrainsMono-OFL.txt](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/fonts/JetBrainsMono-OFL.txt). The Vimaksh name, mark and wordmark are not covered by these licences. The same font files are in `fonts/` (next to vimaksh.css, which loads them from there) and in `brand/fonts/` (the brand pack).
 
 ### Code
 - [vimaksh.css](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/vimaksh.css): tokens + type + every component, one file.
