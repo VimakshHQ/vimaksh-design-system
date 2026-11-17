@@ -465,12 +465,12 @@ const home = `<main id="main">
 
 <section class="ds-home-sec" aria-labelledby="f-h">
   <div class="sec-head"><p class="t-mono label"><span class="chev">&gt;</span> Foundations</p><h2 id="f-h" class="t-section">The values, named.</h2><a class="more t-mono" href="/foundations/color/">Start with colour <span class="chev" aria-hidden="true">&gt;</span></a></div>
-  <ul class="ds-index">${P.filter(p => p.kind === 'foundation').map(p => `<li><a href="${p.url}"><span class="ds-index-t">${esc(p.title)}</span><span class="ds-index-d">${esc(p.summary.split('. ')[0])}.</span><span class="chev" aria-hidden="true">&gt;</span></a></li>`).join('')}</ul>
+  <ul class="ds-index">${P.filter(p => p.kind === 'foundation').map(p => `<li><a href="${p.url}"><span class="ds-index-t">${esc(p.title)}</span><span class="ds-index-d">${esc(p.summary.split('. ')[0].replace(/\.$/, ''))}.</span><span class="chev" aria-hidden="true">&gt;</span></a></li>`).join('')}</ul>
 </section>
 
 <section class="ds-home-sec" aria-labelledby="c-h">
   <div class="sec-head"><p class="t-mono label"><span class="chev">&gt;</span> Components</p><h2 id="c-h" class="t-section">Everything the site uses,<br>as it uses it.</h2><a class="more t-mono" href="/components/button/">All components <span class="chev" aria-hidden="true">&gt;</span></a></div>
-  <ul class="ds-index">${P.filter(p => p.kind === 'component').map(p => `<li><a href="${p.url}"><span class="ds-index-t">${esc(p.title)}</span><span class="ds-index-d">${esc(p.summary.split('. ')[0])}.</span><span class="chev" aria-hidden="true">&gt;</span></a></li>`).join('')}</ul>
+  <ul class="ds-index">${P.filter(p => p.kind === 'component').map(p => `<li><a href="${p.url}"><span class="ds-index-t">${esc(p.title)}</span><span class="ds-index-d">${esc(p.summary.split('. ')[0].replace(/\.$/, ''))}.</span><span class="chev" aria-hidden="true">&gt;</span></a></li>`).join('')}</ul>
 </section>
 
 <section class="ds-home-sec" aria-labelledby="b-h">

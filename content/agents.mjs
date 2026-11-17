@@ -99,11 +99,11 @@ MUST NOT
 
 ## 3. Components
 
-${components.map(c => `- [${c.title || c.name}](${BASE}docs/${c.name}.md): ${c.summary.split('. ')[0]}.`).join('\n')}
+${components.map(c => `- [${c.title || c.name}](${BASE}docs/${c.name}.md): ${c.summary.split('. ')[0].replace(/\.$/, '')}.`).join('\n')}
 
 ## 4. Foundations
 
-${foundations.map(f => `- [${f.title || f.name}](${BASE}docs/${f.name}.md): ${f.summary.split('. ')[0]}.`).join('\n')}
+${foundations.map(f => `- [${f.title || f.name}](${BASE}docs/${f.name}.md): ${f.summary.split('. ')[0].replace(/\.$/, '')}.`).join('\n')}
 - [Brand](${BASE}docs/Brand.md), [Pixel motifs](${BASE}docs/PixelMotifs.md), [Icons](${BASE}docs/Icons.md), [Downloads](${BASE}docs/Downloads.md)
 
 ## 5. Token quick reference
