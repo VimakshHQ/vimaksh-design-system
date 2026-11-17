@@ -1,0 +1,664 @@
+{
+  "version": "0.1.0",
+  "base": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/",
+  "logos": [
+    {
+      "file": "vimaksh-mark",
+      "w": 580,
+      "h": 580,
+      "label": "Mark, full artboard (original file)",
+      "on": "light or dark",
+      "source": "public/marks/vimaksh-mark.svg"
+    },
+    {
+      "file": "vimaksh-mark-tight",
+      "w": 350,
+      "h": 319,
+      "label": "Mark, cropped to the arrows (the crop the hero uses, src/v5/pixelhero.js)",
+      "on": "light or dark",
+      "source": "src/v5/pixelhero.js"
+    },
+    {
+      "file": "vimaksh-wordmark",
+      "w": 951,
+      "h": 172,
+      "label": "Wordmark, coral (original file)",
+      "on": "light",
+      "source": "public/marks/vimaksh-wordmark.svg"
+    },
+    {
+      "file": "vimaksh-wordmark-ink",
+      "w": 951,
+      "h": 172,
+      "label": "Wordmark, strong ink: the header in the light theme",
+      "on": "light",
+      "source": "tools/v5pages.py:10 + --strong light"
+    },
+    {
+      "file": "vimaksh-wordmark-light",
+      "w": 951,
+      "h": 172,
+      "label": "Wordmark, strong light: the header in the dark theme",
+      "on": "dark",
+      "source": "tools/v5pages.py:10 + --strong dark"
+    },
+    {
+      "file": "vimaksh-wordmark-white",
+      "w": 951,
+      "h": 172,
+      "label": "Wordmark, white: the giant wordmark on the footer heat field",
+      "on": "heat / night",
+      "source": "src/v5/v5.css:572"
+    }
+  ],
+  "motifs": [
+    {
+      "name": "build-extension-light",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "extension",
+      "theme": "light",
+      "color": "#2D36FF",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "build-extension-dark",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "extension",
+      "theme": "dark",
+      "color": "#2D36FF",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "build-saas-light",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "saas",
+      "theme": "light",
+      "color": "#E42114",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "build-saas-dark",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "saas",
+      "theme": "dark",
+      "color": "#E42114",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "build-ai-light",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "ai",
+      "theme": "light",
+      "color": "#7A3CD6",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "build-ai-dark",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "ai",
+      "theme": "dark",
+      "color": "#7A3CD6",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "build-crm-light",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "crm",
+      "theme": "light",
+      "color": "#0E8F6E",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "build-crm-dark",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "crm",
+      "theme": "dark",
+      "color": "#0E8F6E",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "build-erp-light",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "erp",
+      "theme": "light",
+      "color": "#E8730C",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "build-erp-dark",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "erp",
+      "theme": "dark",
+      "color": "#E8730C",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "build-dashboard-light",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "dashboard",
+      "theme": "light",
+      "color": "#0A8FB0",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "build-dashboard-dark",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "dashboard",
+      "theme": "dark",
+      "color": "#0A8FB0",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "build-integrations-light",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "integrations",
+      "theme": "light",
+      "color": "#C99400",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "build-integrations-dark",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "integrations",
+      "theme": "dark",
+      "color": "#C99400",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "build-mobile-light",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "mobile",
+      "theme": "light",
+      "color": "#D23C7E",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "build-mobile-dark",
+      "grid": "48×36",
+      "group": "What we build",
+      "kind": "mobile",
+      "theme": "dark",
+      "color": "#D23C7E",
+      "source": "src/v5/pixelsaas.js:34-112"
+    },
+    {
+      "name": "desk",
+      "grid": "84×64",
+      "group": "About",
+      "theme": "both",
+      "source": "src/v5/pixelart.js:154-175"
+    },
+    {
+      "name": "edge-paper-light",
+      "grid": "103×7",
+      "group": "Pixel edge",
+      "theme": "paper-light",
+      "color": "#F4F2EE",
+      "source": "src/v5/pixelart.js:16-25",
+      "note": "1440px wide, 14px cells, 7 rows; draw it live with pixel/pixelart.js for other widths"
+    },
+    {
+      "name": "edge-paper-dark",
+      "grid": "103×7",
+      "group": "Pixel edge",
+      "theme": "paper-dark",
+      "color": "#0F1020",
+      "source": "src/v5/pixelart.js:16-25",
+      "note": "1440px wide, 14px cells, 7 rows; draw it live with pixel/pixelart.js for other widths"
+    },
+    {
+      "name": "edge-night",
+      "grid": "103×7",
+      "group": "Pixel edge",
+      "theme": "night",
+      "color": "#0D0E1C",
+      "source": "src/v5/pixelart.js:16-25",
+      "note": "1440px wide, 14px cells, 7 rows; draw it live with pixel/pixelart.js for other widths"
+    },
+    {
+      "name": "chevron-right",
+      "grid": "5×5",
+      "group": "Hero glyph",
+      "theme": "both",
+      "color": "currentColor (Royal #2D36FF on Mist in the hero)",
+      "source": "src/v5/pixelhero.js:23-28"
+    },
+    {
+      "name": "chevron-left",
+      "grid": "5×5",
+      "group": "Hero glyph",
+      "theme": "both",
+      "color": "currentColor (Royal #2D36FF on Mist in the hero)",
+      "source": "src/v5/pixelhero.js:23-28"
+    }
+  ],
+  "packs": [
+    {
+      "file": "zip/vimaksh-logos-svg.zip",
+      "description": "Mark and wordmark, SVG"
+    },
+    {
+      "file": "zip/vimaksh-logos-png.zip",
+      "description": "Mark and wordmark, PNG 1x/2x/4x"
+    },
+    {
+      "file": "zip/vimaksh-pixel-motifs.zip",
+      "description": "Pixel motifs, PNG + SVG"
+    },
+    {
+      "file": "zip/vimaksh-fonts.zip",
+      "description": "Inter Tight + JetBrains Mono 500 with OFL licences"
+    },
+    {
+      "file": "zip/vimaksh-brand-all.zip",
+      "description": "Everything above plus the 3D logo"
+    }
+  ],
+  "files": [
+    {
+      "path": "3d/vimaksh-logo-sculpture.glb",
+      "bytes": 1728884,
+      "sha256": "59236b683d10de437652e1bb1aee5b4b99e6a65a40035e0cf1ccd68db92762fd"
+    },
+    {
+      "path": "fonts/inter-tight.woff2",
+      "bytes": 44872,
+      "sha256": "77fefe8ca19b9f69b5284832c519e0493127c1f091f0a8936884be7721c4e618"
+    },
+    {
+      "path": "fonts/InterTight-OFL.txt",
+      "bytes": 4383,
+      "sha256": "50240ab035cf1b6b3307940235481d515c4b6de3ab1fa843dbe59e7892cb9d58"
+    },
+    {
+      "path": "fonts/jetbrains-mono-500.woff2",
+      "bytes": 21832,
+      "sha256": "cb182feeed4d798ff6961d3c79f7026279448fca0676438aaecb21f3fc39553a"
+    },
+    {
+      "path": "fonts/JetBrainsMono-OFL.txt",
+      "bytes": 4399,
+      "sha256": "a76abf002c49097d146e86740a3105a5d00450b1592e820a1109a8c5680cd697"
+    },
+    {
+      "path": "pixel/png/build-ai-dark.png",
+      "bytes": 6817,
+      "sha256": "465424b34e759a5e501b88b2931032c13ae4ad7219a18b994aa02d1cf3d58469"
+    },
+    {
+      "path": "pixel/png/build-ai-light.png",
+      "bytes": 6823,
+      "sha256": "2b3a0491e4ea97ba7fe9a698627dfb6f846b11306d72590f244e449a8e578d9e"
+    },
+    {
+      "path": "pixel/png/build-crm-dark.png",
+      "bytes": 6167,
+      "sha256": "b51bb5e22bb78240770971742b776efddb2ac7edd72f5df61cb99e0e7e40e3b2"
+    },
+    {
+      "path": "pixel/png/build-crm-light.png",
+      "bytes": 6449,
+      "sha256": "6d083d8c6a6b7fdfa78c6a310b98847f2fa96f7051488f1b0e22acfc3ffb1118"
+    },
+    {
+      "path": "pixel/png/build-dashboard-dark.png",
+      "bytes": 5795,
+      "sha256": "0649f8ef3bf5dea163d19b1b1c876bc8fd98546402730803618305ced06a0229"
+    },
+    {
+      "path": "pixel/png/build-dashboard-light.png",
+      "bytes": 6125,
+      "sha256": "bd5f8861da96b6d53f6350603d25436d4a2ad80a0fbc56ef380a132ace13b135"
+    },
+    {
+      "path": "pixel/png/build-erp-dark.png",
+      "bytes": 6408,
+      "sha256": "143b0a60b4012e539797718c9df889a2049c50c2904ec9d7f9ba6a739cb318e6"
+    },
+    {
+      "path": "pixel/png/build-erp-light.png",
+      "bytes": 6403,
+      "sha256": "eec1e39588865a465cf527370ffb192362f0d5e70dd4aca13a7f36ce0b780aba"
+    },
+    {
+      "path": "pixel/png/build-extension-dark.png",
+      "bytes": 6136,
+      "sha256": "23ea95ea7c44854066942cf69070d0ca8a4d2697da8f529e537f16464ed17446"
+    },
+    {
+      "path": "pixel/png/build-extension-light.png",
+      "bytes": 6113,
+      "sha256": "943085a77439b5ec26bcd174b0de53bdfd59f377e63b750d8d75843b81c67d07"
+    },
+    {
+      "path": "pixel/png/build-integrations-dark.png",
+      "bytes": 6563,
+      "sha256": "fbc677d629c8ea8cea024b55525b438456df04e6241dad803d366f2475c9d9ed"
+    },
+    {
+      "path": "pixel/png/build-integrations-light.png",
+      "bytes": 6568,
+      "sha256": "eac30dcf874d8fc2a1566d195c907411cc4bcc31702769f1a27590148df3622d"
+    },
+    {
+      "path": "pixel/png/build-mobile-dark.png",
+      "bytes": 6301,
+      "sha256": "16c188949435d324c43701474413bea9224e214b10a370e7e092f393fc7e9e90"
+    },
+    {
+      "path": "pixel/png/build-mobile-light.png",
+      "bytes": 6297,
+      "sha256": "66c042cba9a681eff6ffc8e95458c30a0c68aaf7dcac933cec790fe6d3a19dc2"
+    },
+    {
+      "path": "pixel/png/build-saas-dark.png",
+      "bytes": 6326,
+      "sha256": "ee5e3467c43db2196e2ff56e45950083b3f3c6ce8135597cadcbbcf1cb40dc91"
+    },
+    {
+      "path": "pixel/png/build-saas-light.png",
+      "bytes": 6327,
+      "sha256": "1ff6a9c59a4d91a3a41ac68bf1092a48a81c7e523c863baadd19305e035d50d4"
+    },
+    {
+      "path": "pixel/png/chevron-left.png",
+      "bytes": 192,
+      "sha256": "d32fb8cad9edd7f7ae41b96d0296ae2bed39e82faa2e1dd6099634469a032fa9"
+    },
+    {
+      "path": "pixel/png/chevron-right.png",
+      "bytes": 195,
+      "sha256": "6a43d2e5499ae2a8a0a3391f92c626b4c4a45dcad5b5e94cad536b69bbc4b41b"
+    },
+    {
+      "path": "pixel/png/desk.png",
+      "bytes": 20391,
+      "sha256": "fd6715f416f422c254914755ca4e0988112bf7cf9360aa0168b002b02ea63519"
+    },
+    {
+      "path": "pixel/png/edge-night.png",
+      "bytes": 360,
+      "sha256": "098db4d4f364abd1da993a400022d6951482781eb40fcdfa8b2f4fb282374414"
+    },
+    {
+      "path": "pixel/png/edge-paper-dark.png",
+      "bytes": 360,
+      "sha256": "e76b8b3daedfee6294f3360be2407b48cb1295441da723a8be43ccc890e397b2"
+    },
+    {
+      "path": "pixel/png/edge-paper-light.png",
+      "bytes": 359,
+      "sha256": "096457b48515da7389dbb0792ac260b520c21253594e3bc3a29feacdb22f67ac"
+    },
+    {
+      "path": "pixel/svg/build-ai-dark.svg",
+      "bytes": 30602,
+      "sha256": "48b66b39b3118bf0030e4d924de175a1ce210a9ee930e639929199625902fed1"
+    },
+    {
+      "path": "pixel/svg/build-ai-light.svg",
+      "bytes": 31835,
+      "sha256": "84a873e987af59d13b4ab5a6530a7b7243925e05f17cdcbb7584e522a561c058"
+    },
+    {
+      "path": "pixel/svg/build-crm-dark.svg",
+      "bytes": 26285,
+      "sha256": "415ba7a123940366f38662b6337a509267a0696d5ba94dc35eb9aa7e4e8a4fed"
+    },
+    {
+      "path": "pixel/svg/build-crm-light.svg",
+      "bytes": 27338,
+      "sha256": "bc2ff2b85e45ae2b231363a05edab778b67fe0313ee62b8efc567b7d186985d3"
+    },
+    {
+      "path": "pixel/svg/build-dashboard-dark.svg",
+      "bytes": 32617,
+      "sha256": "731bc6b9d8d0f3dee2f1965d06cc20727135debd0b8b57efd35d30f3fffc9fb6"
+    },
+    {
+      "path": "pixel/svg/build-dashboard-light.svg",
+      "bytes": 33481,
+      "sha256": "936322c0e09c9b3c44db9b17a75f25b38b29318acdadbb7909639384e9aa6e66"
+    },
+    {
+      "path": "pixel/svg/build-erp-dark.svg",
+      "bytes": 27944,
+      "sha256": "bc76b1bf815558b7d7032775c897ed4b79e739de66e2dc038caa4b66d64e93b2"
+    },
+    {
+      "path": "pixel/svg/build-erp-light.svg",
+      "bytes": 28994,
+      "sha256": "860e650f29e2d56b4101c46d498f3a78f732f3fb9248ee4d0d31760414814948"
+    },
+    {
+      "path": "pixel/svg/build-extension-dark.svg",
+      "bytes": 25946,
+      "sha256": "224ae8bcc403a1325df028fccd04122eb190eff78cfddec1908bd3e5296e07cd"
+    },
+    {
+      "path": "pixel/svg/build-extension-light.svg",
+      "bytes": 26719,
+      "sha256": "ee8647df906cc6ebf01013facb5bc49279b0096688328f36911c62bbacdbcba7"
+    },
+    {
+      "path": "pixel/svg/build-integrations-dark.svg",
+      "bytes": 28401,
+      "sha256": "a884972f99b521c95edb71a6119b8c94df5113789624de679228900d4aac2483"
+    },
+    {
+      "path": "pixel/svg/build-integrations-light.svg",
+      "bytes": 29587,
+      "sha256": "681ff38d6198814fcfc3f0841725281c559b9c0a01a782f6581cac632e5768a6"
+    },
+    {
+      "path": "pixel/svg/build-mobile-dark.svg",
+      "bytes": 32008,
+      "sha256": "6c490cecdea7ac98a305f08d5c251c1b293dd522bd3763571961436c389d3326"
+    },
+    {
+      "path": "pixel/svg/build-mobile-light.svg",
+      "bytes": 33187,
+      "sha256": "69b0f060fac259fc40b2082122db7c2b0c0a46c3d4591f9e5f5af92e799dc322"
+    },
+    {
+      "path": "pixel/svg/build-saas-dark.svg",
+      "bytes": 27359,
+      "sha256": "482b9e9e0bbe70898664b1daf8a874a6d5d9c4e5098c1d9312d1fc20d3346e59"
+    },
+    {
+      "path": "pixel/svg/build-saas-light.svg",
+      "bytes": 28328,
+      "sha256": "4966d70fed45874b7de8a1c1ae782d8564e3cb0987fdbc6de972488c2c419d7d"
+    },
+    {
+      "path": "pixel/svg/chevron-left.svg",
+      "bytes": 536,
+      "sha256": "27fb6eeeafd93c1ea314953efa0a4438778c4301140f56532ecdd9634427fd1b"
+    },
+    {
+      "path": "pixel/svg/chevron-right.svg",
+      "bytes": 536,
+      "sha256": "446381adca47265f2c844ea39de0b22eb99a4bfcd4be22032659519ac6879d65"
+    },
+    {
+      "path": "pixel/svg/desk.svg",
+      "bytes": 137237,
+      "sha256": "a68e241ef4eca6d56e645d654d464aa93491a43650ea7d5694aa664d0e2a760c"
+    },
+    {
+      "path": "pixel/svg/edge-night.svg",
+      "bytes": 3712,
+      "sha256": "1c039223128ea98b0abb34bc4d8fcbfedeb15d9a8942ffe0af72ac691a9f70c8"
+    },
+    {
+      "path": "pixel/svg/edge-paper-dark.svg",
+      "bytes": 3712,
+      "sha256": "da5a9e3373cd530f09dd9ebc92224e1a4baeaf74b1e92b492022a30bdbae9a63"
+    },
+    {
+      "path": "pixel/svg/edge-paper-light.svg",
+      "bytes": 3886,
+      "sha256": "bf80af2a4ff2a051e217b663ed84a3aef6ced66e9aa77266cdedb2ca78d66163"
+    },
+    {
+      "path": "png/vimaksh-mark-tight@1x.png",
+      "bytes": 13838,
+      "sha256": "bce574f75b588bcdcd398f5f9a5cbad8b4e3d7fb6b5fba84b27e1608040b6855"
+    },
+    {
+      "path": "png/vimaksh-mark-tight@2x.png",
+      "bytes": 30266,
+      "sha256": "71b5da4908e9c5f6ab14c413c277d8b03068a83f5811464747cbca0b892a9954"
+    },
+    {
+      "path": "png/vimaksh-mark-tight@4x.png",
+      "bytes": 70569,
+      "sha256": "ceb18bbc288fee6dab7fdeb7ed722f265d76b61fe4d6b024c2c17181ec656e5d"
+    },
+    {
+      "path": "png/vimaksh-mark@1x.png",
+      "bytes": 16790,
+      "sha256": "c36f9ee87a6f2066b6f963a4a2ba2980fd08b75f10405750b6ce5141318976b3"
+    },
+    {
+      "path": "png/vimaksh-mark@2x.png",
+      "bytes": 37933,
+      "sha256": "1335f71b9f60ac5b4c8f4c5302fa71c48c52aa7cf1ce2a54af98d956977a4445"
+    },
+    {
+      "path": "png/vimaksh-mark@4x.png",
+      "bytes": 91896,
+      "sha256": "6f5b8cd58273553251362cda4d663491e6658325d8a1f06fccde03a42ef83b2f"
+    },
+    {
+      "path": "png/vimaksh-wordmark-ink@1x.png",
+      "bytes": 15606,
+      "sha256": "81eabea23ed00a5f0234be00fba999abe3c9e5ba2de4539139d007558f6014ab"
+    },
+    {
+      "path": "png/vimaksh-wordmark-ink@2x.png",
+      "bytes": 36597,
+      "sha256": "064818813e68b5af51682af4616237d422247accf775470bb1bd5478a763b157"
+    },
+    {
+      "path": "png/vimaksh-wordmark-ink@4x.png",
+      "bytes": 85347,
+      "sha256": "b0329f2601599e154cb962da32d344e45d85e58859a3ce8995165e0852efa32e"
+    },
+    {
+      "path": "png/vimaksh-wordmark-light@1x.png",
+      "bytes": 16288,
+      "sha256": "e80bd223c79c89b14e760d2c052c3394215c7d755d7f2ce748d1483fc509ab6e"
+    },
+    {
+      "path": "png/vimaksh-wordmark-light@2x.png",
+      "bytes": 38536,
+      "sha256": "7d348d62b62f982a5d8d43f62b37cb3e03f8a4da3f25ca78b1daf591e5ff9747"
+    },
+    {
+      "path": "png/vimaksh-wordmark-light@4x.png",
+      "bytes": 84853,
+      "sha256": "a09d977d806d68c08afc2dbe17f930cf35d0dbedc47c3e39eeb2583c1d7939f3"
+    },
+    {
+      "path": "png/vimaksh-wordmark-white@1x.png",
+      "bytes": 18627,
+      "sha256": "427d0782b225814d08dfcb0ac823c0410f643573e7f2d981a0e204d4ef62ae43"
+    },
+    {
+      "path": "png/vimaksh-wordmark-white@2x.png",
+      "bytes": 42690,
+      "sha256": "d8d8257c04e5075d43815de6b2eb47c97a5944e55d96dcdb7aa967b917148779"
+    },
+    {
+      "path": "png/vimaksh-wordmark-white@4x.png",
+      "bytes": 92737,
+      "sha256": "8109af0ef38e8a02dc04c3c8b60825171e1c94ef8088e2023839162091030923"
+    },
+    {
+      "path": "png/vimaksh-wordmark@1x.png",
+      "bytes": 19405,
+      "sha256": "3e91a1a76ead196f9731d6b527a43ac9386f927b27ccbf516283ae7ac20d37c9"
+    },
+    {
+      "path": "png/vimaksh-wordmark@2x.png",
+      "bytes": 41412,
+      "sha256": "11903a18386166c36649477f0c470d103c90be8d33d1dfb00a13fd1efff85800"
+    },
+    {
+      "path": "png/vimaksh-wordmark@4x.png",
+      "bytes": 95177,
+      "sha256": "8b5a30a3e84d84c3e84d4bf8cdb928d46c1aa53a0e4976f8ed26d710a5af089e"
+    },
+    {
+      "path": "svg/vimaksh-mark-tight.svg",
+      "bytes": 1060,
+      "sha256": "017bb97b98c9ed8c1a3ffaa0e2968d98ee164409155673abc673b2db9dbae5da"
+    },
+    {
+      "path": "svg/vimaksh-mark.svg",
+      "bytes": 1054,
+      "sha256": "fd5d8584e6544a4f4664d505fa6599d4bc747ef48cf3608ddc3747fb84fcf283"
+    },
+    {
+      "path": "svg/vimaksh-wordmark-ink.svg",
+      "bytes": 6163,
+      "sha256": "0a64b75dbee9add76c1a2e95453e0600d844b2508f152addf913b4c4371b89fd"
+    },
+    {
+      "path": "svg/vimaksh-wordmark-light.svg",
+      "bytes": 6163,
+      "sha256": "0174af4564f43e22ba1156323f1ed01d76562841fac587d3b2da9a242513a2a4"
+    },
+    {
+      "path": "svg/vimaksh-wordmark-white.svg",
+      "bytes": 6163,
+      "sha256": "350e18bd7723e4e95a9d4e8c621917b6a5b4110d788f0dfc1e5340c80022b3dc"
+    },
+    {
+      "path": "svg/vimaksh-wordmark.svg",
+      "bytes": 6163,
+      "sha256": "9eb7ed2ce942cdcde164d9d4e1eb37dc03b208c621d8432ef14168546dfcd5ea"
+    },
+    {
+      "path": "zip/vimaksh-brand-all.zip",
+      "bytes": 2574287,
+      "sha256": "5ba9099508df0785b64401708edcb9722b955834acf231059093095c009d95cd"
+    },
+    {
+      "path": "zip/vimaksh-fonts.zip",
+      "bytes": 71628,
+      "sha256": "e672bdfe6ff23e1df7a70ec4a3e079ccd1a586c9902d02ca8a35f497870eee6a"
+    },
+    {
+      "path": "zip/vimaksh-logos-png.zip",
+      "bytes": 664114,
+      "sha256": "f133484b899525ec7bb846b5eea6cff1fc4df7cc09234acee79a429157acc545"
+    },
+    {
+      "path": "zip/vimaksh-logos-svg.zip",
+      "bytes": 13286,
+      "sha256": "27340c9c2a6702b116228eb5cf8dfe2a380f7bc3c04b719c004da2d4dee0eb3d"
+    },
+    {
+      "path": "zip/vimaksh-pixel-motifs.zip",
+      "bytes": 140625,
+      "sha256": "cbf97f4bb0b991d6d8a47ea4c9f5eb66e25b4125b7be5c46d982b7a01ac1997b"
+    }
+  ]
+}

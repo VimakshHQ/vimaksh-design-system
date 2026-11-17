@@ -1,0 +1,137 @@
+/* Vimaksh tokens. Generated from tokens/tokens.json. Do not edit by hand. */
+@font-face{font-family:'Inter Tight';src:url(fonts/inter-tight.woff2) format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'JetBrains Mono';src:url(fonts/jetbrains-mono-500.woff2) format('woff2');font-weight:500;font-display:swap}
+:root{
+  --red:#E42114;
+  --red-d:#B5180E;
+  --coral:#FF5E55;
+  --electric:#1A18FF;
+  --royal:#2D36FF;
+  --glow:#7C8DFF;
+  --mist:#DDE4FF;
+  --night:#0D0E1C;
+  --night2:#15172B;
+  --mark-coral:#FF5F53;
+  --mark-red:#E32112;
+  --foot-text:#ECEEFF;
+  --foot-headline:#F4F5FF;
+  --foot-label:#9aa0c8;
+  --foot-key:#7b81aa;
+  --foot-rule:rgba(221,228,255,.14);
+  --ok:#16a34a;
+  --ok-text:#15803d;
+  --on-accent:#fff;
+  --on-accent-chev:#FFD9D6;
+  --px-blue-1:#DDE4FF;
+  --px-blue-2:#B9C3FF;
+  --px-blue-3:#7C8DFF;
+  --px-blue-4:#2D36FF;
+  --px-blue-5:#1A18FF;
+  --px-hero-mist-l:#DDE4FF;
+  --px-hero-glyph-l:#2D36FF;
+  --px-hero-mist-d:#1A1D45;
+  --px-hero-glyph-d:#5D6BFF;
+  --px-coral-d:#E14A42;
+  --px-red-d:#B5180E;
+  --kind-extension:#2D36FF;
+  --kind-saas:#E42114;
+  --kind-ai:#7A3CD6;
+  --kind-crm:#0E8F6E;
+  --kind-erp:#E8730C;
+  --kind-dashboard:#0A8FB0;
+  --kind-integrations:#C99400;
+  --kind-mobile:#D23C7E;
+  --sans:'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+  --w-regular:400;
+  --w-book:450;
+  --w-medium:500;
+  --w-semibold:600;
+  --pad:clamp(16px,2.6vw,40px);
+  --hdr:78px;
+  --section-top:clamp(70px,8vw,130px);
+  --section-bottom:clamp(80px,9vw,140px);
+  --section-compact:clamp(56px,6vw,96px);
+  --footer-top:clamp(90px,10vw,160px);
+  --head-gap:clamp(28px,3.4vw,52px);
+  --grid-gap:14px;
+  --grid-row-gap:clamp(40px,4vw,64px);
+  --label-gap:18px;
+  --field-gap:16px;
+  --control-y:16px;
+  --control-x:20px;
+  --edge-h:98px;
+  --radius:0;
+  --radius-pill:99px;
+  --radius-round:50%;
+  --hairline:1px;
+  --stripe:3px;
+  --shadow-knob:0 2px 8px rgba(0,0,0,.18);
+  --shadow-knob-hover:0 2px 14px rgba(0,0,0,.25);
+  --shadow-chip:0 1px 0 rgba(0,0,0,.08);
+  --shadow-card:0 30px 70px -30px rgba(0,0,0,.6);
+  --shadow-popover:0 18px 40px -18px rgba(11,10,20,.35);
+  --blur-nav:8px;
+  --blur-toggle:10px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --ease-toggle:cubic-bezier(.65,0,.25,1);
+  --ease-overshoot:cubic-bezier(.34,1.56,.64,1);
+  --dur-fast:200ms;
+  --dur-base:250ms;
+  --dur-slow:350ms;
+  --dur-theme:600ms;
+  --dur-reveal:900ms;
+  --dur-media:1400ms;
+  --nudge:5px;
+  --reveal-y:22px;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.2 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --cross-d:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192'%3E%3Cpath d='M96 90v12M90 96h12' stroke='%232C1412' stroke-opacity='.2' stroke-width='1'/%3E%3C/svg%3E");
+  --cross-l:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192'%3E%3Cpath d='M96 90v12M90 96h12' stroke='%23DDE4FF' stroke-opacity='.14' stroke-width='1'/%3E%3C/svg%3E");
+  --pattern-light:var(--cross-d) 0 0/192px 192px,radial-gradient(circle at 1px 1px,rgba(44,20,18,.1) .9px,transparent 1.3px) 0 0/24px 24px;
+  --pattern-dark:var(--cross-l) 0 0/192px 192px,radial-gradient(circle at 1px 1px,rgba(221,228,255,.06) .9px,transparent 1.3px) 0 0/24px 24px;
+  --heat:radial-gradient(120% 90% at 0% 100%,#1A3FD8 0%,rgba(45,54,255,.55) 28%,transparent 55%),radial-gradient(80% 70% at 85% 80%,#5A0C12 0%,rgba(140,20,20,.6) 35%,transparent 70%),radial-gradient(90% 80% at 60% 20%,#FF7A70 0%,rgba(255,94,85,.6) 30%,transparent 65%),linear-gradient(160deg,#E42114 0%,#FF5E55 40%,#9C2B5A 70%,#2D36FF 100%);
+}
+/* Light is the default; set <html data-theme="dark"> for dark. The site sets data-theme before first paint. */
+:root,html[data-theme=light]{
+  --paper:#F4F2EE;
+  --paper2:#ECEAE4;
+  --card:#FBFAF7;
+  --ink:#2C1412;
+  --strong:#0B0A14;
+  --soft:#6B5B5E;
+  --rule:rgba(44,20,18,.14);
+  --rule2:rgba(44,20,18,.3);
+  --chip:rgba(251,250,247,.7);
+  --theme-color:#F4F2EE;
+  --pattern:var(--pattern-light);
+  color-scheme:light;
+}
+html[data-theme=dark]{
+  --paper:#0F1020;
+  --paper2:#15172B;
+  --card:#17192E;
+  --ink:#E6E8FA;
+  --strong:#F4F5FF;
+  --soft:#9AA0C8;
+  --rule:rgba(221,228,255,.12);
+  --rule2:rgba(221,228,255,.3);
+  --chip:rgba(23,25,46,.7);
+  --theme-color:#0F1020;
+  --pattern:var(--pattern-dark);
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:dark){html:not([data-theme]){
+  --paper:#0F1020;
+  --paper2:#15172B;
+  --card:#17192E;
+  --ink:#E6E8FA;
+  --strong:#F4F5FF;
+  --soft:#9AA0C8;
+  --rule:rgba(221,228,255,.12);
+  --rule2:rgba(221,228,255,.3);
+  --chip:rgba(23,25,46,.7);
+  --theme-color:#0F1020;
+  --pattern:var(--pattern-dark);
+  color-scheme:dark;
+}}
+@media (max-width:760px){:root{--hdr:68px}}

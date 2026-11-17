@@ -1,0 +1,1730 @@
+{
+  "version": "0.1.0",
+  "foundations": [
+    {
+      "name": "Color",
+      "title": "Color",
+      "summary": "Paper and ink, one red for action, and a dark night for the footer. Every role has a light and a dark value; the brand colours do not change with the theme.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Color.md",
+      "guidance": "### Roles, not paint\nPick a colour by its job. Every surface and text colour is a role with a light and a dark value, switched by `<html data-theme>`:\n\n| Role | Job |\n| --- | --- |\n| `--paper` | The page. Always carries the cross-and-dot pattern. |\n| `--paper2` | Sunken areas and hover fills. |\n| `--card` | Raised surfaces: blocks, media backing, dropdowns. |\n| `--ink` | Body text. |\n| `--strong` | Headings, solid UI (hover fills, the Menu box). |\n| `--soft` | Secondary text and labels. |\n| `--rule` / `--rule2` | Hairlines / control borders and input underlines. |\n| `--chip` | The translucent fill under a backdrop blur. |\n\n### Red is for action\n`--red #E42114` marks the primary action, the \">\" chevron, the focused input underline and errors. Nothing else is red. Coral `#FF5E55` is the mark's colour and the accent on the dark footer.\n\n### The footer is always night\nThe footer stays dark in both themes (`--night #0D0E1C` with the dark pattern). Its text colours are fixed footer tokens.\n\n### Blues belong to pixels\nElectric, Royal, Glow and Mist appear in the pixel graphics and the hero field. In the interface, Electric is only the focus ring.\n\n### Kind colours are only for \"What we build\"\nEach kind of software has a colour for its pixel tile, its 3px stripe and its square bullet. Never use them for interface states.\n\n### The mark's own colours\nThe SVG files use `#FF5F53` and `#E32112`; CSS uses `#FF5E55` and `#E42114`. The difference is one step and is recorded, not corrected: use the files unchanged.",
+      "do": [
+        "Use role variables, never raw hex, in components.",
+        "Check both themes for every screen."
+      ],
+      "dont": [
+        "Do not add new accent colours.",
+        "Do not set small text in red on paper (4.15:1).",
+        "Do not put red text on the coral or heat surfaces."
+      ],
+      "tokens": [
+        {
+          "name": "color.brand.red",
+          "type": "color",
+          "cssVar": "--red",
+          "description": "Primary action, the chevron, input focus underline, errors.",
+          "source": "src/v5/v5.css:5",
+          "value": "#E42114"
+        },
+        {
+          "name": "color.brand.red-d",
+          "type": "color",
+          "cssVar": "--red-d",
+          "description": "Pressed / hover shade of red (Start a project row).",
+          "source": "src/v5/v5.css:5",
+          "value": "#B5180E"
+        },
+        {
+          "name": "color.brand.coral",
+          "type": "color",
+          "cssVar": "--coral",
+          "description": "The mark's body colour in CSS; chevrons and focus on the dark footer.",
+          "source": "src/v5/v5.css:5",
+          "value": "#FF5E55"
+        },
+        {
+          "name": "color.brand.electric",
+          "type": "color",
+          "cssVar": "--electric",
+          "description": "Focus ring (:focus-visible).",
+          "source": "src/v5/v5.css:5",
+          "value": "#1A18FF"
+        },
+        {
+          "name": "color.brand.royal",
+          "type": "color",
+          "cssVar": "--royal",
+          "description": "Hero chevron glyphs, gradient end stop.",
+          "source": "src/v5/v5.css:5",
+          "value": "#2D36FF"
+        },
+        {
+          "name": "color.brand.glow",
+          "type": "color",
+          "cssVar": "--glow",
+          "description": "Pixel-art blue ramp.",
+          "source": "src/v5/v5.css:5",
+          "value": "#7C8DFF"
+        },
+        {
+          "name": "color.brand.mist",
+          "type": "color",
+          "cssVar": "--mist",
+          "description": "Hero field ground; dark-pattern stroke.",
+          "source": "src/v5/v5.css:5",
+          "value": "#DDE4FF"
+        },
+        {
+          "name": "color.brand.night",
+          "type": "color",
+          "cssVar": "--night",
+          "description": "Footer ground (always dark).",
+          "source": "src/v5/v5.css:6",
+          "value": "#0D0E1C"
+        },
+        {
+          "name": "color.brand.night2",
+          "type": "color",
+          "cssVar": "--night2",
+          "description": "Raised surface on night.",
+          "source": "src/v5/v5.css:6",
+          "value": "#15172B"
+        },
+        {
+          "name": "color.mark.coral",
+          "type": "color",
+          "cssVar": "--mark-coral",
+          "description": "Fill of the five coral arrows and the wordmark in the SVG files. Differs from brand.coral (#FF5E55) by one step; keep the files byte-identical.",
+          "source": "public/marks/vimaksh-mark.svg:2",
+          "value": "#FF5F53"
+        },
+        {
+          "name": "color.mark.red",
+          "type": "color",
+          "cssVar": "--mark-red",
+          "description": "Fill of the single red arrow in the SVG file. CSS uses brand.red (#E42114).",
+          "source": "public/marks/vimaksh-mark.svg:4",
+          "value": "#E32112"
+        },
+        {
+          "name": "color.theme.paper",
+          "type": "color",
+          "cssVar": "--paper",
+          "description": "Page ground.",
+          "source": "src/v5/v5.css:17",
+          "value": {
+            "light": "#F4F2EE",
+            "dark": "#0F1020"
+          }
+        },
+        {
+          "name": "color.theme.paper2",
+          "type": "color",
+          "cssVar": "--paper2",
+          "description": "Sunken ground, hover fill.",
+          "source": "src/v5/v5.css:17",
+          "value": {
+            "light": "#ECEAE4",
+            "dark": "#15172B"
+          }
+        },
+        {
+          "name": "color.theme.card",
+          "type": "color",
+          "cssVar": "--card",
+          "description": "Raised surface: cards, blocks, media backing.",
+          "source": "src/v5/v5.css:17",
+          "value": {
+            "light": "#FBFAF7",
+            "dark": "#17192E"
+          }
+        },
+        {
+          "name": "color.theme.ink",
+          "type": "color",
+          "cssVar": "--ink",
+          "description": "Body text.",
+          "source": "src/v5/v5.css:17",
+          "value": {
+            "light": "#2C1412",
+            "dark": "#E6E8FA"
+          }
+        },
+        {
+          "name": "color.theme.strong",
+          "type": "color",
+          "cssVar": "--strong",
+          "description": "Headings and solid UI (hover fills, menu box).",
+          "source": "src/v5/v5.css:17",
+          "value": {
+            "light": "#0B0A14",
+            "dark": "#F4F5FF"
+          }
+        },
+        {
+          "name": "color.theme.soft",
+          "type": "color",
+          "cssVar": "--soft",
+          "description": "Secondary text, labels.",
+          "source": "src/v5/v5.css:17",
+          "value": {
+            "light": "#6B5B5E",
+            "dark": "#9AA0C8"
+          }
+        },
+        {
+          "name": "color.theme.rule",
+          "type": "color",
+          "cssVar": "--rule",
+          "description": "Hairline dividers.",
+          "source": "src/v5/v5.css:17",
+          "value": {
+            "light": "rgba(44,20,18,.14)",
+            "dark": "rgba(221,228,255,.12)"
+          }
+        },
+        {
+          "name": "color.theme.rule2",
+          "type": "color",
+          "cssVar": "--rule2",
+          "description": "Control borders, input underlines.",
+          "source": "src/v5/v5.css:17",
+          "value": {
+            "light": "rgba(44,20,18,.3)",
+            "dark": "rgba(221,228,255,.3)"
+          }
+        },
+        {
+          "name": "color.theme.chip",
+          "type": "color",
+          "cssVar": "--chip",
+          "description": "Translucent fill under backdrop blur (nav items, toggle).",
+          "source": "src/v5/v5.css:17",
+          "value": {
+            "light": "rgba(251,250,247,.7)",
+            "dark": "rgba(23,25,46,.7)"
+          }
+        },
+        {
+          "name": "color.theme.theme-color",
+          "type": "color",
+          "cssVar": "--theme-color",
+          "description": "<meta name=theme-color>.",
+          "source": "src/v5/main.js:17",
+          "value": {
+            "light": "#F4F2EE",
+            "dark": "#0F1020"
+          }
+        },
+        {
+          "name": "color.footer.text",
+          "type": "color",
+          "cssVar": "--foot-text",
+          "description": "Footer body text and links (footer is dark in both themes).",
+          "source": "src/v5/v5.css:269",
+          "value": "#ECEEFF"
+        },
+        {
+          "name": "color.footer.headline",
+          "type": "color",
+          "cssVar": "--foot-headline",
+          "description": "Footer statement.",
+          "source": "src/v5/v5.css:277",
+          "value": "#F4F5FF"
+        },
+        {
+          "name": "color.footer.label",
+          "type": "color",
+          "cssVar": "--foot-label",
+          "description": "Footer labels and supporting line.",
+          "source": "src/v5/v5.css:271",
+          "value": "#9aa0c8"
+        },
+        {
+          "name": "color.footer.key",
+          "type": "color",
+          "cssVar": "--foot-key",
+          "description": "Footer column keys.",
+          "source": "src/v5/v5.css:286",
+          "value": "#7b81aa"
+        },
+        {
+          "name": "color.footer.rule",
+          "type": "color",
+          "cssVar": "--foot-rule",
+          "description": "Footer column divider.",
+          "source": "src/v5/v5.css:285",
+          "value": "rgba(221,228,255,.14)"
+        },
+        {
+          "name": "color.status.live",
+          "type": "color",
+          "cssVar": "--ok",
+          "description": "Sent / success fill.",
+          "source": "src/v5/v5.css:747",
+          "value": "#16a34a"
+        },
+        {
+          "name": "color.status.live-text",
+          "type": "color",
+          "cssVar": "--ok-text",
+          "description": "Success message text.",
+          "source": "src/v5/v5.css:748",
+          "value": "#15803d"
+        },
+        {
+          "name": "color.on.accent",
+          "type": "color",
+          "cssVar": "--on-accent",
+          "description": "Text on red buttons and rows.",
+          "source": "src/v5/v5.css:47",
+          "value": "#fff"
+        },
+        {
+          "name": "color.on.accent-chevron",
+          "type": "color",
+          "cssVar": "--on-accent-chev",
+          "description": "Chevron inside the red primary button.",
+          "source": "src/v5/v5.css:48",
+          "value": "#FFD9D6"
+        },
+        {
+          "name": "color.pixel.blue-1",
+          "type": "color",
+          "cssVar": "--px-blue-1",
+          "description": "",
+          "source": "src/v5/pixelart.js:3",
+          "value": "#DDE4FF"
+        },
+        {
+          "name": "color.pixel.blue-2",
+          "type": "color",
+          "cssVar": "--px-blue-2",
+          "description": "",
+          "source": "src/v5/pixelart.js:3",
+          "value": "#B9C3FF"
+        },
+        {
+          "name": "color.pixel.blue-3",
+          "type": "color",
+          "cssVar": "--px-blue-3",
+          "description": "",
+          "source": "src/v5/pixelart.js:3",
+          "value": "#7C8DFF"
+        },
+        {
+          "name": "color.pixel.blue-4",
+          "type": "color",
+          "cssVar": "--px-blue-4",
+          "description": "",
+          "source": "src/v5/pixelart.js:3",
+          "value": "#2D36FF"
+        },
+        {
+          "name": "color.pixel.blue-5",
+          "type": "color",
+          "cssVar": "--px-blue-5",
+          "description": "",
+          "source": "src/v5/pixelart.js:3",
+          "value": "#1A18FF"
+        },
+        {
+          "name": "color.pixel.hero-mist-light",
+          "type": "color",
+          "cssVar": "--px-hero-mist-l",
+          "description": "Hero field ground, light theme.",
+          "source": "src/v5/pixelhero.js:90",
+          "value": "#DDE4FF"
+        },
+        {
+          "name": "color.pixel.hero-glyph-light",
+          "type": "color",
+          "cssVar": "--px-hero-glyph-l",
+          "description": "Hero chevron glyph, light theme.",
+          "source": "src/v5/pixelhero.js:90",
+          "value": "#2D36FF"
+        },
+        {
+          "name": "color.pixel.hero-mist-dark",
+          "type": "color",
+          "cssVar": "--px-hero-mist-d",
+          "description": "",
+          "source": "src/v5/pixelhero.js:91",
+          "value": "#1A1D45"
+        },
+        {
+          "name": "color.pixel.hero-glyph-dark",
+          "type": "color",
+          "cssVar": "--px-hero-glyph-d",
+          "description": "",
+          "source": "src/v5/pixelhero.js:91",
+          "value": "#5D6BFF"
+        },
+        {
+          "name": "color.pixel.mark-hairline-coral",
+          "type": "color",
+          "cssVar": "--px-coral-d",
+          "description": "Gap between pixels of the coral arrows (light).",
+          "source": "src/v5/pixelhero.js:90",
+          "value": "#E14A42"
+        },
+        {
+          "name": "color.pixel.mark-hairline-red",
+          "type": "color",
+          "cssVar": "--px-red-d",
+          "description": "Gap between pixels of the red arrow (light).",
+          "source": "src/v5/pixelhero.js:90",
+          "value": "#B5180E"
+        },
+        {
+          "name": "color.kind.extension",
+          "type": "color",
+          "cssVar": "--kind-extension",
+          "description": "",
+          "source": "tools/v5pages.py:173",
+          "value": "#2D36FF"
+        },
+        {
+          "name": "color.kind.saas",
+          "type": "color",
+          "cssVar": "--kind-saas",
+          "description": "",
+          "source": "tools/v5pages.py:174",
+          "value": "#E42114"
+        },
+        {
+          "name": "color.kind.ai",
+          "type": "color",
+          "cssVar": "--kind-ai",
+          "description": "",
+          "source": "tools/v5pages.py:175",
+          "value": "#7A3CD6"
+        },
+        {
+          "name": "color.kind.crm",
+          "type": "color",
+          "cssVar": "--kind-crm",
+          "description": "",
+          "source": "tools/v5pages.py:176",
+          "value": "#0E8F6E"
+        },
+        {
+          "name": "color.kind.erp",
+          "type": "color",
+          "cssVar": "--kind-erp",
+          "description": "",
+          "source": "tools/v5pages.py:177",
+          "value": "#E8730C"
+        },
+        {
+          "name": "color.kind.dashboard",
+          "type": "color",
+          "cssVar": "--kind-dashboard",
+          "description": "",
+          "source": "tools/v5pages.py:178",
+          "value": "#0A8FB0"
+        },
+        {
+          "name": "color.kind.integrations",
+          "type": "color",
+          "cssVar": "--kind-integrations",
+          "description": "",
+          "source": "tools/v5pages.py:179",
+          "value": "#C99400"
+        },
+        {
+          "name": "color.kind.mobile",
+          "type": "color",
+          "cssVar": "--kind-mobile",
+          "description": "",
+          "source": "tools/v5pages.py:180",
+          "value": "#D23C7E"
+        },
+        {
+          "name": "color.heat.1",
+          "type": "color",
+          "cssVar": null,
+          "description": "",
+          "source": "src/v5/v5.css:174",
+          "value": "#E42114"
+        },
+        {
+          "name": "color.heat.2",
+          "type": "color",
+          "cssVar": null,
+          "description": "",
+          "source": "src/v5/v5.css:174",
+          "value": "#FF5E55"
+        },
+        {
+          "name": "color.heat.3",
+          "type": "color",
+          "cssVar": null,
+          "description": "",
+          "source": "src/v5/v5.css:174",
+          "value": "#9C2B5A"
+        },
+        {
+          "name": "color.heat.4",
+          "type": "color",
+          "cssVar": null,
+          "description": "",
+          "source": "src/v5/v5.css:174",
+          "value": "#2D36FF"
+        }
+      ],
+      "sources": [
+        {
+          "file": "src/v5/v5.css",
+          "a": 4,
+          "b": 18,
+          "what": "tokens",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L4-L18"
+        },
+        {
+          "file": "src/v5/pixelart.js",
+          "a": 3,
+          "b": 3,
+          "what": "pixel blues",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelart.js#L3"
+        },
+        {
+          "file": "tools/v5pages.py",
+          "a": 172,
+          "b": 181,
+          "what": "kind colours",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L172-L181"
+        }
+      ]
+    },
+    {
+      "name": "Typography",
+      "title": "Typography",
+      "summary": "Inter Tight for everything that is read, set large, at weight 500 with tight negative tracking. JetBrains Mono 500, small and uppercase, for labels, navigation and buttons.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Typography.md",
+      "guidance": "### Two families, two jobs\n- **Inter Tight** (variable, 100–900): display, headings, body. Weights used: 400 body, 450 statements, 500 headings, 600 only in logo chips.\n- **JetBrains Mono 500**: labels (\"> Selected work\"), navigation, buttons, kinds, dates, coordinates, field errors. Always uppercase with wide tracking, except the dial code and field errors.\n\n### Sizes are fluid\nLarge styles use `clamp(min, vw, max)` and scale continuously; there is no fixed scale. Line-heights under 1 are deliberate for display sizes.\n\n### Labels carry a red chevron\nA section label is `<p class=\"t-mono label\"><span class=\"chev\">&gt;</span> Label</p>`. The chevron is the brand's \">\" from the mark.\n\n### Write in sentence case\nSource text is sentence case. Mono labels and buttons become uppercase through CSS, so copy stays readable and searchable.\n\n### Files\n`fonts/inter-tight.woff2` (45 KB) and `fonts/jetbrains-mono-500.woff2` (22 KB), both SIL OFL 1.1, `font-display: swap`. Preload Inter Tight.",
+      "do": [
+        "Use the t-* classes for the five base styles.",
+        "Keep paragraphs under about 56ch (cards) to 46ch (lead copy)."
+      ],
+      "dont": [
+        "Do not use mono for paragraphs.",
+        "Do not use bold (700) anywhere.",
+        "Do not justify text."
+      ],
+      "tokens": [
+        {
+          "name": "font.family.sans",
+          "type": "fontFamily",
+          "cssVar": "--sans",
+          "description": "Everything that is read: display, headings, body. Variable 100–900.",
+          "source": "src/v5/v5.css:7",
+          "value": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif"
+        },
+        {
+          "name": "font.family.mono",
+          "type": "fontFamily",
+          "cssVar": "--mono",
+          "description": "Weight 500 only. Labels, nav, buttons, metadata, chevrons. Always uppercase except the dial code and field errors.",
+          "source": "src/v5/v5.css:8",
+          "value": "'JetBrains Mono',ui-monospace,Consolas,monospace"
+        },
+        {
+          "name": "font.weight.regular",
+          "type": "fontWeight",
+          "cssVar": "--w-regular",
+          "description": "",
+          "source": "src/v5/v5.css:279",
+          "value": "400"
+        },
+        {
+          "name": "font.weight.book",
+          "type": "fontWeight",
+          "cssVar": "--w-book",
+          "description": "t-big statements.",
+          "source": "src/v5/v5.css:40",
+          "value": "450"
+        },
+        {
+          "name": "font.weight.medium",
+          "type": "fontWeight",
+          "cssVar": "--w-medium",
+          "description": "Headings, mono.",
+          "source": "src/v5/v5.css:37",
+          "value": "500"
+        },
+        {
+          "name": "font.weight.semibold",
+          "type": "fontWeight",
+          "cssVar": "--w-semibold",
+          "description": "Logo-chip text only.",
+          "source": "src/v5/v5.css:594",
+          "value": "600"
+        },
+        {
+          "name": "typography.mono",
+          "type": "typography",
+          "cssVar": null,
+          "description": "Class .t-mono. Labels, metadata, kinds, pills.",
+          "source": "src/v5/v5.css:36",
+          "value": {
+            "fontFamily": "'JetBrains Mono',ui-monospace,Consolas,monospace",
+            "fontWeight": 500,
+            "fontSize": "11px",
+            "lineHeight": "1.45",
+            "letterSpacing": ".06em",
+            "textTransform": "uppercase"
+          },
+          "class": "t-mono",
+          "appliedBy": null
+        },
+        {
+          "name": "typography.hero",
+          "type": "typography",
+          "cssVar": null,
+          "description": "Class .t-hero. Page H1 (contact, legal override the size).",
+          "source": "src/v5/v5.css:37",
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontWeight": 500,
+            "fontSize": "clamp(44px,6.4vw,112px)",
+            "lineHeight": ".94",
+            "letterSpacing": "-.045em",
+            "color": "var(--strong)"
+          },
+          "class": "t-hero",
+          "appliedBy": null
+        },
+        {
+          "name": "typography.statement",
+          "type": "typography",
+          "cssVar": null,
+          "description": "Class .t-statement. The footer headline; in the footer its size is clamp(44px,5vw,88px), phones clamp(42px,12.5vw,60px).",
+          "source": "src/v5/v5.css:38",
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontWeight": 500,
+            "fontSize": "clamp(44px,7vw,112px)",
+            "lineHeight": ".92",
+            "letterSpacing": "-.045em"
+          },
+          "class": "t-statement",
+          "appliedBy": null
+        },
+        {
+          "name": "typography.section",
+          "type": "typography",
+          "cssVar": null,
+          "description": "Class .t-section. Section H2.",
+          "source": "src/v5/v5.css:39",
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontWeight": 500,
+            "fontSize": "clamp(34px,4.4vw,72px)",
+            "lineHeight": ".96",
+            "letterSpacing": "-.04em",
+            "color": "var(--strong)"
+          },
+          "class": "t-section",
+          "appliedBy": null
+        },
+        {
+          "name": "typography.big",
+          "type": "typography",
+          "cssVar": null,
+          "description": "Class .t-big. Statement paragraphs; in About and What we build it is clamp(24px,2.5vw,42px), phones clamp(23px,6.4vw,28px).",
+          "source": "src/v5/v5.css:40",
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontWeight": 450,
+            "fontSize": "clamp(26px,2.9vw,48px)",
+            "lineHeight": "1.08",
+            "letterSpacing": "-.03em",
+            "color": "var(--strong)"
+          },
+          "class": "t-big",
+          "appliedBy": null
+        },
+        {
+          "name": "typography.hero-lead",
+          "type": "typography",
+          "cssVar": null,
+          "description": "Home hero H1. Phones clamp(25px,7vw,30px).",
+          "source": "src/v5/v5.css:120",
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontWeight": 500,
+            "fontSize": "clamp(28px,2.7vw,48px)",
+            "lineHeight": "1.04",
+            "letterSpacing": "-.035em"
+          },
+          "class": null,
+          "appliedBy": ".hero-copy h1"
+        },
+        {
+          "name": "typography.email",
+          "type": "typography",
+          "cssVar": null,
+          "description": "The large email button. Phones clamp(26px,8.4vw,36px).",
+          "source": "src/v5/v5.css:279,498",
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontWeight": 400,
+            "fontSize": "clamp(28px,3.4vw,58px)",
+            "letterSpacing": "-.04em"
+          },
+          "class": null,
+          "appliedBy": ".email"
+        },
+        {
+          "name": "typography.card-title",
+          "type": "typography",
+          "cssVar": null,
+          "description": "",
+          "source": "src/v5/v5.css:151",
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontWeight": 500,
+            "fontSize": "clamp(18px,1.4vw,22px)",
+            "letterSpacing": "-.02em"
+          },
+          "class": null,
+          "appliedBy": ".card h3"
+        },
+        {
+          "name": "typography.build-title",
+          "type": "typography",
+          "cssVar": null,
+          "description": "",
+          "source": "src/v5/v5.css:472",
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontWeight": 500,
+            "fontSize": "clamp(19px,1.5vw,24px)",
+            "letterSpacing": "-.02em"
+          },
+          "class": null,
+          "appliedBy": ".bcard h3"
+        },
+        {
+          "name": "typography.body",
+          "type": "typography",
+          "cssVar": null,
+          "description": "Long-form body (legal pages). Rows use 17px with -.01em.",
+          "source": "src/v5/v5.css:728",
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "1.6"
+          },
+          "class": null,
+          "appliedBy": ".legal p:not(.t-mono),.legal li"
+        },
+        {
+          "name": "typography.card-copy",
+          "type": "typography",
+          "cssVar": null,
+          "description": "",
+          "source": "src/v5/v5.css:153",
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontSize": "15px",
+            "lineHeight": "1.42"
+          },
+          "class": null,
+          "appliedBy": ".card p"
+        },
+        {
+          "name": "typography.control",
+          "type": "typography",
+          "cssVar": null,
+          "description": "Buttons and navigation labels.",
+          "source": "src/v5/v5.css:47",
+          "value": {
+            "fontFamily": "'JetBrains Mono',ui-monospace,Consolas,monospace",
+            "fontWeight": 500,
+            "fontSize": "11.5px",
+            "lineHeight": "1",
+            "letterSpacing": ".08em",
+            "textTransform": "uppercase"
+          },
+          "class": null,
+          "appliedBy": ".btn"
+        },
+        {
+          "name": "typography.field-error",
+          "type": "typography",
+          "cssVar": null,
+          "description": "",
+          "source": "src/v5/v5.css:757",
+          "value": {
+            "fontFamily": "'JetBrains Mono',ui-monospace,Consolas,monospace",
+            "fontWeight": 500,
+            "fontSize": "10.5px",
+            "lineHeight": "1.4",
+            "letterSpacing": ".03em"
+          },
+          "class": null,
+          "appliedBy": ".ferr"
+        }
+      ],
+      "sources": [
+        {
+          "file": "src/v5/v5.css",
+          "a": 2,
+          "b": 8,
+          "what": "fonts",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L2-L8"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 36,
+          "b": 43,
+          "what": "type classes",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L36-L43"
+        }
+      ]
+    },
+    {
+      "name": "SpacingLayout",
+      "title": "Spacing and layout",
+      "summary": "Full-width pages with one fluid gutter, generous fluid section padding, a 14px gap between cards, and two max-width breakpoints. The values below are the ones the site uses, named.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/SpacingLayout.md",
+      "guidance": "### The gutter\nEverything sits inside `--pad: clamp(16px, 2.6vw, 40px)` on the left and right. There is no centred max-width container: the site is full width.\n\n### Breakpoints\nDesktop first, two `max-width` breakpoints: **1100px** (three columns become two) and **760px** (one column, phone header 68px, nav stack narrower).\n\n### Grids\n- Work: `repeat(3,1fr)`, gap `clamp(40px,4vw,64px) 14px`; 2 columns ≤1100px; 1 column ≤760px.\n- Contact and footer top: two columns, one on phones.\n- Footer columns: `1fr 1.4fr 1fr 1fr`; 2 columns ≤1100px.\n- About: `clamp(220px,24vw,340px) 1fr`.\n\n### Vertical rhythm\nSections: `clamp(70px,8vw,130px)` top and `clamp(80px,9vw,140px)` bottom; compact sections `clamp(56px,6vw,96px)`; footer `clamp(90px,10vw,160px)`. Label to heading 18px; section header to content `clamp(28px,3.4vw,52px)`.\n\n### No spacing scale\nThe site has no 4/8 scale and this system does not invent one. Reuse the named values; for anything else, match the nearest existing element.",
+      "do": [
+        "Use --pad for every horizontal edge.",
+        "Let sections breathe: the large padding is part of the hierarchy."
+      ],
+      "dont": [
+        "Do not centre content in a narrow container.",
+        "Do not add rounded section containers."
+      ],
+      "tokens": [
+        {
+          "name": "space.pad",
+          "type": "dimension",
+          "cssVar": "--pad",
+          "description": "Page gutter, left/right of everything.",
+          "source": "src/v5/v5.css:9",
+          "value": "clamp(16px,2.6vw,40px)"
+        },
+        {
+          "name": "space.hdr",
+          "type": "dimension",
+          "cssVar": "--hdr",
+          "description": "Header height; 68px at max-width 760px.",
+          "source": "src/v5/v5.css:9",
+          "value": "78px"
+        },
+        {
+          "name": "space.section-top",
+          "type": "dimension",
+          "cssVar": "--section-top",
+          "description": "Section top padding (work, statement sections).",
+          "source": "src/v5/v5.css:137",
+          "value": "clamp(70px,8vw,130px)"
+        },
+        {
+          "name": "space.section-bottom",
+          "type": "dimension",
+          "cssVar": "--section-bottom",
+          "description": "",
+          "source": "src/v5/v5.css:137",
+          "value": "clamp(80px,9vw,140px)"
+        },
+        {
+          "name": "space.section-compact",
+          "type": "dimension",
+          "cssVar": "--section-compact",
+          "description": "Short sections (About on home).",
+          "source": "src/v5/v5.css:690",
+          "value": "clamp(56px,6vw,96px)"
+        },
+        {
+          "name": "space.footer-top",
+          "type": "dimension",
+          "cssVar": "--footer-top",
+          "description": "",
+          "source": "src/v5/v5.css:270",
+          "value": "clamp(90px,10vw,160px)"
+        },
+        {
+          "name": "space.head-gap",
+          "type": "dimension",
+          "cssVar": "--head-gap",
+          "description": "Section header to content.",
+          "source": "src/v5/v5.css:131",
+          "value": "clamp(28px,3.4vw,52px)"
+        },
+        {
+          "name": "space.grid-gap",
+          "type": "dimension",
+          "cssVar": "--grid-gap",
+          "description": "Gap between cards and tiles.",
+          "source": "src/v5/v5.css:138",
+          "value": "14px"
+        },
+        {
+          "name": "space.grid-row-gap",
+          "type": "dimension",
+          "cssVar": "--grid-row-gap",
+          "description": "Row gap in the work grid.",
+          "source": "src/v5/v5.css:138",
+          "value": "clamp(40px,4vw,64px)"
+        },
+        {
+          "name": "space.label-gap",
+          "type": "dimension",
+          "cssVar": "--label-gap",
+          "description": "Mono label to heading.",
+          "source": "src/v5/v5.css:42",
+          "value": "18px"
+        },
+        {
+          "name": "space.field-gap",
+          "type": "dimension",
+          "cssVar": "--field-gap",
+          "description": "Between form fields.",
+          "source": "src/v5/v5.css:242",
+          "value": "16px"
+        },
+        {
+          "name": "space.control-y",
+          "type": "dimension",
+          "cssVar": "--control-y",
+          "description": "Button padding block.",
+          "source": "src/v5/v5.css:47",
+          "value": "16px"
+        },
+        {
+          "name": "space.control-x",
+          "type": "dimension",
+          "cssVar": "--control-x",
+          "description": "Button padding inline.",
+          "source": "src/v5/v5.css:47",
+          "value": "20px"
+        },
+        {
+          "name": "space.edge-h",
+          "type": "dimension",
+          "cssVar": "--edge-h",
+          "description": "Height of a pixel edge band (7 rows of 14px).",
+          "source": "src/v5/v5.css:361",
+          "value": "98px"
+        },
+        {
+          "name": "breakpoint.tablet",
+          "type": "dimension",
+          "cssVar": null,
+          "description": "",
+          "source": "src/v5/v5.css:303",
+          "value": "1100px"
+        },
+        {
+          "name": "breakpoint.phone",
+          "type": "dimension",
+          "cssVar": null,
+          "description": "",
+          "source": "src/v5/v5.css:308",
+          "value": "760px"
+        }
+      ],
+      "sources": [
+        {
+          "file": "src/v5/v5.css",
+          "a": 9,
+          "b": 9,
+          "what": "pad, hdr",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L9"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 137,
+          "b": 138,
+          "what": "work grid",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L137-L138"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 303,
+          "b": 326,
+          "what": "breakpoints",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L303-L326"
+        }
+      ]
+    },
+    {
+      "name": "Surfaces",
+      "title": "Surfaces",
+      "summary": "Three paper levels and one night. Surfaces are flat and square: separated by hairlines and by the paper pattern, not by shadows.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Surfaces.md",
+      "guidance": "### Levels\n- **Paper** (`--paper` + pattern): the page and every section.\n- **Paper 2** (`--paper2`): sunken rows, hover fills.\n- **Card** (`--card`): blocks with a `--rule2` border, media backing.\n- **Night** (`--night` + dark pattern): the footer, in both themes.\n\n### Sections rise\nSections after the hero have `position: relative` and paper backgrounds, so they slide over the sticky hero. A paper pixel edge sits on top of the first one.\n\n### A light card on night\nIn the footer the brief is a light card (`.fbrief`) that resets the light-theme roles locally and floats with the only large shadow on the site.",
+      "do": [
+        "Separate with 1px hairlines.",
+        "Keep every corner square."
+      ],
+      "dont": [
+        "Do not use glass panels or gradients behind copy.",
+        "Do not nest cards inside cards."
+      ],
+      "tokens": [
+        {
+          "name": "color.theme.paper",
+          "type": "color",
+          "cssVar": "--paper",
+          "description": "Page ground.",
+          "source": "src/v5/v5.css:17",
+          "value": {
+            "light": "#F4F2EE",
+            "dark": "#0F1020"
+          }
+        },
+        {
+          "name": "color.theme.paper2",
+          "type": "color",
+          "cssVar": "--paper2",
+          "description": "Sunken ground, hover fill.",
+          "source": "src/v5/v5.css:17",
+          "value": {
+            "light": "#ECEAE4",
+            "dark": "#15172B"
+          }
+        },
+        {
+          "name": "color.theme.card",
+          "type": "color",
+          "cssVar": "--card",
+          "description": "Raised surface: cards, blocks, media backing.",
+          "source": "src/v5/v5.css:17",
+          "value": {
+            "light": "#FBFAF7",
+            "dark": "#17192E"
+          }
+        },
+        {
+          "name": "color.theme.rule",
+          "type": "color",
+          "cssVar": "--rule",
+          "description": "Hairline dividers.",
+          "source": "src/v5/v5.css:17",
+          "value": {
+            "light": "rgba(44,20,18,.14)",
+            "dark": "rgba(221,228,255,.12)"
+          }
+        },
+        {
+          "name": "color.theme.rule2",
+          "type": "color",
+          "cssVar": "--rule2",
+          "description": "Control borders, input underlines.",
+          "source": "src/v5/v5.css:17",
+          "value": {
+            "light": "rgba(44,20,18,.3)",
+            "dark": "rgba(221,228,255,.3)"
+          }
+        },
+        {
+          "name": "color.theme.chip",
+          "type": "color",
+          "cssVar": "--chip",
+          "description": "Translucent fill under backdrop blur (nav items, toggle).",
+          "source": "src/v5/v5.css:17",
+          "value": {
+            "light": "rgba(251,250,247,.7)",
+            "dark": "rgba(23,25,46,.7)"
+          }
+        },
+        {
+          "name": "radius.none",
+          "type": "dimension",
+          "cssVar": "--radius",
+          "description": "Everything: buttons, cards, inputs, dropdowns, images.",
+          "source": "src/v5/v5.css:788",
+          "value": "0"
+        },
+        {
+          "name": "radius.pill",
+          "type": "dimension",
+          "cssVar": "--radius-pill",
+          "description": "Theme toggle track only.",
+          "source": "src/v5/v5.css:69",
+          "value": "99px"
+        },
+        {
+          "name": "radius.round",
+          "type": "dimension",
+          "cssVar": "--radius-round",
+          "description": "Toggle knob, menu dots only.",
+          "source": "src/v5/v5.css:73",
+          "value": "50%"
+        },
+        {
+          "name": "border.hairline",
+          "type": "dimension",
+          "cssVar": "--hairline",
+          "description": "Every border and rule.",
+          "source": "src/v5/v5.css:131",
+          "value": "1px"
+        },
+        {
+          "name": "border.stripe",
+          "type": "dimension",
+          "cssVar": "--stripe",
+          "description": "Build-tile bottom stripe, scrubber thumb, brief card top stripe.",
+          "source": "src/v5/v5.css:468",
+          "value": "3px"
+        }
+      ],
+      "sources": [
+        {
+          "file": "src/v5/v5.css",
+          "a": 126,
+          "b": 128,
+          "what": "rise",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L126-L128"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 228,
+          "b": 228,
+          "what": "block",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L228"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 703,
+          "b": 703,
+          "what": "light card on night",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L703"
+        }
+      ]
+    },
+    {
+      "name": "Patterns",
+      "title": "Patterns and grain",
+      "summary": "Five textures make the brand: the paper pattern, the grain, the pixel edge, the hero's chevron field and the heat gradient. Each has one job.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Patterns.md",
+      "guidance": "### Paper pattern (everywhere)\nA 12px cross every 192px plus a 0.9px dot every 24px, ink at low opacity in light, mist in dark. Apply as `background: var(--pattern), var(--paper)`.\n\n### Grain (light theme only)\nA 220px fractal-noise tile in a fixed overlay at opacity .08, shifting in six steps every 1.2s. It is not drawn in the dark theme (black grain is invisible on dark paper). It stops with reduced motion.\n\n### Pixel edge (between areas)\nSquares thinning toward the far edge: 7 rows of 14px cells. See the Pixel edge component.\n\n### Chevron field (hero only)\nRows of 5×5 \">\" and \"<\" glyphs in Royal on Mist, flowing on a noise field; the mark is built from the same cells.\n\n### Heat gradient (footer base only)\nRed → coral → plum → royal, three radial highlights and grain at .55 overlay. It carries the giant wordmark and nothing else.",
+      "do": [
+        "Use each texture only in its place."
+      ],
+      "dont": [
+        "Do not use the heat gradient as a section or button background.",
+        "Do not tile the chevrons as a generic background.",
+        "Do not add blur or noise filters of your own."
+      ],
+      "tokens": [
+        {
+          "name": "pattern.grain",
+          "cssVar": "--grain",
+          "description": "220px fractal-noise tile. Fixed overlay at opacity .08, animated steps(6) 1.2s; not drawn in dark theme.",
+          "source": "src/v5/v5.css:10",
+          "value": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.2 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")"
+        },
+        {
+          "name": "pattern.cross-d",
+          "cssVar": "--cross-d",
+          "description": "12px cross every 192px, ink at 20% (light theme).",
+          "source": "src/v5/v5.css:11",
+          "value": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192'%3E%3Cpath d='M96 90v12M90 96h12' stroke='%232C1412' stroke-opacity='.2' stroke-width='1'/%3E%3C/svg%3E\")"
+        },
+        {
+          "name": "pattern.cross-l",
+          "cssVar": "--cross-l",
+          "description": "12px cross every 192px, mist at 14% (dark theme).",
+          "source": "src/v5/v5.css:12",
+          "value": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192'%3E%3Cpath d='M96 90v12M90 96h12' stroke='%23DDE4FF' stroke-opacity='.14' stroke-width='1'/%3E%3C/svg%3E\")"
+        },
+        {
+          "name": "pattern.paper-light",
+          "cssVar": "--pattern-light",
+          "description": "Cross every 192px plus a 0.9px dot every 24px.",
+          "source": "src/v5/v5.css:13",
+          "value": "var(--cross-d) 0 0/192px 192px,radial-gradient(circle at 1px 1px,rgba(44,20,18,.1) .9px,transparent 1.3px) 0 0/24px 24px"
+        },
+        {
+          "name": "pattern.paper-dark",
+          "cssVar": "--pattern-dark",
+          "description": "",
+          "source": "src/v5/v5.css:14",
+          "value": "var(--cross-l) 0 0/192px 192px,radial-gradient(circle at 1px 1px,rgba(221,228,255,.06) .9px,transparent 1.3px) 0 0/24px 24px"
+        },
+        {
+          "name": "pattern.heat",
+          "cssVar": "--heat",
+          "description": "The heat field: footer base only, under grain at .55 overlay.",
+          "source": "src/v5/v5.css:170-174",
+          "value": "radial-gradient(120% 90% at 0% 100%,#1A3FD8 0%,rgba(45,54,255,.55) 28%,transparent 55%),radial-gradient(80% 70% at 85% 80%,#5A0C12 0%,rgba(140,20,20,.6) 35%,transparent 70%),radial-gradient(90% 80% at 60% 20%,#FF7A70 0%,rgba(255,94,85,.6) 30%,transparent 65%),linear-gradient(160deg,#E42114 0%,#FF5E55 40%,#9C2B5A 70%,#2D36FF 100%)"
+        },
+        {
+          "name": "pattern.pixel-edge",
+          "cssVar": null,
+          "description": "Squares thinning toward the far edge. A cell is drawn when hash(x/3,y)*.45+hash(x,y)*.55 < ((y+1)/rows)^2*1.05.",
+          "source": "src/v5/pixelart.js:16-25",
+          "value": "{\"cell\":\"14px\",\"cellPhone\":\"10px\",\"rows\":7,\"seed\":3}"
+        }
+      ],
+      "sources": [
+        {
+          "file": "src/v5/v5.css",
+          "a": 10,
+          "b": 14,
+          "what": "pattern and grain",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L10-L14"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 23,
+          "b": 28,
+          "what": "grain overlay",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L23-L28"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 169,
+          "b": 175,
+          "what": "heat",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L169-L175"
+        },
+        {
+          "file": "src/v5/pixelhero.js",
+          "a": 1,
+          "b": 80,
+          "what": "chevron field",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelhero.js#L1-L80"
+        }
+      ]
+    },
+    {
+      "name": "Elevation",
+      "title": "Elevation",
+      "summary": "The site is flat. There are exactly four shadows, each for one object, and two backdrop blurs. There is no elevation scale.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Elevation.md",
+      "guidance": "| Token | Value | Only on |\n| --- | --- | --- |\n| `shadow.knob` | `0 2px 8px rgba(0,0,0,.18)` | Theme toggle knob (hover: `0 2px 14px rgba(0,0,0,.25)`) |\n| `shadow.chip` | `0 1px 0 rgba(0,0,0,.08)` | Logo chip on project media |\n| `shadow.card` | `0 30px 70px -30px rgba(0,0,0,.6)` | The light brief card on the dark footer |\n| `shadow.popover` | `0 18px 40px -18px rgba(11,10,20,.35)` | Country list of the phone field |\n\nBackdrop blur: 8px under navigation items, 10px under the theme toggle, always on the translucent `--chip` fill.",
+      "do": [
+        "Show depth with surface colour and hairlines."
+      ],
+      "dont": [
+        "Do not add shadows to cards, buttons or images.",
+        "Do not invent a level 1–5 scale."
+      ],
+      "tokens": [
+        {
+          "name": "shadow.knob",
+          "type": "shadow",
+          "cssVar": "--shadow-knob",
+          "description": "",
+          "source": "src/v5/v5.css:73",
+          "value": "0 2px 8px rgba(0,0,0,.18)"
+        },
+        {
+          "name": "shadow.knob-hover",
+          "type": "shadow",
+          "cssVar": "--shadow-knob-hover",
+          "description": "",
+          "source": "src/v5/v5.css:79",
+          "value": "0 2px 14px rgba(0,0,0,.25)"
+        },
+        {
+          "name": "shadow.chip",
+          "type": "shadow",
+          "cssVar": "--shadow-chip",
+          "description": "",
+          "source": "src/v5/v5.css:591",
+          "value": "0 1px 0 rgba(0,0,0,.08)"
+        },
+        {
+          "name": "shadow.card",
+          "type": "shadow",
+          "cssVar": "--shadow-card",
+          "description": "A light card floating on the dark footer.",
+          "source": "src/v5/v5.css:703",
+          "value": "0 30px 70px -30px rgba(0,0,0,.6)"
+        },
+        {
+          "name": "shadow.popover",
+          "type": "shadow",
+          "cssVar": "--shadow-popover",
+          "description": "Dropdown lists (country picker).",
+          "source": "src/v5/v5.css:792",
+          "value": "0 18px 40px -18px rgba(11,10,20,.35)"
+        },
+        {
+          "name": "blur.nav",
+          "type": "dimension",
+          "cssVar": "--blur-nav",
+          "description": "backdrop-filter on nav items.",
+          "source": "src/v5/v5.css:336",
+          "value": "8px"
+        },
+        {
+          "name": "blur.toggle",
+          "type": "dimension",
+          "cssVar": "--blur-toggle",
+          "description": "",
+          "source": "src/v5/v5.css:69",
+          "value": "10px"
+        }
+      ],
+      "sources": [
+        {
+          "file": "src/v5/v5.css",
+          "a": 73,
+          "b": 79,
+          "what": "knob",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L73-L79"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 591,
+          "b": 591,
+          "what": "chip",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L591"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 703,
+          "b": 703,
+          "what": "card",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L703"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 792,
+          "b": 792,
+          "what": "popover",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L792"
+        }
+      ]
+    },
+    {
+      "name": "Motion",
+      "title": "Motion",
+      "summary": "One easing for almost everything, short colour changes, small nudges. The hero is the only thing that always moves.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Motion.md",
+      "guidance": "### Easing\n- **Standard** `cubic-bezier(.2,.8,.2,1)`: every transform and reveal.\n- **Toggle** `cubic-bezier(.65,0,.25,1)`: the theme knob's travel.\n- **Overshoot** `cubic-bezier(.34,1.56,.64,1)`: only the red arrow landing in the footer mark.\n\n### Durations\nHover colours .2–.25s; header and nav .35s; theme crossfade .6s; reveal .9s (opacity) / 1s (rise); media zoom 1.4s.\n\n### The vocabulary\n- **Chevron nudge**: the \">\" moves 5px right on button hover (4px on text links).\n- **Reveal**: blocks rise 22px and fade in once, staggered 80ms in threes.\n- **Media**: card video scales 1.02 → 1.07 and saturates .82 → 1 on hover.\n- **Nav unfold**: links appear from the bottom, 45ms apart.\n- **Mark assembly**: the six arrows fly in to the footer mark; the red one last, with overshoot.\n- **Track drift**: 34px/s, slower on hover.\n\n### Reduced motion\nWith `prefers-reduced-motion: reduce`: the grain stops, smooth scrolling is off, the track drifts at 18px/s, the hero runs at half speed and settles sooner.",
+      "do": [
+        "Animate opacity and transform only.",
+        "Pause anything that loops when it is off screen."
+      ],
+      "dont": [
+        "Do not add bounce except the red arrow.",
+        "Do not animate text letter by letter or scramble it.",
+        "Do not add a second always-moving scene."
+      ],
+      "tokens": [
+        {
+          "name": "motion.easing.standard",
+          "type": "cubicBezier",
+          "cssVar": "--ease",
+          "description": "Default for every movement.",
+          "source": "src/v5/v5.css:9",
+          "value": "cubic-bezier(.2,.8,.2,1)"
+        },
+        {
+          "name": "motion.easing.toggle",
+          "type": "cubicBezier",
+          "cssVar": "--ease-toggle",
+          "description": "Theme toggle knob travel and icon turn.",
+          "source": "src/v5/v5.css:73",
+          "value": "cubic-bezier(.65,0,.25,1)"
+        },
+        {
+          "name": "motion.easing.overshoot",
+          "type": "cubicBezier",
+          "cssVar": "--ease-overshoot",
+          "description": "Only the red arrow landing in the footer mark animation.",
+          "source": "src/v5/main.js:216",
+          "value": "cubic-bezier(.34,1.56,.64,1)"
+        },
+        {
+          "name": "motion.duration.fast",
+          "type": "duration",
+          "cssVar": "--dur-fast",
+          "description": "Colour and background changes on hover (.2s).",
+          "source": "src/v5/v5.css:232",
+          "value": "200ms"
+        },
+        {
+          "name": "motion.duration.base",
+          "type": "duration",
+          "cssVar": "--dur-base",
+          "description": "Button background, chevron nudge (.25s).",
+          "source": "src/v5/v5.css:47",
+          "value": "250ms"
+        },
+        {
+          "name": "motion.duration.slow",
+          "type": "duration",
+          "cssVar": "--dur-slow",
+          "description": "Header colour, nav fold (.35s).",
+          "source": "src/v5/v5.css:58",
+          "value": "350ms"
+        },
+        {
+          "name": "motion.duration.theme",
+          "type": "duration",
+          "cssVar": "--dur-theme",
+          "description": "Theme crossfade and knob travel (.6s).",
+          "source": "src/v5/v5.css:19",
+          "value": "600ms"
+        },
+        {
+          "name": "motion.duration.reveal",
+          "type": "duration",
+          "cssVar": "--dur-reveal",
+          "description": "Scroll reveal opacity (.9s); transform runs 1s.",
+          "source": "src/v5/v5.css:299",
+          "value": "900ms"
+        },
+        {
+          "name": "motion.duration.media",
+          "type": "duration",
+          "cssVar": "--dur-media",
+          "description": "Card video zoom on hover (1.4s).",
+          "source": "src/v5/v5.css:141",
+          "value": "1400ms"
+        },
+        {
+          "name": "motion.distance.nudge",
+          "type": "dimension",
+          "cssVar": "--nudge",
+          "description": "Chevron moves right on button hover (4px on text links).",
+          "source": "src/v5/v5.css:50",
+          "value": "5px"
+        },
+        {
+          "name": "motion.distance.reveal",
+          "type": "dimension",
+          "cssVar": "--reveal-y",
+          "description": "Reveal rises from 22px below.",
+          "source": "src/v5/v5.css:299",
+          "value": "22px"
+        }
+      ],
+      "sources": [
+        {
+          "file": "src/v5/v5.css",
+          "a": 9,
+          "b": 9,
+          "what": "ease",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L9"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 298,
+          "b": 300,
+          "what": "reveal",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L298-L300"
+        },
+        {
+          "file": "src/v5/main.js",
+          "a": 203,
+          "b": 226,
+          "what": "mark and reveal",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L203-L226"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 327,
+          "b": 330,
+          "what": "reduced motion",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L327-L330"
+        }
+      ]
+    },
+    {
+      "name": "Iconography",
+      "title": "Iconography",
+      "summary": "The site has almost no icons. Its arrow is the mono \">\" chevron; the only drawn icons are the sun and moon of the theme toggle. A full icon set has not been chosen yet.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Iconography.md",
+      "guidance": "### What exists\n- **Chevrons**: `>` and `<` set in JetBrains Mono, red on paper and coral on night. They point, bracket labels (\"> Work <\") and nudge on hover.\n- **Pixel chevrons**: the 5×5 glyphs of the hero field (`brand/pixel/svg/chevron-right.svg`, `chevron-left.svg`).\n- **Sun and moon**: 24×24 viewBox, 1.6 stroke, round caps, `currentColor`. Only in the theme toggle.\n- **Menu dots**: four 4px dots that morph into an X.\n- **Disclosure triangle**: ▸ in the \"Submit brief\" pill, rotating 90° when open.\n- **Flags**: from intl-tel-input, in the phone field only.\n\nSee the [icon gallery](doc:Icons) to copy them.\n\n### Gap\n`[PLACEHOLDER: icon set to be supplied by Vimaksh]`. Until it arrives, use a chevron or a word instead of an icon. Do not import a general icon library.",
+      "do": [
+        "Prefer a word to an icon.",
+        "Use the mono chevron for direction."
+      ],
+      "dont": [
+        "Do not mix in an outside icon set.",
+        "Do not use emoji as icons."
+      ],
+      "tokens": [],
+      "sources": [
+        {
+          "file": "tools/v5pages.py",
+          "a": 47,
+          "b": 54,
+          "what": "sun and moon",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L47-L54"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 344,
+          "b": 349,
+          "what": "menu dots",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L344-L349"
+        },
+        {
+          "file": "src/v5/pixelhero.js",
+          "a": 23,
+          "b": 28,
+          "what": "pixel chevrons",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelhero.js#L23-L28"
+        }
+      ]
+    },
+    {
+      "name": "Imagery",
+      "title": "Imagery",
+      "summary": "Real product footage in square frames, the products' own logos on paper chips, and pixel illustrations drawn on a grid. No stock photography.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Imagery.md",
+      "guidance": "### Product media\nShort muted loops recorded from the real product, with a poster frame, at 4:5 (4:3 on phones). Saturation .82 at rest, 1 on hover; a light darkening veil and grain on top. Play only while on screen.\n\n### Product logos\nThe product's own logo, unchanged, on an off-white chip at the top left of its media.\n\n### Pixel illustrations\nDrawn square by square on a small grid (48×36 for tiles, 84×64 for the desk) and scaled up with `image-rendering: pixelated`. Each What we build tile uses its kind colour. Grab them from Pixel motifs or draw new ones with `pixel/pixelsaas.js`.\n\n### Honesty\n`[PLACEHOLDER: …]` marks missing media. Do not fill a gap with stock photos, AI images of real software or people, mock laptops or fake dashboards.",
+      "do": [
+        "Use real captures with enough framing to understand them.",
+        "Keep pixel art crisp (nearest-neighbour scaling)."
+      ],
+      "dont": [
+        "Do not round images or add shadows.",
+        "Do not tint product footage to brand colours.",
+        "Do not use stock photos or generated \"team\" pictures."
+      ],
+      "tokens": [],
+      "sources": [
+        {
+          "file": "src/v5/v5.css",
+          "a": 140,
+          "b": 144,
+          "what": "media",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L140-L144"
+        },
+        {
+          "file": "src/v5/pixelsaas.js",
+          "a": 1,
+          "b": 40,
+          "what": "pixel tiles",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelsaas.js#L1-L40"
+        },
+        {
+          "file": "DESIGN.md",
+          "a": 469,
+          "b": 501,
+          "what": "imagery rules (DESIGN.md)",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L469-L501"
+        }
+      ]
+    },
+    {
+      "name": "Voice",
+      "title": "Voice and content",
+      "summary": "Short declarative sentences, concrete nouns, active verbs. Curious and exacting without sounding severe. Never invent a fact: mark the gap.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Voice.md",
+      "guidance": "### How Vimaksh writes\n- Short declarative sentences. Concrete nouns and active verbs.\n- \"We\" for the studio; the real product name for the work.\n- Sentence case for headings, labels, buttons and navigation (CSS uppercases the mono ones).\n- One idea per sentence. Plain words: \"use\", not \"leverage\".\n- \"Boil the Ocean.\" is the one expansive idiom. Do not surround it with puns.\n\n### Examples from the site\n- Hero: \"We turn <what if?> into products, platforms and experiments you can actually use.\"\n- Section: \"Things we've built, and are building.\"\n- Footer: \"Come build what should exist.\"\n- Buttons: \"Explore our work\", \"Start a project\", \"Send brief\", \"Visit paryatech.in\".\n- Errors: \"This number is too short for the country you chose.\"\n\n### Banned\n- **Metaphors**: anchors, ships, nautical badges, thermometers, bubbles behind body copy, invented depth readings, wave puns, generic transformation claims.\n- **Adjectives** unless evidenced: award-winning, leading, global, multidisciplinary, full-service.\n- **Invented facts**: results, metrics, years of experience, client counts, client names, team names or photos, availability promises.\n\n### The placeholder convention\n`[PLACEHOLDER: …]` always means missing editorial content or an asset, never a fact. Keep it visible in review builds. An unresolved placeholder blocks publication of its component: replace it with confirmed content or remove the component. Never silently replace it with something plausible.\n\n### Open conflicts (live site vs DESIGN.md)\nThe live site is the source of truth for the look. Four pieces of live copy conflict with DESIGN.md's content rules and are waiting for a decision:\n1. \"We read every brief and reply within two working days\" (a response-time promise).\n2. Project cards are numbered 01–06.\n3. The footer shows a live clock and a full street address.\n4. \"Custom software, and nothing else\" next to the earlier \"independent experiments\" framing.\n\n`[PLACEHOLDER: Vimaksh to decide which rule wins for each]`. Until then, do not copy these four into new work.",
+      "do": [
+        "Say what something does in one sentence.",
+        "Use the product's real status and real links."
+      ],
+      "dont": [
+        "Do not pad pages with testimonials, logo walls, statistics or FAQs made from nothing.",
+        "Do not write in capitals."
+      ],
+      "tokens": [],
+      "sources": [
+        {
+          "file": "DESIGN.md",
+          "a": 24,
+          "b": 26,
+          "what": "placeholder rule",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L24-L26"
+        },
+        {
+          "file": "DESIGN.md",
+          "a": 88,
+          "b": 92,
+          "what": "copy voice",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L88-L92"
+        },
+        {
+          "file": "DESIGN.md",
+          "a": 11,
+          "b": 11,
+          "what": "banned metaphors",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L11"
+        },
+        {
+          "file": "tools/v5pages.py",
+          "a": 193,
+          "b": 242,
+          "what": "live copy",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L193-L242"
+        }
+      ]
+    },
+    {
+      "name": "Accessibility",
+      "title": "Accessibility",
+      "summary": "Target WCAG 2.2 AA. Real DOM before scripts, a skip link, visible focus, labelled controls, live regions for errors, and motion that respects reduced motion. Two known contrast issues are listed below.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Accessibility.md",
+      "guidance": "### What every page has\n- A skip link to `<main id=\"main\">`, one H1, H2 per section with `aria-labelledby`.\n- Focus: `:focus-visible { outline: 2px solid var(--electric); outline-offset: 3px }`.\n- Decorative graphics (chevrons, pixel edges, giant wordmark) are `aria-hidden`; the hero canvas and pixel illustrations have `role=\"img\"` and a description.\n- Buttons for actions, links for navigation; external links say \"(opens in a new tab)\" in hidden text.\n- Form errors in `aria-live` regions inside the label; the first invalid field is focused on submit.\n- Everything readable without JavaScript, canvas or animation.\n\n### Contrast, measured\nThe table above is computed from the tokens. Two pairs fail:\n- **Focus ring on dark paper** (Electric on `#0F1020`) is about 2.35:1, under the 3:1 needed for focus indicators. `[PLACEHOLDER: fix approved by Vimaksh, for example the coral or glow focus colour in the dark theme]`.\n- **Red text on paper** (4.15:1 light, 4.06:1 dark) is under 4.5:1 for small text. On the site it is used for decorative chevrons and short error lines; do not use it for body text.\n\n### Motion\nHonour `prefers-reduced-motion` (see Motion). Nothing requires an animation to finish before it can be read.\n\n### Touch\nControls are at least 40px high on phones (nav items, pills, the toggle 36px). Keep new targets at 44px.",
+      "do": [
+        "Test in both themes, with the keyboard, and at 200% zoom."
+      ],
+      "dont": [
+        "Do not convey state by colour alone.",
+        "Do not remove the focus outline."
+      ],
+      "tokens": [],
+      "sources": [
+        {
+          "file": "src/v5/v5.css",
+          "a": 32,
+          "b": 35,
+          "what": "focus, skip, sr",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L32-L35"
+        },
+        {
+          "file": "DESIGN.md",
+          "a": 447,
+          "b": 456,
+          "what": "accessibility rules (DESIGN.md)",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L447-L456"
+        }
+      ]
+    }
+  ],
+  "contrast": [
+    {
+      "pair": "Ink on paper",
+      "theme": "light",
+      "fg": "#2C1412",
+      "bg": "#F4F2EE",
+      "need": 4.5,
+      "ratio": 15.45
+    },
+    {
+      "pair": "Ink on paper",
+      "theme": "dark",
+      "fg": "#E6E8FA",
+      "bg": "#0F1020",
+      "need": 4.5,
+      "ratio": 15.5
+    },
+    {
+      "pair": "Strong on paper",
+      "theme": "light",
+      "fg": "#0B0A14",
+      "bg": "#F4F2EE",
+      "need": 4.5,
+      "ratio": 17.59
+    },
+    {
+      "pair": "Strong on paper",
+      "theme": "dark",
+      "fg": "#F4F5FF",
+      "bg": "#0F1020",
+      "need": 4.5,
+      "ratio": 17.35
+    },
+    {
+      "pair": "Soft on paper",
+      "theme": "light",
+      "fg": "#6B5B5E",
+      "bg": "#F4F2EE",
+      "need": 4.5,
+      "ratio": 5.72
+    },
+    {
+      "pair": "Soft on paper",
+      "theme": "dark",
+      "fg": "#9AA0C8",
+      "bg": "#0F1020",
+      "need": 4.5,
+      "ratio": 7.38
+    },
+    {
+      "pair": "Soft on card",
+      "theme": "light",
+      "fg": "#6B5B5E",
+      "bg": "#FBFAF7",
+      "need": 4.5,
+      "ratio": 6.13
+    },
+    {
+      "pair": "Soft on card",
+      "theme": "dark",
+      "fg": "#9AA0C8",
+      "bg": "#17192E",
+      "need": 4.5,
+      "ratio": 6.78
+    },
+    {
+      "pair": "White label on red button",
+      "theme": "both",
+      "fg": "#FFFFFF",
+      "bg": "#E42114",
+      "need": 4.5,
+      "ratio": 4.64
+    },
+    {
+      "pair": "Red text on paper",
+      "theme": "light",
+      "fg": "#E42114",
+      "bg": "#F4F2EE",
+      "need": 4.5,
+      "ratio": 4.15
+    },
+    {
+      "pair": "Red text on paper",
+      "theme": "dark",
+      "fg": "#E42114",
+      "bg": "#0F1020",
+      "need": 4.5,
+      "ratio": 4.06
+    },
+    {
+      "pair": "Focus ring (Electric) on paper",
+      "theme": "light",
+      "fg": "#1A18FF",
+      "bg": "#F4F2EE",
+      "need": 3,
+      "ratio": 7.17
+    },
+    {
+      "pair": "Focus ring (Electric) on paper",
+      "theme": "dark",
+      "fg": "#1A18FF",
+      "bg": "#0F1020",
+      "need": 3,
+      "ratio": 2.35
+    },
+    {
+      "pair": "Footer text on night",
+      "theme": "both",
+      "fg": "#ECEEFF",
+      "bg": "#0D0E1C",
+      "need": 4.5,
+      "ratio": 16.63
+    },
+    {
+      "pair": "Footer label on night",
+      "theme": "both",
+      "fg": "#9aa0c8",
+      "bg": "#0D0E1C",
+      "need": 4.5,
+      "ratio": 7.51
+    },
+    {
+      "pair": "Footer key on night",
+      "theme": "both",
+      "fg": "#7b81aa",
+      "bg": "#0D0E1C",
+      "need": 4.5,
+      "ratio": 5.07
+    },
+    {
+      "pair": "Coral on night",
+      "theme": "both",
+      "fg": "#FF5E55",
+      "bg": "#0D0E1C",
+      "need": 3,
+      "ratio": 6.37
+    }
+  ]
+}

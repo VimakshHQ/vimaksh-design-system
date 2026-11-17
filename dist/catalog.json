@@ -1,0 +1,399 @@
+{
+  "name": "Vimaksh design system",
+  "version": "0.1.0",
+  "base": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/",
+  "source": {
+    "live": "https://work.vimaksh.in",
+    "repo": "yakosasam797/vimakshwebsite-identity-final@8df1553"
+  },
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "entry": {
+    "css": "vimaksh.css",
+    "js": "vimaksh.js",
+    "phone": "vimaksh-phone.js",
+    "hero": "pixel-hero.js",
+    "tokens": "tokens.json",
+    "tailwind3": "tailwind-preset.cjs",
+    "tailwind4": "tailwind.css",
+    "agents": "agents.md",
+    "prompt": "prompt.txt",
+    "llms": "llms.txt",
+    "llmsFull": "llms-full.txt"
+  },
+  "pages": [
+    {
+      "name": "GettingStarted",
+      "title": "Getting started",
+      "kind": "guide",
+      "group": "Start",
+      "summary": "Put the Vimaksh look into a project: one CSS file, two fonts, one script, the wordmark. Or the tokens with Tailwind.",
+      "markdown": "docs/GettingStarted.md"
+    },
+    {
+      "name": "Agents",
+      "title": "For agents",
+      "kind": "guide",
+      "group": "Start",
+      "summary": "The Copy brand identity prompt, agents.md and every machine-readable file, with their stable URLs.",
+      "markdown": "docs/Agents.md"
+    },
+    {
+      "name": "Color",
+      "title": "Color",
+      "kind": "foundation",
+      "group": "Foundations",
+      "summary": "Paper and ink, one red for action, and a dark night for the footer. Every role has a light and a dark value; the brand colours do not change with the theme.",
+      "markdown": "docs/Color.md"
+    },
+    {
+      "name": "Typography",
+      "title": "Typography",
+      "kind": "foundation",
+      "group": "Foundations",
+      "summary": "Inter Tight for everything that is read, set large, at weight 500 with tight negative tracking. JetBrains Mono 500, small and uppercase, for labels, navigation and buttons.",
+      "markdown": "docs/Typography.md"
+    },
+    {
+      "name": "SpacingLayout",
+      "title": "Spacing and layout",
+      "kind": "foundation",
+      "group": "Foundations",
+      "summary": "Full-width pages with one fluid gutter, generous fluid section padding, a 14px gap between cards, and two max-width breakpoints. The values below are the ones the site uses, named.",
+      "markdown": "docs/SpacingLayout.md"
+    },
+    {
+      "name": "Surfaces",
+      "title": "Surfaces",
+      "kind": "foundation",
+      "group": "Foundations",
+      "summary": "Three paper levels and one night. Surfaces are flat and square: separated by hairlines and by the paper pattern, not by shadows.",
+      "markdown": "docs/Surfaces.md"
+    },
+    {
+      "name": "Patterns",
+      "title": "Patterns and grain",
+      "kind": "foundation",
+      "group": "Foundations",
+      "summary": "Five textures make the brand: the paper pattern, the grain, the pixel edge, the hero's chevron field and the heat gradient. Each has one job.",
+      "markdown": "docs/Patterns.md"
+    },
+    {
+      "name": "Elevation",
+      "title": "Elevation",
+      "kind": "foundation",
+      "group": "Foundations",
+      "summary": "The site is flat. There are exactly four shadows, each for one object, and two backdrop blurs. There is no elevation scale.",
+      "markdown": "docs/Elevation.md"
+    },
+    {
+      "name": "Motion",
+      "title": "Motion",
+      "kind": "foundation",
+      "group": "Foundations",
+      "summary": "One easing for almost everything, short colour changes, small nudges. The hero is the only thing that always moves.",
+      "markdown": "docs/Motion.md"
+    },
+    {
+      "name": "Iconography",
+      "title": "Iconography",
+      "kind": "foundation",
+      "group": "Foundations",
+      "summary": "The site has almost no icons. Its arrow is the mono \">\" chevron; the only drawn icons are the sun and moon of the theme toggle. A full icon set has not been chosen yet.",
+      "markdown": "docs/Iconography.md"
+    },
+    {
+      "name": "Imagery",
+      "title": "Imagery",
+      "kind": "foundation",
+      "group": "Foundations",
+      "summary": "Real product footage in square frames, the products' own logos on paper chips, and pixel illustrations drawn on a grid. No stock photography.",
+      "markdown": "docs/Imagery.md"
+    },
+    {
+      "name": "Voice",
+      "title": "Voice and content",
+      "kind": "foundation",
+      "group": "Foundations",
+      "summary": "Short declarative sentences, concrete nouns, active verbs. Curious and exacting without sounding severe. Never invent a fact: mark the gap.",
+      "markdown": "docs/Voice.md"
+    },
+    {
+      "name": "Accessibility",
+      "title": "Accessibility",
+      "kind": "foundation",
+      "group": "Foundations",
+      "summary": "Target WCAG 2.2 AA. Real DOM before scripts, a skip link, visible focus, labelled controls, live regions for errors, and motion that respects reduced motion. Two known contrast issues are listed below.",
+      "markdown": "docs/Accessibility.md"
+    },
+    {
+      "name": "Header",
+      "title": "Header",
+      "kind": "component",
+      "group": "Navigation",
+      "summary": "The wordmark at top left and the theme toggle at top right. Transparent at the top of the page; once you scroll it gets its own paper backing, hides while you read down and returns when you scroll up.",
+      "markdown": "docs/Header.md"
+    },
+    {
+      "name": "ThemeToggle",
+      "title": "Theme toggle",
+      "kind": "component",
+      "group": "Navigation",
+      "summary": "A pill whose knob slides between sun and moon; the icon turns as it travels. The choice is saved in localStorage under \"vimaksh-theme\" and applied before first paint on every page.",
+      "markdown": "docs/ThemeToggle.md"
+    },
+    {
+      "name": "NavigationStack",
+      "title": "Navigation stack",
+      "kind": "component",
+      "group": "Navigation",
+      "summary": "The site's only navigation: a stack of boxed mono links fixed at the bottom right, ending in a solid Menu box. On the home hero all links show; once you scroll (and on every other page, and on phones) it folds to the Menu box, which unfolds the links again.",
+      "markdown": "docs/NavigationStack.md"
+    },
+    {
+      "name": "Button",
+      "title": "Button",
+      "kind": "component",
+      "group": "Actions",
+      "summary": "Square buttons with a mono uppercase label and a \">\" chevron that nudges 5px right on hover. Primary is red; ghost has a hairline border. Both turn solid strong on hover.",
+      "markdown": "docs/Button.md"
+    },
+    {
+      "name": "TextLink",
+      "title": "Text link",
+      "kind": "component",
+      "group": "Actions",
+      "summary": "A mono link with an underline in the text colour and a red chevron that nudges 4px on hover. Used for the secondary action of a section header.",
+      "markdown": "docs/TextLink.md"
+    },
+    {
+      "name": "Pill",
+      "title": "Pill",
+      "kind": "component",
+      "group": "Actions",
+      "summary": "A small square mono chip that copies a value (an email, coordinates) or labels an expandable row. Hover fills it with strong. It is the site's chip; there is no separate tag component.",
+      "markdown": "docs/Pill.md"
+    },
+    {
+      "name": "CopyTooltip",
+      "title": "Copy tooltip",
+      "kind": "component",
+      "group": "Feedback",
+      "summary": "A tiny strong label that follows the pointer over anything with data-copy: \"Copy\", then \"Copied ✓\" (or \"Copy failed\") for 1.3s after a click.",
+      "markdown": "docs/CopyTooltip.md"
+    },
+    {
+      "name": "SectionHeader",
+      "title": "Section header",
+      "kind": "component",
+      "group": "Layout",
+      "summary": "A top hairline, a \"> Label\" in mono, a large heading and an optional action on the right. It opens every content section.",
+      "markdown": "docs/SectionHeader.md"
+    },
+    {
+      "name": "ProjectCard",
+      "title": "Project card",
+      "kind": "component",
+      "group": "Content",
+      "summary": "A product in the work grid: 4:5 video (4:3 on phones) with a number and the product's own logo on a paper chip, then title and mono kind, a one-line description, and a full-width visit bar.",
+      "markdown": "docs/ProjectCard.md"
+    },
+    {
+      "name": "LogoChip",
+      "title": "Logo chip",
+      "kind": "component",
+      "group": "Content",
+      "summary": "A product's own logo on an off-white chip in the top-left corner of a project card. Three forms: a full logo, an icon with the name, or the name alone.",
+      "markdown": "docs/LogoChip.md"
+    },
+    {
+      "name": "BuildTrack",
+      "title": "Build card and track",
+      "kind": "component",
+      "group": "Content",
+      "summary": "The \"What we build\" row: cards with a pixel tile in the item's own colour, a numbered tag, a square bullet and a short description, on a track that drifts sideways on its own and pauses on hover, touch or focus.",
+      "markdown": "docs/BuildTrack.md"
+    },
+    {
+      "name": "AboutBlock",
+      "title": "About block",
+      "kind": "component",
+      "group": "Content",
+      "summary": "A short statement section: a compact pixel illustration on the left and one large paragraph (t-big) on the right, centred on one line.",
+      "markdown": "docs/AboutBlock.md"
+    },
+    {
+      "name": "Hero",
+      "title": "Hero",
+      "kind": "component",
+      "group": "Layout",
+      "summary": "The home opening: a living pixel surface (WebGL) where a field of tiny \">\" and \"<\" glyphs flows across paper and the Vimaksh mark assembles from the same pixels. Copy sits top left, a mono meta line bottom left. The page rises over it as you scroll.",
+      "markdown": "docs/Hero.md"
+    },
+    {
+      "name": "ContactBlock",
+      "title": "Contact block",
+      "kind": "component",
+      "group": "Forms",
+      "summary": "Bordered card blocks made of rows: a red \"Start a project\" row that drops open the brief form, plain rows with copy pills, and a split block for the studio address and coordinates.",
+      "markdown": "docs/ContactBlock.md"
+    },
+    {
+      "name": "BriefForm",
+      "title": "Brief form",
+      "kind": "component",
+      "group": "Forms",
+      "summary": "The project brief: name, email, phone, company (optional) and a message. Fields are underlines with mono labels; email and phone are checked as you type and explained when you leave the field. It posts JSON to the form's action (the site uses /api/brief) and shows an honest result.",
+      "markdown": "docs/BriefForm.md"
+    },
+    {
+      "name": "Inputs",
+      "title": "Inputs and validation",
+      "kind": "component",
+      "group": "Forms",
+      "summary": "Text fields are a single underline: --rule2 at rest, red on focus and when invalid. Errors are short mono lines under the field. The send button shows \"Sending…\", then \"Sent\" in green, or the error note in red with the email as a fallback.",
+      "markdown": "docs/Inputs.md"
+    },
+    {
+      "name": "PhoneField",
+      "title": "Phone field",
+      "kind": "component",
+      "group": "Forms",
+      "summary": "intl-tel-input 29.5.11, themed to the site: a flag and +code in mono with a small red chevron, a square searchable country list on --card, India preselected and a short list of common countries first. Only valid digits can be typed.",
+      "markdown": "docs/PhoneField.md"
+    },
+    {
+      "name": "Footer",
+      "title": "Footer",
+      "kind": "component",
+      "group": "Layout",
+      "summary": "Always dark (night) in both themes. A pixel edge breaks its top, the mark flies in, a large statement sits beside the brief card, four columns of facts follow, and a heat-gradient base carries the giant white wordmark.",
+      "markdown": "docs/Footer.md"
+    },
+    {
+      "name": "PixelEdge",
+      "title": "Pixel edge",
+      "kind": "component",
+      "group": "Layout",
+      "summary": "A band of squares, 7 rows of 14px cells (10px on phones), that thins toward the far edge. It joins one area to the next instead of a straight line: the hero to the work section, the page to the footer.",
+      "markdown": "docs/PixelEdge.md"
+    },
+    {
+      "name": "LegalPage",
+      "title": "Legal page",
+      "kind": "component",
+      "group": "Layout",
+      "summary": "A single readable column (max 760px) for terms, privacy and cookies: a mono label, a t-hero title at a smaller size, the update date in mono, and 16px/1.6 body with 22px section headings.",
+      "markdown": "docs/LegalPage.md"
+    },
+    {
+      "name": "SkipLink",
+      "title": "Skip link",
+      "kind": "component",
+      "group": "Navigation",
+      "summary": "The first element on every page: \"Skip to content\", off screen until it receives focus, then a strong box at top left.",
+      "markdown": "docs/SkipLink.md"
+    },
+    {
+      "name": "Brand",
+      "title": "Brand",
+      "kind": "brand",
+      "group": "Brand",
+      "summary": "The six-arrow mark (five coral, one red), the Vimaksh wordmark, and the 3D logo sculpture. Use the files as they are, in the colours the site uses them in.",
+      "markdown": "docs/Brand.md"
+    },
+    {
+      "name": "PixelMotifs",
+      "title": "Pixel motifs",
+      "kind": "brand",
+      "group": "Brand",
+      "summary": "The pixel graphics of the site, drawn by its own code: one tile per kind of software, the studio desk, pixel edges and the hero's chevron glyphs. PNG, SVG, or draw them live.",
+      "markdown": "docs/PixelMotifs.md"
+    },
+    {
+      "name": "Icons",
+      "title": "Icons",
+      "kind": "brand",
+      "group": "Brand",
+      "summary": "Every icon the site uses, ready to copy. The full icon set is still to come.",
+      "markdown": "docs/Icons.md"
+    },
+    {
+      "name": "Downloads",
+      "title": "Downloads",
+      "kind": "brand",
+      "group": "Brand",
+      "summary": "Logos, pixel motifs, fonts and the 3D logo, as single files or ZIP packs, each with a SHA-256 hash.",
+      "markdown": "docs/Downloads.md"
+    }
+  ],
+  "files": [
+    "agents.md",
+    "api/tokens.json",
+    "chunk-75GK2KP2.js",
+    "chunk-G2DLDKEG.js",
+    "docs/AboutBlock.md",
+    "docs/Accessibility.md",
+    "docs/Agents.md",
+    "docs/Brand.md",
+    "docs/BriefForm.md",
+    "docs/BuildTrack.md",
+    "docs/Button.md",
+    "docs/Color.md",
+    "docs/ContactBlock.md",
+    "docs/CopyTooltip.md",
+    "docs/Downloads.md",
+    "docs/Elevation.md",
+    "docs/Footer.md",
+    "docs/GettingStarted.md",
+    "docs/Header.md",
+    "docs/Hero.md",
+    "docs/Iconography.md",
+    "docs/Icons.md",
+    "docs/Imagery.md",
+    "docs/Inputs.md",
+    "docs/LegalPage.md",
+    "docs/LogoChip.md",
+    "docs/Motion.md",
+    "docs/NavigationStack.md",
+    "docs/Patterns.md",
+    "docs/PhoneField.md",
+    "docs/Pill.md",
+    "docs/PixelEdge.md",
+    "docs/PixelMotifs.md",
+    "docs/ProjectCard.md",
+    "docs/SectionHeader.md",
+    "docs/SkipLink.md",
+    "docs/SpacingLayout.md",
+    "docs/Surfaces.md",
+    "docs/TextLink.md",
+    "docs/ThemeToggle.md",
+    "docs/Typography.md",
+    "docs/Voice.md",
+    "fonts/InterTight-OFL.txt",
+    "fonts/JetBrainsMono-OFL.txt",
+    "fonts/inter-tight.woff2",
+    "fonts/jetbrains-mono-500.woff2",
+    "llms-full.txt",
+    "llms.txt",
+    "pixel-hero.js",
+    "pixel/pixelart.js",
+    "pixel/pixelsaas.js",
+    "prompt.txt",
+    "tailwind-preset.cjs",
+    "tailwind.css",
+    "tokens.css",
+    "tokens.json",
+    "vendor/img/flags.png",
+    "vendor/img/flags.webp",
+    "vendor/img/flags@2x.png",
+    "vendor/img/flags@2x.webp",
+    "vendor/intl-tel-input.css",
+    "vimaksh-phone.js",
+    "vimaksh.css",
+    "vimaksh.js"
+  ],
+  "brand": "brand/manifest.json"
+}

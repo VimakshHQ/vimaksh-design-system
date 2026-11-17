@@ -1,0 +1,2796 @@
+# Vimaksh design system: everything
+
+Version 0.1.0. Generated from the same source as https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/. Start with agents.md (first section below).
+
+---
+
+# Building with the Vimaksh design system
+
+Version 0.1.0. The design language of https://work.vimaksh.in, extracted from its code. Every value below comes from the site; nothing is invented. Where the site has no rule, this file says so and marks it `[PLACEHOLDER: …]`.
+
+All files: https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/ (raw GitHub). Download them into your project; raw GitHub serves text/plain, so a `<link>` to it will not apply.
+
+## 1. Set up a page
+
+```html
+<!DOCTYPE html>
+<html lang="en" data-page="home">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4F2EE">
+<link rel="preload" href="fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  (function () { try { var t = localStorage.getItem('vimaksh-theme'); if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.dataset.theme = t; } catch (e) { document.documentElement.dataset.theme = 'light'; } })();
+</script>
+<link rel="stylesheet" href="vendor/intl-tel-input.css"> <!-- only if the page has a phone field -->
+<link rel="stylesheet" href="vimaksh.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<!-- Header (docs/Header.md), Navigation stack (docs/NavigationStack.md), <div class="tip t-mono" aria-hidden="true">Copy</div> -->
+<main id="main">
+  <!-- sections: each opens with a Section header (docs/SectionHeader.md) -->
+</main>
+<!-- Footer (docs/Footer.md) -->
+<script type="module" src="vimaksh.js"></script>
+<script type="module" src="vimaksh-phone.js"></script> <!-- only with a phone field -->
+</body>
+</html>
+```
+
+Files to copy next to the page: `vimaksh.css`, `fonts/inter-tight.woff2`, `fonts/jetbrains-mono-500.woff2`, `vimaksh.js` (and its `chunk-*.js` siblings listed in https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/catalog.json), `brand/svg/*`. With a phone field also `vimaksh-phone.js`, `vendor/intl-tel-input.css` and `vendor/img/*`. `data-page="home"` shows the full navigation stack on load; use any other value on inner pages.
+
+Tailwind: load `tokens.css` (or `vimaksh.css`) first, then use `tailwind-preset.cjs` (v3, `presets: [require('./tailwind-preset.cjs')]`) or `@import "./tailwind.css"` (v4). Colours are CSS variables, so both themes keep working. Still use the component markup: the preset gives you values, not components.
+
+## 2. Hard rules
+
+MUST
+- Use Inter Tight for all reading text and JetBrains Mono 500 (uppercase, letter-spacing .06–.08em) for labels, navigation, buttons and metadata.
+- Support light and dark through `<html data-theme>`, set before first paint. The footer stays dark in both.
+- Put `background: var(--pattern), var(--paper)` on the page and on every section.
+- Keep every corner square (radius 0). The theme toggle is the only rounded element.
+- Use red (`--red #E42114`) only for the primary button, the ">" chevron, the focused input underline and errors.
+- Start section labels with a red chevron: `<p class="t-mono label"><span class="chev">&gt;</span> Label</p>`.
+- Use the real wordmark SVG inline with `fill="currentColor"`; never type the name as a logo.
+- Keep the full-width layout with the `--pad` gutter and the 1100px / 760px max-width breakpoints.
+- Mark missing content `[PLACEHOLDER: …]` and keep it visible.
+
+MUST NOT
+- No new colours, gradients, shadows, radii, fonts or icon libraries.
+- No card shadows, glass panels or gradients behind copy. The heat gradient is for the footer base only.
+- No top navigation bar or hamburger overlay; navigation is the bottom-right stack.
+- No stock photos, mock devices, fake dashboards or generated people.
+- No invented facts: metrics, clients, team, awards, years, response times.
+- No banned words: award-winning, leading, global, multidisciplinary, full-service; no ocean, ship, anchor or wave puns.
+
+## 3. Components
+
+- [Header](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Header.md): The wordmark at top left and the theme toggle at top right.
+- [Theme toggle](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/ThemeToggle.md): A pill whose knob slides between sun and moon; the icon turns as it travels.
+- [Navigation stack](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/NavigationStack.md): The site's only navigation: a stack of boxed mono links fixed at the bottom right, ending in a solid Menu box.
+- [Button](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Button.md): Square buttons with a mono uppercase label and a ">" chevron that nudges 5px right on hover.
+- [Text link](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/TextLink.md): A mono link with an underline in the text colour and a red chevron that nudges 4px on hover.
+- [Pill](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Pill.md): A small square mono chip that copies a value (an email, coordinates) or labels an expandable row.
+- [Copy tooltip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/CopyTooltip.md): A tiny strong label that follows the pointer over anything with data-copy: "Copy", then "Copied ✓" (or "Copy failed") for 1.3s after a click..
+- [Section header](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/SectionHeader.md): A top hairline, a "> Label" in mono, a large heading and an optional action on the right.
+- [Project card](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/ProjectCard.md): A product in the work grid: 4:5 video (4:3 on phones) with a number and the product's own logo on a paper chip, then title and mono kind, a one-line description, and a full-width visit bar..
+- [Logo chip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/LogoChip.md): A product's own logo on an off-white chip in the top-left corner of a project card.
+- [Build card and track](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/BuildTrack.md): The "What we build" row: cards with a pixel tile in the item's own colour, a numbered tag, a square bullet and a short description, on a track that drifts sideways on its own and pauses on hover, touch or focus..
+- [About block](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/AboutBlock.md): A short statement section: a compact pixel illustration on the left and one large paragraph (t-big) on the right, centred on one line..
+- [Hero](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Hero.md): The home opening: a living pixel surface (WebGL) where a field of tiny ">" and "<" glyphs flows across paper and the Vimaksh mark assembles from the same pixels.
+- [Contact block](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/ContactBlock.md): Bordered card blocks made of rows: a red "Start a project" row that drops open the brief form, plain rows with copy pills, and a split block for the studio address and coordinates..
+- [Brief form](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/BriefForm.md): The project brief: name, email, phone, company (optional) and a message.
+- [Inputs and validation](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Inputs.md): Text fields are a single underline: --rule2 at rest, red on focus and when invalid.
+- [Phone field](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/PhoneField.md): intl-tel-input 29.5.11, themed to the site: a flag and +code in mono with a small red chevron, a square searchable country list on --card, India preselected and a short list of common countries first.
+- [Footer](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Footer.md): Always dark (night) in both themes.
+- [Pixel edge](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/PixelEdge.md): A band of squares, 7 rows of 14px cells (10px on phones), that thins toward the far edge.
+- [Legal page](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/LegalPage.md): A single readable column (max 760px) for terms, privacy and cookies: a mono label, a t-hero title at a smaller size, the update date in mono, and 16px/1.6 body with 22px section headings..
+- [Skip link](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/SkipLink.md): The first element on every page: "Skip to content", off screen until it receives focus, then a strong box at top left..
+
+## 4. Foundations
+
+- [Color](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Color.md): Paper and ink, one red for action, and a dark night for the footer.
+- [Typography](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Typography.md): Inter Tight for everything that is read, set large, at weight 500 with tight negative tracking.
+- [Spacing and layout](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/SpacingLayout.md): Full-width pages with one fluid gutter, generous fluid section padding, a 14px gap between cards, and two max-width breakpoints.
+- [Surfaces](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Surfaces.md): Three paper levels and one night.
+- [Patterns and grain](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Patterns.md): Five textures make the brand: the paper pattern, the grain, the pixel edge, the hero's chevron field and the heat gradient.
+- [Elevation](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Elevation.md): The site is flat.
+- [Motion](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Motion.md): One easing for almost everything, short colour changes, small nudges.
+- [Iconography](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Iconography.md): The site has almost no icons.
+- [Imagery](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Imagery.md): Real product footage in square frames, the products' own logos on paper chips, and pixel illustrations drawn on a grid.
+- [Voice and content](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Voice.md): Short declarative sentences, concrete nouns, active verbs.
+- [Accessibility](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Accessibility.md): Target WCAG 2.2 AA.
+- [Brand](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Brand.md), [Pixel motifs](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/PixelMotifs.md), [Icons](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Icons.md), [Downloads](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Downloads.md)
+
+## 5. Token quick reference
+
+| Token | CSS variable | Light | Dark |
+| --- | --- | --- | --- |
+| color.theme.paper | `--paper` | `#F4F2EE` | `#0F1020` |
+| color.theme.paper2 | `--paper2` | `#ECEAE4` | `#15172B` |
+| color.theme.card | `--card` | `#FBFAF7` | `#17192E` |
+| color.theme.ink | `--ink` | `#2C1412` | `#E6E8FA` |
+| color.theme.strong | `--strong` | `#0B0A14` | `#F4F5FF` |
+| color.theme.soft | `--soft` | `#6B5B5E` | `#9AA0C8` |
+| color.theme.rule | `--rule` | `rgba(44,20,18,.14)` | `rgba(221,228,255,.12)` |
+| color.theme.rule2 | `--rule2` | `rgba(44,20,18,.3)` | `rgba(221,228,255,.3)` |
+| color.theme.chip | `--chip` | `rgba(251,250,247,.7)` | `rgba(23,25,46,.7)` |
+| color.theme.theme-color | `--theme-color` | `#F4F2EE` | `#0F1020` |
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| color.brand.red | `--red` | `#E42114` |
+| color.brand.red-d | `--red-d` | `#B5180E` |
+| color.brand.coral | `--coral` | `#FF5E55` |
+| color.brand.electric | `--electric` | `#1A18FF` |
+| color.brand.royal | `--royal` | `#2D36FF` |
+| color.brand.glow | `--glow` | `#7C8DFF` |
+| color.brand.mist | `--mist` | `#DDE4FF` |
+| color.brand.night | `--night` | `#0D0E1C` |
+| color.brand.night2 | `--night2` | `#15172B` |
+| space.pad | `--pad` | `clamp(16px,2.6vw,40px)` |
+| space.hdr | `--hdr` | `78px` |
+| space.section-top | `--section-top` | `clamp(70px,8vw,130px)` |
+| space.section-bottom | `--section-bottom` | `clamp(80px,9vw,140px)` |
+| space.section-compact | `--section-compact` | `clamp(56px,6vw,96px)` |
+| space.footer-top | `--footer-top` | `clamp(90px,10vw,160px)` |
+| space.head-gap | `--head-gap` | `clamp(28px,3.4vw,52px)` |
+| space.grid-gap | `--grid-gap` | `14px` |
+| space.grid-row-gap | `--grid-row-gap` | `clamp(40px,4vw,64px)` |
+| space.label-gap | `--label-gap` | `18px` |
+| space.field-gap | `--field-gap` | `16px` |
+| space.control-y | `--control-y` | `16px` |
+| space.control-x | `--control-x` | `20px` |
+| space.edge-h | `--edge-h` | `98px` |
+| radius.none | `--radius` | `0` |
+| radius.pill | `--radius-pill` | `99px` |
+| radius.round | `--radius-round` | `50%` |
+| border.hairline | `--hairline` | `1px` |
+| border.stripe | `--stripe` | `3px` |
+| motion.easing.standard | `--ease` | `cubic-bezier(.2,.8,.2,1)` |
+| motion.easing.toggle | `--ease-toggle` | `cubic-bezier(.65,0,.25,1)` |
+| motion.easing.overshoot | `--ease-overshoot` | `cubic-bezier(.34,1.56,.64,1)` |
+
+Type classes: `.t-mono` 11px/1.45 500 .06em; `.t-hero` clamp(44px,6.4vw,112px)/.94 500 -.045em; `.t-statement` clamp(44px,7vw,112px)/.92 500 -.045em; `.t-section` clamp(34px,4.4vw,72px)/.96 500 -.04em; `.t-big` clamp(26px,2.9vw,48px)/1.08 450 -.03em. Everything else: https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/api/tokens.json.
+
+## 6. Self-check (run it before you finish)
+
+Open your page next to https://work.vimaksh.in at 1440px and at 390px, in light and in dark, and confirm each line:
+
+1. Background is paper with the cross every 192px and dots every 24px; light theme shows grain; dark theme has no grain.
+2. Headings are Inter Tight 500 with negative tracking; nothing is bold 700; mono text is uppercase and small.
+3. Every section label starts with a red ">"; the only other red things are primary buttons, focused inputs and errors.
+4. No rounded corners except the theme toggle; no shadows except the four listed in Elevation.
+5. Header: wordmark left, theme toggle right, no links. Navigation: the bottom-right stack.
+6. Footer: dark in both themes, pixel edge on top, statement, columns, heat base with the giant white wordmark.
+7. Buttons have the chevron and it nudges on hover; inputs are underlines; errors are short mono lines.
+8. Spacing: content touches the --pad gutter, cards are 14px apart, sections have large fluid padding.
+9. Images are real media or pixel motifs; nothing is stock; nothing is tinted.
+10. Copy is short, factual, sentence case; every gap is a visible [PLACEHOLDER: …].
+11. Keyboard: skip link first, focus ring visible on every control; reduced motion stops the grain and slows the drifts.
+
+Fix every mismatch and check again.
+
+
+---
+
+# Getting started
+
+> Put the Vimaksh look into a project: one CSS file, two fonts, one script, the wordmark. Or the tokens with Tailwind.
+
+Vimaksh design system 0.1.0. HTML: /getting-started/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+### 1. Copy the files
+From https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/ (or `npm i github:yakosasam797/vimaksh-design-system`): `vimaksh.css`, `fonts/`, `vimaksh.js` with its `chunk-*.js` files, `brand/svg/`. Keep `fonts/` next to `vimaksh.css`.
+
+### 2. The page shell
+Copy the head from [agents.md](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/agents.md), section 1: the pre-paint theme script, the stylesheet, the skip link, the header, the navigation stack, `<main id="main">`, the footer and the module script. Set `data-page="home"` on the home page.
+
+### 3. Build sections
+Open each section with a [Section header](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/SectionHeader.md), then use the components. The CSS is the site's own; the class names are the API.
+
+### 4. With Tailwind
+Load `tokens.css` first. Tailwind 3: `presets: [require('./tailwind-preset.cjs')]`. Tailwind 4: `@import "tailwindcss"; @import "./tokens.css"; @import "./tailwind.css";`. You get `bg-paper`, `text-strong`, `font-mono`, `text-section`, `p-pad`, `shadow-card`, `ease-standard`, `max-phone:`… Square corners: do not use `rounded-*`.
+
+### 5. Check
+Run the self-check in [agents.md](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/agents.md) section 6 against https://work.vimaksh.in, in both themes and at 390px.
+
+### What is patched
+vimaksh.js is the site's own script with these changes:
+- main.js: $$ returns an empty list when its scope is missing, so pages without a navigation stack do not throw
+- main.js: intl-tel-input moved to vimaksh-phone.js, so pages without a phone field do not load it
+- main.js: phone field set-up moved to vimaksh-phone.js (same options)
+- main.js: the brief posts to the form's action attribute (default /api/brief, as on the site)
+- main.js: the hero module is loaded next to this file
+- pixelhero.js: the mark is read from the brand folder next to this file
+
+### Not included
+React wrappers (the site has no React; the HTML is the component). Storybook runs locally: `npm run storybook`.
+
+
+---
+
+# For agents
+
+> The Copy brand identity prompt, agents.md and every machine-readable file, with their stable URLs.
+
+Vimaksh design system 0.1.0. HTML: /agents/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+### Copy brand identity
+Paste this into an agent working on another project. It points at stable URLs instead of pasting the system:
+
+```
+Give this project the Vimaksh design language: the exact look of https://work.vimaksh.in. Take every value from the Vimaksh design system; do not invent colours, sizes, radii, shadows or copy.
+
+1. Read https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/agents.md first, then https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/llms-full.txt (every page as Markdown).
+2. Download these into the project and serve them locally. They are raw GitHub files, so do not hotlink them from <link> or <script> tags:
+   https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/vimaksh.css (tokens + every component; keep fonts/ next to it)
+   https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/fonts/inter-tight.woff2 and https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/fonts/jetbrains-mono-500.woff2
+   https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/vimaksh.js (theme, header, navigation, copy, pixel edges, reveal)
+   https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tokens.json and, if the project uses Tailwind, https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tailwind-preset.cjs (v3) or https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tailwind.css (v4)
+   https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/svg/vimaksh-wordmark.svg and https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/svg/vimaksh-mark.svg
+3. Build with the documented markup (https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/<Component>.md) and check every item:
+   - Colour: paper #F4F2EE (dark #0F1020) with the cross-and-dot pattern, ink/strong text; red #E42114 only for the primary action and the ">" chevron; footer always dark night #0D0E1C.
+   - Themes: light and dark through <html data-theme>, set before first paint; test both.
+   - Type: Inter Tight for everything read, weight 500 headings with tight negative tracking and the clamp() sizes; JetBrains Mono 500, 11–11.5px, uppercase, wide tracking for labels, nav and buttons. Labels start with a red ">".
+   - Spacing and grid: full-width pages, gutter --pad clamp(16px,2.6vw,40px), 14px card gaps, big fluid section padding; breakpoints max-width 1100px and 760px.
+   - Surfaces and patterns: square corners everywhere; 1px hairlines; grain in light only; pixel edges where a section meets a different surface; heat gradient only on the footer base.
+   - Buttons: .btn red with a mono label and a ">" that nudges 5px on hover; .btn--ghost hairline.
+   - Cards: .card with 4:5 media, the product's own logo on a paper chip, title + mono kind, one sentence, visit bar.
+   - Forms: underline fields, mono labels above, short mono error lines, the phone field with a country picker.
+   - Navigation: wordmark header + theme toggle; the bottom-right navigation stack; no top nav bar.
+   - Motion: cubic-bezier(.2,.8,.2,1), .2–.35s colour changes, honour prefers-reduced-motion.
+   - Imagery: real product media or the pixel motifs; no stock photos, no rounded images, no shadows on content.
+   - Voice: short declarative sentences in sentence case; no invented facts; mark gaps [PLACEHOLDER: …].
+4. Self-check before you finish: compare your page with the checklist in agents.md and with https://work.vimaksh.in, in both themes and at 390px wide. Fix every mismatch, then check again.
+```
+
+### Machine-readable files
+
+| File | What it is |
+| --- | --- |
+| [agents.md](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/agents.md) | Rules for agents: set-up, hard rules, components, tokens, self-check |
+| [llms.txt](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/llms.txt) | Index of every page as Markdown |
+| [llms-full.txt](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/llms-full.txt) | Every page in one file |
+| [prompt.txt](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/prompt.txt) | The Copy brand identity prompt |
+| [catalog.json](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/catalog.json) | Every page, component, file and example |
+| [api/components.json](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/api/components.json) | Components: markup, API, tokens, sources |
+| [api/foundations.json](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/api/foundations.json) | Foundations with their tokens and contrast |
+| [api/tokens.json](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/api/tokens.json) | Flat token list with light/dark values |
+| [tokens.json](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tokens.json) | The W3C design tokens source |
+| [docs/<Name>.md](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Button.md) | One page as Markdown |
+
+
+---
+
+# Color
+
+> Paper and ink, one red for action, and a dark night for the footer. Every role has a light and a dark value; the brand colours do not change with the theme.
+
+Vimaksh design system 0.1.0. HTML: /foundations/color/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Tokens
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| color.brand.red | `--red` | `#E42114` |
+| color.brand.red-d | `--red-d` | `#B5180E` |
+| color.brand.coral | `--coral` | `#FF5E55` |
+| color.brand.electric | `--electric` | `#1A18FF` |
+| color.brand.royal | `--royal` | `#2D36FF` |
+| color.brand.glow | `--glow` | `#7C8DFF` |
+| color.brand.mist | `--mist` | `#DDE4FF` |
+| color.brand.night | `--night` | `#0D0E1C` |
+| color.brand.night2 | `--night2` | `#15172B` |
+| color.mark.coral | `--mark-coral` | `#FF5F53` |
+| color.mark.red | `--mark-red` | `#E32112` |
+| color.theme.paper | `--paper` | `#F4F2EE / #0F1020` |
+| color.theme.paper2 | `--paper2` | `#ECEAE4 / #15172B` |
+| color.theme.card | `--card` | `#FBFAF7 / #17192E` |
+| color.theme.ink | `--ink` | `#2C1412 / #E6E8FA` |
+| color.theme.strong | `--strong` | `#0B0A14 / #F4F5FF` |
+| color.theme.soft | `--soft` | `#6B5B5E / #9AA0C8` |
+| color.theme.rule | `--rule` | `rgba(44,20,18,.14) / rgba(221,228,255,.12)` |
+| color.theme.rule2 | `--rule2` | `rgba(44,20,18,.3) / rgba(221,228,255,.3)` |
+| color.theme.chip | `--chip` | `rgba(251,250,247,.7) / rgba(23,25,46,.7)` |
+| color.theme.theme-color | `--theme-color` | `#F4F2EE / #0F1020` |
+| color.footer.text | `--foot-text` | `#ECEEFF` |
+| color.footer.headline | `--foot-headline` | `#F4F5FF` |
+| color.footer.label | `--foot-label` | `#9aa0c8` |
+| color.footer.key | `--foot-key` | `#7b81aa` |
+| color.footer.rule | `--foot-rule` | `rgba(221,228,255,.14)` |
+| color.status.live | `--ok` | `#16a34a` |
+| color.status.live-text | `--ok-text` | `#15803d` |
+| color.on.accent | `--on-accent` | `#fff` |
+| color.on.accent-chevron | `--on-accent-chev` | `#FFD9D6` |
+| color.pixel.blue-1 | `--px-blue-1` | `#DDE4FF` |
+| color.pixel.blue-2 | `--px-blue-2` | `#B9C3FF` |
+| color.pixel.blue-3 | `--px-blue-3` | `#7C8DFF` |
+| color.pixel.blue-4 | `--px-blue-4` | `#2D36FF` |
+| color.pixel.blue-5 | `--px-blue-5` | `#1A18FF` |
+| color.pixel.hero-mist-light | `--px-hero-mist-l` | `#DDE4FF` |
+| color.pixel.hero-glyph-light | `--px-hero-glyph-l` | `#2D36FF` |
+| color.pixel.hero-mist-dark | `--px-hero-mist-d` | `#1A1D45` |
+| color.pixel.hero-glyph-dark | `--px-hero-glyph-d` | `#5D6BFF` |
+| color.pixel.mark-hairline-coral | `--px-coral-d` | `#E14A42` |
+| color.pixel.mark-hairline-red | `--px-red-d` | `#B5180E` |
+| color.kind.extension | `--kind-extension` | `#2D36FF` |
+| color.kind.saas | `--kind-saas` | `#E42114` |
+| color.kind.ai | `--kind-ai` | `#7A3CD6` |
+| color.kind.crm | `--kind-crm` | `#0E8F6E` |
+| color.kind.erp | `--kind-erp` | `#E8730C` |
+| color.kind.dashboard | `--kind-dashboard` | `#0A8FB0` |
+| color.kind.integrations | `--kind-integrations` | `#C99400` |
+| color.kind.mobile | `--kind-mobile` | `#D23C7E` |
+| color.heat.1 | `` | `#E42114` |
+| color.heat.2 | `` | `#FF5E55` |
+| color.heat.3 | `` | `#9C2B5A` |
+| color.heat.4 | `` | `#2D36FF` |
+
+### Roles, not paint
+Pick a colour by its job. Every surface and text colour is a role with a light and a dark value, switched by `<html data-theme>`:
+
+| Role | Job |
+| --- | --- |
+| `--paper` | The page. Always carries the cross-and-dot pattern. |
+| `--paper2` | Sunken areas and hover fills. |
+| `--card` | Raised surfaces: blocks, media backing, dropdowns. |
+| `--ink` | Body text. |
+| `--strong` | Headings, solid UI (hover fills, the Menu box). |
+| `--soft` | Secondary text and labels. |
+| `--rule` / `--rule2` | Hairlines / control borders and input underlines. |
+| `--chip` | The translucent fill under a backdrop blur. |
+
+### Red is for action
+`--red #E42114` marks the primary action, the ">" chevron, the focused input underline and errors. Nothing else is red. Coral `#FF5E55` is the mark's colour and the accent on the dark footer.
+
+### The footer is always night
+The footer stays dark in both themes (`--night #0D0E1C` with the dark pattern). Its text colours are fixed footer tokens.
+
+### Blues belong to pixels
+Electric, Royal, Glow and Mist appear in the pixel graphics and the hero field. In the interface, Electric is only the focus ring.
+
+### Kind colours are only for "What we build"
+Each kind of software has a colour for its pixel tile, its 3px stripe and its square bullet. Never use them for interface states.
+
+### The mark's own colours
+The SVG files use `#FF5F53` and `#E32112`; CSS uses `#FF5E55` and `#E42114`. The difference is one step and is recorded, not corrected: use the files unchanged.
+
+## Do
+
+- Use role variables, never raw hex, in components.
+- Check both themes for every screen.
+
+## Don't
+
+- Do not add new accent colours.
+- Do not set small text in red on paper (4.15:1).
+- Do not put red text on the coral or heat surfaces.
+
+## Sources
+
+- tokens: [src/v5/v5.css:4-18](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L4-L18)
+- pixel blues: [src/v5/pixelart.js:3](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelart.js#L3)
+- kind colours: [tools/v5pages.py:172-181](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L172-L181)
+
+
+---
+
+# Typography
+
+> Inter Tight for everything that is read, set large, at weight 500 with tight negative tracking. JetBrains Mono 500, small and uppercase, for labels, navigation and buttons.
+
+Vimaksh design system 0.1.0. HTML: /foundations/typography/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Tokens
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| font.family.sans | `--sans` | `'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif` |
+| font.family.mono | `--mono` | `'JetBrains Mono',ui-monospace,Consolas,monospace` |
+| font.weight.regular | `--w-regular` | `400` |
+| font.weight.book | `--w-book` | `450` |
+| font.weight.medium | `--w-medium` | `500` |
+| font.weight.semibold | `--w-semibold` | `600` |
+| typography.mono | `.t-mono` | `{"fontFamily":"'JetBrains Mono',ui-monospace,Consolas,monospace","fontWeight":500,"fontSize":"11px","lineHeight":"1.45","letterSpacing":".06em","textTransform":"uppercase"}` |
+| typography.hero | `.t-hero` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontWeight":500,"fontSize":"clamp(44px,6.4vw,112px)","lineHeight":".94","letterSpacing":"-.045em","color":"var(--strong)"}` |
+| typography.statement | `.t-statement` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontWeight":500,"fontSize":"clamp(44px,7vw,112px)","lineHeight":".92","letterSpacing":"-.045em"}` |
+| typography.section | `.t-section` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontWeight":500,"fontSize":"clamp(34px,4.4vw,72px)","lineHeight":".96","letterSpacing":"-.04em","color":"var(--strong)"}` |
+| typography.big | `.t-big` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontWeight":450,"fontSize":"clamp(26px,2.9vw,48px)","lineHeight":"1.08","letterSpacing":"-.03em","color":"var(--strong)"}` |
+| typography.hero-lead | `` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontWeight":500,"fontSize":"clamp(28px,2.7vw,48px)","lineHeight":"1.04","letterSpacing":"-.035em"}` |
+| typography.email | `` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontWeight":400,"fontSize":"clamp(28px,3.4vw,58px)","letterSpacing":"-.04em"}` |
+| typography.card-title | `` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontWeight":500,"fontSize":"clamp(18px,1.4vw,22px)","letterSpacing":"-.02em"}` |
+| typography.build-title | `` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontWeight":500,"fontSize":"clamp(19px,1.5vw,24px)","letterSpacing":"-.02em"}` |
+| typography.body | `` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontSize":"16px","lineHeight":"1.6"}` |
+| typography.card-copy | `` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontSize":"15px","lineHeight":"1.42"}` |
+| typography.control | `` | `{"fontFamily":"'JetBrains Mono',ui-monospace,Consolas,monospace","fontWeight":500,"fontSize":"11.5px","lineHeight":"1","letterSpacing":".08em","textTransform":"uppercase"}` |
+| typography.field-error | `` | `{"fontFamily":"'JetBrains Mono',ui-monospace,Consolas,monospace","fontWeight":500,"fontSize":"10.5px","lineHeight":"1.4","letterSpacing":".03em"}` |
+
+### Two families, two jobs
+- **Inter Tight** (variable, 100–900): display, headings, body. Weights used: 400 body, 450 statements, 500 headings, 600 only in logo chips.
+- **JetBrains Mono 500**: labels ("> Selected work"), navigation, buttons, kinds, dates, coordinates, field errors. Always uppercase with wide tracking, except the dial code and field errors.
+
+### Sizes are fluid
+Large styles use `clamp(min, vw, max)` and scale continuously; there is no fixed scale. Line-heights under 1 are deliberate for display sizes.
+
+### Labels carry a red chevron
+A section label is `<p class="t-mono label"><span class="chev">&gt;</span> Label</p>`. The chevron is the brand's ">" from the mark.
+
+### Write in sentence case
+Source text is sentence case. Mono labels and buttons become uppercase through CSS, so copy stays readable and searchable.
+
+### Files
+`fonts/inter-tight.woff2` (45 KB) and `fonts/jetbrains-mono-500.woff2` (22 KB), both SIL OFL 1.1, `font-display: swap`. Preload Inter Tight.
+
+## Do
+
+- Use the t-* classes for the five base styles.
+- Keep paragraphs under about 56ch (cards) to 46ch (lead copy).
+
+## Don't
+
+- Do not use mono for paragraphs.
+- Do not use bold (700) anywhere.
+- Do not justify text.
+
+## Sources
+
+- fonts: [src/v5/v5.css:2-8](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L2-L8)
+- type classes: [src/v5/v5.css:36-43](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L36-L43)
+
+
+---
+
+# Spacing and layout
+
+> Full-width pages with one fluid gutter, generous fluid section padding, a 14px gap between cards, and two max-width breakpoints. The values below are the ones the site uses, named.
+
+Vimaksh design system 0.1.0. HTML: /foundations/spacing-layout/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Tokens
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| space.pad | `--pad` | `clamp(16px,2.6vw,40px)` |
+| space.hdr | `--hdr` | `78px` |
+| space.section-top | `--section-top` | `clamp(70px,8vw,130px)` |
+| space.section-bottom | `--section-bottom` | `clamp(80px,9vw,140px)` |
+| space.section-compact | `--section-compact` | `clamp(56px,6vw,96px)` |
+| space.footer-top | `--footer-top` | `clamp(90px,10vw,160px)` |
+| space.head-gap | `--head-gap` | `clamp(28px,3.4vw,52px)` |
+| space.grid-gap | `--grid-gap` | `14px` |
+| space.grid-row-gap | `--grid-row-gap` | `clamp(40px,4vw,64px)` |
+| space.label-gap | `--label-gap` | `18px` |
+| space.field-gap | `--field-gap` | `16px` |
+| space.control-y | `--control-y` | `16px` |
+| space.control-x | `--control-x` | `20px` |
+| space.edge-h | `--edge-h` | `98px` |
+| breakpoint.tablet | `` | `1100px` |
+| breakpoint.phone | `` | `760px` |
+
+### The gutter
+Everything sits inside `--pad: clamp(16px, 2.6vw, 40px)` on the left and right. There is no centred max-width container: the site is full width.
+
+### Breakpoints
+Desktop first, two `max-width` breakpoints: **1100px** (three columns become two) and **760px** (one column, phone header 68px, nav stack narrower).
+
+### Grids
+- Work: `repeat(3,1fr)`, gap `clamp(40px,4vw,64px) 14px`; 2 columns ≤1100px; 1 column ≤760px.
+- Contact and footer top: two columns, one on phones.
+- Footer columns: `1fr 1.4fr 1fr 1fr`; 2 columns ≤1100px.
+- About: `clamp(220px,24vw,340px) 1fr`.
+
+### Vertical rhythm
+Sections: `clamp(70px,8vw,130px)` top and `clamp(80px,9vw,140px)` bottom; compact sections `clamp(56px,6vw,96px)`; footer `clamp(90px,10vw,160px)`. Label to heading 18px; section header to content `clamp(28px,3.4vw,52px)`.
+
+### No spacing scale
+The site has no 4/8 scale and this system does not invent one. Reuse the named values; for anything else, match the nearest existing element.
+
+## Do
+
+- Use --pad for every horizontal edge.
+- Let sections breathe: the large padding is part of the hierarchy.
+
+## Don't
+
+- Do not centre content in a narrow container.
+- Do not add rounded section containers.
+
+## Sources
+
+- pad, hdr: [src/v5/v5.css:9](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L9)
+- work grid: [src/v5/v5.css:137-138](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L137-L138)
+- breakpoints: [src/v5/v5.css:303-326](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L303-L326)
+
+
+---
+
+# Surfaces
+
+> Three paper levels and one night. Surfaces are flat and square: separated by hairlines and by the paper pattern, not by shadows.
+
+Vimaksh design system 0.1.0. HTML: /foundations/surfaces/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Tokens
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| color.theme.paper | `--paper` | `#F4F2EE / #0F1020` |
+| color.theme.paper2 | `--paper2` | `#ECEAE4 / #15172B` |
+| color.theme.card | `--card` | `#FBFAF7 / #17192E` |
+| color.theme.rule | `--rule` | `rgba(44,20,18,.14) / rgba(221,228,255,.12)` |
+| color.theme.rule2 | `--rule2` | `rgba(44,20,18,.3) / rgba(221,228,255,.3)` |
+| color.theme.chip | `--chip` | `rgba(251,250,247,.7) / rgba(23,25,46,.7)` |
+| radius.none | `--radius` | `0` |
+| radius.pill | `--radius-pill` | `99px` |
+| radius.round | `--radius-round` | `50%` |
+| border.hairline | `--hairline` | `1px` |
+| border.stripe | `--stripe` | `3px` |
+
+### Levels
+- **Paper** (`--paper` + pattern): the page and every section.
+- **Paper 2** (`--paper2`): sunken rows, hover fills.
+- **Card** (`--card`): blocks with a `--rule2` border, media backing.
+- **Night** (`--night` + dark pattern): the footer, in both themes.
+
+### Sections rise
+Sections after the hero have `position: relative` and paper backgrounds, so they slide over the sticky hero. A paper pixel edge sits on top of the first one.
+
+### A light card on night
+In the footer the brief is a light card (`.fbrief`) that resets the light-theme roles locally and floats with the only large shadow on the site.
+
+## Do
+
+- Separate with 1px hairlines.
+- Keep every corner square.
+
+## Don't
+
+- Do not use glass panels or gradients behind copy.
+- Do not nest cards inside cards.
+
+## Sources
+
+- rise: [src/v5/v5.css:126-128](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L126-L128)
+- block: [src/v5/v5.css:228](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L228)
+- light card on night: [src/v5/v5.css:703](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L703)
+
+
+---
+
+# Patterns and grain
+
+> Five textures make the brand: the paper pattern, the grain, the pixel edge, the hero's chevron field and the heat gradient. Each has one job.
+
+Vimaksh design system 0.1.0. HTML: /foundations/patterns/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Tokens
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| pattern.grain | `--grain` | `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.2 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` |
+| pattern.cross-d | `--cross-d` | `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192'%3E%3Cpath d='M96 90v12M90 96h12' stroke='%232C1412' stroke-opacity='.2' stroke-width='1'/%3E%3C/svg%3E")` |
+| pattern.cross-l | `--cross-l` | `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192'%3E%3Cpath d='M96 90v12M90 96h12' stroke='%23DDE4FF' stroke-opacity='.14' stroke-width='1'/%3E%3C/svg%3E")` |
+| pattern.paper-light | `--pattern-light` | `var(--cross-d) 0 0/192px 192px,radial-gradient(circle at 1px 1px,rgba(44,20,18,.1) .9px,transparent 1.3px) 0 0/24px 24px` |
+| pattern.paper-dark | `--pattern-dark` | `var(--cross-l) 0 0/192px 192px,radial-gradient(circle at 1px 1px,rgba(221,228,255,.06) .9px,transparent 1.3px) 0 0/24px 24px` |
+| pattern.heat | `--heat` | `radial-gradient(120% 90% at 0% 100%,#1A3FD8 0%,rgba(45,54,255,.55) 28%,transparent 55%),radial-gradient(80% 70% at 85% 80%,#5A0C12 0%,rgba(140,20,20,.6) 35%,transparent 70%),radial-gradient(90% 80% at 60% 20%,#FF7A70 0%,rgba(255,94,85,.6) 30%,transparent 65%),linear-gradient(160deg,#E42114 0%,#FF5E55 40%,#9C2B5A 70%,#2D36FF 100%)` |
+| pattern.pixel-edge | `` | `{"cell":"14px","cellPhone":"10px","rows":7,"seed":3}` |
+
+### Paper pattern (everywhere)
+A 12px cross every 192px plus a 0.9px dot every 24px, ink at low opacity in light, mist in dark. Apply as `background: var(--pattern), var(--paper)`.
+
+### Grain (light theme only)
+A 220px fractal-noise tile in a fixed overlay at opacity .08, shifting in six steps every 1.2s. It is not drawn in the dark theme (black grain is invisible on dark paper). It stops with reduced motion.
+
+### Pixel edge (between areas)
+Squares thinning toward the far edge: 7 rows of 14px cells. See the Pixel edge component.
+
+### Chevron field (hero only)
+Rows of 5×5 ">" and "<" glyphs in Royal on Mist, flowing on a noise field; the mark is built from the same cells.
+
+### Heat gradient (footer base only)
+Red → coral → plum → royal, three radial highlights and grain at .55 overlay. It carries the giant wordmark and nothing else.
+
+## Do
+
+- Use each texture only in its place.
+
+## Don't
+
+- Do not use the heat gradient as a section or button background.
+- Do not tile the chevrons as a generic background.
+- Do not add blur or noise filters of your own.
+
+## Sources
+
+- pattern and grain: [src/v5/v5.css:10-14](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L10-L14)
+- grain overlay: [src/v5/v5.css:23-28](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L23-L28)
+- heat: [src/v5/v5.css:169-175](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L169-L175)
+- chevron field: [src/v5/pixelhero.js:1-80](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelhero.js#L1-L80)
+
+
+---
+
+# Elevation
+
+> The site is flat. There are exactly four shadows, each for one object, and two backdrop blurs. There is no elevation scale.
+
+Vimaksh design system 0.1.0. HTML: /foundations/elevation/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Tokens
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| shadow.knob | `--shadow-knob` | `0 2px 8px rgba(0,0,0,.18)` |
+| shadow.knob-hover | `--shadow-knob-hover` | `0 2px 14px rgba(0,0,0,.25)` |
+| shadow.chip | `--shadow-chip` | `0 1px 0 rgba(0,0,0,.08)` |
+| shadow.card | `--shadow-card` | `0 30px 70px -30px rgba(0,0,0,.6)` |
+| shadow.popover | `--shadow-popover` | `0 18px 40px -18px rgba(11,10,20,.35)` |
+| blur.nav | `--blur-nav` | `8px` |
+| blur.toggle | `--blur-toggle` | `10px` |
+
+| Token | Value | Only on |
+| --- | --- | --- |
+| `shadow.knob` | `0 2px 8px rgba(0,0,0,.18)` | Theme toggle knob (hover: `0 2px 14px rgba(0,0,0,.25)`) |
+| `shadow.chip` | `0 1px 0 rgba(0,0,0,.08)` | Logo chip on project media |
+| `shadow.card` | `0 30px 70px -30px rgba(0,0,0,.6)` | The light brief card on the dark footer |
+| `shadow.popover` | `0 18px 40px -18px rgba(11,10,20,.35)` | Country list of the phone field |
+
+Backdrop blur: 8px under navigation items, 10px under the theme toggle, always on the translucent `--chip` fill.
+
+## Do
+
+- Show depth with surface colour and hairlines.
+
+## Don't
+
+- Do not add shadows to cards, buttons or images.
+- Do not invent a level 1–5 scale.
+
+## Sources
+
+- knob: [src/v5/v5.css:73-79](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L73-L79)
+- chip: [src/v5/v5.css:591](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L591)
+- card: [src/v5/v5.css:703](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L703)
+- popover: [src/v5/v5.css:792](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L792)
+
+
+---
+
+# Motion
+
+> One easing for almost everything, short colour changes, small nudges. The hero is the only thing that always moves.
+
+Vimaksh design system 0.1.0. HTML: /foundations/motion/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Tokens
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| motion.easing.standard | `--ease` | `cubic-bezier(.2,.8,.2,1)` |
+| motion.easing.toggle | `--ease-toggle` | `cubic-bezier(.65,0,.25,1)` |
+| motion.easing.overshoot | `--ease-overshoot` | `cubic-bezier(.34,1.56,.64,1)` |
+| motion.duration.fast | `--dur-fast` | `200ms` |
+| motion.duration.base | `--dur-base` | `250ms` |
+| motion.duration.slow | `--dur-slow` | `350ms` |
+| motion.duration.theme | `--dur-theme` | `600ms` |
+| motion.duration.reveal | `--dur-reveal` | `900ms` |
+| motion.duration.media | `--dur-media` | `1400ms` |
+| motion.distance.nudge | `--nudge` | `5px` |
+| motion.distance.reveal | `--reveal-y` | `22px` |
+
+### Easing
+- **Standard** `cubic-bezier(.2,.8,.2,1)`: every transform and reveal.
+- **Toggle** `cubic-bezier(.65,0,.25,1)`: the theme knob's travel.
+- **Overshoot** `cubic-bezier(.34,1.56,.64,1)`: only the red arrow landing in the footer mark.
+
+### Durations
+Hover colours .2–.25s; header and nav .35s; theme crossfade .6s; reveal .9s (opacity) / 1s (rise); media zoom 1.4s.
+
+### The vocabulary
+- **Chevron nudge**: the ">" moves 5px right on button hover (4px on text links).
+- **Reveal**: blocks rise 22px and fade in once, staggered 80ms in threes.
+- **Media**: card video scales 1.02 → 1.07 and saturates .82 → 1 on hover.
+- **Nav unfold**: links appear from the bottom, 45ms apart.
+- **Mark assembly**: the six arrows fly in to the footer mark; the red one last, with overshoot.
+- **Track drift**: 34px/s, slower on hover.
+
+### Reduced motion
+With `prefers-reduced-motion: reduce`: the grain stops, smooth scrolling is off, the track drifts at 18px/s, the hero runs at half speed and settles sooner.
+
+## Do
+
+- Animate opacity and transform only.
+- Pause anything that loops when it is off screen.
+
+## Don't
+
+- Do not add bounce except the red arrow.
+- Do not animate text letter by letter or scramble it.
+- Do not add a second always-moving scene.
+
+## Sources
+
+- ease: [src/v5/v5.css:9](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L9)
+- reveal: [src/v5/v5.css:298-300](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L298-L300)
+- mark and reveal: [src/v5/main.js:203-226](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L203-L226)
+- reduced motion: [src/v5/v5.css:327-330](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L327-L330)
+
+
+---
+
+# Iconography
+
+> The site has almost no icons. Its arrow is the mono ">" chevron; the only drawn icons are the sun and moon of the theme toggle. A full icon set has not been chosen yet.
+
+Vimaksh design system 0.1.0. HTML: /foundations/iconography/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+### What exists
+- **Chevrons**: `>` and `<` set in JetBrains Mono, red on paper and coral on night. They point, bracket labels ("> Work <") and nudge on hover.
+- **Pixel chevrons**: the 5×5 glyphs of the hero field (`brand/pixel/svg/chevron-right.svg`, `chevron-left.svg`).
+- **Sun and moon**: 24×24 viewBox, 1.6 stroke, round caps, `currentColor`. Only in the theme toggle.
+- **Menu dots**: four 4px dots that morph into an X.
+- **Disclosure triangle**: ▸ in the "Submit brief" pill, rotating 90° when open.
+- **Flags**: from intl-tel-input, in the phone field only.
+
+See the [icon gallery](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Icons.md) to copy them.
+
+### Gap
+`[PLACEHOLDER: icon set to be supplied by Vimaksh]`. Until it arrives, use a chevron or a word instead of an icon. Do not import a general icon library.
+
+## Do
+
+- Prefer a word to an icon.
+- Use the mono chevron for direction.
+
+## Don't
+
+- Do not mix in an outside icon set.
+- Do not use emoji as icons.
+
+## Sources
+
+- sun and moon: [tools/v5pages.py:47-54](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L47-L54)
+- menu dots: [src/v5/v5.css:344-349](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L344-L349)
+- pixel chevrons: [src/v5/pixelhero.js:23-28](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelhero.js#L23-L28)
+
+
+---
+
+# Imagery
+
+> Real product footage in square frames, the products' own logos on paper chips, and pixel illustrations drawn on a grid. No stock photography.
+
+Vimaksh design system 0.1.0. HTML: /foundations/imagery/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+### Product media
+Short muted loops recorded from the real product, with a poster frame, at 4:5 (4:3 on phones). Saturation .82 at rest, 1 on hover; a light darkening veil and grain on top. Play only while on screen.
+
+### Product logos
+The product's own logo, unchanged, on an off-white chip at the top left of its media.
+
+### Pixel illustrations
+Drawn square by square on a small grid (48×36 for tiles, 84×64 for the desk) and scaled up with `image-rendering: pixelated`. Each What we build tile uses its kind colour. Grab them from Pixel motifs or draw new ones with `pixel/pixelsaas.js`.
+
+### Honesty
+`[PLACEHOLDER: …]` marks missing media. Do not fill a gap with stock photos, AI images of real software or people, mock laptops or fake dashboards.
+
+## Do
+
+- Use real captures with enough framing to understand them.
+- Keep pixel art crisp (nearest-neighbour scaling).
+
+## Don't
+
+- Do not round images or add shadows.
+- Do not tint product footage to brand colours.
+- Do not use stock photos or generated "team" pictures.
+
+## Sources
+
+- media: [src/v5/v5.css:140-144](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L140-L144)
+- pixel tiles: [src/v5/pixelsaas.js:1-40](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelsaas.js#L1-L40)
+- imagery rules (DESIGN.md): [DESIGN.md:469-501](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L469-L501)
+
+
+---
+
+# Voice and content
+
+> Short declarative sentences, concrete nouns, active verbs. Curious and exacting without sounding severe. Never invent a fact: mark the gap.
+
+Vimaksh design system 0.1.0. HTML: /foundations/voice/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+### How Vimaksh writes
+- Short declarative sentences. Concrete nouns and active verbs.
+- "We" for the studio; the real product name for the work.
+- Sentence case for headings, labels, buttons and navigation (CSS uppercases the mono ones).
+- One idea per sentence. Plain words: "use", not "leverage".
+- "Boil the Ocean." is the one expansive idiom. Do not surround it with puns.
+
+### Examples from the site
+- Hero: "We turn <what if?> into products, platforms and experiments you can actually use."
+- Section: "Things we've built, and are building."
+- Footer: "Come build what should exist."
+- Buttons: "Explore our work", "Start a project", "Send brief", "Visit paryatech.in".
+- Errors: "This number is too short for the country you chose."
+
+### Banned
+- **Metaphors**: anchors, ships, nautical badges, thermometers, bubbles behind body copy, invented depth readings, wave puns, generic transformation claims.
+- **Adjectives** unless evidenced: award-winning, leading, global, multidisciplinary, full-service.
+- **Invented facts**: results, metrics, years of experience, client counts, client names, team names or photos, availability promises.
+
+### The placeholder convention
+`[PLACEHOLDER: …]` always means missing editorial content or an asset, never a fact. Keep it visible in review builds. An unresolved placeholder blocks publication of its component: replace it with confirmed content or remove the component. Never silently replace it with something plausible.
+
+### Open conflicts (live site vs DESIGN.md)
+The live site is the source of truth for the look. Four pieces of live copy conflict with DESIGN.md's content rules and are waiting for a decision:
+1. "We read every brief and reply within two working days" (a response-time promise).
+2. Project cards are numbered 01–06.
+3. The footer shows a live clock and a full street address.
+4. "Custom software, and nothing else" next to the earlier "independent experiments" framing.
+
+`[PLACEHOLDER: Vimaksh to decide which rule wins for each]`. Until then, do not copy these four into new work.
+
+## Do
+
+- Say what something does in one sentence.
+- Use the product's real status and real links.
+
+## Don't
+
+- Do not pad pages with testimonials, logo walls, statistics or FAQs made from nothing.
+- Do not write in capitals.
+
+## Sources
+
+- placeholder rule: [DESIGN.md:24-26](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L24-L26)
+- copy voice: [DESIGN.md:88-92](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L88-L92)
+- banned metaphors: [DESIGN.md:11](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L11)
+- live copy: [tools/v5pages.py:193-242](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L193-L242)
+
+
+---
+
+# Accessibility
+
+> Target WCAG 2.2 AA. Real DOM before scripts, a skip link, visible focus, labelled controls, live regions for errors, and motion that respects reduced motion. Two known contrast issues are listed below.
+
+Vimaksh design system 0.1.0. HTML: /foundations/accessibility/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+### What every page has
+- A skip link to `<main id="main">`, one H1, H2 per section with `aria-labelledby`.
+- Focus: `:focus-visible { outline: 2px solid var(--electric); outline-offset: 3px }`.
+- Decorative graphics (chevrons, pixel edges, giant wordmark) are `aria-hidden`; the hero canvas and pixel illustrations have `role="img"` and a description.
+- Buttons for actions, links for navigation; external links say "(opens in a new tab)" in hidden text.
+- Form errors in `aria-live` regions inside the label; the first invalid field is focused on submit.
+- Everything readable without JavaScript, canvas or animation.
+
+### Contrast, measured
+The table above is computed from the tokens. Two pairs fail:
+- **Focus ring on dark paper** (Electric on `#0F1020`) is about 2.35:1, under the 3:1 needed for focus indicators. `[PLACEHOLDER: fix approved by Vimaksh, for example the coral or glow focus colour in the dark theme]`.
+- **Red text on paper** (4.15:1 light, 4.06:1 dark) is under 4.5:1 for small text. On the site it is used for decorative chevrons and short error lines; do not use it for body text.
+
+### Motion
+Honour `prefers-reduced-motion` (see Motion). Nothing requires an animation to finish before it can be read.
+
+### Touch
+Controls are at least 40px high on phones (nav items, pills, the toggle 36px). Keep new targets at 44px.
+
+## Contrast (computed from the tokens)
+
+| Pair | Theme | Colours | Ratio | Needs | Result |
+| --- | --- | --- | --- | --- | --- |
+| Ink on paper | light | `#2C1412` on `#F4F2EE` | 15.45:1 | 4.5:1 | pass |
+| Ink on paper | dark | `#E6E8FA` on `#0F1020` | 15.50:1 | 4.5:1 | pass |
+| Strong on paper | light | `#0B0A14` on `#F4F2EE` | 17.59:1 | 4.5:1 | pass |
+| Strong on paper | dark | `#F4F5FF` on `#0F1020` | 17.35:1 | 4.5:1 | pass |
+| Soft on paper | light | `#6B5B5E` on `#F4F2EE` | 5.72:1 | 4.5:1 | pass |
+| Soft on paper | dark | `#9AA0C8` on `#0F1020` | 7.38:1 | 4.5:1 | pass |
+| Soft on card | light | `#6B5B5E` on `#FBFAF7` | 6.13:1 | 4.5:1 | pass |
+| Soft on card | dark | `#9AA0C8` on `#17192E` | 6.78:1 | 4.5:1 | pass |
+| White label on red button | both | `#FFFFFF` on `#E42114` | 4.64:1 | 4.5:1 | pass |
+| Red text on paper | light | `#E42114` on `#F4F2EE` | 4.15:1 | 4.5:1 | **fail** |
+| Red text on paper | dark | `#E42114` on `#0F1020` | 4.06:1 | 4.5:1 | **fail** |
+| Focus ring (Electric) on paper | light | `#1A18FF` on `#F4F2EE` | 7.17:1 | 3:1 | pass |
+| Focus ring (Electric) on paper | dark | `#1A18FF` on `#0F1020` | 2.35:1 | 3:1 | **fail** |
+| Footer text on night | both | `#ECEEFF` on `#0D0E1C` | 16.63:1 | 4.5:1 | pass |
+| Footer label on night | both | `#9aa0c8` on `#0D0E1C` | 7.51:1 | 4.5:1 | pass |
+| Footer key on night | both | `#7b81aa` on `#0D0E1C` | 5.07:1 | 4.5:1 | pass |
+| Coral on night | both | `#FF5E55` on `#0D0E1C` | 6.37:1 | 3:1 | pass |
+
+## Do
+
+- Test in both themes, with the keyboard, and at 200% zoom.
+
+## Don't
+
+- Do not convey state by colour alone.
+- Do not remove the focus outline.
+
+## Sources
+
+- focus, skip, sr: [src/v5/v5.css:32-35](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L32-L35)
+- accessibility rules (DESIGN.md): [DESIGN.md:447-456](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L447-L456)
+
+
+---
+
+# Header
+
+> The wordmark at top left and the theme toggle at top right. Transparent at the top of the page; once you scroll it gets its own paper backing, hides while you read down and returns when you scroll up.
+
+Vimaksh design system 0.1.0. HTML: /components/header/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- Put it first in <body>, after the skip link, on every page.
+- Keep the wordmark inline (not <img>) so it takes the header colour in both themes.
+
+Needs: `vimaksh.css` and `vimaksh.js`.
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Header (scroll the frame to see it solidify and hide)
+
+```html
+<header class="hdr">
+  <a class="brandlink" href="/" aria-label="Vimaksh, home"><!-- the wordmark: inline brand/svg/vimaksh-wordmark.svg here with class="wm" aria-hidden="true" focusable="false" and every fill="currentColor" --></a>
+  <div class="hdr-r">
+    <button class="toggle" type="button" aria-label="Switch to dark theme" data-toggle-theme>
+      <span class="ghost g-sun" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5"/></svg></span>
+      <span class="ghost g-moon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span>
+      <span class="knob" aria-hidden="true">
+        <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </span>
+    </button>
+  </div>
+</header>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `.hdr` | class | Fixed header bar. Pointer events pass through except on its children. |
+| `.hdr.solid` | state (JS) | Added after 24px of scroll: paper background and a bottom hairline. |
+| `.hdr.hide` | state (JS) | Added while scrolling down past 140px; removed on any upward scroll. |
+| `.hdr.on-dark` | state (JS) | Added while the dark footer is under the header: text turns #F4F5FF. |
+| `.brandlink > svg.wm` | element | The wordmark inlined with fill="currentColor", 24px high (20px on phones). aria-label on the link: "Vimaksh, home". |
+| `.hdr-r` | element | Right-hand slot; holds the theme toggle. |
+
+## Do
+
+- Use the real wordmark SVG from brand/svg.
+- Let the script manage solid/hide/on-dark.
+
+## Don't
+
+- Do not add navigation links to the header: navigation lives in the navigation stack.
+- Do not give the header a shadow or blur; its backing is flat paper with one hairline.
+
+## Accessibility
+
+- The brand link has aria-label "Vimaksh, home"; the SVG is aria-hidden.
+- Hiding on scroll never moves focus; the header returns on any upward scroll.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| space.hdr | `--hdr` | `78px` |
+| color.theme.paper | `--paper` | `#F4F2EE / #0F1020` |
+| color.theme.rule | `--rule` | `rgba(44,20,18,.14) / rgba(221,228,255,.12)` |
+| color.theme.strong | `--strong` | `#0B0A14 / #F4F5FF` |
+| motion.easing.standard | `--ease` | `cubic-bezier(.2,.8,.2,1)` |
+
+## Sources
+
+- markup: [tools/v5pages.py:44-57](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L44-L57)
+- base: [src/v5/v5.css:58-66](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L58-L66)
+- solid / hide / wordmark: [src/v5/v5.css:563-574](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L563-L574)
+- scroll behaviour: [src/v5/main.js:171-196](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L171-L196)
+
+
+---
+
+# Theme toggle
+
+> A pill whose knob slides between sun and moon; the icon turns as it travels. The choice is saved in localStorage under "vimaksh-theme" and applied before first paint on every page.
+
+Vimaksh design system 0.1.0. HTML: /components/theme-toggle/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- Every page supports both themes; ship the toggle in the header.
+
+Needs: `vimaksh.css` and `vimaksh.js`.
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Toggle (click it: the whole frame switches theme)
+
+```html
+    <button class="toggle" type="button" aria-label="Switch to dark theme" data-toggle-theme>
+      <span class="ghost g-sun" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5"/></svg></span>
+      <span class="ghost g-moon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span>
+      <span class="knob" aria-hidden="true">
+        <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </span>
+    </button>
+```
+
+### Before first paint (in <head>, before the CSS)
+
+```
+<script>
+  // Set the theme before first paint: saved choice, else the system setting.
+  (function () { try { var t = localStorage.getItem('vimaksh-theme'); if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.dataset.theme = t; } catch (e) { document.documentElement.dataset.theme = 'light'; } })();
+</script>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `button.toggle[data-toggle-theme]` | element | The switch. vimaksh.js binds it. |
+| `.ghost.g-sun / .ghost.g-moon` | element | Faint sun and moon in the track. |
+| `.knob (.i-sun, .i-moon)` | element | The sliding knob, #0B0A14 in light, #F4F5FF in dark; the icons rotate in and out over .6s. |
+| `html[data-theme]` | attribute | "light" or "dark". Set it before first paint with the snippet below. |
+| `themechange` | event (window) | Fired after a switch; pixel graphics redraw on it. |
+| `localStorage "vimaksh-theme"` | storage | The saved choice. Falls back to prefers-color-scheme. |
+
+## Do
+
+- Run the pre-paint snippet so there is no flash of the wrong theme.
+- Update <meta name="theme-color"> with the theme (vimaksh.js does).
+
+## Don't
+
+- Do not offer a third "system" state; the site has two.
+- Do not round anything else: the toggle is the only pill on the site.
+
+## Accessibility
+
+- aria-label switches between "Switch to dark theme" and "Switch to light theme".
+- Icons are aria-hidden.
+- Focus ring: 2px Electric, 3px offset.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| radius.pill | `--radius-pill` | `99px` |
+| radius.round | `--radius-round` | `50%` |
+| shadow.knob | `--shadow-knob` | `0 2px 8px rgba(0,0,0,.18)` |
+| shadow.knob-hover | `--shadow-knob-hover` | `0 2px 14px rgba(0,0,0,.25)` |
+| blur.toggle | `--blur-toggle` | `10px` |
+| motion.easing.toggle | `--ease-toggle` | `cubic-bezier(.65,0,.25,1)` |
+| motion.duration.theme | `--dur-theme` | `600ms` |
+
+## Sources
+
+- markup: [tools/v5pages.py:47-54](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L47-L54)
+- pre-paint script: [tools/v5pages.py:33-37](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L33-L37)
+- style: [src/v5/v5.css:69-80](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L69-L80)
+- phone size: [src/v5/v5.css:311-312](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L311-L312)
+- behaviour: [src/v5/main.js:9-20](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L9-L20)
+
+
+---
+
+# Navigation stack
+
+> The site's only navigation: a stack of boxed mono links fixed at the bottom right, ending in a solid Menu box. On the home hero all links show; once you scroll (and on every other page, and on phones) it folds to the Menu box, which unfolds the links again.
+
+Vimaksh design system 0.1.0. HTML: /components/navigation-stack/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- Four destinations at most, plus Menu.
+- Labels are short nouns or a short invitation ("Let's talk").
+
+Needs: `vimaksh.css` and `vimaksh.js`.
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Navigation stack (click Menu)
+
+```html
+<nav class="navbox" aria-label="Main" data-navbox>
+    <a href="/#work"><span class="c" aria-hidden="true">&gt;</span><span class="t">Work</span><span class="c" aria-hidden="true">&lt;</span></a>
+    <a href="/#services"><span class="c" aria-hidden="true">&gt;</span><span class="t">What we build</span><span class="c" aria-hidden="true">&lt;</span></a>
+    <a href="/#about"><span class="c" aria-hidden="true">&gt;</span><span class="t">About</span><span class="c" aria-hidden="true">&lt;</span></a>
+    <a href="/contact/"><span class="c" aria-hidden="true">&gt;</span><span class="t">Let's talk</span><span class="c" aria-hidden="true">&lt;</span></a>
+    <button class="menubox" type="button" aria-label="Show navigation" aria-expanded="false" data-menu-btn><span class="t">Menu</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
+  </nav>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `nav.navbox[data-navbox]` | element | Fixed bottom-right, 210px wide (min(220px, 100vw − 24px) on phones). |
+| `a > .c, .t, .c` | element | Each link: "> label <" in mono; the chevrons sit at 30% and turn red on hover. |
+| `button.menubox[data-menu-btn]` | element | Solid box; its four dots morph into an X when open. |
+| `body.nav-compact` | state (JS) | Links folded away. |
+| `body.nav-open` | state (JS) | Links unfolded, staggered 45ms from the bottom; Menu box turns red. |
+| `body.nav-dark` | state (JS) | Over the dark footer: light text and borders. |
+| `html[data-page=home]` | attribute | Only the home page shows the full stack on load. |
+
+## Do
+
+- Keep the stack in the same place on every page.
+- Close it with Escape or a click outside (vimaksh.js does).
+
+## Don't
+
+- Do not add a top navigation bar or a hamburger overlay.
+- Do not drop the chevrons: "> label <" is the brand's own bracket.
+
+## Accessibility
+
+- nav has aria-label "Main"; chevrons are aria-hidden.
+- Menu button has aria-expanded and an aria-label that says what it will do.
+- Escape closes and returns focus to Menu.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| typography.control | `` | `{"fontFamily":"'JetBrains Mono',ui-monospace,Consolas,monospace","fontWeight":500,"fontSize":"11.5px","lineHeight":"1","letterSpacing":".08em","textTransform":"uppercase"}` |
+| color.theme.chip | `--chip` | `rgba(251,250,247,.7) / rgba(23,25,46,.7)` |
+| color.theme.rule2 | `--rule2` | `rgba(44,20,18,.3) / rgba(221,228,255,.3)` |
+| blur.nav | `--blur-nav` | `8px` |
+| color.brand.red | `--red` | `#E42114` |
+
+## Sources
+
+- markup: [tools/v5pages.py:63-69](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L63-L69)
+- style: [src/v5/v5.css:335-357](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L335-L357)
+- open state: [src/v5/v5.css:583-584](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L583-L584)
+- behaviour: [src/v5/main.js:22-33](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L22-L33)
+- compact / dark: [src/v5/main.js:186-191](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L186-L191)
+
+
+---
+
+# Button
+
+> Square buttons with a mono uppercase label and a ">" chevron that nudges 5px right on hover. Primary is red; ghost has a hairline border. Both turn solid strong on hover.
+
+Vimaksh design system 0.1.0. HTML: /components/button/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- One primary per view. Pair it with one ghost at most.
+- Labels are verbs in sentence case in the source ("Explore our work"); CSS sets them uppercase.
+
+Needs: `vimaksh.css` (no JavaScript).
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Primary and ghost (hero CTAs)
+
+```html
+<div class="hero-cta"><a class="btn" href="#work"><span>Explore our work</span><span class="chev" aria-hidden="true">&gt;</span></a><a class="btn btn--ghost" href="/contact/"><span>Start a project</span></a></div>
+```
+
+### Submit button and its states
+
+```html
+<div class="brief-form" style="display:flex;gap:12px;flex-wrap:wrap;padding:0;border:0"><button class="btn" type="button"><span>Send brief</span><span class="chev" aria-hidden="true">&gt;</span></button><button class="btn" type="button" disabled><span>Sending…</span><span class="chev" aria-hidden="true">&gt;</span></button><span class="brief-form sent" style="padding:0;border:0"><button class="btn" type="submit"><span>Sent</span><span class="chev" aria-hidden="true">&gt;</span></button></span></div>
+```
+
+### Track arrows (square icon buttons)
+
+```html
+<div class="track-foot" style="margin:0">    <div class="track-btns"><button type="button" class="tbtn" data-track-prev aria-label="Previous"><span class="chev" aria-hidden="true">&lt;</span></button><button type="button" class="tbtn" data-track-next aria-label="Next"><span class="chev" aria-hidden="true">&gt;</span></button></div></div>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `.btn` | class | Primary: red, white label, 16px 20px padding, 28px gap to the chevron. |
+| `.btn--ghost` | modifier | Transparent with a --rule2 border; red chevron. |
+| `.btn > .chev` | element | The ">" chevron, aria-hidden. On primary it is #FFD9D6. |
+| `[disabled] in .brief-form` | state | opacity .7, cursor: progress (while sending). |
+| `.brief-form.sent .btn` | state | Green #16a34a while the "Sent" confirmation shows. |
+| `.tbtn` | class | Square 52×48 icon button for the track arrows (46×44 on phones). |
+
+## Do
+
+- Always end primary buttons with the chevron.
+- Use <a> for navigation and <button> for actions.
+
+## Don't
+
+- Do not round the corners or add a shadow.
+- Do not use red for anything but the primary action and the chevron.
+- Do not write the label in capitals in the source: text-transform does it.
+
+## Accessibility
+
+- White on red is 4.64:1 (passes AA for the 11.5px label only because it is bold-weight mono; keep the size).
+- Chevrons are aria-hidden.
+- Icon-only .tbtn needs aria-label.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| color.brand.red | `--red` | `#E42114` |
+| color.on.accent | `--on-accent` | `#fff` |
+| color.on.accent-chevron | `--on-accent-chev` | `#FFD9D6` |
+| typography.control | `` | `{"fontFamily":"'JetBrains Mono',ui-monospace,Consolas,monospace","fontWeight":500,"fontSize":"11.5px","lineHeight":"1","letterSpacing":".08em","textTransform":"uppercase"}` |
+| space.control-y | `--control-y` | `16px` |
+| space.control-x | `--control-x` | `20px` |
+| motion.distance.nudge | `--nudge` | `5px` |
+
+## Sources
+
+- btn, ghost: [src/v5/v5.css:47-53](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L47-L53)
+- disabled, sent: [src/v5/v5.css:744-748](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L744-L748)
+- tbtn: [src/v5/v5.css:479-481](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L479-L481)
+- tbtn chevron: [src/v5/v5.css:711-713](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L711-L713)
+
+
+---
+
+# Text link
+
+> A mono link with an underline in the text colour and a red chevron that nudges 4px on hover. Used for the secondary action of a section header.
+
+Vimaksh design system 0.1.0. HTML: /components/text-link/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- At most one per section header, aligned right.
+
+Needs: `vimaksh.css` (no JavaScript).
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### "Start yours" in the work section header
+
+```html
+    <a class="more t-mono" href="/contact/">Start yours <span class="chev" aria-hidden="true">&gt;</span></a>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `a.more.t-mono` | class | inline-flex, 10px gap, 1px currentColor underline 4px below. |
+| `.chev` | element | Red ">" that nudges on hover. |
+
+## Do
+
+- Keep it to two or three words.
+
+## Don't
+
+- Do not use it inside paragraphs; body links are plain underlined text.
+
+## Accessibility
+
+- The underline is always visible, so the link does not rely on colour.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| typography.mono | `.t-mono` | `{"fontFamily":"'JetBrains Mono',ui-monospace,Consolas,monospace","fontWeight":500,"fontSize":"11px","lineHeight":"1.45","letterSpacing":".06em","textTransform":"uppercase"}` |
+| color.brand.red | `--red` | `#E42114` |
+| motion.duration.base | `--dur-base` | `250ms` |
+
+## Sources
+
+- style: [src/v5/v5.css:54-55](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L54-L55)
+
+
+---
+
+# Pill
+
+> A small square mono chip that copies a value (an email, coordinates) or labels an expandable row. Hover fills it with strong. It is the site's chip; there is no separate tag component.
+
+Vimaksh design system 0.1.0. HTML: /components/pill/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- For values people copy, and for the toggle inside the red "Start a project" row.
+
+Needs: `vimaksh.css` and `vimaksh.js`.
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Copy pills in contact rows (hover for the tooltip, click to copy)
+
+```html
+<div class="block" style="max-width:640px">      <div class="row"><span>General enquiries</span><button class="pill t-mono" type="button" data-copy="hq@vimaksh.in">hq@vimaksh.in</button></div>
+      <div class="row"><span>New projects</span><button class="pill t-mono" type="button" data-copy="hq@vimaksh.in">hq@vimaksh.in</button></div></div><div class="tip t-mono" aria-hidden="true">Copy</div>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `.pill` | class | 7px 11px, --rule2 border, paper fill, mono. Hover: strong fill. |
+| `[data-copy="…"]` | attribute | vimaksh.js copies the value and shows the tooltip. |
+| `.row--brief .pill` | context | On the red row: transparent with a white border; white fill when open. |
+
+## Do
+
+- Show the full value as the label.
+
+## Don't
+
+- Do not use pills as filters or tags; the site has none.
+- Do not round them.
+
+## Accessibility
+
+- Copy pills are <button>s; the result ("Copied ✓") appears in the tooltip, and the value is visible, so nothing is lost if the tooltip is missed.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| color.theme.rule2 | `--rule2` | `rgba(44,20,18,.3) / rgba(221,228,255,.3)` |
+| color.theme.paper | `--paper` | `#F4F2EE / #0F1020` |
+| color.theme.strong | `--strong` | `#0B0A14 / #F4F5FF` |
+| typography.mono | `.t-mono` | `{"fontFamily":"'JetBrains Mono',ui-monospace,Consolas,monospace","fontWeight":500,"fontSize":"11px","lineHeight":"1.45","letterSpacing":".06em","textTransform":"uppercase"}` |
+
+## Sources
+
+- style: [src/v5/v5.css:232-233](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L232-L233)
+- on the red row: [src/v5/v5.css:486-487](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L486-L487)
+- copy: [src/v5/main.js:35-53](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L35-L53)
+
+
+---
+
+# Copy tooltip
+
+> A tiny strong label that follows the pointer over anything with data-copy: "Copy", then "Copied ✓" (or "Copy failed") for 1.3s after a click.
+
+Vimaksh design system 0.1.0. HTML: /components/copy-tooltip/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- For copyable contact details only.
+
+Needs: `vimaksh.css` and `vimaksh.js`.
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Hover the email, then click it
+
+```html
+<div class="foot" style="padding:40px var(--pad)"><div class="foot-cta"><button class="email" type="button" data-copy="hq@vimaksh.in"><span class="chev l" aria-hidden="true">&gt;</span>hq@vimaksh.in<span class="chev r" aria-hidden="true">&lt;</span></button></div></div><div class="tip t-mono" aria-hidden="true">Copy</div>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `.tip.t-mono` | element | One per page, anywhere in <body>, aria-hidden. |
+| `.tip.on` | state (JS) | Visible. |
+| `[data-copy]` | attribute | Any element; its value is copied on click. |
+
+## Do
+
+- Keep the copied value visible on the trigger.
+
+## Don't
+
+- Do not use it as a general tooltip for hints.
+
+## Accessibility
+
+- The tooltip is decorative (aria-hidden). Make the trigger a <button> with the value as its text.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| color.theme.strong | `--strong` | `#0B0A14 / #F4F5FF` |
+| color.theme.paper | `--paper` | `#F4F2EE / #0F1020` |
+| typography.mono | `.t-mono` | `{"fontFamily":"'JetBrains Mono',ui-monospace,Consolas,monospace","fontWeight":500,"fontSize":"11px","lineHeight":"1.45","letterSpacing":".06em","textTransform":"uppercase"}` |
+
+## Sources
+
+- markup: [tools/v5pages.py:59-61](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L59-L61)
+- style: [src/v5/v5.css:108-109](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L108-L109)
+- behaviour: [src/v5/main.js:35-53](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L35-L53)
+
+
+---
+
+# Section header
+
+> A top hairline, a "> Label" in mono, a large heading and an optional action on the right. It opens every content section.
+
+Vimaksh design system 0.1.0. HTML: /components/section-header/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- Label: one or two words naming the section ("Selected work"). Heading: the claim, in sentence case.
+
+Needs: `vimaksh.css` (no JavaScript).
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Work section header
+
+```html
+  <div class="sec-head">
+    <p class="t-mono label"><span class="chev">&gt;</span> Selected work</p>
+    <h2 id="work-h" class="t-section">Things we've built,<br>and are building.</h2>
+    <a class="more t-mono" href="/contact/">Start yours <span class="chev" aria-hidden="true">&gt;</span></a>
+  </div>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `.sec-head` | class | Grid: heading left, action right; 16px above, hairline on top, clamp(28px,3.4vw,52px) below. |
+| `p.t-mono.label > .chev` | element | The label with a red ">"; spans the full row. |
+| `h2.t-section` | element | The heading. A <br> is allowed for a deliberate break. |
+| `a.more` | element | Optional action, aligned to the heading's last line. |
+
+## Do
+
+- Start the label with the red chevron.
+
+## Don't
+
+- Do not number sections.
+- Do not put an eyebrow and a label together.
+
+## Accessibility
+
+- The heading is a real <h2> with an id referenced by the section's aria-labelledby.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| typography.mono | `.t-mono` | `{"fontFamily":"'JetBrains Mono',ui-monospace,Consolas,monospace","fontWeight":500,"fontSize":"11px","lineHeight":"1.45","letterSpacing":".06em","textTransform":"uppercase"}` |
+| typography.section | `.t-section` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontWeight":500,"fontSize":"clamp(34px,4.4vw,72px)","lineHeight":".96","letterSpacing":"-.04em","color":"var(--strong)"}` |
+| space.head-gap | `--head-gap` | `clamp(28px,3.4vw,52px)` |
+| color.theme.rule | `--rule` | `rgba(44,20,18,.14) / rgba(221,228,255,.12)` |
+
+## Sources
+
+- style: [src/v5/v5.css:131-132](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L131-L132)
+- markup: [tools/v5pages.py:210-214](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L210-L214)
+
+
+---
+
+# Project card
+
+> A product in the work grid: 4:5 video (4:3 on phones) with a number and the product's own logo on a paper chip, then title and mono kind, a one-line description, and a full-width visit bar.
+
+Vimaksh design system 0.1.0. HTML: /components/project-card/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- Real products only, with real recorded video and the product's own logo.
+- Three per row on desktop, two below 1100px, one below 760px.
+
+Needs: `vimaksh.css` and `vimaksh.js`.
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Two cards in the work grid
+
+```html
+  <div class="grid3">
+      <article class="card">
+        <a class="media" href="https://paryatech.in" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <video muted loop playsinline preload="metadata" poster="/examples/media/paryatech.jpg" src="/examples/media/paryatech.mp4"></video>
+          <span class="veil"></span><span class="num t-mono" aria-hidden="true">01</span>
+          <span class="plogo"><img src="/examples/media/paryatech-wordmark.svg" alt="Paryatech" loading="lazy"></span>
+        </a>
+        <div class="meta"><h3>Paryatech</h3><span class="t-mono kind">Travel SaaS</span></div>
+        <p>Brings a travel agency’s enquiries, itineraries, bookings and finances together in one place.</p>
+        <a class="bar t-mono" href="https://paryatech.in" target="_blank" rel="noopener"><span class="bt">Visit paryatech.in</span><span class="sr"> (opens in a new tab)</span><span class="chev" aria-hidden="true">&gt;</span></a>
+      </article>
+      <article class="card">
+        <a class="media" href="https://sachit.vimaksh.in/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <video muted loop playsinline preload="metadata" poster="/examples/media/sachit.jpg" src="/examples/media/sachit.mp4"></video>
+          <span class="veil"></span><span class="num t-mono" aria-hidden="true">02</span>
+          <span class="plogo plogo--icon"><img src="/examples/media/sachit.svg" alt="" loading="lazy"><b>Sachit</b></span>
+        </a>
+        <div class="meta"><h3>Sachit</h3><span class="t-mono kind">Support desk</span></div>
+        <p>Turns emails and in-app requests into support tickets your team can organise, track and resolve.</p>
+        <a class="bar t-mono" href="https://sachit.vimaksh.in/" target="_blank" rel="noopener"><span class="bt">Visit sachit.vimaksh.in</span><span class="sr"> (opens in a new tab)</span><span class="chev" aria-hidden="true">&gt;</span></a>
+      </article></div>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `article.card` | element | Flex column; the bar is pushed to the bottom so cards in a row align. |
+| `a.media` | element | Video link, tabindex -1 and aria-hidden: the visit bar is the one real link. |
+| `video` | element | muted loop playsinline preload="metadata" with a poster; plays only while on screen. |
+| `.veil` | element | Light top-to-bottom darkening plus grain at .35 overlay. |
+| `.num.t-mono` | element | Large white number, 01–06, bottom left. |
+| `.plogo` | element | The product logo on a paper chip (see Logo chip). |
+| `.meta > h3 + .kind` | element | Title and a lowercase mono kind ("travel saas"). |
+| `a.bar.t-mono` | element | "Visit host >", opens in a new tab with a visually hidden "(opens in a new tab)". |
+
+## Do
+
+- Write the description as one plain sentence about what the product does.
+- Keep video saturation at .82 until hover.
+
+## Don't
+
+- Do not recolour product logos or tint videos.
+- Do not round the media or add shadows.
+- Do not invent products, metrics or clients to fill the grid.
+
+## Accessibility
+
+- One link per card (the bar); the media link is hidden from assistive tech to avoid duplicates.
+- The logo image carries the product name as alt.
+- Videos are muted and decorative; they pause off screen.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| color.theme.card | `--card` | `#FBFAF7 / #17192E` |
+| typography.card-title | `` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontWeight":500,"fontSize":"clamp(18px,1.4vw,22px)","letterSpacing":"-.02em"}` |
+| typography.card-copy | `` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontSize":"15px","lineHeight":"1.42"}` |
+| space.grid-gap | `--grid-gap` | `14px` |
+| space.grid-row-gap | `--grid-row-gap` | `clamp(40px,4vw,64px)` |
+| motion.duration.media | `--dur-media` | `1400ms` |
+
+## Sources
+
+- markup: [tools/v5pages.py:152-169](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L152-L169)
+- content: [tools/v5pages.py:131-150](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L131-L150)
+- style: [src/v5/v5.css:139-155](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L139-L155)
+- v8: [src/v5/v5.css:430-435](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L430-L435)
+- visit bar: [src/v5/v5.css:597-607](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L597-L607)
+- video in view: [src/v5/main.js:138-140](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L138-L140)
+
+
+---
+
+# Logo chip
+
+> A product's own logo on an off-white chip in the top-left corner of a project card. Three forms: a full logo, an icon with the name, or the name alone.
+
+Vimaksh design system 0.1.0. HTML: /components/logo-chip/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- Only on project media.
+
+Needs: `vimaksh.css` (no JavaScript).
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Logo, icon + name, text
+
+```html
+<div style="display:flex;gap:14px;flex-wrap:wrap"><div class="card" style="width:240px"><span class="media" style="aspect-ratio:3/1;background:var(--night)"><span class="plogo"><img src="/examples/media/paryatech-wordmark.svg" alt="Paryatech"></span></span></div><div class="card" style="width:240px"><span class="media" style="aspect-ratio:3/1;background:var(--night)"><span class="plogo plogo--icon"><img src="/examples/media/vaat.svg" alt=""><b>Vaat</b></span></span></div><div class="card" style="width:240px"><span class="media" style="aspect-ratio:3/1;background:var(--night)"><span class="plogo plogo--text"><b>Godspeed</b></span></span></div></div>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `.plogo` | class | 48px high (40px phones), rgba(251,250,247,.95) fill, 1px bottom shadow. |
+| `.plogo--icon` | modifier | Square icon (22px) followed by the name in 16px semibold. |
+| `.plogo--text` | modifier | Name only, for products without a logo file. |
+
+## Do
+
+- Use the product's own logo file unchanged.
+
+## Don't
+
+- Do not recolour a product logo to Vimaksh colours.
+
+## Accessibility
+
+- Full logos: alt = product name. Icon + name: empty alt, the name is text.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| shadow.chip | `--shadow-chip` | `0 1px 0 rgba(0,0,0,.08)` |
+| font.weight.semibold | `--w-semibold` | `600` |
+
+## Sources
+
+- markup: [tools/v5pages.py:154-159](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L154-L159)
+- style: [src/v5/v5.css:591-595](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L591-L595)
+- size: [src/v5/v5.css:640-641](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L640-L641)
+
+
+---
+
+# Build card and track
+
+> The "What we build" row: cards with a pixel tile in the item's own colour, a numbered tag, a square bullet and a short description, on a track that drifts sideways on its own and pauses on hover, touch or focus.
+
+Vimaksh design system 0.1.0. HTML: /components/build-track/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- For a set of parallel categories, each with its own colour.
+
+Needs: `vimaksh.css` and `vimaksh.js`.
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### What we build (it drifts; hover to slow, use the arrows)
+
+```html
+<section class="build" id="services" aria-labelledby="build-h">
+  <div class="build-head">
+    <p class="t-mono label"><span class="chev">&gt;</span> What we build</p>
+    <div class="build-copy">
+      <h2 id="build-h" class="t-big">Custom software, and nothing else. From a Chrome extension to an industry-specific SaaS, AI automation, CRM or ERP: if your business runs on it, we build it.</h2>
+    </div>
+  </div>
+  <ul class="track" data-track aria-label="Types of software we build">
+      <li class="bcard" style="--c:#2D36FF">
+        <div class="btile"><canvas class="px" data-px="saas" data-kind="extension" data-c="#2D36FF" aria-hidden="true"></canvas><span class="t-mono bn">01</span></div>
+        <h3>Chrome extensions</h3>
+        <p>Tools that live in the browser, right where your team already works.</p>
+      </li>
+      <li class="bcard" style="--c:#E42114">
+        <div class="btile"><canvas class="px" data-px="saas" data-kind="saas" data-c="#E42114" aria-hidden="true"></canvas><span class="t-mono bn">02</span></div>
+        <h3>Industry SaaS</h3>
+        <p>Platforms shaped around one industry’s real workflows, not a generic template.</p>
+      </li>
+      <li class="bcard" style="--c:#7A3CD6">
+        <div class="btile"><canvas class="px" data-px="saas" data-kind="ai" data-c="#7A3CD6" aria-hidden="true"></canvas><span class="t-mono bn">03</span></div>
+        <h3>AI automation</h3>
+        <p>Agents and pipelines that read, sort, draft and decide, so people don’t have to.</p>
+      </li>
+      <li class="bcard" style="--c:#0E8F6E">
+        <div class="btile"><canvas class="px" data-px="saas" data-kind="crm" data-c="#0E8F6E" aria-hidden="true"></canvas><span class="t-mono bn">04</span></div>
+        <h3>CRM</h3>
+        <p>Leads, conversations and follow-ups in one place, built around how you sell.</p>
+      </li>
+      <li class="bcard" style="--c:#E8730C">
+        <div class="btile"><canvas class="px" data-px="saas" data-kind="erp" data-c="#E8730C" aria-hidden="true"></canvas><span class="t-mono bn">05</span></div>
+        <h3>ERP</h3>
+        <p>Inventory, orders, finance and people, connected end to end.</p>
+      </li>
+      <li class="bcard" style="--c:#0A8FB0">
+        <div class="btile"><canvas class="px" data-px="saas" data-kind="dashboard" data-c="#0A8FB0" aria-hidden="true"></canvas><span class="t-mono bn">06</span></div>
+        <h3>Internal tools</h3>
+        <p>Admin panels and dashboards that turn scattered data into clear decisions.</p>
+      </li>
+      <li class="bcard" style="--c:#C99400">
+        <div class="btile"><canvas class="px" data-px="saas" data-kind="integrations" data-c="#C99400" aria-hidden="true"></canvas><span class="t-mono bn">07</span></div>
+        <h3>Integrations & APIs</h3>
+        <p>The glue between your systems: syncs, webhooks and APIs that just work.</p>
+      </li>
+      <li class="bcard" style="--c:#D23C7E">
+        <div class="btile"><canvas class="px" data-px="saas" data-kind="mobile" data-c="#D23C7E" aria-hidden="true"></canvas><span class="t-mono bn">08</span></div>
+        <h3>Mobile & field apps</h3>
+        <p>Apps for the people on the move, online or off.</p>
+      </li>
+  </ul>
+  <div class="track-foot">
+    <span class="track-bar" aria-hidden="true"><i data-track-bar></i></span>
+    <div class="track-btns"><button type="button" class="tbtn" data-track-prev aria-label="Previous"><span class="chev" aria-hidden="true">&lt;</span></button><button type="button" class="tbtn" data-track-next aria-label="Next"><span class="chev" aria-hidden="true">&gt;</span></button></div>
+  </div>
+</section>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `ul.track[data-track]` | element | Horizontal scroller. vimaksh.js clones the cards once so the drift loops. |
+| `li.bcard[style="--c:…"]` | element | One kind of software; --c is its colour (color.kind.*). |
+| `canvas.px[data-px=saas][data-kind][data-c]` | element | The pixel tile, drawn by pixel/pixelsaas.js and redrawn on theme change. |
+| `.bn.t-mono` | element | The number on the colour. |
+| `.track-foot` | element | Scrubber ([data-track-bar]) and arrow buttons ([data-track-prev], [data-track-next]). |
+
+## Do
+
+- Use only the eight kind colours, one per card.
+
+## Don't
+
+- Do not use kind colours anywhere else in the interface.
+- Do not let it drift with reduced motion faster than 18px/s (vimaksh.js handles this).
+
+## Accessibility
+
+- Clones are aria-hidden.
+- Drift stops while a card inside has keyboard focus.
+- Arrow buttons have aria-labels.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| color.kind.extension | `--kind-extension` | `#2D36FF` |
+| border.stripe | `--stripe` | `3px` |
+| typography.build-title | `` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontWeight":500,"fontSize":"clamp(19px,1.5vw,24px)","letterSpacing":"-.02em"}` |
+| space.grid-gap | `--grid-gap` | `14px` |
+
+## Sources
+
+- content and card: [tools/v5pages.py:172-188](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L172-L188)
+- section: [tools/v5pages.py:228-242](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L228-L242)
+- style: [src/v5/v5.css:460-481](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L460-L481)
+- drift: [src/v5/main.js:228-277](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L228-L277)
+- pixel tiles: [src/v5/pixelsaas.js:34-112](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelsaas.js#L34-L112)
+
+
+---
+
+# About block
+
+> A short statement section: a compact pixel illustration on the left and one large paragraph (t-big) on the right, centred on one line.
+
+Vimaksh design system 0.1.0. HTML: /components/about-block/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- Once per page, for who we are.
+
+Needs: `vimaksh.css` and `vimaksh.js`.
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### About on the home page
+
+```html
+<section class="about-home" id="about" aria-labelledby="about-h">
+  <div class="ab-text">
+    <p class="t-mono label"><span class="chev">&gt;</span> About us</p>
+    <h2 id="about-h" class="t-big">Vimaksh builds digital products with a distinct perspective and a practical approach. The company brings clarity to product decisions, care to design and depth to engineering, shaping each experience around the people who use it.</h2>
+  </div>
+  <figure class="ab-art"><canvas class="px" data-px="desk" role="img" aria-label="Pixel illustration: a studio desk with a laptop showing the mark's arrows, a red mug and a plant"></canvas></figure>
+</section>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `section.about-home` | element | Grid clamp(220px,24vw,340px) + 1fr; one column below 760px. |
+| `.ab-art canvas.px[data-px=desk]` | element | The pixel desk, with role="img" and a written description. |
+| `h2.t-big` | element | The statement. |
+
+## Do
+
+- Describe the illustration in aria-label.
+
+## Don't
+
+- Do not replace the illustration with a stock photo.
+
+## Accessibility
+
+- The canvas has role="img" and an aria-label describing the picture.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| typography.big | `.t-big` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontWeight":450,"fontSize":"clamp(26px,2.9vw,48px)","lineHeight":"1.08","letterSpacing":"-.03em","color":"var(--strong)"}` |
+| space.section-compact | `--section-compact` | `clamp(56px,6vw,96px)` |
+
+## Sources
+
+- markup: [tools/v5pages.py:220-226](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L220-L226)
+- style: [src/v5/v5.css:609-613](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L609-L613)
+- v10: [src/v5/v5.css:643-648](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L643-L648)
+- compact: [src/v5/v5.css:689-691](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L689-L691)
+- desk: [src/v5/pixelart.js:154-175](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelart.js#L154-L175)
+
+
+---
+
+# Hero
+
+> The home opening: a living pixel surface (WebGL) where a field of tiny ">" and "<" glyphs flows across paper and the Vimaksh mark assembles from the same pixels. Copy sits top left, a mono meta line bottom left. The page rises over it as you scroll.
+
+Vimaksh design system 0.1.0. HTML: /components/hero/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- Home page only. It is the one always-moving visual.
+
+Needs: `vimaksh.css` and `vimaksh.js + pixel-hero.js`.
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Pixel hero (WebGL; falls back to the static mark)
+
+```html
+<section class="hero" id="top" aria-label="Vimaksh — Boil the Ocean.">
+  <div class="hero-in">
+    <canvas id="stage" aria-label="The Vimaksh six-arrow mark, built from moving pixels" role="img"></canvas>
+    <img class="stage-fallback" src="/dist/brand/svg/vimaksh-mark.svg" alt="" aria-hidden="true">
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="hero-copy">
+      <p class="t-mono label"><span class="chev">&gt;</span> Boil the Ocean.</p>
+      <h1>We turn <span class="hl"><i aria-hidden="true">&lt;</i>what if?<i aria-hidden="true">&gt;</i></span> into products, platforms and experiments you can actually use.</h1>
+      <div class="hero-cta"><a class="btn" href="#work"><span>Explore our work</span><span class="chev" aria-hidden="true">&gt;</span></a><a class="btn btn--ghost" href="/contact/"><span>Start a project</span></a></div>
+    </div>
+    <p class="hero-meta t-mono"><span>Studio / Bengaluru</span><span>12.92° N 77.60° E</span><span data-clock>--:--:--</span></p>
+  </div>
+  <div class="hero-dim" aria-hidden="true"></div>
+</section>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `section.hero` | element | Sticky, one viewport high (min 620px, 560px phones). |
+| `canvas#stage` | element | The pixel surface; vimaksh.js loads pixel-hero.js only when it exists. |
+| `img.stage-fallback` | element | The mark, shown when WebGL is unavailable (.no-gl). |
+| `.hero-copy` | element | Label, H1 (with an optional .hl "<what if?>" highlight) and up to two buttons. The field thins out under it. |
+| `.hero-meta.t-mono` | element | Small facts, bottom left; hidden on phones. |
+| `.hero-dim / --p` | state (JS) | The hero dims and scales to .95 as the next section rises. |
+
+## Do
+
+- Keep the headline short enough to stay inside the copy box.
+- Follow it with a section that has a paper pixel edge on top (.rise).
+
+## Don't
+
+- Do not add a second animated scene anywhere else.
+- Do not place text over the mark.
+
+## Accessibility
+
+- The canvas has role="img" and a description; all copy is real DOM.
+- With reduced motion the field runs at half speed; it pauses off screen and in hidden tabs.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| color.pixel.hero-mist-light | `--px-hero-mist-l` | `#DDE4FF` |
+| color.pixel.hero-glyph-light | `--px-hero-glyph-l` | `#2D36FF` |
+| color.brand.coral | `--coral` | `#FF5E55` |
+| color.brand.red | `--red` | `#E42114` |
+| typography.hero-lead | `` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontWeight":500,"fontSize":"clamp(28px,2.7vw,48px)","lineHeight":"1.04","letterSpacing":"-.035em"}` |
+
+## Sources
+
+- markup: [tools/v5pages.py:193-206](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L193-L206)
+- style: [src/v5/v5.css:111-124](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L111-L124)
+- .hl: [src/v5/v5.css:586-588](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L586-L588)
+- renderer: [src/v5/pixelhero.js:1-184](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelhero.js#L1-L184)
+
+
+---
+
+# Contact block
+
+> Bordered card blocks made of rows: a red "Start a project" row that drops open the brief form, plain rows with copy pills, and a split block for the studio address and coordinates.
+
+Vimaksh design system 0.1.0. HTML: /components/contact-block/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- On the contact page; the footer uses the same brief as a light card (.fbrief).
+
+Needs: `vimaksh.css` and `vimaksh.js + vimaksh-phone.js`.
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Contact page (click "Start a project")
+
+```html
+<section class="contact-page" aria-labelledby="ct-h">
+  <div class="ct-left">
+    <p class="t-mono label"><span class="chev">&gt;</span> Contact</p>
+    <h1 id="ct-h" class="t-hero">The best work begins with the right introduction.</h1>
+  </div>
+  <div class="ct-right">
+    <div class="block">
+      <div class="brief">
+        <button class="row row--brief" type="button" aria-expanded="false" aria-controls="brief-panel" data-brief>
+          <span>Start a project</span><span class="pill t-mono">Submit brief <span class="tri" aria-hidden="true">▸</span></span>
+        </button>
+        <div class="brief-panel" id="brief-panel"><div>
+          <form class="brief-form" data-brief-form novalidate>
+            <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+            <div class="f2"><label><span class="t-mono">Name</span><input name="name" required autocomplete="name"></label>
+            <label><span class="t-mono">Email</span><input name="email" type="email" required autocomplete="email" maxlength="254" data-check="email"><span class="ferr" aria-live="polite"></span></label></div>
+            <div class="f2"><label><span class="t-mono">Phone</span><input name="phone" type="tel" required autocomplete="tel" data-check="phone"><span class="ferr" aria-live="polite"></span></label>
+            <label><span class="t-mono">Company <i>(optional)</i></span><input name="company" autocomplete="organization"></label></div>
+            <label><span class="t-mono">Tell us about it</span><textarea name="message" rows="4" required></textarea></label>
+            <div class="f-foot"><button class="btn" type="submit"><span>Send brief</span><span class="chev" aria-hidden="true">&gt;</span></button><p class="t-mono note" data-brief-note aria-live="polite"></p></div>
+          </form>
+        </div></div>
+      </div>
+      <div class="row"><span>General enquiries</span><button class="pill t-mono" type="button" data-copy="hq@vimaksh.in">hq@vimaksh.in</button></div>
+      <div class="row"><span>New projects</span><button class="pill t-mono" type="button" data-copy="hq@vimaksh.in">hq@vimaksh.in</button></div>
+    </div>
+    <div class="block block--split">
+      <div class="cell"><span>Studio</span><address class="addr"><a href="https://maps.app.goo.gl/ktwso9ycC2Ufo8Tt7" target="_blank" rel="noopener">3rd Floor, Eshaaya 1629<br>E End Main Rd, 4th T Block East<br>Jayanagar 9th Block, Tilak Nagar<br>Bengaluru, Karnataka 560041</a></address></div>
+      <div class="cell"><span class="t-mono soft">Coordinates</span><button class="pill t-mono" type="button" data-copy="12.9210° N, 77.5960° E">12.92° N 77.60° E</button><span class="t-mono soft">Bengaluru now · <span data-clock>--:--:--</span> IST</span></div>
+    </div>
+  </div>
+</section>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `.block` | class | --rule2 border on --card. |
+| `.row` | class | 20px 22px, 17px text, hairline between rows. A <button> or <div>. |
+| `button.row.row--brief[data-brief][aria-expanded]` | element | The red row; toggles .brief.open and focuses the first field. |
+| `.brief-panel` | element | Opens by animating grid-template-rows 0fr → 1fr over .6s. |
+| `.block--split > .cell` | element | Two cells (1.6fr / 1fr), stacked on phones. |
+
+## Do
+
+- Keep the brief one click away and show the email beside it.
+
+## Don't
+
+- Do not hide the email behind the form.
+
+## Accessibility
+
+- The red row is a real button with aria-expanded and aria-controls.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| color.brand.red | `--red` | `#E42114` |
+| color.brand.red-d | `--red-d` | `#B5180E` |
+| color.theme.card | `--card` | `#FBFAF7 / #17192E` |
+| color.theme.rule2 | `--rule2` | `rgba(44,20,18,.3) / rgba(221,228,255,.3)` |
+
+## Sources
+
+- markup: [tools/v5pages.py:244-267](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L244-L267)
+- style: [src/v5/v5.css:224-266](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L224-L266)
+- red row: [src/v5/v5.css:483-492](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L483-L492)
+- toggle: [src/v5/main.js:55-62](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L55-L62)
+
+
+---
+
+# Brief form
+
+> The project brief: name, email, phone, company (optional) and a message. Fields are underlines with mono labels; email and phone are checked as you type and explained when you leave the field. It posts JSON to the form's action (the site uses /api/brief) and shows an honest result.
+
+Vimaksh design system 0.1.0. HTML: /components/brief-form/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- For starting a conversation. Ask only what you need.
+
+Needs: `vimaksh.css` and `vimaksh.js + vimaksh-phone.js`.
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Footer brief card (light card on the dark footer)
+
+```html
+<div class="foot" style="padding:40px var(--pad)"><div style="max-width:620px">      <div class="block fbrief" id="brief">
+        <div class="row row--brief"><span>Start a project</span><button class="pill t-mono" type="button" data-copy="hq@vimaksh.in">hq@vimaksh.in</button></div>
+          <form class="brief-form" data-brief-form novalidate>
+            <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+            <div class="f2"><label><span class="t-mono">Name</span><input name="name" required autocomplete="name"></label>
+            <label><span class="t-mono">Email</span><input name="email" type="email" required autocomplete="email" maxlength="254" data-check="email"><span class="ferr" aria-live="polite"></span></label></div>
+            <div class="f2"><label><span class="t-mono">Phone</span><input name="phone" type="tel" required autocomplete="tel" data-check="phone"><span class="ferr" aria-live="polite"></span></label>
+            <label><span class="t-mono">Company <i>(optional)</i></span><input name="company" autocomplete="organization"></label></div>
+            <label><span class="t-mono">Tell us about it</span><textarea name="message" rows="3" required></textarea></label>
+            <div class="f-foot"><button class="btn" type="submit"><span>Send brief</span><span class="chev" aria-hidden="true">&gt;</span></button><p class="t-mono note" data-brief-note aria-live="polite"></p></div>
+          </form>
+      </div></div></div><div class="tip t-mono" aria-hidden="true">Copy</div>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `form.brief-form[data-brief-form][novalidate]` | element | vimaksh.js validates and submits; posts to action (default /api/brief). |
+| `label.hp` | element | Honeypot field, off screen and aria-hidden. |
+| `.f2` | class | Two fields side by side; one column below 760px. |
+| `label > span.t-mono + input` | element | Label above, underline input (16px, 12px 0 padding). |
+| `i (inside the label)` | element | "(optional)" at 70% opacity. |
+| `[data-check=email|phone]` | attribute | Live checks; the message goes in the label's .ferr. |
+| `.f-foot > .btn + p.note[data-brief-note]` | element | Submit and the result line (.is-ok green, .is-err red). |
+| `.fbrief` | class | The light brief card on the dark footer (resets the light theme tokens locally). |
+
+## Do
+
+- Label every field; mark only the optional ones.
+- Say what happened only after the real response.
+
+## Don't
+
+- Do not use placeholders as labels.
+- Do not show success before the server confirms.
+
+## Accessibility
+
+- Errors are in aria-live regions inside the label.
+- The first invalid field receives focus on submit.
+- autocomplete is set on name, email, tel and organization.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| typography.mono | `.t-mono` | `{"fontFamily":"'JetBrains Mono',ui-monospace,Consolas,monospace","fontWeight":500,"fontSize":"11px","lineHeight":"1.45","letterSpacing":".06em","textTransform":"uppercase"}` |
+| typography.field-error | `` | `{"fontFamily":"'JetBrains Mono',ui-monospace,Consolas,monospace","fontWeight":500,"fontSize":"10.5px","lineHeight":"1.4","letterSpacing":".03em"}` |
+| space.field-gap | `--field-gap` | `16px` |
+| color.brand.red | `--red` | `#E42114` |
+| color.status.live | `--ok` | `#16a34a` |
+| shadow.card | `--shadow-card` | `0 30px 70px -30px rgba(0,0,0,.6)` |
+
+## Sources
+
+- markup: [tools/v5pages.py:71-80](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L71-L80)
+- fields: [src/v5/v5.css:242-251](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L242-L251)
+- footer card: [src/v5/v5.css:700-707](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L700-L707)
+- states: [src/v5/v5.css:744-760](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L744-L760)
+- checks and submit: [src/v5/main.js:84-136](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L84-L136)
+- email check: [src/v5/validate.js:1-17](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/validate.js#L1-L17)
+
+
+---
+
+# Inputs and validation
+
+> Text fields are a single underline: --rule2 at rest, red on focus and when invalid. Errors are short mono lines under the field. The send button shows "Sending…", then "Sent" in green, or the error note in red with the email as a fallback.
+
+Vimaksh design system 0.1.0. HTML: /components/inputs/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- Check quietly while typing; show the message when the field is left or on send.
+
+Needs: `vimaksh.css` and `vimaksh.js`.
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Invalid email, sending, and the error note
+
+```html
+<form class="brief-form" data-brief-form novalidate style="max-width:560px">
+  <div class="f2"><label><span class="t-mono">Name</span><input name="name" required autocomplete="name" value="Asha Rao"></label>
+  <label><span class="t-mono">Email</span><input name="email" type="email" class="bad" value="asha@gmial.com" data-check="email"><span class="ferr" aria-live="polite">Did you mean asha@gmail.com?</span></label></div>
+  <label><span class="t-mono">Tell us about it</span><textarea name="message" rows="3" required></textarea></label>
+  <div class="f-foot"><button class="btn" type="submit" disabled><span>Sending…</span><span class="chev" aria-hidden="true">&gt;</span></button><p class="t-mono note is-err" aria-live="polite">Something went wrong. Please try again, or write to <a href="mailto:hq@vimaksh.in">hq@vimaksh.in</a>.</p></div>
+</form>
+```
+
+### Error messages (exact copy, from the site)
+
+```
+Please enter your email.
+Please enter a valid email, like name@company.com.
+Did you mean <local>@gmail.com?        (gmial.com, gmai.com, gmail.co, gamil.com, yahooo.com, hotmial.com, outlok.com)
+Please enter your phone number.
+That country code doesn’t look right.
+This number is too short for the country you chose.
+This number is too long for the country you chose.
+This number has the wrong number of digits for the country you chose.
+Please enter a valid phone number for the country you chose.
+Thanks, <first name>. Your brief is with us, and a confirmation is on its way to <email>.
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `input, textarea` | element | border:0; border-bottom:1px solid var(--rule2); transparent; 16px. |
+| `:focus` | state | Underline turns red. |
+| `input.bad` | state | Underline red (set by vimaksh.js once you leave the field). |
+| `.ferr` | element | 10.5px mono, red; hidden when empty. |
+| `p.note.is-ok / .is-err` | state | Result line, green #15803d or red. |
+
+## Do
+
+- Write errors as one sentence that says how to fix it.
+
+## Don't
+
+- Do not put boxes around fields on light surfaces.
+- Do not show an error while someone is still typing their first attempt.
+
+## Accessibility
+
+- setCustomValidity keeps native validity in step with the visible message.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| color.theme.rule2 | `--rule2` | `rgba(44,20,18,.3) / rgba(221,228,255,.3)` |
+| color.brand.red | `--red` | `#E42114` |
+| typography.field-error | `` | `{"fontFamily":"'JetBrains Mono',ui-monospace,Consolas,monospace","fontWeight":500,"fontSize":"10.5px","lineHeight":"1.4","letterSpacing":".03em"}` |
+| color.status.live-text | `--ok-text` | `#15803d` |
+
+## Sources
+
+- fields: [src/v5/v5.css:247-249](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L247-L249)
+- errors: [src/v5/v5.css:755-760](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L755-L760)
+- states: [src/v5/v5.css:744-750](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L744-L750)
+- phone messages: [src/v5/main.js:63-70](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L63-L70)
+- email messages: [src/v5/validate.js:9-17](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/validate.js#L9-L17)
+
+
+---
+
+# Phone field
+
+> intl-tel-input 29.5.11, themed to the site: a flag and +code in mono with a small red chevron, a square searchable country list on --card, India preselected and a short list of common countries first. Only valid digits can be typed.
+
+Vimaksh design system 0.1.0. HTML: /components/phone-field/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- Wherever a phone number is asked for.
+
+Needs: `vimaksh.css` and `vimaksh-phone.js`.
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Phone field (open the country list)
+
+```html
+<form class="brief-form" data-brief-form novalidate style="max-width:420px;padding:0;border:0"><label><span class="t-mono">Phone</span><input name="phone" type="tel" required autocomplete="tel" data-check="phone"><span class="ferr" aria-live="polite"></span></label></form>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `input[type=tel][data-check=phone]` | element | vimaksh-phone.js attaches intl-tel-input to it. |
+| `countryOrder` | option | in, ae, us, gb, sg, au, ca, sa. |
+| `strictMode, formatAsYouType, countrySearch, separateDialCode` | option | All on. |
+| `vendor/intl-tel-input.css` | file | Load before vimaksh.css; vimaksh.css themes it. |
+
+## Do
+
+- Validate on the server too (the site uses libphonenumber-js in its worker).
+
+## Don't
+
+- Do not use a plain <select> for the country.
+
+## Accessibility
+
+- The country button is keyboard reachable with a visible focus ring; the list is searchable.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| color.theme.card | `--card` | `#FBFAF7 / #17192E` |
+| shadow.popover | `--shadow-popover` | `0 18px 40px -18px rgba(11,10,20,.35)` |
+| color.brand.red | `--red` | `#E42114` |
+| typography.mono | `.t-mono` | `{"fontFamily":"'JetBrains Mono',ui-monospace,Consolas,monospace","fontWeight":500,"fontSize":"11px","lineHeight":"1.45","letterSpacing":".06em","textTransform":"uppercase"}` |
+
+## Sources
+
+- set-up: [src/v5/main.js:63-83](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L63-L83)
+- theme: [src/v5/v5.css:769-807](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L769-L807)
+
+
+---
+
+# Footer
+
+> Always dark (night) in both themes. A pixel edge breaks its top, the mark flies in, a large statement sits beside the brief card, four columns of facts follow, and a heat-gradient base carries the giant white wordmark.
+
+Vimaksh design system 0.1.0. HTML: /components/footer/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- On every page.
+
+Needs: `vimaksh.css` and `vimaksh.js`.
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Footer
+
+```html
+<footer class="foot" id="footer" data-tone="dark">
+  <canvas class="edge edge--top" data-edge="night" aria-hidden="true"></canvas>
+  <div class="foot-in">
+    <div class="foot-top">
+      <div class="foot-say">
+        <div class="fmark" role="img" aria-label="Vimaksh mark"><!-- the mark: inline brand/svg/vimaksh-mark.svg here with aria-hidden="true" focusable="false" --></div>
+        <div class="foot-copy">
+        <p class="t-mono label"><span class="chev">&gt;</span> Let's talk</p>
+        <h2 class="t-statement">Come build what<br>should exist.</h2>
+        <p class="foot-sub">Tell us what you want to build. We read every brief and reply within two working days with honest next steps.</p>
+        </div>
+      </div>
+      <div class="block fbrief" id="brief">
+        <div class="row row--brief"><span>Start a project</span><button class="pill t-mono" type="button" data-copy="hq@vimaksh.in">hq@vimaksh.in</button></div>
+          <form class="brief-form" data-brief-form novalidate>
+            <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+            <div class="f2"><label><span class="t-mono">Name</span><input name="name" required autocomplete="name"></label>
+            <label><span class="t-mono">Email</span><input name="email" type="email" required autocomplete="email" maxlength="254" data-check="email"><span class="ferr" aria-live="polite"></span></label></div>
+            <div class="f2"><label><span class="t-mono">Phone</span><input name="phone" type="tel" required autocomplete="tel" data-check="phone"><span class="ferr" aria-live="polite"></span></label>
+            <label><span class="t-mono">Company <i>(optional)</i></span><input name="company" autocomplete="organization"></label></div>
+            <label><span class="t-mono">Tell us about it</span><textarea name="message" rows="3" required></textarea></label>
+            <div class="f-foot"><button class="btn" type="submit"><span>Send brief</span><span class="chev" aria-hidden="true">&gt;</span></button><p class="t-mono note" data-brief-note aria-live="polite"></p></div>
+          </form>
+      </div>
+    </div>
+    <div class="cols">
+      <div><p class="t-mono k">Navigate</p><ul><li><a href="/#work">Work</a></li><li><a href="/#services">What we build</a></li><li><a href="/#about">About us</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+      <div class="col-addr"><p class="t-mono k">Studio</p><address><a href="https://maps.app.goo.gl/ktwso9ycC2Ufo8Tt7" target="_blank" rel="noopener">3rd Floor, Eshaaya 1629<br>E End Main Rd, 4th T Block East<br>Jayanagar 9th Block, Tilak Nagar<br>Bengaluru, Karnataka 560041</a></address></div>
+      <div><p class="t-mono k">Coordinates</p><p class="t-mono v">12.9210° N<br>77.5960° E</p></div>
+      <div><p class="t-mono k">Bengaluru now</p><p class="t-mono v"><span data-clock>--:--:--</span> IST</p></div>
+    </div>
+  </div>
+  <div class="foot-base heat" data-pixel-mask>
+    <div class="giant" aria-hidden="true"><!-- the wordmark: inline brand/svg/vimaksh-wordmark.svg here with class="wm" aria-hidden="true" focusable="false" and every fill="currentColor" --></div>
+    <div class="fine t-mono"><span>© <span data-year>2026</span> Vimaksh</span><span>Bengaluru, India</span></div>
+  </div>
+</footer>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `footer.foot` | element | var(--pattern-dark) on night; text #ECEEFF. |
+| `canvas.edge.edge--top[data-edge=night]` | element | Pixel edge in night colour above the footer. |
+| `.fmark` | element | The mark; its six arrows fly in when 60% visible (and on hover), the red one last. |
+| `.foot-say` | element | Label, t-statement headline, supporting line. |
+| `.cols` | element | Four columns (two below 1100px): mono keys, 16px links with a coral "> " on hover. |
+| `.foot-base.heat[data-pixel-mask]` | element | Heat gradient whose top edge is cut into squares by a mask; giant wordmark; fine print. |
+
+## Do
+
+- Keep it dark in both themes.
+- Keep facts factual: real email, real address, real coordinates.
+
+## Don't
+
+- Do not use the heat gradient anywhere else.
+- Do not add social icons that do not exist.
+
+## Accessibility
+
+- The mark has role="img" and a label; the giant wordmark is aria-hidden (the name is elsewhere in text).
+- Columns are real lists.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| color.brand.night | `--night` | `#0D0E1C` |
+| pattern.heat | `--heat` | `radial-gradient(120% 90% at 0% 100%,#1A3FD8 0%,rgba(45,54,255,.55) 28%,transparent 55%),radial-gradient(80% 70% at 85% 80%,#5A0C12 0%,rgba(140,20,20,.6) 35%,transparent 70%),radial-gradient(90% 80% at 60% 20%,#FF7A70 0%,rgba(255,94,85,.6) 30%,transparent 65%),linear-gradient(160deg,#E42114 0%,#FF5E55 40%,#9C2B5A 70%,#2D36FF 100%)` |
+| pattern.paper-dark | `--pattern-dark` | `var(--cross-l) 0 0/192px 192px,radial-gradient(circle at 1px 1px,rgba(221,228,255,.06) .9px,transparent 1.3px) 0 0/24px 24px` |
+| color.footer.text | `--foot-text` | `#ECEEFF` |
+| color.footer.label | `--foot-label` | `#9aa0c8` |
+| color.footer.key | `--foot-key` | `#7b81aa` |
+| typography.statement | `.t-statement` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontWeight":500,"fontSize":"clamp(44px,7vw,112px)","lineHeight":".92","letterSpacing":"-.045em"}` |
+
+## Sources
+
+- markup: [tools/v5pages.py:82-115](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L82-L115)
+- base: [src/v5/v5.css:268-296](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L268-L296)
+- v8: [src/v5/v5.css:494-509](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L494-L509)
+- layout: [src/v5/v5.css:693-742](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L693-L742)
+- mark animation: [src/v5/main.js:203-221](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L203-L221)
+- pixel mask: [src/v5/main.js:142-162](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L142-L162)
+
+
+---
+
+# Pixel edge
+
+> A band of squares, 7 rows of 14px cells (10px on phones), that thins toward the far edge. It joins one area to the next instead of a straight line: the hero to the work section, the page to the footer.
+
+Vimaksh design system 0.1.0. HTML: /components/pixel-edge/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- Only where a section rises over a different surface.
+
+Needs: `vimaksh.css` and `vimaksh.js`.
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Paper edge rising over a dark area, and the night edge above the footer
+
+```html
+<div style="background:var(--night);height:140px"></div><section class="rise" style="padding:40px var(--pad) 60px"><canvas class="edge edge--top" data-edge="paper" aria-hidden="true"></canvas><p class="t-mono label"><span class="chev">&gt;</span> A section</p><p class="t-big">The paper edge sits on top of a section that rises over the area above.</p></section><footer class="foot" style="height:160px"><canvas class="edge edge--top" data-edge="night" aria-hidden="true"></canvas></footer>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `canvas.edge.edge--top[data-edge=paper|night]` | element | Absolutely positioned above its section; redrawn on resize and theme change. |
+| `[data-pixel-mask]` | attribute | Cuts the top of an element (the heat base) into squares with a CSS mask. |
+| `pixel/pixelart.js pixelEdge(canvas, {color, cell, seed, rows})` | function | Draw one yourself. |
+
+## Do
+
+- Use the colour of the section it belongs to.
+
+## Don't
+
+- Do not stack edges or use them as decoration inside a section.
+
+## Accessibility
+
+- Decorative: aria-hidden.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| pattern.pixel-edge | `` | `{"cell":"14px","cellPhone":"10px","rows":7,"seed":3}` |
+| space.edge-h | `--edge-h` | `98px` |
+
+## Sources
+
+- style: [src/v5/v5.css:360-361](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L360-L361)
+- drawing: [src/v5/pixelart.js:16-25](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelart.js#L16-L25)
+- mask: [src/v5/pixelsaas.js:20-31](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelsaas.js#L20-L31)
+- set-up: [src/v5/main.js:142-162](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L142-L162)
+
+
+---
+
+# Legal page
+
+> A single readable column (max 760px) for terms, privacy and cookies: a mono label, a t-hero title at a smaller size, the update date in mono, and 16px/1.6 body with 22px section headings.
+
+Vimaksh design system 0.1.0. HTML: /components/legal-page/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- For long-form reading.
+
+Needs: `vimaksh.css` (no JavaScript).
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Cookie policy
+
+```html
+<article class="legal" aria-labelledby="lg-h">
+  <p class="t-mono label"><span class="chev">&gt;</span> Legal</p>
+  <h1 id="lg-h" class="t-hero">Cookie policy</h1>
+  <p class="t-mono upd">Last updated 14 November 2026</p>
+  <p>This site uses as little as possible on your device.</p>
+  <h2>What we store</h2><p>We remember your light or dark theme choice in your browser’s local storage, so the site looks the way you left it. It stays on your device and is never sent to us.</p><h2>What we do not use</h2><p>We do not use advertising or tracking cookies, and we do not run third-party analytics that follow you across sites.</p><h2>Hosting</h2><p>Our hosting and security provider may set strictly necessary cookies to protect the site from abuse. These are needed for the site to work and do not track you.</p><h2>Your choices</h2><p>You can clear local storage and cookies at any time in your browser settings. The site will still work; it will just forget your theme.</p>
+</article>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `article.legal` | element | max-width 760px; padding below the header. |
+| `.upd.t-mono` | element | "Last updated <date>". |
+| `h2` | element | 22px, 500, -.02em, 44px above. |
+
+## Do
+
+- Date every version.
+
+## Don't
+
+- Do not publish legal text that has not been reviewed.
+
+## Accessibility
+
+- One H1; sections are H2.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| typography.hero | `.t-hero` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontWeight":500,"fontSize":"clamp(44px,6.4vw,112px)","lineHeight":".94","letterSpacing":"-.045em","color":"var(--strong)"}` |
+| typography.body | `` | `{"fontFamily":"'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif","fontSize":"16px","lineHeight":"1.6"}` |
+
+## Sources
+
+- markup and copy: [tools/v5pages.py:270-311](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L270-L311)
+- style: [src/v5/v5.css:723-730](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L723-L730)
+
+
+---
+
+# Skip link
+
+> The first element on every page: "Skip to content", off screen until it receives focus, then a strong box at top left.
+
+Vimaksh design system 0.1.0. HTML: /components/skip-link/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+## Use it
+
+- On every page, pointing at <main id="main">.
+
+Needs: `vimaksh.css` (no JavaScript).
+
+## Markup
+
+The markup below is copied from the live site. Inline SVGs are abbreviated: paste the file contents where a comment says so.
+
+### Press Tab inside the frame
+
+```html
+<a class="skip" href="#main">Skip to content</a><main id="main" style="padding:80px var(--pad)"><p class="t-big">Press Tab: the skip link appears at the top left.</p></main>
+```
+
+## API
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `a.skip[href="#main"]` | element | Off screen until :focus. |
+| `.sr` | class | Visually hidden text (e.g. "(opens in a new tab)"). |
+
+## Accessibility
+
+- Required: it is the first focusable element.
+
+## Connected foundations
+
+| Token | CSS variable | Value |
+| --- | --- | --- |
+| color.theme.strong | `--strong` | `#0B0A14 / #F4F5FF` |
+| color.theme.paper | `--paper` | `#F4F2EE / #0F1020` |
+
+## Sources
+
+- markup: [tools/v5pages.py:41](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L41)
+- style: [src/v5/v5.css:33-35](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L33-L35)
+
+
+---
+
+# Brand
+
+> The six-arrow mark (five coral, one red), the Vimaksh wordmark, and the 3D logo sculpture. Use the files as they are, in the colours the site uses them in.
+
+Vimaksh design system 0.1.0. HTML: /brand/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+### The mark
+Six arrows meeting at a centre: five coral, one red. The arrows form the "> <" chevrons that run through the whole system. Files: `vimaksh-mark.svg` (580×580 artboard, the original) and `vimaksh-mark-tight.svg` (cropped to the arrows, the crop the hero uses).
+
+### The wordmark
+"vimaksh" in coral, 951×172. On the site it is inlined with `fill="currentColor"`, so it takes the colour of where it sits:
+
+| Where on the site | Colour | File |
+| --- | --- | --- |
+| Header, light theme | `#0B0A14` (strong) | `vimaksh-wordmark-ink.svg` |
+| Header, dark theme | `#F4F5FF` (strong) | `vimaksh-wordmark-light.svg` |
+| Giant wordmark on the footer heat field | `#FFFFFF` | `vimaksh-wordmark-white.svg` |
+| Original file | `#FF5F53` (coral) | `vimaksh-wordmark.svg` |
+
+### Sizes the site uses
+Wordmark: 24px high in the header (20px on phones), full width in the footer base. Mark: 96–160px wide in the footer, about 56 pixel cells across in the hero. These are observed uses, not minimums.
+
+### Clear space and minimum size
+`[PLACEHOLDER: clear space and minimum size rules, to be set by Vimaksh]`. The site has no written rule. Until there is one, give the mark at least the clearance the header gives the wordmark (the page gutter, `--pad`).
+
+### Misuse (proposed, pending approval)
+These follow from how the files are built and used; Vimaksh has not yet approved them as rules.
+- Do not recolour single arrows or swap which arrow is red.
+- Do not stretch or squash (the wordmark keeps `aspect-ratio: 951/172`).
+- Do not outline, add shadows or put the mark on a busy photograph.
+- Do not redraw the letters or set "vimaksh" in a font as a logo.
+- Do not use the wordmark in a colour other than the four above.
+
+### The 3D logo
+`vimaksh-logo-sculpture.glb` (glTF binary, 1.7 MB): the mark as a sculpture, used to render the service stills. Open it in any glTF viewer or three.js.
+
+## Sources
+
+- mark: [public/marks/vimaksh-mark.svg:1-8](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/public/marks/vimaksh-mark.svg#L1-L8)
+- wordmark: [public/marks/vimaksh-wordmark.svg:1-3](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/public/marks/vimaksh-wordmark.svg#L1-L3)
+- inline currentColor: [tools/v5pages.py:6-10](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L6-L10)
+- sizes: [src/v5/v5.css:571-574](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L571-L574)
+- footer mark size: [src/v5/v5.css:734-742](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L734-L742)
+
+
+---
+
+# Pixel motifs
+
+> The pixel graphics of the site, drawn by its own code: one tile per kind of software, the studio desk, pixel edges and the hero's chevron glyphs. PNG, SVG, or draw them live.
+
+Vimaksh design system 0.1.0. HTML: /pixel-motifs/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+Pixel graphics are drawn square by square on a small grid and scaled up with `image-rendering: pixelated`. Download them, or draw them live with the site's own functions:
+
+```html
+<canvas class="px" data-px="saas" data-kind="crm" data-c="#0E8F6E" aria-hidden="true" style="width:100%;aspect-ratio:4/3"></canvas>
+<script type="module">
+  import { saas } from './pixel/pixelsaas.js';      // kinds: extension saas ai crm erp dashboard integrations mobile
+  import { desk, pixelEdge } from './pixel/pixelart.js';
+  document.querySelectorAll('canvas[data-px=saas]').forEach(c => saas(c, c.dataset.kind, c.dataset.c));
+</script>
+```
+
+vimaksh.js already draws every `canvas.px` (`data-px="saas"` and `data-px="desk"`) and every `canvas.edge`, and redraws them when the theme changes.
+
+| Motif | Group | Grid | PNG | SVG |
+| --- | --- | --- | --- | --- |
+| build-extension-light | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-extension-light.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-extension-light.svg) |
+| build-extension-dark | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-extension-dark.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-extension-dark.svg) |
+| build-saas-light | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-saas-light.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-saas-light.svg) |
+| build-saas-dark | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-saas-dark.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-saas-dark.svg) |
+| build-ai-light | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-ai-light.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-ai-light.svg) |
+| build-ai-dark | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-ai-dark.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-ai-dark.svg) |
+| build-crm-light | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-crm-light.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-crm-light.svg) |
+| build-crm-dark | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-crm-dark.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-crm-dark.svg) |
+| build-erp-light | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-erp-light.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-erp-light.svg) |
+| build-erp-dark | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-erp-dark.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-erp-dark.svg) |
+| build-dashboard-light | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-dashboard-light.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-dashboard-light.svg) |
+| build-dashboard-dark | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-dashboard-dark.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-dashboard-dark.svg) |
+| build-integrations-light | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-integrations-light.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-integrations-light.svg) |
+| build-integrations-dark | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-integrations-dark.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-integrations-dark.svg) |
+| build-mobile-light | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-mobile-light.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-mobile-light.svg) |
+| build-mobile-dark | What we build | 48×36 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-mobile-dark.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-mobile-dark.svg) |
+| desk | About | 84×64 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/desk.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/desk.svg) |
+| edge-paper-light | Pixel edge | 103×7 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/edge-paper-light.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/edge-paper-light.svg) |
+| edge-paper-dark | Pixel edge | 103×7 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/edge-paper-dark.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/edge-paper-dark.svg) |
+| edge-night | Pixel edge | 103×7 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/edge-night.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/edge-night.svg) |
+| chevron-right | Hero glyph | 5×5 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/chevron-right.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/chevron-right.svg) |
+| chevron-left | Hero glyph | 5×5 | [png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/chevron-left.png) | [svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/chevron-left.svg) |
+
+
+---
+
+# Icons
+
+> Every icon the site uses, ready to copy. The full icon set is still to come.
+
+Vimaksh design system 0.1.0. HTML: /icons/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+### Chevron right (mono)
+
+The brand arrow. Red on paper, coral on night.
+
+```html
+<span class="chev" aria-hidden="true">&gt;</span>
+```
+
+### Chevron left (mono)
+
+Closes the "> label <" bracket; "< Back".
+
+```html
+<span class="chev" aria-hidden="true">&lt;</span>
+```
+
+### Pixel chevron right
+
+5×5 hero glyph, currentColor.
+
+```html
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 5" width="20" height="20" aria-hidden="true" fill="currentColor" shape-rendering="crispEdges"><rect x="0" y="0" width="1" height="1"/><rect x="1" y="0" width="1" height="1"/><rect x="1" y="1" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="1" y="3" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="0" y="4" width="1" height="1"/><rect x="1" y="4" width="1" height="1"/></svg>
+```
+
+### Pixel chevron left
+
+5×5 hero glyph, currentColor.
+
+```html
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 5" width="20" height="20" aria-hidden="true" fill="currentColor" shape-rendering="crispEdges"><rect x="3" y="0" width="1" height="1"/><rect x="4" y="0" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="3" y="1" width="1" height="1"/><rect x="1" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="3" y="3" width="1" height="1"/><rect x="3" y="4" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/></svg>
+```
+
+### Sun
+
+Theme toggle only. 24 grid, 1.6 stroke, round caps.
+
+```html
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5"/></svg>
+```
+
+### Moon
+
+Theme toggle only.
+
+```html
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+```
+
+### Menu dots
+
+Inside .menubox; morphs into an X when [aria-expanded=true].
+
+```html
+<span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+```
+
+### Disclosure triangle
+
+Rotates 90° when its .row--brief is expanded.
+
+```html
+<span class="tri" aria-hidden="true">▸</span>
+```
+
+`[PLACEHOLDER: icon set to be supplied by Vimaksh]`. Until it arrives, use a chevron or a word instead of an icon.
+
+
+---
+
+# Downloads
+
+> Logos, pixel motifs, fonts and the 3D logo, as single files or ZIP packs, each with a SHA-256 hash.
+
+Vimaksh design system 0.1.0. HTML: /downloads/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+
+### Packs
+
+| Pack | Size | SHA-256 |
+| --- | --- | --- |
+| [vimaksh-logos-svg.zip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/zip/vimaksh-logos-svg.zip): Mark and wordmark, SVG | 13 KB | `27340c9c2a6702b116228eb5cf8dfe2a380f7bc3c04b719c004da2d4dee0eb3d` |
+| [vimaksh-logos-png.zip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/zip/vimaksh-logos-png.zip): Mark and wordmark, PNG 1x/2x/4x | 649 KB | `f133484b899525ec7bb846b5eea6cff1fc4df7cc09234acee79a429157acc545` |
+| [vimaksh-pixel-motifs.zip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/zip/vimaksh-pixel-motifs.zip): Pixel motifs, PNG + SVG | 137 KB | `cbf97f4bb0b991d6d8a47ea4c9f5eb66e25b4125b7be5c46d982b7a01ac1997b` |
+| [vimaksh-fonts.zip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/zip/vimaksh-fonts.zip): Inter Tight + JetBrains Mono 500 with OFL licences | 70 KB | `e672bdfe6ff23e1df7a70ec4a3e079ccd1a586c9902d02ca8a35f497870eee6a` |
+| [vimaksh-brand-all.zip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/zip/vimaksh-brand-all.zip): Everything above plus the 3D logo | 2514 KB | `5ba9099508df0785b64401708edcb9722b955834acf231059093095c009d95cd` |
+
+All hashes: [SHA256SUMS.txt](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/SHA256SUMS.txt), [manifest.json](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/manifest.json). The ZIPs are reproducible: the same source gives the same hash.
+
+### Fonts and licences
+Inter Tight (variable, 100–900) and JetBrains Mono 500, both licensed under the SIL Open Font License 1.1: free to use, embed and redistribute, not to sell on their own; keep the licence with the files. Licence texts: [InterTight-OFL.txt](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/fonts/InterTight-OFL.txt), [JetBrainsMono-OFL.txt](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/fonts/JetBrainsMono-OFL.txt). The Vimaksh name, mark and wordmark are not covered by these licences.
+
+### Code
+- [vimaksh.css](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/vimaksh.css): tokens + type + every component, one file.
+- [tokens.css](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tokens.css), [tokens.json](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tokens.json) (W3C design tokens), [tailwind-preset.cjs](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tailwind-preset.cjs), [tailwind.css](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tailwind.css).
+- [vimaksh.js](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/vimaksh.js), [vimaksh-phone.js](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/vimaksh-phone.js), [pixel-hero.js](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/pixel-hero.js), [pixel/](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/pixel/pixelsaas.js).
+- As a package: `npm i github:yakosasam797/vimaksh-design-system`, then import `@vimaksh/design-system/vimaksh.css`.
+
+### Every file
+
+| File | Bytes | SHA-256 |
+| --- | --- | --- |
+| [3d/vimaksh-logo-sculpture.glb](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/3d/vimaksh-logo-sculpture.glb) | 1728884 | `59236b683d10de43…` |
+| [fonts/inter-tight.woff2](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/fonts/inter-tight.woff2) | 44872 | `77fefe8ca19b9f69…` |
+| [fonts/InterTight-OFL.txt](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/fonts/InterTight-OFL.txt) | 4383 | `50240ab035cf1b6b…` |
+| [fonts/jetbrains-mono-500.woff2](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/fonts/jetbrains-mono-500.woff2) | 21832 | `cb182feeed4d798f…` |
+| [fonts/JetBrainsMono-OFL.txt](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/fonts/JetBrainsMono-OFL.txt) | 4399 | `a76abf002c49097d…` |
+| [pixel/png/build-ai-dark.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-ai-dark.png) | 6817 | `465424b34e759a5e…` |
+| [pixel/png/build-ai-light.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-ai-light.png) | 6823 | `2b3a0491e4ea97ba…` |
+| [pixel/png/build-crm-dark.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-crm-dark.png) | 6167 | `b51bb5e22bb78240…` |
+| [pixel/png/build-crm-light.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-crm-light.png) | 6449 | `6d083d8c6a6b7fdf…` |
+| [pixel/png/build-dashboard-dark.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-dashboard-dark.png) | 5795 | `0649f8ef3bf5dea1…` |
+| [pixel/png/build-dashboard-light.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-dashboard-light.png) | 6125 | `bd5f8861da96b6d5…` |
+| [pixel/png/build-erp-dark.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-erp-dark.png) | 6408 | `143b0a60b4012e53…` |
+| [pixel/png/build-erp-light.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-erp-light.png) | 6403 | `eec1e39588865a46…` |
+| [pixel/png/build-extension-dark.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-extension-dark.png) | 6136 | `23ea95ea7c448540…` |
+| [pixel/png/build-extension-light.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-extension-light.png) | 6113 | `943085a77439b5ec…` |
+| [pixel/png/build-integrations-dark.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-integrations-dark.png) | 6563 | `fbc677d629c8ea8c…` |
+| [pixel/png/build-integrations-light.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-integrations-light.png) | 6568 | `eac30dcf874d8fc2…` |
+| [pixel/png/build-mobile-dark.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-mobile-dark.png) | 6301 | `16c188949435d324…` |
+| [pixel/png/build-mobile-light.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-mobile-light.png) | 6297 | `66c042cba9a681ef…` |
+| [pixel/png/build-saas-dark.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-saas-dark.png) | 6326 | `ee5e3467c43db219…` |
+| [pixel/png/build-saas-light.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/build-saas-light.png) | 6327 | `1ff6a9c59a4d91a3…` |
+| [pixel/png/chevron-left.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/chevron-left.png) | 192 | `d32fb8cad9edd7f7…` |
+| [pixel/png/chevron-right.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/chevron-right.png) | 195 | `6a43d2e5499ae2a8…` |
+| [pixel/png/desk.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/desk.png) | 20391 | `fd6715f416f422c2…` |
+| [pixel/png/edge-night.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/edge-night.png) | 360 | `098db4d4f364abd1…` |
+| [pixel/png/edge-paper-dark.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/edge-paper-dark.png) | 360 | `e76b8b3daedfee62…` |
+| [pixel/png/edge-paper-light.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/png/edge-paper-light.png) | 359 | `096457b48515da73…` |
+| [pixel/svg/build-ai-dark.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-ai-dark.svg) | 30602 | `48b66b39b3118bf0…` |
+| [pixel/svg/build-ai-light.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-ai-light.svg) | 31835 | `84a873e987af59d1…` |
+| [pixel/svg/build-crm-dark.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-crm-dark.svg) | 26285 | `415ba7a123940366…` |
+| [pixel/svg/build-crm-light.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-crm-light.svg) | 27338 | `bc2ff2b85e45ae2b…` |
+| [pixel/svg/build-dashboard-dark.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-dashboard-dark.svg) | 32617 | `731bc6b9d8d0f3de…` |
+| [pixel/svg/build-dashboard-light.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-dashboard-light.svg) | 33481 | `936322c0e09c9b3c…` |
+| [pixel/svg/build-erp-dark.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-erp-dark.svg) | 27944 | `bc76b1bf815558b7…` |
+| [pixel/svg/build-erp-light.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-erp-light.svg) | 28994 | `860e650f29e2d56b…` |
+| [pixel/svg/build-extension-dark.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-extension-dark.svg) | 25946 | `224ae8bcc403a132…` |
+| [pixel/svg/build-extension-light.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-extension-light.svg) | 26719 | `ee8647df906cc6eb…` |
+| [pixel/svg/build-integrations-dark.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-integrations-dark.svg) | 28401 | `a884972f99b521c9…` |
+| [pixel/svg/build-integrations-light.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-integrations-light.svg) | 29587 | `681ff38d6198814f…` |
+| [pixel/svg/build-mobile-dark.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-mobile-dark.svg) | 32008 | `6c490cecdea7ac98…` |
+| [pixel/svg/build-mobile-light.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-mobile-light.svg) | 33187 | `69b0f060fac259fc…` |
+| [pixel/svg/build-saas-dark.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-saas-dark.svg) | 27359 | `482b9e9e0bbe7089…` |
+| [pixel/svg/build-saas-light.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/build-saas-light.svg) | 28328 | `4966d70fed45874b…` |
+| [pixel/svg/chevron-left.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/chevron-left.svg) | 536 | `27fb6eeeafd93c1e…` |
+| [pixel/svg/chevron-right.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/chevron-right.svg) | 536 | `446381adca47265f…` |
+| [pixel/svg/desk.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/desk.svg) | 137237 | `a68e241ef4eca6d5…` |
+| [pixel/svg/edge-night.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/edge-night.svg) | 3712 | `1c039223128ea98b…` |
+| [pixel/svg/edge-paper-dark.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/edge-paper-dark.svg) | 3712 | `da5a9e3373cd530f…` |
+| [pixel/svg/edge-paper-light.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/pixel/svg/edge-paper-light.svg) | 3886 | `bf80af2a4ff2a051…` |
+| [png/vimaksh-mark-tight@1x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-mark-tight@1x.png) | 13838 | `bce574f75b588bcd…` |
+| [png/vimaksh-mark-tight@2x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-mark-tight@2x.png) | 30266 | `71b5da4908e9c5f6…` |
+| [png/vimaksh-mark-tight@4x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-mark-tight@4x.png) | 70569 | `ceb18bbc288fee6d…` |
+| [png/vimaksh-mark@1x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-mark@1x.png) | 16790 | `c36f9ee87a6f2066…` |
+| [png/vimaksh-mark@2x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-mark@2x.png) | 37933 | `1335f71b9f60ac5b…` |
+| [png/vimaksh-mark@4x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-mark@4x.png) | 91896 | `6f5b8cd582735532…` |
+| [png/vimaksh-wordmark-ink@1x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-wordmark-ink@1x.png) | 15606 | `81eabea23ed00a5f…` |
+| [png/vimaksh-wordmark-ink@2x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-wordmark-ink@2x.png) | 36597 | `064818813e68b5af…` |
+| [png/vimaksh-wordmark-ink@4x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-wordmark-ink@4x.png) | 85347 | `b0329f2601599e15…` |
+| [png/vimaksh-wordmark-light@1x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-wordmark-light@1x.png) | 16288 | `e80bd223c79c89b1…` |
+| [png/vimaksh-wordmark-light@2x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-wordmark-light@2x.png) | 38536 | `7d348d62b62f982a…` |
+| [png/vimaksh-wordmark-light@4x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-wordmark-light@4x.png) | 84853 | `a09d977d806d68c0…` |
+| [png/vimaksh-wordmark-white@1x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-wordmark-white@1x.png) | 18627 | `427d0782b225814d…` |
+| [png/vimaksh-wordmark-white@2x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-wordmark-white@2x.png) | 42690 | `d8d8257c04e5075d…` |
+| [png/vimaksh-wordmark-white@4x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-wordmark-white@4x.png) | 92737 | `8109af0ef38e8a02…` |
+| [png/vimaksh-wordmark@1x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-wordmark@1x.png) | 19405 | `3e91a1a76ead196f…` |
+| [png/vimaksh-wordmark@2x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-wordmark@2x.png) | 41412 | `11903a18386166c3…` |
+| [png/vimaksh-wordmark@4x.png](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/png/vimaksh-wordmark@4x.png) | 95177 | `8b5a30a3e84d84c3…` |
+| [svg/vimaksh-mark-tight.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/svg/vimaksh-mark-tight.svg) | 1060 | `017bb97b98c9ed8c…` |
+| [svg/vimaksh-mark.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/svg/vimaksh-mark.svg) | 1054 | `fd5d8584e6544a4f…` |
+| [svg/vimaksh-wordmark-ink.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/svg/vimaksh-wordmark-ink.svg) | 6163 | `0a64b75dbee9add7…` |
+| [svg/vimaksh-wordmark-light.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/svg/vimaksh-wordmark-light.svg) | 6163 | `0174af4564f43e22…` |
+| [svg/vimaksh-wordmark-white.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/svg/vimaksh-wordmark-white.svg) | 6163 | `350e18bd7723e4e9…` |
+| [svg/vimaksh-wordmark.svg](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/svg/vimaksh-wordmark.svg) | 6163 | `9eb7ed2ce942cdcd…` |
+| [zip/vimaksh-brand-all.zip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/zip/vimaksh-brand-all.zip) | 2574287 | `5ba9099508df0785…` |
+| [zip/vimaksh-fonts.zip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/zip/vimaksh-fonts.zip) | 71628 | `e672bdfe6ff23e1d…` |
+| [zip/vimaksh-logos-png.zip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/zip/vimaksh-logos-png.zip) | 664114 | `f133484b899525ec…` |
+| [zip/vimaksh-logos-svg.zip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/zip/vimaksh-logos-svg.zip) | 13286 | `27340c9c2a6702b1…` |
+| [zip/vimaksh-pixel-motifs.zip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/zip/vimaksh-pixel-motifs.zip) | 140625 | `cbf97f4bb0b991d6…` |

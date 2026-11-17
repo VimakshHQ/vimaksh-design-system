@@ -1,0 +1,82 @@
+// Extract the component CSS from the website's v5.css (snapshot in source/site), keeping only rules that can match
+// on the live pages, in their original order, each tagged with its source line. Token blocks and the base type
+// classes are left out: they are generated from tokens/tokens.json instead. Run once per website update; the
+// output (src/css/components.css) is committed and reviewed like any source file.
+import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { root } from './config.mjs';
+
+const css = readFileSync(root('source/site/v5.css'), 'utf8');
+const lineAt = i => css.slice(0, i).split('\n').length;
+
+// ---- the classes that exist on live pages: generated HTML + classes the scripts add at runtime ----
+const live = new Set();
+for (const f of readdirSync(root('source/site/pages'))) for (const m of readFileSync(root('source/site/pages', f), 'utf8').matchAll(/class="([^"]*)"/g)) m[1].split(/\s+/).forEach(c => c && live.add(c));
+const js = ['main.js', 'pixelhero.js'].map(f => readFileSync(root('source/site', f), 'utf8')).join(' ');
+for (const m of js.matchAll(/classList\.(?:add|toggle|remove)\('([\w-]+)'/g)) live.add(m[1]);
+for (const m of js.matchAll(/class(?:Name)?="([^"]*)"/g)) m[1].split(/\s+/).forEach(c => live.add(c));
+// classes rendered by intl-tel-input are kept wholesale (every .iti* selector)
+
+// ---- a small CSS tokenizer: top-level rules and @media/@keyframes blocks ----
+function parse(src, offset = 0) {
+  const out = []; let i = 0;
+  const skipWs = () => { for (;;) { while (/\s/.test(src[i] || '')) i++; if (src.startsWith('/*', i)) { i = src.indexOf('*/', i) + 2; continue; } break; } };
+  while (i < src.length) {
+    skipWs(); if (i >= src.length) break;
+    const start = i; let depth = 0, q = null, head = null;
+    for (; i < src.length; i++) {
+      const ch = src[i];
+      if (q) { if (ch === '\\') i++; else if (ch === q) q = null; continue; }
+      if (ch === '"' || ch === "'") { q = ch; continue; }
+      if (src.startsWith('/*', i)) { i = src.indexOf('*/', i) + 1; continue; }
+      if (ch === '{') { if (depth === 0) head = i; depth++; }
+      else if (ch === '}') { depth--; if (depth === 0) { i++; break; } }
+      else if (ch === ';' && depth === 0) { i++; break; }   // @import / stray
+    }
+    const text = src.slice(start, i), sel = head === null ? text : src.slice(start, head).trim();
+    const body = head === null ? '' : src.slice(head + 1, i - 1);
+    out.push({ sel, body, text, line: lineAt(offset + start), at: sel.startsWith('@'), bodyOffset: offset + head + 1 });
+  }
+  return out;
+}
+
+const isTokenBlock = r => /^(:root|html\[data-theme=(light|dark)\])$/.test(r.sel) || r.sel.startsWith('@font-face');
+const GENERATED_TYPE = new Set(['.t-mono', '.t-hero', '.t-statement', '.t-section', '.t-big']);
+const selectorLive = s => {
+  if (/\.iti/.test(s)) return true;
+  const classes = [...s.replace(/\[[^\]]*\]/g, '').replace(/:not\([^)]*\)/g, '').matchAll(/\.([a-zA-Z][\w-]*)/g)].map(m => m[1]);
+  return classes.every(c => live.has(c));
+};
+// split a selector list on top-level commas
+const splitSel = s => { const out = []; let d = 0, cur = ''; for (const ch of s) { if (ch === '(' || ch === '[') d++; if (ch === ')' || ch === ']') d--; if (ch === ',' && !d) { out.push(cur.trim()); cur = ''; } else cur += ch; } out.push(cur.trim()); return out.filter(Boolean); };
+
+// Literal colours that are footer tokens: replaced by their variable so the footer follows tokens.json.
+const SUBST = [[/#ECEEFF/g, 'var(--foot-text)'], [/#9aa0c8/g, 'var(--foot-label)'], [/#7b81aa/g, 'var(--foot-key)']];
+const subst = s => SUBST.reduce((a, [re, v]) => a.replace(re, v), s);
+
+const report = { kept: 0, dropped: [], replacedByTokens: [] };
+function emit(rules, indent = '') {
+  const out = [];
+  for (const r of rules) {
+    if (r.at && /^@media/.test(r.sel)) {
+      const inner = emit(parse(r.body, r.bodyOffset), indent + '  ');
+      if (inner.length) out.push(`${indent}${r.sel}{`, ...inner, `${indent}}`);
+      continue;
+    }
+    if (isTokenBlock(r)) { report.replacedByTokens.push(`${r.line} ${r.sel.slice(0, 40)}`); continue; }
+    if (r.at) { out.push(`${indent}/* v5.css:${r.line} */`, indent + r.text.trim()); report.kept++; continue; }   // @keyframes
+    const sels = splitSel(r.sel).filter(s => !GENERATED_TYPE.has(s));
+    if (!sels.length) { report.replacedByTokens.push(`${r.line} ${r.sel}`); continue; }
+    const keep = sels.filter(selectorLive);
+    if (!keep.length) { report.dropped.push(`${r.line} ${r.sel.slice(0, 80)}`); continue; }
+    out.push(`${indent}/* v5.css:${r.line} */`, `${indent}${keep.join(',')}{${subst(r.body.trim())}}`);
+    report.kept++;
+  }
+  return out;
+}
+
+const body = emit(parse(css)).join('\n');
+writeFileSync(root('src/css/components.css'), `/* Vimaksh components, extracted from work.vimaksh.in src/v5/v5.css (see source/SOURCE_COMMIT).
+   Only rules that match on the live pages are kept, in their original order; each carries its source line.
+   Generated by scripts/extract-css.mjs: change the website, then re-extract. */\n${body}\n`);
+writeFileSync(root('src/css/extract-report.json'), JSON.stringify({ liveClasses: [...live].sort(), ...report }, null, 2));
+console.log(`extract: kept ${report.kept} rules, dropped ${report.dropped.length} dead rules, ${report.replacedByTokens.length} replaced by tokens`);

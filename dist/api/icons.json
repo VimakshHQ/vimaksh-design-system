@@ -1,0 +1,54 @@
+{
+  "version": "0.1.0",
+  "note": "[PLACEHOLDER: icon set to be supplied by Vimaksh]",
+  "icons": [
+    {
+      "name": "chevron-right",
+      "label": "Chevron right (mono)",
+      "html": "<span class=\"chev\" aria-hidden=\"true\">&gt;</span>",
+      "note": "The brand arrow. Red on paper, coral on night."
+    },
+    {
+      "name": "chevron-left",
+      "label": "Chevron left (mono)",
+      "html": "<span class=\"chev\" aria-hidden=\"true\">&lt;</span>",
+      "note": "Closes the \"> label <\" bracket; \"< Back\"."
+    },
+    {
+      "name": "pixel-chevron-right",
+      "label": "Pixel chevron right",
+      "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 5 5\" width=\"20\" height=\"20\" aria-hidden=\"true\" fill=\"currentColor\" shape-rendering=\"crispEdges\"><rect x=\"0\" y=\"0\" width=\"1\" height=\"1\"/><rect x=\"1\" y=\"0\" width=\"1\" height=\"1\"/><rect x=\"1\" y=\"1\" width=\"1\" height=\"1\"/><rect x=\"2\" y=\"1\" width=\"1\" height=\"1\"/><rect x=\"2\" y=\"2\" width=\"1\" height=\"1\"/><rect x=\"3\" y=\"2\" width=\"1\" height=\"1\"/><rect x=\"1\" y=\"3\" width=\"1\" height=\"1\"/><rect x=\"2\" y=\"3\" width=\"1\" height=\"1\"/><rect x=\"0\" y=\"4\" width=\"1\" height=\"1\"/><rect x=\"1\" y=\"4\" width=\"1\" height=\"1\"/></svg>",
+      "note": "5×5 hero glyph, currentColor."
+    },
+    {
+      "name": "pixel-chevron-left",
+      "label": "Pixel chevron left",
+      "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 5 5\" width=\"20\" height=\"20\" aria-hidden=\"true\" fill=\"currentColor\" shape-rendering=\"crispEdges\"><rect x=\"3\" y=\"0\" width=\"1\" height=\"1\"/><rect x=\"4\" y=\"0\" width=\"1\" height=\"1\"/><rect x=\"2\" y=\"1\" width=\"1\" height=\"1\"/><rect x=\"3\" y=\"1\" width=\"1\" height=\"1\"/><rect x=\"1\" y=\"2\" width=\"1\" height=\"1\"/><rect x=\"2\" y=\"2\" width=\"1\" height=\"1\"/><rect x=\"2\" y=\"3\" width=\"1\" height=\"1\"/><rect x=\"3\" y=\"3\" width=\"1\" height=\"1\"/><rect x=\"3\" y=\"4\" width=\"1\" height=\"1\"/><rect x=\"4\" y=\"4\" width=\"1\" height=\"1\"/></svg>",
+      "note": "5×5 hero glyph, currentColor."
+    },
+    {
+      "name": "sun",
+      "label": "Sun",
+      "html": "<svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5\"/></svg>",
+      "note": "Theme toggle only. 24 grid, 1.6 stroke, round caps."
+    },
+    {
+      "name": "moon",
+      "label": "Moon",
+      "html": "<svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" aria-hidden=\"true\"><path d=\"M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z\"/></svg>",
+      "note": "Theme toggle only."
+    },
+    {
+      "name": "menu",
+      "label": "Menu dots",
+      "html": "<span class=\"dots\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i></span>",
+      "note": "Inside .menubox; morphs into an X when [aria-expanded=true]."
+    },
+    {
+      "name": "disclosure",
+      "label": "Disclosure triangle",
+      "html": "<span class=\"tri\" aria-hidden=\"true\">▸</span>",
+      "note": "Rotates 90° when its .row--brief is expanded."
+    }
+  ]
+}

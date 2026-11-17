@@ -1,0 +1,2483 @@
+{
+  "version": "0.1.0",
+  "components": [
+    {
+      "name": "Header",
+      "title": "Header",
+      "group": "Navigation",
+      "summary": "The wordmark at top left and the theme toggle at top right. Transparent at the top of the page; once you scroll it gets its own paper backing, hides while you read down and returns when you scroll up.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Header.md",
+      "requires": [
+        "vimaksh.css",
+        "vimaksh.js"
+      ],
+      "examples": [
+        {
+          "title": "Header (scroll the frame to see it solidify and hide)",
+          "html": "<header class=\"hdr\">\n  <a class=\"brandlink\" href=\"/\" aria-label=\"Vimaksh, home\"><svg class=\"wm\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 951 172\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M97.8272 45.0046H134.998L133.253 50.7311L92.7232 169H42.5852L1.75416 50.7311L0 45.0039H36.8607L67.8042 138.983H68.4042L97.8272 45.0046Z\" fill=\"currentColor\"/><path d=\"M156.031 168.998V45.0059H192.358V168.998H156.031Z\" fill=\"currentColor\"/><path d=\"M216.93 168.999V44.9883H252.057V69.9416H252.657C252.857 69.5406 253.558 68.1406 254.759 65.7386C256.16 63.1376 258.161 60.2356 260.763 57.0336C263.565 53.8316 267.168 51.1306 271.571 48.9286C276.175 46.5276 281.779 45.3266 288.384 45.3266C294.789 45.3266 300.093 46.5276 304.296 48.9286C308.499 51.1306 311.902 54.1316 314.504 57.9346C317.106 61.5366 319.107 65.5386 320.508 69.9416H321.109C321.109 69.3406 321.809 67.8396 323.21 65.4386C324.812 62.8376 327.013 60.0356 329.815 57.0336C332.818 53.8316 336.721 51.1306 341.524 48.9286C346.328 46.5276 352.132 45.3266 358.938 45.3266C366.743 45.3266 373.148 46.9276 378.152 50.1296C383.356 53.3316 387.459 57.6346 390.461 63.0376C393.663 68.2406 395.963 73.7436 397.363 79.5466C398.963 85.3506 399.973 90.9536 400.373 96.3566C400.973 101.56 401.273 105.863 401.273 109.265V168.999H366.143V108.964C366.143 105.963 365.943 102.661 365.543 99.0586C365.342 95.4566 364.642 91.9536 363.441 88.5516C362.44 85.1506 360.639 82.4486 358.037 80.4476C355.435 78.2456 351.732 77.1456 346.928 77.1456C341.124 77.1456 336.721 78.8466 333.718 82.2486C330.716 85.4506 328.815 89.5526 328.014 94.5556C327.214 99.5586 326.813 104.662 326.813 109.865V168.999H291.386V108.964C291.386 105.963 291.286 102.661 291.086 99.0586C290.886 95.4566 290.185 91.9536 288.985 88.5516C287.784 85.1506 285.882 82.4486 283.28 80.4476C280.678 78.2456 276.975 77.1456 272.172 77.1456C266.367 77.1456 261.964 78.8466 258.962 82.2486C256.16 85.4506 254.258 89.5526 253.257 94.5556C252.457 99.5586 252.057 104.662 252.057 109.865V168.999H216.93Z\" fill=\"currentColor\"/><path d=\"M465.073 172.001C453.863 172.001 444.863 169.4 438.053 164.196C431.253 158.993 426.343 151.689 423.343 142.284C420.343 132.878 418.843 121.772 418.843 108.964C418.843 96.1573 420.343 84.9503 423.343 75.3453C426.543 65.7393 431.453 58.3353 438.053 53.1323C444.863 47.7293 453.863 45.0273 465.073 45.0273C472.683 45.0273 478.983 46.1283 483.993 48.3293C488.993 50.3303 492.893 52.8323 495.703 55.8333C498.703 58.8353 500.903 61.6373 502.303 64.2383C503.703 66.6403 504.603 68.1413 505.003 68.7413H505.603V45.0078H542.833V168.999H511.313L505.603 150.388H505.003C504.803 151.189 503.903 152.79 502.303 155.191C500.903 157.393 498.703 159.794 495.703 162.395C492.693 164.997 488.693 167.198 483.693 168.999C478.683 171 472.483 172.001 465.073 172.001ZM480.083 141.683C487.293 141.683 492.693 140.283 496.303 137.481C499.903 134.479 502.303 130.477 503.503 125.474C504.703 120.471 505.303 115.068 505.303 109.265C505.303 103.261 504.703 97.7583 503.503 92.7553C502.303 87.7523 499.903 83.8503 496.303 81.0483C492.693 78.2463 487.293 76.8463 480.083 76.8463C472.883 76.8463 467.373 78.3473 463.573 81.3483C459.973 84.3503 457.573 88.3523 456.373 93.3553C455.163 98.1583 454.563 103.461 454.563 109.265C454.563 115.068 455.163 120.471 456.373 125.474C457.573 130.277 459.973 134.179 463.573 137.181C467.373 140.183 472.883 141.683 480.083 141.683Z\" fill=\"currentColor\"/><path d=\"M600.113 168.998H563.793V0H600.113V168.998ZM628.633 79.546L690.783 168.998H647.553L602.213 105.061L628.633 79.546ZM599.513 139.581V99.658L645.753 44.9778H689.583L599.513 139.581Z\" fill=\"currentColor\"/><path d=\"M755.033 172.001C752.233 172.001 748.433 171.601 743.623 170.8C738.823 170.2 733.723 168.999 728.313 167.198C723.113 165.197 718.103 162.496 713.303 159.094C708.503 155.491 704.593 150.989 701.593 145.586C698.793 140.183 697.393 133.579 697.393 125.774H730.713C730.713 125.974 730.813 127.175 731.013 129.376C731.213 131.377 731.923 133.679 733.123 136.28C734.523 138.682 736.823 140.883 740.023 142.884C743.223 144.885 747.933 145.886 754.133 145.886C758.943 145.886 762.743 145.285 765.543 144.085C768.343 142.684 770.343 141.083 771.553 139.282C772.753 137.481 773.253 135.78 773.053 134.179C773.053 130.377 771.253 127.475 767.643 125.474C764.243 123.273 759.743 121.372 754.133 119.771C748.533 118.17 742.523 116.469 736.123 114.668C729.913 112.867 724.013 110.565 718.413 107.764C712.803 104.762 708.203 100.86 704.593 96.057C701.193 91.054 699.593 84.55 699.793 76.545C699.793 64.539 704.393 55.633 713.603 49.83C723.013 44.027 734.923 41.125 749.333 41.125C757.533 41.125 765.143 42.125 772.153 44.127C779.153 45.928 785.363 48.729 790.763 52.532C796.163 56.334 800.373 61.237 803.373 67.24C806.373 73.244 807.973 80.248 808.173 88.252H775.153C775.353 84.25 774.653 80.948 773.053 78.347C771.653 75.745 769.743 73.744 767.343 72.343C764.943 70.942 762.243 69.942 759.243 69.341C756.433 68.541 753.533 68.141 750.533 68.141C744.123 68.141 739.523 69.341 736.723 71.743C734.123 73.944 732.823 76.445 732.823 79.247C732.823 83.45 734.623 86.751 738.223 89.153C741.823 91.354 746.433 93.255 752.033 94.856C757.633 96.457 763.643 98.158 770.043 99.959C776.653 101.76 782.753 104.062 788.363 106.863C793.963 109.665 798.573 113.467 802.173 118.27C805.773 122.872 807.573 128.976 807.573 136.58C807.573 144.385 805.373 150.889 800.973 156.092C796.763 161.295 790.763 165.297 782.953 168.099C775.153 170.7 765.843 172.001 755.033 172.001Z\" fill=\"currentColor\"/><path d=\"M829.463 168.998V0H866.693V69.941H867.293C867.493 69.741 868.093 68.34 869.093 65.738C870.293 63.137 872.293 60.335 875.093 57.333C877.903 54.131 881.803 51.33 886.803 48.928C891.813 46.527 898.213 45.326 906.023 45.326C914.623 45.326 921.733 46.927 927.333 50.129C932.943 53.131 937.343 57.133 940.543 62.136C943.753 67.139 946.053 72.642 947.453 78.646C948.853 84.449 949.753 90.052 950.153 95.456C950.553 100.859 950.753 105.461 950.753 109.264V168.998H915.323V108.963C915.323 103.56 914.823 98.457 913.823 93.654C912.823 88.852 910.623 84.949 907.223 81.948C904.023 78.746 898.813 77.145 891.613 77.145C884.203 77.145 878.703 78.746 875.093 81.948C871.693 85.15 869.393 89.252 868.193 94.255C867.193 99.058 866.693 104.261 866.693 109.864V168.998H829.463Z\" fill=\"currentColor\"/></svg></a>\n  <div class=\"hdr-r\">\n    <button class=\"toggle\" type=\"button\" aria-label=\"Switch to dark theme\" data-toggle-theme>\n      <span class=\"ghost g-sun\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5\"/></svg></span>\n      <span class=\"ghost g-moon\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><path d=\"M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z\"/></svg></span>\n      <span class=\"knob\" aria-hidden=\"true\">\n        <svg class=\"i-sun\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5\"/></svg>\n        <svg class=\"i-moon\" viewBox=\"0 0 24 24\"><path d=\"M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z\"/></svg>\n      </span>\n    </button>\n  </div>\n</header>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": ".hdr",
+          "kind": "class",
+          "description": "Fixed header bar. Pointer events pass through except on its children."
+        },
+        {
+          "name": ".hdr.solid",
+          "kind": "state (JS)",
+          "description": "Added after 24px of scroll: paper background and a bottom hairline."
+        },
+        {
+          "name": ".hdr.hide",
+          "kind": "state (JS)",
+          "description": "Added while scrolling down past 140px; removed on any upward scroll."
+        },
+        {
+          "name": ".hdr.on-dark",
+          "kind": "state (JS)",
+          "description": "Added while the dark footer is under the header: text turns #F4F5FF."
+        },
+        {
+          "name": ".brandlink > svg.wm",
+          "kind": "element",
+          "description": "The wordmark inlined with fill=\"currentColor\", 24px high (20px on phones). aria-label on the link: \"Vimaksh, home\"."
+        },
+        {
+          "name": ".hdr-r",
+          "kind": "element",
+          "description": "Right-hand slot; holds the theme toggle."
+        }
+      ],
+      "use": [
+        "Put it first in <body>, after the skip link, on every page.",
+        "Keep the wordmark inline (not <img>) so it takes the header colour in both themes."
+      ],
+      "do": [
+        "Use the real wordmark SVG from brand/svg.",
+        "Let the script manage solid/hide/on-dark."
+      ],
+      "dont": [
+        "Do not add navigation links to the header: navigation lives in the navigation stack.",
+        "Do not give the header a shadow or blur; its backing is flat paper with one hairline."
+      ],
+      "accessibility": [
+        "The brand link has aria-label \"Vimaksh, home\"; the SVG is aria-hidden.",
+        "Hiding on scroll never moves focus; the header returns on any upward scroll."
+      ],
+      "tokens": [
+        {
+          "name": "space.hdr",
+          "cssVar": "--hdr",
+          "value": "78px"
+        },
+        {
+          "name": "color.theme.paper",
+          "cssVar": "--paper",
+          "value": {
+            "light": "#F4F2EE",
+            "dark": "#0F1020"
+          }
+        },
+        {
+          "name": "color.theme.rule",
+          "cssVar": "--rule",
+          "value": {
+            "light": "rgba(44,20,18,.14)",
+            "dark": "rgba(221,228,255,.12)"
+          }
+        },
+        {
+          "name": "color.theme.strong",
+          "cssVar": "--strong",
+          "value": {
+            "light": "#0B0A14",
+            "dark": "#F4F5FF"
+          }
+        },
+        {
+          "name": "motion.easing.standard",
+          "cssVar": "--ease",
+          "value": "cubic-bezier(.2,.8,.2,1)"
+        }
+      ],
+      "sources": [
+        {
+          "file": "tools/v5pages.py",
+          "a": 44,
+          "b": 57,
+          "what": "markup",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L44-L57"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 58,
+          "b": 66,
+          "what": "base",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L58-L66"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 563,
+          "b": 574,
+          "what": "solid / hide / wordmark",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L563-L574"
+        },
+        {
+          "file": "src/v5/main.js",
+          "a": 171,
+          "b": 196,
+          "what": "scroll behaviour",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L171-L196"
+        }
+      ]
+    },
+    {
+      "name": "ThemeToggle",
+      "title": "Theme toggle",
+      "group": "Navigation",
+      "summary": "A pill whose knob slides between sun and moon; the icon turns as it travels. The choice is saved in localStorage under \"vimaksh-theme\" and applied before first paint on every page.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/ThemeToggle.md",
+      "requires": [
+        "vimaksh.css",
+        "vimaksh.js"
+      ],
+      "examples": [
+        {
+          "title": "Toggle (click it: the whole frame switches theme)",
+          "html": "    <button class=\"toggle\" type=\"button\" aria-label=\"Switch to dark theme\" data-toggle-theme>\n      <span class=\"ghost g-sun\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5\"/></svg></span>\n      <span class=\"ghost g-moon\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><path d=\"M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z\"/></svg></span>\n      <span class=\"knob\" aria-hidden=\"true\">\n        <svg class=\"i-sun\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5\"/></svg>\n        <svg class=\"i-moon\" viewBox=\"0 0 24 24\"><path d=\"M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z\"/></svg>\n      </span>\n    </button>"
+        }
+      ],
+      "code": [
+        {
+          "title": "Before first paint (in <head>, before the CSS)",
+          "code": "<script>\n  // Set the theme before first paint: saved choice, else the system setting.\n  (function () { try { var t = localStorage.getItem('vimaksh-theme'); if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';\n    document.documentElement.dataset.theme = t; } catch (e) { document.documentElement.dataset.theme = 'light'; } })();\n</script>"
+        }
+      ],
+      "api": [
+        {
+          "name": "button.toggle[data-toggle-theme]",
+          "kind": "element",
+          "description": "The switch. vimaksh.js binds it."
+        },
+        {
+          "name": ".ghost.g-sun / .ghost.g-moon",
+          "kind": "element",
+          "description": "Faint sun and moon in the track."
+        },
+        {
+          "name": ".knob (.i-sun, .i-moon)",
+          "kind": "element",
+          "description": "The sliding knob, #0B0A14 in light, #F4F5FF in dark; the icons rotate in and out over .6s."
+        },
+        {
+          "name": "html[data-theme]",
+          "kind": "attribute",
+          "description": "\"light\" or \"dark\". Set it before first paint with the snippet below."
+        },
+        {
+          "name": "themechange",
+          "kind": "event (window)",
+          "description": "Fired after a switch; pixel graphics redraw on it."
+        },
+        {
+          "name": "localStorage \"vimaksh-theme\"",
+          "kind": "storage",
+          "description": "The saved choice. Falls back to prefers-color-scheme."
+        }
+      ],
+      "use": [
+        "Every page supports both themes; ship the toggle in the header."
+      ],
+      "do": [
+        "Run the pre-paint snippet so there is no flash of the wrong theme.",
+        "Update <meta name=\"theme-color\"> with the theme (vimaksh.js does)."
+      ],
+      "dont": [
+        "Do not offer a third \"system\" state; the site has two.",
+        "Do not round anything else: the toggle is the only pill on the site."
+      ],
+      "accessibility": [
+        "aria-label switches between \"Switch to dark theme\" and \"Switch to light theme\".",
+        "Icons are aria-hidden.",
+        "Focus ring: 2px Electric, 3px offset."
+      ],
+      "tokens": [
+        {
+          "name": "radius.pill",
+          "cssVar": "--radius-pill",
+          "value": "99px"
+        },
+        {
+          "name": "radius.round",
+          "cssVar": "--radius-round",
+          "value": "50%"
+        },
+        {
+          "name": "shadow.knob",
+          "cssVar": "--shadow-knob",
+          "value": "0 2px 8px rgba(0,0,0,.18)"
+        },
+        {
+          "name": "shadow.knob-hover",
+          "cssVar": "--shadow-knob-hover",
+          "value": "0 2px 14px rgba(0,0,0,.25)"
+        },
+        {
+          "name": "blur.toggle",
+          "cssVar": "--blur-toggle",
+          "value": "10px"
+        },
+        {
+          "name": "motion.easing.toggle",
+          "cssVar": "--ease-toggle",
+          "value": "cubic-bezier(.65,0,.25,1)"
+        },
+        {
+          "name": "motion.duration.theme",
+          "cssVar": "--dur-theme",
+          "value": "600ms"
+        }
+      ],
+      "sources": [
+        {
+          "file": "tools/v5pages.py",
+          "a": 47,
+          "b": 54,
+          "what": "markup",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L47-L54"
+        },
+        {
+          "file": "tools/v5pages.py",
+          "a": 33,
+          "b": 37,
+          "what": "pre-paint script",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L33-L37"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 69,
+          "b": 80,
+          "what": "style",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L69-L80"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 311,
+          "b": 312,
+          "what": "phone size",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L311-L312"
+        },
+        {
+          "file": "src/v5/main.js",
+          "a": 9,
+          "b": 20,
+          "what": "behaviour",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L9-L20"
+        }
+      ]
+    },
+    {
+      "name": "NavigationStack",
+      "title": "Navigation stack",
+      "group": "Navigation",
+      "summary": "The site's only navigation: a stack of boxed mono links fixed at the bottom right, ending in a solid Menu box. On the home hero all links show; once you scroll (and on every other page, and on phones) it folds to the Menu box, which unfolds the links again.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/NavigationStack.md",
+      "requires": [
+        "vimaksh.css",
+        "vimaksh.js"
+      ],
+      "examples": [
+        {
+          "title": "Navigation stack (click Menu)",
+          "html": "<nav class=\"navbox\" aria-label=\"Main\" data-navbox>\n    <a href=\"/#work\"><span class=\"c\" aria-hidden=\"true\">&gt;</span><span class=\"t\">Work</span><span class=\"c\" aria-hidden=\"true\">&lt;</span></a>\n    <a href=\"/#services\"><span class=\"c\" aria-hidden=\"true\">&gt;</span><span class=\"t\">What we build</span><span class=\"c\" aria-hidden=\"true\">&lt;</span></a>\n    <a href=\"/#about\"><span class=\"c\" aria-hidden=\"true\">&gt;</span><span class=\"t\">About</span><span class=\"c\" aria-hidden=\"true\">&lt;</span></a>\n    <a href=\"/contact/\"><span class=\"c\" aria-hidden=\"true\">&gt;</span><span class=\"t\">Let's talk</span><span class=\"c\" aria-hidden=\"true\">&lt;</span></a>\n    <button class=\"menubox\" type=\"button\" aria-label=\"Show navigation\" aria-expanded=\"false\" data-menu-btn><span class=\"t\">Menu</span><span class=\"dots\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i></span></button>\n  </nav>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": "nav.navbox[data-navbox]",
+          "kind": "element",
+          "description": "Fixed bottom-right, 210px wide (min(220px, 100vw − 24px) on phones)."
+        },
+        {
+          "name": "a > .c, .t, .c",
+          "kind": "element",
+          "description": "Each link: \"> label <\" in mono; the chevrons sit at 30% and turn red on hover."
+        },
+        {
+          "name": "button.menubox[data-menu-btn]",
+          "kind": "element",
+          "description": "Solid box; its four dots morph into an X when open."
+        },
+        {
+          "name": "body.nav-compact",
+          "kind": "state (JS)",
+          "description": "Links folded away."
+        },
+        {
+          "name": "body.nav-open",
+          "kind": "state (JS)",
+          "description": "Links unfolded, staggered 45ms from the bottom; Menu box turns red."
+        },
+        {
+          "name": "body.nav-dark",
+          "kind": "state (JS)",
+          "description": "Over the dark footer: light text and borders."
+        },
+        {
+          "name": "html[data-page=home]",
+          "kind": "attribute",
+          "description": "Only the home page shows the full stack on load."
+        }
+      ],
+      "use": [
+        "Four destinations at most, plus Menu.",
+        "Labels are short nouns or a short invitation (\"Let's talk\")."
+      ],
+      "do": [
+        "Keep the stack in the same place on every page.",
+        "Close it with Escape or a click outside (vimaksh.js does)."
+      ],
+      "dont": [
+        "Do not add a top navigation bar or a hamburger overlay.",
+        "Do not drop the chevrons: \"> label <\" is the brand's own bracket."
+      ],
+      "accessibility": [
+        "nav has aria-label \"Main\"; chevrons are aria-hidden.",
+        "Menu button has aria-expanded and an aria-label that says what it will do.",
+        "Escape closes and returns focus to Menu."
+      ],
+      "tokens": [
+        {
+          "name": "typography.control",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'JetBrains Mono',ui-monospace,Consolas,monospace",
+            "fontWeight": 500,
+            "fontSize": "11.5px",
+            "lineHeight": "1",
+            "letterSpacing": ".08em",
+            "textTransform": "uppercase"
+          }
+        },
+        {
+          "name": "color.theme.chip",
+          "cssVar": "--chip",
+          "value": {
+            "light": "rgba(251,250,247,.7)",
+            "dark": "rgba(23,25,46,.7)"
+          }
+        },
+        {
+          "name": "color.theme.rule2",
+          "cssVar": "--rule2",
+          "value": {
+            "light": "rgba(44,20,18,.3)",
+            "dark": "rgba(221,228,255,.3)"
+          }
+        },
+        {
+          "name": "blur.nav",
+          "cssVar": "--blur-nav",
+          "value": "8px"
+        },
+        {
+          "name": "color.brand.red",
+          "cssVar": "--red",
+          "value": "#E42114"
+        }
+      ],
+      "sources": [
+        {
+          "file": "tools/v5pages.py",
+          "a": 63,
+          "b": 69,
+          "what": "markup",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L63-L69"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 335,
+          "b": 357,
+          "what": "style",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L335-L357"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 583,
+          "b": 584,
+          "what": "open state",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L583-L584"
+        },
+        {
+          "file": "src/v5/main.js",
+          "a": 22,
+          "b": 33,
+          "what": "behaviour",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L22-L33"
+        },
+        {
+          "file": "src/v5/main.js",
+          "a": 186,
+          "b": 191,
+          "what": "compact / dark",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L186-L191"
+        }
+      ]
+    },
+    {
+      "name": "Button",
+      "title": "Button",
+      "group": "Actions",
+      "summary": "Square buttons with a mono uppercase label and a \">\" chevron that nudges 5px right on hover. Primary is red; ghost has a hairline border. Both turn solid strong on hover.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Button.md",
+      "requires": [
+        "vimaksh.css"
+      ],
+      "examples": [
+        {
+          "title": "Primary and ghost (hero CTAs)",
+          "html": "<div class=\"hero-cta\"><a class=\"btn\" href=\"#work\"><span>Explore our work</span><span class=\"chev\" aria-hidden=\"true\">&gt;</span></a><a class=\"btn btn--ghost\" href=\"/contact/\"><span>Start a project</span></a></div>"
+        },
+        {
+          "title": "Submit button and its states",
+          "html": "<div class=\"brief-form\" style=\"display:flex;gap:12px;flex-wrap:wrap;padding:0;border:0\"><button class=\"btn\" type=\"button\"><span>Send brief</span><span class=\"chev\" aria-hidden=\"true\">&gt;</span></button><button class=\"btn\" type=\"button\" disabled><span>Sending…</span><span class=\"chev\" aria-hidden=\"true\">&gt;</span></button><span class=\"brief-form sent\" style=\"padding:0;border:0\"><button class=\"btn\" type=\"submit\"><span>Sent</span><span class=\"chev\" aria-hidden=\"true\">&gt;</span></button></span></div>"
+        },
+        {
+          "title": "Track arrows (square icon buttons)",
+          "html": "<div class=\"track-foot\" style=\"margin:0\">    <div class=\"track-btns\"><button type=\"button\" class=\"tbtn\" data-track-prev aria-label=\"Previous\"><span class=\"chev\" aria-hidden=\"true\">&lt;</span></button><button type=\"button\" class=\"tbtn\" data-track-next aria-label=\"Next\"><span class=\"chev\" aria-hidden=\"true\">&gt;</span></button></div></div>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": ".btn",
+          "kind": "class",
+          "description": "Primary: red, white label, 16px 20px padding, 28px gap to the chevron."
+        },
+        {
+          "name": ".btn--ghost",
+          "kind": "modifier",
+          "description": "Transparent with a --rule2 border; red chevron."
+        },
+        {
+          "name": ".btn > .chev",
+          "kind": "element",
+          "description": "The \">\" chevron, aria-hidden. On primary it is #FFD9D6."
+        },
+        {
+          "name": "[disabled] in .brief-form",
+          "kind": "state",
+          "description": "opacity .7, cursor: progress (while sending)."
+        },
+        {
+          "name": ".brief-form.sent .btn",
+          "kind": "state",
+          "description": "Green #16a34a while the \"Sent\" confirmation shows."
+        },
+        {
+          "name": ".tbtn",
+          "kind": "class",
+          "description": "Square 52×48 icon button for the track arrows (46×44 on phones)."
+        }
+      ],
+      "use": [
+        "One primary per view. Pair it with one ghost at most.",
+        "Labels are verbs in sentence case in the source (\"Explore our work\"); CSS sets them uppercase."
+      ],
+      "do": [
+        "Always end primary buttons with the chevron.",
+        "Use <a> for navigation and <button> for actions."
+      ],
+      "dont": [
+        "Do not round the corners or add a shadow.",
+        "Do not use red for anything but the primary action and the chevron.",
+        "Do not write the label in capitals in the source: text-transform does it."
+      ],
+      "accessibility": [
+        "White on red is 4.64:1 (passes AA for the 11.5px label only because it is bold-weight mono; keep the size).",
+        "Chevrons are aria-hidden.",
+        "Icon-only .tbtn needs aria-label."
+      ],
+      "tokens": [
+        {
+          "name": "color.brand.red",
+          "cssVar": "--red",
+          "value": "#E42114"
+        },
+        {
+          "name": "color.on.accent",
+          "cssVar": "--on-accent",
+          "value": "#fff"
+        },
+        {
+          "name": "color.on.accent-chevron",
+          "cssVar": "--on-accent-chev",
+          "value": "#FFD9D6"
+        },
+        {
+          "name": "typography.control",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'JetBrains Mono',ui-monospace,Consolas,monospace",
+            "fontWeight": 500,
+            "fontSize": "11.5px",
+            "lineHeight": "1",
+            "letterSpacing": ".08em",
+            "textTransform": "uppercase"
+          }
+        },
+        {
+          "name": "space.control-y",
+          "cssVar": "--control-y",
+          "value": "16px"
+        },
+        {
+          "name": "space.control-x",
+          "cssVar": "--control-x",
+          "value": "20px"
+        },
+        {
+          "name": "motion.distance.nudge",
+          "cssVar": "--nudge",
+          "value": "5px"
+        }
+      ],
+      "sources": [
+        {
+          "file": "src/v5/v5.css",
+          "a": 47,
+          "b": 53,
+          "what": "btn, ghost",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L47-L53"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 744,
+          "b": 748,
+          "what": "disabled, sent",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L744-L748"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 479,
+          "b": 481,
+          "what": "tbtn",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L479-L481"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 711,
+          "b": 713,
+          "what": "tbtn chevron",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L711-L713"
+        }
+      ]
+    },
+    {
+      "name": "TextLink",
+      "title": "Text link",
+      "group": "Actions",
+      "summary": "A mono link with an underline in the text colour and a red chevron that nudges 4px on hover. Used for the secondary action of a section header.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/TextLink.md",
+      "requires": [
+        "vimaksh.css"
+      ],
+      "examples": [
+        {
+          "title": "\"Start yours\" in the work section header",
+          "html": "    <a class=\"more t-mono\" href=\"/contact/\">Start yours <span class=\"chev\" aria-hidden=\"true\">&gt;</span></a>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": "a.more.t-mono",
+          "kind": "class",
+          "description": "inline-flex, 10px gap, 1px currentColor underline 4px below."
+        },
+        {
+          "name": ".chev",
+          "kind": "element",
+          "description": "Red \">\" that nudges on hover."
+        }
+      ],
+      "use": [
+        "At most one per section header, aligned right."
+      ],
+      "do": [
+        "Keep it to two or three words."
+      ],
+      "dont": [
+        "Do not use it inside paragraphs; body links are plain underlined text."
+      ],
+      "accessibility": [
+        "The underline is always visible, so the link does not rely on colour."
+      ],
+      "tokens": [
+        {
+          "name": "typography.mono",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'JetBrains Mono',ui-monospace,Consolas,monospace",
+            "fontWeight": 500,
+            "fontSize": "11px",
+            "lineHeight": "1.45",
+            "letterSpacing": ".06em",
+            "textTransform": "uppercase"
+          }
+        },
+        {
+          "name": "color.brand.red",
+          "cssVar": "--red",
+          "value": "#E42114"
+        },
+        {
+          "name": "motion.duration.base",
+          "cssVar": "--dur-base",
+          "value": "250ms"
+        }
+      ],
+      "sources": [
+        {
+          "file": "src/v5/v5.css",
+          "a": 54,
+          "b": 55,
+          "what": "style",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L54-L55"
+        }
+      ]
+    },
+    {
+      "name": "Pill",
+      "title": "Pill",
+      "group": "Actions",
+      "summary": "A small square mono chip that copies a value (an email, coordinates) or labels an expandable row. Hover fills it with strong. It is the site's chip; there is no separate tag component.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Pill.md",
+      "requires": [
+        "vimaksh.css",
+        "vimaksh.js"
+      ],
+      "examples": [
+        {
+          "title": "Copy pills in contact rows (hover for the tooltip, click to copy)",
+          "html": "<div class=\"block\" style=\"max-width:640px\">      <div class=\"row\"><span>General enquiries</span><button class=\"pill t-mono\" type=\"button\" data-copy=\"hq@vimaksh.in\">hq@vimaksh.in</button></div>\n      <div class=\"row\"><span>New projects</span><button class=\"pill t-mono\" type=\"button\" data-copy=\"hq@vimaksh.in\">hq@vimaksh.in</button></div></div><div class=\"tip t-mono\" aria-hidden=\"true\">Copy</div>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": ".pill",
+          "kind": "class",
+          "description": "7px 11px, --rule2 border, paper fill, mono. Hover: strong fill."
+        },
+        {
+          "name": "[data-copy=\"…\"]",
+          "kind": "attribute",
+          "description": "vimaksh.js copies the value and shows the tooltip."
+        },
+        {
+          "name": ".row--brief .pill",
+          "kind": "context",
+          "description": "On the red row: transparent with a white border; white fill when open."
+        }
+      ],
+      "use": [
+        "For values people copy, and for the toggle inside the red \"Start a project\" row."
+      ],
+      "do": [
+        "Show the full value as the label."
+      ],
+      "dont": [
+        "Do not use pills as filters or tags; the site has none.",
+        "Do not round them."
+      ],
+      "accessibility": [
+        "Copy pills are <button>s; the result (\"Copied ✓\") appears in the tooltip, and the value is visible, so nothing is lost if the tooltip is missed."
+      ],
+      "tokens": [
+        {
+          "name": "color.theme.rule2",
+          "cssVar": "--rule2",
+          "value": {
+            "light": "rgba(44,20,18,.3)",
+            "dark": "rgba(221,228,255,.3)"
+          }
+        },
+        {
+          "name": "color.theme.paper",
+          "cssVar": "--paper",
+          "value": {
+            "light": "#F4F2EE",
+            "dark": "#0F1020"
+          }
+        },
+        {
+          "name": "color.theme.strong",
+          "cssVar": "--strong",
+          "value": {
+            "light": "#0B0A14",
+            "dark": "#F4F5FF"
+          }
+        },
+        {
+          "name": "typography.mono",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'JetBrains Mono',ui-monospace,Consolas,monospace",
+            "fontWeight": 500,
+            "fontSize": "11px",
+            "lineHeight": "1.45",
+            "letterSpacing": ".06em",
+            "textTransform": "uppercase"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "file": "src/v5/v5.css",
+          "a": 232,
+          "b": 233,
+          "what": "style",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L232-L233"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 486,
+          "b": 487,
+          "what": "on the red row",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L486-L487"
+        },
+        {
+          "file": "src/v5/main.js",
+          "a": 35,
+          "b": 53,
+          "what": "copy",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L35-L53"
+        }
+      ]
+    },
+    {
+      "name": "CopyTooltip",
+      "title": "Copy tooltip",
+      "group": "Feedback",
+      "summary": "A tiny strong label that follows the pointer over anything with data-copy: \"Copy\", then \"Copied ✓\" (or \"Copy failed\") for 1.3s after a click.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/CopyTooltip.md",
+      "requires": [
+        "vimaksh.css",
+        "vimaksh.js"
+      ],
+      "examples": [
+        {
+          "title": "Hover the email, then click it",
+          "html": "<div class=\"foot\" style=\"padding:40px var(--pad)\"><div class=\"foot-cta\"><button class=\"email\" type=\"button\" data-copy=\"hq@vimaksh.in\"><span class=\"chev l\" aria-hidden=\"true\">&gt;</span>hq@vimaksh.in<span class=\"chev r\" aria-hidden=\"true\">&lt;</span></button></div></div><div class=\"tip t-mono\" aria-hidden=\"true\">Copy</div>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": ".tip.t-mono",
+          "kind": "element",
+          "description": "One per page, anywhere in <body>, aria-hidden."
+        },
+        {
+          "name": ".tip.on",
+          "kind": "state (JS)",
+          "description": "Visible."
+        },
+        {
+          "name": "[data-copy]",
+          "kind": "attribute",
+          "description": "Any element; its value is copied on click."
+        }
+      ],
+      "use": [
+        "For copyable contact details only."
+      ],
+      "do": [
+        "Keep the copied value visible on the trigger."
+      ],
+      "dont": [
+        "Do not use it as a general tooltip for hints."
+      ],
+      "accessibility": [
+        "The tooltip is decorative (aria-hidden). Make the trigger a <button> with the value as its text."
+      ],
+      "tokens": [
+        {
+          "name": "color.theme.strong",
+          "cssVar": "--strong",
+          "value": {
+            "light": "#0B0A14",
+            "dark": "#F4F5FF"
+          }
+        },
+        {
+          "name": "color.theme.paper",
+          "cssVar": "--paper",
+          "value": {
+            "light": "#F4F2EE",
+            "dark": "#0F1020"
+          }
+        },
+        {
+          "name": "typography.mono",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'JetBrains Mono',ui-monospace,Consolas,monospace",
+            "fontWeight": 500,
+            "fontSize": "11px",
+            "lineHeight": "1.45",
+            "letterSpacing": ".06em",
+            "textTransform": "uppercase"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "file": "tools/v5pages.py",
+          "a": 59,
+          "b": 61,
+          "what": "markup",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L59-L61"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 108,
+          "b": 109,
+          "what": "style",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L108-L109"
+        },
+        {
+          "file": "src/v5/main.js",
+          "a": 35,
+          "b": 53,
+          "what": "behaviour",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L35-L53"
+        }
+      ]
+    },
+    {
+      "name": "SectionHeader",
+      "title": "Section header",
+      "group": "Layout",
+      "summary": "A top hairline, a \"> Label\" in mono, a large heading and an optional action on the right. It opens every content section.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/SectionHeader.md",
+      "requires": [
+        "vimaksh.css"
+      ],
+      "examples": [
+        {
+          "title": "Work section header",
+          "html": "  <div class=\"sec-head\">\n    <p class=\"t-mono label\"><span class=\"chev\">&gt;</span> Selected work</p>\n    <h2 id=\"work-h\" class=\"t-section\">Things we've built,<br>and are building.</h2>\n    <a class=\"more t-mono\" href=\"/contact/\">Start yours <span class=\"chev\" aria-hidden=\"true\">&gt;</span></a>\n  </div>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": ".sec-head",
+          "kind": "class",
+          "description": "Grid: heading left, action right; 16px above, hairline on top, clamp(28px,3.4vw,52px) below."
+        },
+        {
+          "name": "p.t-mono.label > .chev",
+          "kind": "element",
+          "description": "The label with a red \">\"; spans the full row."
+        },
+        {
+          "name": "h2.t-section",
+          "kind": "element",
+          "description": "The heading. A <br> is allowed for a deliberate break."
+        },
+        {
+          "name": "a.more",
+          "kind": "element",
+          "description": "Optional action, aligned to the heading's last line."
+        }
+      ],
+      "use": [
+        "Label: one or two words naming the section (\"Selected work\"). Heading: the claim, in sentence case."
+      ],
+      "do": [
+        "Start the label with the red chevron."
+      ],
+      "dont": [
+        "Do not number sections.",
+        "Do not put an eyebrow and a label together."
+      ],
+      "accessibility": [
+        "The heading is a real <h2> with an id referenced by the section's aria-labelledby."
+      ],
+      "tokens": [
+        {
+          "name": "typography.mono",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'JetBrains Mono',ui-monospace,Consolas,monospace",
+            "fontWeight": 500,
+            "fontSize": "11px",
+            "lineHeight": "1.45",
+            "letterSpacing": ".06em",
+            "textTransform": "uppercase"
+          }
+        },
+        {
+          "name": "typography.section",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontWeight": 500,
+            "fontSize": "clamp(34px,4.4vw,72px)",
+            "lineHeight": ".96",
+            "letterSpacing": "-.04em",
+            "color": "var(--strong)"
+          }
+        },
+        {
+          "name": "space.head-gap",
+          "cssVar": "--head-gap",
+          "value": "clamp(28px,3.4vw,52px)"
+        },
+        {
+          "name": "color.theme.rule",
+          "cssVar": "--rule",
+          "value": {
+            "light": "rgba(44,20,18,.14)",
+            "dark": "rgba(221,228,255,.12)"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "file": "src/v5/v5.css",
+          "a": 131,
+          "b": 132,
+          "what": "style",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L131-L132"
+        },
+        {
+          "file": "tools/v5pages.py",
+          "a": 210,
+          "b": 214,
+          "what": "markup",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L210-L214"
+        }
+      ]
+    },
+    {
+      "name": "ProjectCard",
+      "title": "Project card",
+      "group": "Content",
+      "summary": "A product in the work grid: 4:5 video (4:3 on phones) with a number and the product's own logo on a paper chip, then title and mono kind, a one-line description, and a full-width visit bar.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/ProjectCard.md",
+      "requires": [
+        "vimaksh.css",
+        "vimaksh.js"
+      ],
+      "examples": [
+        {
+          "title": "Two cards in the work grid",
+          "html": "  <div class=\"grid3\">\n      <article class=\"card\">\n        <a class=\"media\" href=\"https://paryatech.in\" target=\"_blank\" rel=\"noopener\" tabindex=\"-1\" aria-hidden=\"true\">\n          <video muted loop playsinline preload=\"metadata\" poster=\"/examples/media/paryatech.jpg\" src=\"/examples/media/paryatech.mp4\"></video>\n          <span class=\"veil\"></span><span class=\"num t-mono\" aria-hidden=\"true\">01</span>\n          <span class=\"plogo\"><img src=\"/examples/media/paryatech-wordmark.svg\" alt=\"Paryatech\" loading=\"lazy\"></span>\n        </a>\n        <div class=\"meta\"><h3>Paryatech</h3><span class=\"t-mono kind\">Travel SaaS</span></div>\n        <p>Brings a travel agency’s enquiries, itineraries, bookings and finances together in one place.</p>\n        <a class=\"bar t-mono\" href=\"https://paryatech.in\" target=\"_blank\" rel=\"noopener\"><span class=\"bt\">Visit paryatech.in</span><span class=\"sr\"> (opens in a new tab)</span><span class=\"chev\" aria-hidden=\"true\">&gt;</span></a>\n      </article>\n      <article class=\"card\">\n        <a class=\"media\" href=\"https://sachit.vimaksh.in/\" target=\"_blank\" rel=\"noopener\" tabindex=\"-1\" aria-hidden=\"true\">\n          <video muted loop playsinline preload=\"metadata\" poster=\"/examples/media/sachit.jpg\" src=\"/examples/media/sachit.mp4\"></video>\n          <span class=\"veil\"></span><span class=\"num t-mono\" aria-hidden=\"true\">02</span>\n          <span class=\"plogo plogo--icon\"><img src=\"/examples/media/sachit.svg\" alt=\"\" loading=\"lazy\"><b>Sachit</b></span>\n        </a>\n        <div class=\"meta\"><h3>Sachit</h3><span class=\"t-mono kind\">Support desk</span></div>\n        <p>Turns emails and in-app requests into support tickets your team can organise, track and resolve.</p>\n        <a class=\"bar t-mono\" href=\"https://sachit.vimaksh.in/\" target=\"_blank\" rel=\"noopener\"><span class=\"bt\">Visit sachit.vimaksh.in</span><span class=\"sr\"> (opens in a new tab)</span><span class=\"chev\" aria-hidden=\"true\">&gt;</span></a>\n      </article></div>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": "article.card",
+          "kind": "element",
+          "description": "Flex column; the bar is pushed to the bottom so cards in a row align."
+        },
+        {
+          "name": "a.media",
+          "kind": "element",
+          "description": "Video link, tabindex -1 and aria-hidden: the visit bar is the one real link."
+        },
+        {
+          "name": "video",
+          "kind": "element",
+          "description": "muted loop playsinline preload=\"metadata\" with a poster; plays only while on screen."
+        },
+        {
+          "name": ".veil",
+          "kind": "element",
+          "description": "Light top-to-bottom darkening plus grain at .35 overlay."
+        },
+        {
+          "name": ".num.t-mono",
+          "kind": "element",
+          "description": "Large white number, 01–06, bottom left."
+        },
+        {
+          "name": ".plogo",
+          "kind": "element",
+          "description": "The product logo on a paper chip (see Logo chip)."
+        },
+        {
+          "name": ".meta > h3 + .kind",
+          "kind": "element",
+          "description": "Title and a lowercase mono kind (\"travel saas\")."
+        },
+        {
+          "name": "a.bar.t-mono",
+          "kind": "element",
+          "description": "\"Visit host >\", opens in a new tab with a visually hidden \"(opens in a new tab)\"."
+        }
+      ],
+      "use": [
+        "Real products only, with real recorded video and the product's own logo.",
+        "Three per row on desktop, two below 1100px, one below 760px."
+      ],
+      "do": [
+        "Write the description as one plain sentence about what the product does.",
+        "Keep video saturation at .82 until hover."
+      ],
+      "dont": [
+        "Do not recolour product logos or tint videos.",
+        "Do not round the media or add shadows.",
+        "Do not invent products, metrics or clients to fill the grid."
+      ],
+      "accessibility": [
+        "One link per card (the bar); the media link is hidden from assistive tech to avoid duplicates.",
+        "The logo image carries the product name as alt.",
+        "Videos are muted and decorative; they pause off screen."
+      ],
+      "tokens": [
+        {
+          "name": "color.theme.card",
+          "cssVar": "--card",
+          "value": {
+            "light": "#FBFAF7",
+            "dark": "#17192E"
+          }
+        },
+        {
+          "name": "typography.card-title",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontWeight": 500,
+            "fontSize": "clamp(18px,1.4vw,22px)",
+            "letterSpacing": "-.02em"
+          }
+        },
+        {
+          "name": "typography.card-copy",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontSize": "15px",
+            "lineHeight": "1.42"
+          }
+        },
+        {
+          "name": "space.grid-gap",
+          "cssVar": "--grid-gap",
+          "value": "14px"
+        },
+        {
+          "name": "space.grid-row-gap",
+          "cssVar": "--grid-row-gap",
+          "value": "clamp(40px,4vw,64px)"
+        },
+        {
+          "name": "motion.duration.media",
+          "cssVar": "--dur-media",
+          "value": "1400ms"
+        }
+      ],
+      "sources": [
+        {
+          "file": "tools/v5pages.py",
+          "a": 152,
+          "b": 169,
+          "what": "markup",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L152-L169"
+        },
+        {
+          "file": "tools/v5pages.py",
+          "a": 131,
+          "b": 150,
+          "what": "content",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L131-L150"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 139,
+          "b": 155,
+          "what": "style",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L139-L155"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 430,
+          "b": 435,
+          "what": "v8",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L430-L435"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 597,
+          "b": 607,
+          "what": "visit bar",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L597-L607"
+        },
+        {
+          "file": "src/v5/main.js",
+          "a": 138,
+          "b": 140,
+          "what": "video in view",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L138-L140"
+        }
+      ]
+    },
+    {
+      "name": "LogoChip",
+      "title": "Logo chip",
+      "group": "Content",
+      "summary": "A product's own logo on an off-white chip in the top-left corner of a project card. Three forms: a full logo, an icon with the name, or the name alone.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/LogoChip.md",
+      "requires": [
+        "vimaksh.css"
+      ],
+      "examples": [
+        {
+          "title": "Logo, icon + name, text",
+          "html": "<div style=\"display:flex;gap:14px;flex-wrap:wrap\"><div class=\"card\" style=\"width:240px\"><span class=\"media\" style=\"aspect-ratio:3/1;background:var(--night)\"><span class=\"plogo\"><img src=\"/examples/media/paryatech-wordmark.svg\" alt=\"Paryatech\"></span></span></div><div class=\"card\" style=\"width:240px\"><span class=\"media\" style=\"aspect-ratio:3/1;background:var(--night)\"><span class=\"plogo plogo--icon\"><img src=\"/examples/media/vaat.svg\" alt=\"\"><b>Vaat</b></span></span></div><div class=\"card\" style=\"width:240px\"><span class=\"media\" style=\"aspect-ratio:3/1;background:var(--night)\"><span class=\"plogo plogo--text\"><b>Godspeed</b></span></span></div></div>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": ".plogo",
+          "kind": "class",
+          "description": "48px high (40px phones), rgba(251,250,247,.95) fill, 1px bottom shadow."
+        },
+        {
+          "name": ".plogo--icon",
+          "kind": "modifier",
+          "description": "Square icon (22px) followed by the name in 16px semibold."
+        },
+        {
+          "name": ".plogo--text",
+          "kind": "modifier",
+          "description": "Name only, for products without a logo file."
+        }
+      ],
+      "use": [
+        "Only on project media."
+      ],
+      "do": [
+        "Use the product's own logo file unchanged."
+      ],
+      "dont": [
+        "Do not recolour a product logo to Vimaksh colours."
+      ],
+      "accessibility": [
+        "Full logos: alt = product name. Icon + name: empty alt, the name is text."
+      ],
+      "tokens": [
+        {
+          "name": "shadow.chip",
+          "cssVar": "--shadow-chip",
+          "value": "0 1px 0 rgba(0,0,0,.08)"
+        },
+        {
+          "name": "font.weight.semibold",
+          "cssVar": "--w-semibold",
+          "value": "600"
+        }
+      ],
+      "sources": [
+        {
+          "file": "tools/v5pages.py",
+          "a": 154,
+          "b": 159,
+          "what": "markup",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L154-L159"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 591,
+          "b": 595,
+          "what": "style",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L591-L595"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 640,
+          "b": 641,
+          "what": "size",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L640-L641"
+        }
+      ]
+    },
+    {
+      "name": "BuildTrack",
+      "title": "Build card and track",
+      "group": "Content",
+      "summary": "The \"What we build\" row: cards with a pixel tile in the item's own colour, a numbered tag, a square bullet and a short description, on a track that drifts sideways on its own and pauses on hover, touch or focus.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/BuildTrack.md",
+      "requires": [
+        "vimaksh.css",
+        "vimaksh.js"
+      ],
+      "examples": [
+        {
+          "title": "What we build (it drifts; hover to slow, use the arrows)",
+          "html": "<section class=\"build\" id=\"services\" aria-labelledby=\"build-h\">\n  <div class=\"build-head\">\n    <p class=\"t-mono label\"><span class=\"chev\">&gt;</span> What we build</p>\n    <div class=\"build-copy\">\n      <h2 id=\"build-h\" class=\"t-big\">Custom software, and nothing else. From a Chrome extension to an industry-specific SaaS, AI automation, CRM or ERP: if your business runs on it, we build it.</h2>\n    </div>\n  </div>\n  <ul class=\"track\" data-track aria-label=\"Types of software we build\">\n      <li class=\"bcard\" style=\"--c:#2D36FF\">\n        <div class=\"btile\"><canvas class=\"px\" data-px=\"saas\" data-kind=\"extension\" data-c=\"#2D36FF\" aria-hidden=\"true\"></canvas><span class=\"t-mono bn\">01</span></div>\n        <h3>Chrome extensions</h3>\n        <p>Tools that live in the browser, right where your team already works.</p>\n      </li>\n      <li class=\"bcard\" style=\"--c:#E42114\">\n        <div class=\"btile\"><canvas class=\"px\" data-px=\"saas\" data-kind=\"saas\" data-c=\"#E42114\" aria-hidden=\"true\"></canvas><span class=\"t-mono bn\">02</span></div>\n        <h3>Industry SaaS</h3>\n        <p>Platforms shaped around one industry’s real workflows, not a generic template.</p>\n      </li>\n      <li class=\"bcard\" style=\"--c:#7A3CD6\">\n        <div class=\"btile\"><canvas class=\"px\" data-px=\"saas\" data-kind=\"ai\" data-c=\"#7A3CD6\" aria-hidden=\"true\"></canvas><span class=\"t-mono bn\">03</span></div>\n        <h3>AI automation</h3>\n        <p>Agents and pipelines that read, sort, draft and decide, so people don’t have to.</p>\n      </li>\n      <li class=\"bcard\" style=\"--c:#0E8F6E\">\n        <div class=\"btile\"><canvas class=\"px\" data-px=\"saas\" data-kind=\"crm\" data-c=\"#0E8F6E\" aria-hidden=\"true\"></canvas><span class=\"t-mono bn\">04</span></div>\n        <h3>CRM</h3>\n        <p>Leads, conversations and follow-ups in one place, built around how you sell.</p>\n      </li>\n      <li class=\"bcard\" style=\"--c:#E8730C\">\n        <div class=\"btile\"><canvas class=\"px\" data-px=\"saas\" data-kind=\"erp\" data-c=\"#E8730C\" aria-hidden=\"true\"></canvas><span class=\"t-mono bn\">05</span></div>\n        <h3>ERP</h3>\n        <p>Inventory, orders, finance and people, connected end to end.</p>\n      </li>\n      <li class=\"bcard\" style=\"--c:#0A8FB0\">\n        <div class=\"btile\"><canvas class=\"px\" data-px=\"saas\" data-kind=\"dashboard\" data-c=\"#0A8FB0\" aria-hidden=\"true\"></canvas><span class=\"t-mono bn\">06</span></div>\n        <h3>Internal tools</h3>\n        <p>Admin panels and dashboards that turn scattered data into clear decisions.</p>\n      </li>\n      <li class=\"bcard\" style=\"--c:#C99400\">\n        <div class=\"btile\"><canvas class=\"px\" data-px=\"saas\" data-kind=\"integrations\" data-c=\"#C99400\" aria-hidden=\"true\"></canvas><span class=\"t-mono bn\">07</span></div>\n        <h3>Integrations & APIs</h3>\n        <p>The glue between your systems: syncs, webhooks and APIs that just work.</p>\n      </li>\n      <li class=\"bcard\" style=\"--c:#D23C7E\">\n        <div class=\"btile\"><canvas class=\"px\" data-px=\"saas\" data-kind=\"mobile\" data-c=\"#D23C7E\" aria-hidden=\"true\"></canvas><span class=\"t-mono bn\">08</span></div>\n        <h3>Mobile & field apps</h3>\n        <p>Apps for the people on the move, online or off.</p>\n      </li>\n  </ul>\n  <div class=\"track-foot\">\n    <span class=\"track-bar\" aria-hidden=\"true\"><i data-track-bar></i></span>\n    <div class=\"track-btns\"><button type=\"button\" class=\"tbtn\" data-track-prev aria-label=\"Previous\"><span class=\"chev\" aria-hidden=\"true\">&lt;</span></button><button type=\"button\" class=\"tbtn\" data-track-next aria-label=\"Next\"><span class=\"chev\" aria-hidden=\"true\">&gt;</span></button></div>\n  </div>\n</section>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": "ul.track[data-track]",
+          "kind": "element",
+          "description": "Horizontal scroller. vimaksh.js clones the cards once so the drift loops."
+        },
+        {
+          "name": "li.bcard[style=\"--c:…\"]",
+          "kind": "element",
+          "description": "One kind of software; --c is its colour (color.kind.*)."
+        },
+        {
+          "name": "canvas.px[data-px=saas][data-kind][data-c]",
+          "kind": "element",
+          "description": "The pixel tile, drawn by pixel/pixelsaas.js and redrawn on theme change."
+        },
+        {
+          "name": ".bn.t-mono",
+          "kind": "element",
+          "description": "The number on the colour."
+        },
+        {
+          "name": ".track-foot",
+          "kind": "element",
+          "description": "Scrubber ([data-track-bar]) and arrow buttons ([data-track-prev], [data-track-next])."
+        }
+      ],
+      "use": [
+        "For a set of parallel categories, each with its own colour."
+      ],
+      "do": [
+        "Use only the eight kind colours, one per card."
+      ],
+      "dont": [
+        "Do not use kind colours anywhere else in the interface.",
+        "Do not let it drift with reduced motion faster than 18px/s (vimaksh.js handles this)."
+      ],
+      "accessibility": [
+        "Clones are aria-hidden.",
+        "Drift stops while a card inside has keyboard focus.",
+        "Arrow buttons have aria-labels."
+      ],
+      "tokens": [
+        {
+          "name": "color.kind.extension",
+          "cssVar": "--kind-extension",
+          "value": "#2D36FF"
+        },
+        {
+          "name": "border.stripe",
+          "cssVar": "--stripe",
+          "value": "3px"
+        },
+        {
+          "name": "typography.build-title",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontWeight": 500,
+            "fontSize": "clamp(19px,1.5vw,24px)",
+            "letterSpacing": "-.02em"
+          }
+        },
+        {
+          "name": "space.grid-gap",
+          "cssVar": "--grid-gap",
+          "value": "14px"
+        }
+      ],
+      "sources": [
+        {
+          "file": "tools/v5pages.py",
+          "a": 172,
+          "b": 188,
+          "what": "content and card",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L172-L188"
+        },
+        {
+          "file": "tools/v5pages.py",
+          "a": 228,
+          "b": 242,
+          "what": "section",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L228-L242"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 460,
+          "b": 481,
+          "what": "style",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L460-L481"
+        },
+        {
+          "file": "src/v5/main.js",
+          "a": 228,
+          "b": 277,
+          "what": "drift",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L228-L277"
+        },
+        {
+          "file": "src/v5/pixelsaas.js",
+          "a": 34,
+          "b": 112,
+          "what": "pixel tiles",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelsaas.js#L34-L112"
+        }
+      ]
+    },
+    {
+      "name": "AboutBlock",
+      "title": "About block",
+      "group": "Content",
+      "summary": "A short statement section: a compact pixel illustration on the left and one large paragraph (t-big) on the right, centred on one line.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/AboutBlock.md",
+      "requires": [
+        "vimaksh.css",
+        "vimaksh.js"
+      ],
+      "examples": [
+        {
+          "title": "About on the home page",
+          "html": "<section class=\"about-home\" id=\"about\" aria-labelledby=\"about-h\">\n  <div class=\"ab-text\">\n    <p class=\"t-mono label\"><span class=\"chev\">&gt;</span> About us</p>\n    <h2 id=\"about-h\" class=\"t-big\">Vimaksh builds digital products with a distinct perspective and a practical approach. The company brings clarity to product decisions, care to design and depth to engineering, shaping each experience around the people who use it.</h2>\n  </div>\n  <figure class=\"ab-art\"><canvas class=\"px\" data-px=\"desk\" role=\"img\" aria-label=\"Pixel illustration: a studio desk with a laptop showing the mark's arrows, a red mug and a plant\"></canvas></figure>\n</section>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": "section.about-home",
+          "kind": "element",
+          "description": "Grid clamp(220px,24vw,340px) + 1fr; one column below 760px."
+        },
+        {
+          "name": ".ab-art canvas.px[data-px=desk]",
+          "kind": "element",
+          "description": "The pixel desk, with role=\"img\" and a written description."
+        },
+        {
+          "name": "h2.t-big",
+          "kind": "element",
+          "description": "The statement."
+        }
+      ],
+      "use": [
+        "Once per page, for who we are."
+      ],
+      "do": [
+        "Describe the illustration in aria-label."
+      ],
+      "dont": [
+        "Do not replace the illustration with a stock photo."
+      ],
+      "accessibility": [
+        "The canvas has role=\"img\" and an aria-label describing the picture."
+      ],
+      "tokens": [
+        {
+          "name": "typography.big",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontWeight": 450,
+            "fontSize": "clamp(26px,2.9vw,48px)",
+            "lineHeight": "1.08",
+            "letterSpacing": "-.03em",
+            "color": "var(--strong)"
+          }
+        },
+        {
+          "name": "space.section-compact",
+          "cssVar": "--section-compact",
+          "value": "clamp(56px,6vw,96px)"
+        }
+      ],
+      "sources": [
+        {
+          "file": "tools/v5pages.py",
+          "a": 220,
+          "b": 226,
+          "what": "markup",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L220-L226"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 609,
+          "b": 613,
+          "what": "style",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L609-L613"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 643,
+          "b": 648,
+          "what": "v10",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L643-L648"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 689,
+          "b": 691,
+          "what": "compact",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L689-L691"
+        },
+        {
+          "file": "src/v5/pixelart.js",
+          "a": 154,
+          "b": 175,
+          "what": "desk",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelart.js#L154-L175"
+        }
+      ]
+    },
+    {
+      "name": "Hero",
+      "title": "Hero",
+      "group": "Layout",
+      "summary": "The home opening: a living pixel surface (WebGL) where a field of tiny \">\" and \"<\" glyphs flows across paper and the Vimaksh mark assembles from the same pixels. Copy sits top left, a mono meta line bottom left. The page rises over it as you scroll.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Hero.md",
+      "requires": [
+        "vimaksh.css",
+        "vimaksh.js",
+        "pixel-hero.js"
+      ],
+      "examples": [
+        {
+          "title": "Pixel hero (WebGL; falls back to the static mark)",
+          "html": "<section class=\"hero\" id=\"top\" aria-label=\"Vimaksh — Boil the Ocean.\">\n  <div class=\"hero-in\">\n    <canvas id=\"stage\" aria-label=\"The Vimaksh six-arrow mark, built from moving pixels\" role=\"img\"></canvas>\n    <img class=\"stage-fallback\" src=\"/dist/brand/svg/vimaksh-mark.svg\" alt=\"\" aria-hidden=\"true\">\n    <div class=\"hero-grain\" aria-hidden=\"true\"></div>\n    <div class=\"hero-copy\">\n      <p class=\"t-mono label\"><span class=\"chev\">&gt;</span> Boil the Ocean.</p>\n      <h1>We turn <span class=\"hl\"><i aria-hidden=\"true\">&lt;</i>what if?<i aria-hidden=\"true\">&gt;</i></span> into products, platforms and experiments you can actually use.</h1>\n      <div class=\"hero-cta\"><a class=\"btn\" href=\"#work\"><span>Explore our work</span><span class=\"chev\" aria-hidden=\"true\">&gt;</span></a><a class=\"btn btn--ghost\" href=\"/contact/\"><span>Start a project</span></a></div>\n    </div>\n    <p class=\"hero-meta t-mono\"><span>Studio / Bengaluru</span><span>12.92° N 77.60° E</span><span data-clock>--:--:--</span></p>\n  </div>\n  <div class=\"hero-dim\" aria-hidden=\"true\"></div>\n</section>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": "section.hero",
+          "kind": "element",
+          "description": "Sticky, one viewport high (min 620px, 560px phones)."
+        },
+        {
+          "name": "canvas#stage",
+          "kind": "element",
+          "description": "The pixel surface; vimaksh.js loads pixel-hero.js only when it exists."
+        },
+        {
+          "name": "img.stage-fallback",
+          "kind": "element",
+          "description": "The mark, shown when WebGL is unavailable (.no-gl)."
+        },
+        {
+          "name": ".hero-copy",
+          "kind": "element",
+          "description": "Label, H1 (with an optional .hl \"<what if?>\" highlight) and up to two buttons. The field thins out under it."
+        },
+        {
+          "name": ".hero-meta.t-mono",
+          "kind": "element",
+          "description": "Small facts, bottom left; hidden on phones."
+        },
+        {
+          "name": ".hero-dim / --p",
+          "kind": "state (JS)",
+          "description": "The hero dims and scales to .95 as the next section rises."
+        }
+      ],
+      "use": [
+        "Home page only. It is the one always-moving visual."
+      ],
+      "do": [
+        "Keep the headline short enough to stay inside the copy box.",
+        "Follow it with a section that has a paper pixel edge on top (.rise)."
+      ],
+      "dont": [
+        "Do not add a second animated scene anywhere else.",
+        "Do not place text over the mark."
+      ],
+      "accessibility": [
+        "The canvas has role=\"img\" and a description; all copy is real DOM.",
+        "With reduced motion the field runs at half speed; it pauses off screen and in hidden tabs."
+      ],
+      "tokens": [
+        {
+          "name": "color.pixel.hero-mist-light",
+          "cssVar": "--px-hero-mist-l",
+          "value": "#DDE4FF"
+        },
+        {
+          "name": "color.pixel.hero-glyph-light",
+          "cssVar": "--px-hero-glyph-l",
+          "value": "#2D36FF"
+        },
+        {
+          "name": "color.brand.coral",
+          "cssVar": "--coral",
+          "value": "#FF5E55"
+        },
+        {
+          "name": "color.brand.red",
+          "cssVar": "--red",
+          "value": "#E42114"
+        },
+        {
+          "name": "typography.hero-lead",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontWeight": 500,
+            "fontSize": "clamp(28px,2.7vw,48px)",
+            "lineHeight": "1.04",
+            "letterSpacing": "-.035em"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "file": "tools/v5pages.py",
+          "a": 193,
+          "b": 206,
+          "what": "markup",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L193-L206"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 111,
+          "b": 124,
+          "what": "style",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L111-L124"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 586,
+          "b": 588,
+          "what": ".hl",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L586-L588"
+        },
+        {
+          "file": "src/v5/pixelhero.js",
+          "a": 1,
+          "b": 184,
+          "what": "renderer",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelhero.js#L1-L184"
+        }
+      ]
+    },
+    {
+      "name": "ContactBlock",
+      "title": "Contact block",
+      "group": "Forms",
+      "summary": "Bordered card blocks made of rows: a red \"Start a project\" row that drops open the brief form, plain rows with copy pills, and a split block for the studio address and coordinates.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/ContactBlock.md",
+      "requires": [
+        "vimaksh.css",
+        "vimaksh.js",
+        "vimaksh-phone.js"
+      ],
+      "examples": [
+        {
+          "title": "Contact page (click \"Start a project\")",
+          "html": "<section class=\"contact-page\" aria-labelledby=\"ct-h\">\n  <div class=\"ct-left\">\n    <p class=\"t-mono label\"><span class=\"chev\">&gt;</span> Contact</p>\n    <h1 id=\"ct-h\" class=\"t-hero\">The best work begins with the right introduction.</h1>\n  </div>\n  <div class=\"ct-right\">\n    <div class=\"block\">\n      <div class=\"brief\">\n        <button class=\"row row--brief\" type=\"button\" aria-expanded=\"false\" aria-controls=\"brief-panel\" data-brief>\n          <span>Start a project</span><span class=\"pill t-mono\">Submit brief <span class=\"tri\" aria-hidden=\"true\">▸</span></span>\n        </button>\n        <div class=\"brief-panel\" id=\"brief-panel\"><div>\n          <form class=\"brief-form\" data-brief-form novalidate>\n            <label class=\"hp\" aria-hidden=\"true\">Website<input name=\"website\" tabindex=\"-1\" autocomplete=\"off\"></label>\n            <div class=\"f2\"><label><span class=\"t-mono\">Name</span><input name=\"name\" required autocomplete=\"name\"></label>\n            <label><span class=\"t-mono\">Email</span><input name=\"email\" type=\"email\" required autocomplete=\"email\" maxlength=\"254\" data-check=\"email\"><span class=\"ferr\" aria-live=\"polite\"></span></label></div>\n            <div class=\"f2\"><label><span class=\"t-mono\">Phone</span><input name=\"phone\" type=\"tel\" required autocomplete=\"tel\" data-check=\"phone\"><span class=\"ferr\" aria-live=\"polite\"></span></label>\n            <label><span class=\"t-mono\">Company <i>(optional)</i></span><input name=\"company\" autocomplete=\"organization\"></label></div>\n            <label><span class=\"t-mono\">Tell us about it</span><textarea name=\"message\" rows=\"4\" required></textarea></label>\n            <div class=\"f-foot\"><button class=\"btn\" type=\"submit\"><span>Send brief</span><span class=\"chev\" aria-hidden=\"true\">&gt;</span></button><p class=\"t-mono note\" data-brief-note aria-live=\"polite\"></p></div>\n          </form>\n        </div></div>\n      </div>\n      <div class=\"row\"><span>General enquiries</span><button class=\"pill t-mono\" type=\"button\" data-copy=\"hq@vimaksh.in\">hq@vimaksh.in</button></div>\n      <div class=\"row\"><span>New projects</span><button class=\"pill t-mono\" type=\"button\" data-copy=\"hq@vimaksh.in\">hq@vimaksh.in</button></div>\n    </div>\n    <div class=\"block block--split\">\n      <div class=\"cell\"><span>Studio</span><address class=\"addr\"><a href=\"https://maps.app.goo.gl/ktwso9ycC2Ufo8Tt7\" target=\"_blank\" rel=\"noopener\">3rd Floor, Eshaaya 1629<br>E End Main Rd, 4th T Block East<br>Jayanagar 9th Block, Tilak Nagar<br>Bengaluru, Karnataka 560041</a></address></div>\n      <div class=\"cell\"><span class=\"t-mono soft\">Coordinates</span><button class=\"pill t-mono\" type=\"button\" data-copy=\"12.9210° N, 77.5960° E\">12.92° N 77.60° E</button><span class=\"t-mono soft\">Bengaluru now · <span data-clock>--:--:--</span> IST</span></div>\n    </div>\n  </div>\n</section>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": ".block",
+          "kind": "class",
+          "description": "--rule2 border on --card."
+        },
+        {
+          "name": ".row",
+          "kind": "class",
+          "description": "20px 22px, 17px text, hairline between rows. A <button> or <div>."
+        },
+        {
+          "name": "button.row.row--brief[data-brief][aria-expanded]",
+          "kind": "element",
+          "description": "The red row; toggles .brief.open and focuses the first field."
+        },
+        {
+          "name": ".brief-panel",
+          "kind": "element",
+          "description": "Opens by animating grid-template-rows 0fr → 1fr over .6s."
+        },
+        {
+          "name": ".block--split > .cell",
+          "kind": "element",
+          "description": "Two cells (1.6fr / 1fr), stacked on phones."
+        }
+      ],
+      "use": [
+        "On the contact page; the footer uses the same brief as a light card (.fbrief)."
+      ],
+      "do": [
+        "Keep the brief one click away and show the email beside it."
+      ],
+      "dont": [
+        "Do not hide the email behind the form."
+      ],
+      "accessibility": [
+        "The red row is a real button with aria-expanded and aria-controls."
+      ],
+      "tokens": [
+        {
+          "name": "color.brand.red",
+          "cssVar": "--red",
+          "value": "#E42114"
+        },
+        {
+          "name": "color.brand.red-d",
+          "cssVar": "--red-d",
+          "value": "#B5180E"
+        },
+        {
+          "name": "color.theme.card",
+          "cssVar": "--card",
+          "value": {
+            "light": "#FBFAF7",
+            "dark": "#17192E"
+          }
+        },
+        {
+          "name": "color.theme.rule2",
+          "cssVar": "--rule2",
+          "value": {
+            "light": "rgba(44,20,18,.3)",
+            "dark": "rgba(221,228,255,.3)"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "file": "tools/v5pages.py",
+          "a": 244,
+          "b": 267,
+          "what": "markup",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L244-L267"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 224,
+          "b": 266,
+          "what": "style",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L224-L266"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 483,
+          "b": 492,
+          "what": "red row",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L483-L492"
+        },
+        {
+          "file": "src/v5/main.js",
+          "a": 55,
+          "b": 62,
+          "what": "toggle",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L55-L62"
+        }
+      ]
+    },
+    {
+      "name": "BriefForm",
+      "title": "Brief form",
+      "group": "Forms",
+      "summary": "The project brief: name, email, phone, company (optional) and a message. Fields are underlines with mono labels; email and phone are checked as you type and explained when you leave the field. It posts JSON to the form's action (the site uses /api/brief) and shows an honest result.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/BriefForm.md",
+      "requires": [
+        "vimaksh.css",
+        "vimaksh.js",
+        "vimaksh-phone.js"
+      ],
+      "examples": [
+        {
+          "title": "Footer brief card (light card on the dark footer)",
+          "html": "<div class=\"foot\" style=\"padding:40px var(--pad)\"><div style=\"max-width:620px\">      <div class=\"block fbrief\" id=\"brief\">\n        <div class=\"row row--brief\"><span>Start a project</span><button class=\"pill t-mono\" type=\"button\" data-copy=\"hq@vimaksh.in\">hq@vimaksh.in</button></div>\n          <form class=\"brief-form\" data-brief-form novalidate>\n            <label class=\"hp\" aria-hidden=\"true\">Website<input name=\"website\" tabindex=\"-1\" autocomplete=\"off\"></label>\n            <div class=\"f2\"><label><span class=\"t-mono\">Name</span><input name=\"name\" required autocomplete=\"name\"></label>\n            <label><span class=\"t-mono\">Email</span><input name=\"email\" type=\"email\" required autocomplete=\"email\" maxlength=\"254\" data-check=\"email\"><span class=\"ferr\" aria-live=\"polite\"></span></label></div>\n            <div class=\"f2\"><label><span class=\"t-mono\">Phone</span><input name=\"phone\" type=\"tel\" required autocomplete=\"tel\" data-check=\"phone\"><span class=\"ferr\" aria-live=\"polite\"></span></label>\n            <label><span class=\"t-mono\">Company <i>(optional)</i></span><input name=\"company\" autocomplete=\"organization\"></label></div>\n            <label><span class=\"t-mono\">Tell us about it</span><textarea name=\"message\" rows=\"3\" required></textarea></label>\n            <div class=\"f-foot\"><button class=\"btn\" type=\"submit\"><span>Send brief</span><span class=\"chev\" aria-hidden=\"true\">&gt;</span></button><p class=\"t-mono note\" data-brief-note aria-live=\"polite\"></p></div>\n          </form>\n      </div></div></div><div class=\"tip t-mono\" aria-hidden=\"true\">Copy</div>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": "form.brief-form[data-brief-form][novalidate]",
+          "kind": "element",
+          "description": "vimaksh.js validates and submits; posts to action (default /api/brief)."
+        },
+        {
+          "name": "label.hp",
+          "kind": "element",
+          "description": "Honeypot field, off screen and aria-hidden."
+        },
+        {
+          "name": ".f2",
+          "kind": "class",
+          "description": "Two fields side by side; one column below 760px."
+        },
+        {
+          "name": "label > span.t-mono + input",
+          "kind": "element",
+          "description": "Label above, underline input (16px, 12px 0 padding)."
+        },
+        {
+          "name": "i (inside the label)",
+          "kind": "element",
+          "description": "\"(optional)\" at 70% opacity."
+        },
+        {
+          "name": "[data-check=email|phone]",
+          "kind": "attribute",
+          "description": "Live checks; the message goes in the label's .ferr."
+        },
+        {
+          "name": ".f-foot > .btn + p.note[data-brief-note]",
+          "kind": "element",
+          "description": "Submit and the result line (.is-ok green, .is-err red)."
+        },
+        {
+          "name": ".fbrief",
+          "kind": "class",
+          "description": "The light brief card on the dark footer (resets the light theme tokens locally)."
+        }
+      ],
+      "use": [
+        "For starting a conversation. Ask only what you need."
+      ],
+      "do": [
+        "Label every field; mark only the optional ones.",
+        "Say what happened only after the real response."
+      ],
+      "dont": [
+        "Do not use placeholders as labels.",
+        "Do not show success before the server confirms."
+      ],
+      "accessibility": [
+        "Errors are in aria-live regions inside the label.",
+        "The first invalid field receives focus on submit.",
+        "autocomplete is set on name, email, tel and organization."
+      ],
+      "tokens": [
+        {
+          "name": "typography.mono",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'JetBrains Mono',ui-monospace,Consolas,monospace",
+            "fontWeight": 500,
+            "fontSize": "11px",
+            "lineHeight": "1.45",
+            "letterSpacing": ".06em",
+            "textTransform": "uppercase"
+          }
+        },
+        {
+          "name": "typography.field-error",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'JetBrains Mono',ui-monospace,Consolas,monospace",
+            "fontWeight": 500,
+            "fontSize": "10.5px",
+            "lineHeight": "1.4",
+            "letterSpacing": ".03em"
+          }
+        },
+        {
+          "name": "space.field-gap",
+          "cssVar": "--field-gap",
+          "value": "16px"
+        },
+        {
+          "name": "color.brand.red",
+          "cssVar": "--red",
+          "value": "#E42114"
+        },
+        {
+          "name": "color.status.live",
+          "cssVar": "--ok",
+          "value": "#16a34a"
+        },
+        {
+          "name": "shadow.card",
+          "cssVar": "--shadow-card",
+          "value": "0 30px 70px -30px rgba(0,0,0,.6)"
+        }
+      ],
+      "sources": [
+        {
+          "file": "tools/v5pages.py",
+          "a": 71,
+          "b": 80,
+          "what": "markup",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L71-L80"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 242,
+          "b": 251,
+          "what": "fields",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L242-L251"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 700,
+          "b": 707,
+          "what": "footer card",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L700-L707"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 744,
+          "b": 760,
+          "what": "states",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L744-L760"
+        },
+        {
+          "file": "src/v5/main.js",
+          "a": 84,
+          "b": 136,
+          "what": "checks and submit",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L84-L136"
+        },
+        {
+          "file": "src/v5/validate.js",
+          "a": 1,
+          "b": 17,
+          "what": "email check",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/validate.js#L1-L17"
+        }
+      ]
+    },
+    {
+      "name": "Inputs",
+      "title": "Inputs and validation",
+      "group": "Forms",
+      "summary": "Text fields are a single underline: --rule2 at rest, red on focus and when invalid. Errors are short mono lines under the field. The send button shows \"Sending…\", then \"Sent\" in green, or the error note in red with the email as a fallback.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Inputs.md",
+      "requires": [
+        "vimaksh.css",
+        "vimaksh.js"
+      ],
+      "examples": [
+        {
+          "title": "Invalid email, sending, and the error note",
+          "html": "<form class=\"brief-form\" data-brief-form novalidate style=\"max-width:560px\">\n  <div class=\"f2\"><label><span class=\"t-mono\">Name</span><input name=\"name\" required autocomplete=\"name\" value=\"Asha Rao\"></label>\n  <label><span class=\"t-mono\">Email</span><input name=\"email\" type=\"email\" class=\"bad\" value=\"asha@gmial.com\" data-check=\"email\"><span class=\"ferr\" aria-live=\"polite\">Did you mean asha@gmail.com?</span></label></div>\n  <label><span class=\"t-mono\">Tell us about it</span><textarea name=\"message\" rows=\"3\" required></textarea></label>\n  <div class=\"f-foot\"><button class=\"btn\" type=\"submit\" disabled><span>Sending…</span><span class=\"chev\" aria-hidden=\"true\">&gt;</span></button><p class=\"t-mono note is-err\" aria-live=\"polite\">Something went wrong. Please try again, or write to <a href=\"mailto:hq@vimaksh.in\">hq@vimaksh.in</a>.</p></div>\n</form>"
+        }
+      ],
+      "code": [
+        {
+          "title": "Error messages (exact copy, from the site)",
+          "code": "Please enter your email.\nPlease enter a valid email, like name@company.com.\nDid you mean <local>@gmail.com?        (gmial.com, gmai.com, gmail.co, gamil.com, yahooo.com, hotmial.com, outlok.com)\nPlease enter your phone number.\nThat country code doesn’t look right.\nThis number is too short for the country you chose.\nThis number is too long for the country you chose.\nThis number has the wrong number of digits for the country you chose.\nPlease enter a valid phone number for the country you chose.\nThanks, <first name>. Your brief is with us, and a confirmation is on its way to <email>."
+        }
+      ],
+      "api": [
+        {
+          "name": "input, textarea",
+          "kind": "element",
+          "description": "border:0; border-bottom:1px solid var(--rule2); transparent; 16px."
+        },
+        {
+          "name": ":focus",
+          "kind": "state",
+          "description": "Underline turns red."
+        },
+        {
+          "name": "input.bad",
+          "kind": "state",
+          "description": "Underline red (set by vimaksh.js once you leave the field)."
+        },
+        {
+          "name": ".ferr",
+          "kind": "element",
+          "description": "10.5px mono, red; hidden when empty."
+        },
+        {
+          "name": "p.note.is-ok / .is-err",
+          "kind": "state",
+          "description": "Result line, green #15803d or red."
+        }
+      ],
+      "use": [
+        "Check quietly while typing; show the message when the field is left or on send."
+      ],
+      "do": [
+        "Write errors as one sentence that says how to fix it."
+      ],
+      "dont": [
+        "Do not put boxes around fields on light surfaces.",
+        "Do not show an error while someone is still typing their first attempt."
+      ],
+      "accessibility": [
+        "setCustomValidity keeps native validity in step with the visible message."
+      ],
+      "tokens": [
+        {
+          "name": "color.theme.rule2",
+          "cssVar": "--rule2",
+          "value": {
+            "light": "rgba(44,20,18,.3)",
+            "dark": "rgba(221,228,255,.3)"
+          }
+        },
+        {
+          "name": "color.brand.red",
+          "cssVar": "--red",
+          "value": "#E42114"
+        },
+        {
+          "name": "typography.field-error",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'JetBrains Mono',ui-monospace,Consolas,monospace",
+            "fontWeight": 500,
+            "fontSize": "10.5px",
+            "lineHeight": "1.4",
+            "letterSpacing": ".03em"
+          }
+        },
+        {
+          "name": "color.status.live-text",
+          "cssVar": "--ok-text",
+          "value": "#15803d"
+        }
+      ],
+      "sources": [
+        {
+          "file": "src/v5/v5.css",
+          "a": 247,
+          "b": 249,
+          "what": "fields",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L247-L249"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 755,
+          "b": 760,
+          "what": "errors",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L755-L760"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 744,
+          "b": 750,
+          "what": "states",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L744-L750"
+        },
+        {
+          "file": "src/v5/main.js",
+          "a": 63,
+          "b": 70,
+          "what": "phone messages",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L63-L70"
+        },
+        {
+          "file": "src/v5/validate.js",
+          "a": 9,
+          "b": 17,
+          "what": "email messages",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/validate.js#L9-L17"
+        }
+      ]
+    },
+    {
+      "name": "PhoneField",
+      "title": "Phone field",
+      "group": "Forms",
+      "summary": "intl-tel-input 29.5.11, themed to the site: a flag and +code in mono with a small red chevron, a square searchable country list on --card, India preselected and a short list of common countries first. Only valid digits can be typed.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/PhoneField.md",
+      "requires": [
+        "vimaksh.css",
+        "vimaksh-phone.js"
+      ],
+      "examples": [
+        {
+          "title": "Phone field (open the country list)",
+          "html": "<form class=\"brief-form\" data-brief-form novalidate style=\"max-width:420px;padding:0;border:0\"><label><span class=\"t-mono\">Phone</span><input name=\"phone\" type=\"tel\" required autocomplete=\"tel\" data-check=\"phone\"><span class=\"ferr\" aria-live=\"polite\"></span></label></form>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": "input[type=tel][data-check=phone]",
+          "kind": "element",
+          "description": "vimaksh-phone.js attaches intl-tel-input to it."
+        },
+        {
+          "name": "countryOrder",
+          "kind": "option",
+          "description": "in, ae, us, gb, sg, au, ca, sa."
+        },
+        {
+          "name": "strictMode, formatAsYouType, countrySearch, separateDialCode",
+          "kind": "option",
+          "description": "All on."
+        },
+        {
+          "name": "vendor/intl-tel-input.css",
+          "kind": "file",
+          "description": "Load before vimaksh.css; vimaksh.css themes it."
+        }
+      ],
+      "use": [
+        "Wherever a phone number is asked for."
+      ],
+      "do": [
+        "Validate on the server too (the site uses libphonenumber-js in its worker)."
+      ],
+      "dont": [
+        "Do not use a plain <select> for the country."
+      ],
+      "accessibility": [
+        "The country button is keyboard reachable with a visible focus ring; the list is searchable."
+      ],
+      "tokens": [
+        {
+          "name": "color.theme.card",
+          "cssVar": "--card",
+          "value": {
+            "light": "#FBFAF7",
+            "dark": "#17192E"
+          }
+        },
+        {
+          "name": "shadow.popover",
+          "cssVar": "--shadow-popover",
+          "value": "0 18px 40px -18px rgba(11,10,20,.35)"
+        },
+        {
+          "name": "color.brand.red",
+          "cssVar": "--red",
+          "value": "#E42114"
+        },
+        {
+          "name": "typography.mono",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'JetBrains Mono',ui-monospace,Consolas,monospace",
+            "fontWeight": 500,
+            "fontSize": "11px",
+            "lineHeight": "1.45",
+            "letterSpacing": ".06em",
+            "textTransform": "uppercase"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "file": "src/v5/main.js",
+          "a": 63,
+          "b": 83,
+          "what": "set-up",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L63-L83"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 769,
+          "b": 807,
+          "what": "theme",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L769-L807"
+        }
+      ]
+    },
+    {
+      "name": "Footer",
+      "title": "Footer",
+      "group": "Layout",
+      "summary": "Always dark (night) in both themes. A pixel edge breaks its top, the mark flies in, a large statement sits beside the brief card, four columns of facts follow, and a heat-gradient base carries the giant white wordmark.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Footer.md",
+      "requires": [
+        "vimaksh.css",
+        "vimaksh.js"
+      ],
+      "examples": [
+        {
+          "title": "Footer",
+          "html": "<footer class=\"foot\" id=\"footer\" data-tone=\"dark\">\n  <canvas class=\"edge edge--top\" data-edge=\"night\" aria-hidden=\"true\"></canvas>\n  <div class=\"foot-in\">\n    <div class=\"foot-top\">\n      <div class=\"foot-say\">\n        <div class=\"fmark\" role=\"img\" aria-label=\"Vimaksh mark\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 580 580\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M266.659 265.826L214.296 147.278H249.696L287.309 244.963H269.855L307.714 147.278H341.885L289.768 265.826H266.659Z\" fill=\"#FF5F53\"/><path d=\"M266.659 331.127L214.296 449.675H249.696L287.309 351.99H269.855L307.714 449.675H341.885L289.768 331.127H266.659Z\" fill=\"#FF5F53\"/><path d=\"M324.827 243.982L388.664 131L409.844 159.399L353.929 248.057L343.487 234.055L444.555 205.941L465 233.353L338.653 262.52L324.827 243.982Z\" fill=\"#E32112\"/><path d=\"M255.454 272.926L178.842 168.185L161.129 198.866L227.028 280.377L235.761 265.25L132.098 249.148L115 278.764L243.891 292.954L255.454 272.926Z\" fill=\"#FF5F53\"/><path d=\"M255.454 324.79L178.842 429.531L161.129 398.85L227.028 317.339L235.761 332.467L132.098 348.568L115 318.953L243.891 304.763L255.454 324.79Z\" fill=\"#FF5F53\"/><path d=\"M299.164 324.79L375.776 429.531L393.489 398.85L327.59 317.339L318.857 332.467L422.52 348.568L439.618 318.953L310.727 304.763L299.164 324.79Z\" fill=\"#FF5F53\"/></svg></div>\n        <div class=\"foot-copy\">\n        <p class=\"t-mono label\"><span class=\"chev\">&gt;</span> Let's talk</p>\n        <h2 class=\"t-statement\">Come build what<br>should exist.</h2>\n        <p class=\"foot-sub\">Tell us what you want to build. We read every brief and reply within two working days with honest next steps.</p>\n        </div>\n      </div>\n      <div class=\"block fbrief\" id=\"brief\">\n        <div class=\"row row--brief\"><span>Start a project</span><button class=\"pill t-mono\" type=\"button\" data-copy=\"hq@vimaksh.in\">hq@vimaksh.in</button></div>\n          <form class=\"brief-form\" data-brief-form novalidate>\n            <label class=\"hp\" aria-hidden=\"true\">Website<input name=\"website\" tabindex=\"-1\" autocomplete=\"off\"></label>\n            <div class=\"f2\"><label><span class=\"t-mono\">Name</span><input name=\"name\" required autocomplete=\"name\"></label>\n            <label><span class=\"t-mono\">Email</span><input name=\"email\" type=\"email\" required autocomplete=\"email\" maxlength=\"254\" data-check=\"email\"><span class=\"ferr\" aria-live=\"polite\"></span></label></div>\n            <div class=\"f2\"><label><span class=\"t-mono\">Phone</span><input name=\"phone\" type=\"tel\" required autocomplete=\"tel\" data-check=\"phone\"><span class=\"ferr\" aria-live=\"polite\"></span></label>\n            <label><span class=\"t-mono\">Company <i>(optional)</i></span><input name=\"company\" autocomplete=\"organization\"></label></div>\n            <label><span class=\"t-mono\">Tell us about it</span><textarea name=\"message\" rows=\"3\" required></textarea></label>\n            <div class=\"f-foot\"><button class=\"btn\" type=\"submit\"><span>Send brief</span><span class=\"chev\" aria-hidden=\"true\">&gt;</span></button><p class=\"t-mono note\" data-brief-note aria-live=\"polite\"></p></div>\n          </form>\n      </div>\n    </div>\n    <div class=\"cols\">\n      <div><p class=\"t-mono k\">Navigate</p><ul><li><a href=\"/#work\">Work</a></li><li><a href=\"/#services\">What we build</a></li><li><a href=\"/#about\">About us</a></li><li><a href=\"/contact/\">Contact</a></li></ul></div>\n      <div class=\"col-addr\"><p class=\"t-mono k\">Studio</p><address><a href=\"https://maps.app.goo.gl/ktwso9ycC2Ufo8Tt7\" target=\"_blank\" rel=\"noopener\">3rd Floor, Eshaaya 1629<br>E End Main Rd, 4th T Block East<br>Jayanagar 9th Block, Tilak Nagar<br>Bengaluru, Karnataka 560041</a></address></div>\n      <div><p class=\"t-mono k\">Coordinates</p><p class=\"t-mono v\">12.9210° N<br>77.5960° E</p></div>\n      <div><p class=\"t-mono k\">Bengaluru now</p><p class=\"t-mono v\"><span data-clock>--:--:--</span> IST</p></div>\n    </div>\n  </div>\n  <div class=\"foot-base heat\" data-pixel-mask>\n    <div class=\"giant\" aria-hidden=\"true\"><svg class=\"wm\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 951 172\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M97.8272 45.0046H134.998L133.253 50.7311L92.7232 169H42.5852L1.75416 50.7311L0 45.0039H36.8607L67.8042 138.983H68.4042L97.8272 45.0046Z\" fill=\"currentColor\"/><path d=\"M156.031 168.998V45.0059H192.358V168.998H156.031Z\" fill=\"currentColor\"/><path d=\"M216.93 168.999V44.9883H252.057V69.9416H252.657C252.857 69.5406 253.558 68.1406 254.759 65.7386C256.16 63.1376 258.161 60.2356 260.763 57.0336C263.565 53.8316 267.168 51.1306 271.571 48.9286C276.175 46.5276 281.779 45.3266 288.384 45.3266C294.789 45.3266 300.093 46.5276 304.296 48.9286C308.499 51.1306 311.902 54.1316 314.504 57.9346C317.106 61.5366 319.107 65.5386 320.508 69.9416H321.109C321.109 69.3406 321.809 67.8396 323.21 65.4386C324.812 62.8376 327.013 60.0356 329.815 57.0336C332.818 53.8316 336.721 51.1306 341.524 48.9286C346.328 46.5276 352.132 45.3266 358.938 45.3266C366.743 45.3266 373.148 46.9276 378.152 50.1296C383.356 53.3316 387.459 57.6346 390.461 63.0376C393.663 68.2406 395.963 73.7436 397.363 79.5466C398.963 85.3506 399.973 90.9536 400.373 96.3566C400.973 101.56 401.273 105.863 401.273 109.265V168.999H366.143V108.964C366.143 105.963 365.943 102.661 365.543 99.0586C365.342 95.4566 364.642 91.9536 363.441 88.5516C362.44 85.1506 360.639 82.4486 358.037 80.4476C355.435 78.2456 351.732 77.1456 346.928 77.1456C341.124 77.1456 336.721 78.8466 333.718 82.2486C330.716 85.4506 328.815 89.5526 328.014 94.5556C327.214 99.5586 326.813 104.662 326.813 109.865V168.999H291.386V108.964C291.386 105.963 291.286 102.661 291.086 99.0586C290.886 95.4566 290.185 91.9536 288.985 88.5516C287.784 85.1506 285.882 82.4486 283.28 80.4476C280.678 78.2456 276.975 77.1456 272.172 77.1456C266.367 77.1456 261.964 78.8466 258.962 82.2486C256.16 85.4506 254.258 89.5526 253.257 94.5556C252.457 99.5586 252.057 104.662 252.057 109.865V168.999H216.93Z\" fill=\"currentColor\"/><path d=\"M465.073 172.001C453.863 172.001 444.863 169.4 438.053 164.196C431.253 158.993 426.343 151.689 423.343 142.284C420.343 132.878 418.843 121.772 418.843 108.964C418.843 96.1573 420.343 84.9503 423.343 75.3453C426.543 65.7393 431.453 58.3353 438.053 53.1323C444.863 47.7293 453.863 45.0273 465.073 45.0273C472.683 45.0273 478.983 46.1283 483.993 48.3293C488.993 50.3303 492.893 52.8323 495.703 55.8333C498.703 58.8353 500.903 61.6373 502.303 64.2383C503.703 66.6403 504.603 68.1413 505.003 68.7413H505.603V45.0078H542.833V168.999H511.313L505.603 150.388H505.003C504.803 151.189 503.903 152.79 502.303 155.191C500.903 157.393 498.703 159.794 495.703 162.395C492.693 164.997 488.693 167.198 483.693 168.999C478.683 171 472.483 172.001 465.073 172.001ZM480.083 141.683C487.293 141.683 492.693 140.283 496.303 137.481C499.903 134.479 502.303 130.477 503.503 125.474C504.703 120.471 505.303 115.068 505.303 109.265C505.303 103.261 504.703 97.7583 503.503 92.7553C502.303 87.7523 499.903 83.8503 496.303 81.0483C492.693 78.2463 487.293 76.8463 480.083 76.8463C472.883 76.8463 467.373 78.3473 463.573 81.3483C459.973 84.3503 457.573 88.3523 456.373 93.3553C455.163 98.1583 454.563 103.461 454.563 109.265C454.563 115.068 455.163 120.471 456.373 125.474C457.573 130.277 459.973 134.179 463.573 137.181C467.373 140.183 472.883 141.683 480.083 141.683Z\" fill=\"currentColor\"/><path d=\"M600.113 168.998H563.793V0H600.113V168.998ZM628.633 79.546L690.783 168.998H647.553L602.213 105.061L628.633 79.546ZM599.513 139.581V99.658L645.753 44.9778H689.583L599.513 139.581Z\" fill=\"currentColor\"/><path d=\"M755.033 172.001C752.233 172.001 748.433 171.601 743.623 170.8C738.823 170.2 733.723 168.999 728.313 167.198C723.113 165.197 718.103 162.496 713.303 159.094C708.503 155.491 704.593 150.989 701.593 145.586C698.793 140.183 697.393 133.579 697.393 125.774H730.713C730.713 125.974 730.813 127.175 731.013 129.376C731.213 131.377 731.923 133.679 733.123 136.28C734.523 138.682 736.823 140.883 740.023 142.884C743.223 144.885 747.933 145.886 754.133 145.886C758.943 145.886 762.743 145.285 765.543 144.085C768.343 142.684 770.343 141.083 771.553 139.282C772.753 137.481 773.253 135.78 773.053 134.179C773.053 130.377 771.253 127.475 767.643 125.474C764.243 123.273 759.743 121.372 754.133 119.771C748.533 118.17 742.523 116.469 736.123 114.668C729.913 112.867 724.013 110.565 718.413 107.764C712.803 104.762 708.203 100.86 704.593 96.057C701.193 91.054 699.593 84.55 699.793 76.545C699.793 64.539 704.393 55.633 713.603 49.83C723.013 44.027 734.923 41.125 749.333 41.125C757.533 41.125 765.143 42.125 772.153 44.127C779.153 45.928 785.363 48.729 790.763 52.532C796.163 56.334 800.373 61.237 803.373 67.24C806.373 73.244 807.973 80.248 808.173 88.252H775.153C775.353 84.25 774.653 80.948 773.053 78.347C771.653 75.745 769.743 73.744 767.343 72.343C764.943 70.942 762.243 69.942 759.243 69.341C756.433 68.541 753.533 68.141 750.533 68.141C744.123 68.141 739.523 69.341 736.723 71.743C734.123 73.944 732.823 76.445 732.823 79.247C732.823 83.45 734.623 86.751 738.223 89.153C741.823 91.354 746.433 93.255 752.033 94.856C757.633 96.457 763.643 98.158 770.043 99.959C776.653 101.76 782.753 104.062 788.363 106.863C793.963 109.665 798.573 113.467 802.173 118.27C805.773 122.872 807.573 128.976 807.573 136.58C807.573 144.385 805.373 150.889 800.973 156.092C796.763 161.295 790.763 165.297 782.953 168.099C775.153 170.7 765.843 172.001 755.033 172.001Z\" fill=\"currentColor\"/><path d=\"M829.463 168.998V0H866.693V69.941H867.293C867.493 69.741 868.093 68.34 869.093 65.738C870.293 63.137 872.293 60.335 875.093 57.333C877.903 54.131 881.803 51.33 886.803 48.928C891.813 46.527 898.213 45.326 906.023 45.326C914.623 45.326 921.733 46.927 927.333 50.129C932.943 53.131 937.343 57.133 940.543 62.136C943.753 67.139 946.053 72.642 947.453 78.646C948.853 84.449 949.753 90.052 950.153 95.456C950.553 100.859 950.753 105.461 950.753 109.264V168.998H915.323V108.963C915.323 103.56 914.823 98.457 913.823 93.654C912.823 88.852 910.623 84.949 907.223 81.948C904.023 78.746 898.813 77.145 891.613 77.145C884.203 77.145 878.703 78.746 875.093 81.948C871.693 85.15 869.393 89.252 868.193 94.255C867.193 99.058 866.693 104.261 866.693 109.864V168.998H829.463Z\" fill=\"currentColor\"/></svg></div>\n    <div class=\"fine t-mono\"><span>© <span data-year>2026</span> Vimaksh</span><span>Bengaluru, India</span></div>\n  </div>\n</footer>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": "footer.foot",
+          "kind": "element",
+          "description": "var(--pattern-dark) on night; text #ECEEFF."
+        },
+        {
+          "name": "canvas.edge.edge--top[data-edge=night]",
+          "kind": "element",
+          "description": "Pixel edge in night colour above the footer."
+        },
+        {
+          "name": ".fmark",
+          "kind": "element",
+          "description": "The mark; its six arrows fly in when 60% visible (and on hover), the red one last."
+        },
+        {
+          "name": ".foot-say",
+          "kind": "element",
+          "description": "Label, t-statement headline, supporting line."
+        },
+        {
+          "name": ".cols",
+          "kind": "element",
+          "description": "Four columns (two below 1100px): mono keys, 16px links with a coral \"> \" on hover."
+        },
+        {
+          "name": ".foot-base.heat[data-pixel-mask]",
+          "kind": "element",
+          "description": "Heat gradient whose top edge is cut into squares by a mask; giant wordmark; fine print."
+        }
+      ],
+      "use": [
+        "On every page."
+      ],
+      "do": [
+        "Keep it dark in both themes.",
+        "Keep facts factual: real email, real address, real coordinates."
+      ],
+      "dont": [
+        "Do not use the heat gradient anywhere else.",
+        "Do not add social icons that do not exist."
+      ],
+      "accessibility": [
+        "The mark has role=\"img\" and a label; the giant wordmark is aria-hidden (the name is elsewhere in text).",
+        "Columns are real lists."
+      ],
+      "tokens": [
+        {
+          "name": "color.brand.night",
+          "cssVar": "--night",
+          "value": "#0D0E1C"
+        },
+        {
+          "name": "pattern.heat",
+          "cssVar": "--heat",
+          "value": "radial-gradient(120% 90% at 0% 100%,#1A3FD8 0%,rgba(45,54,255,.55) 28%,transparent 55%),radial-gradient(80% 70% at 85% 80%,#5A0C12 0%,rgba(140,20,20,.6) 35%,transparent 70%),radial-gradient(90% 80% at 60% 20%,#FF7A70 0%,rgba(255,94,85,.6) 30%,transparent 65%),linear-gradient(160deg,#E42114 0%,#FF5E55 40%,#9C2B5A 70%,#2D36FF 100%)"
+        },
+        {
+          "name": "pattern.paper-dark",
+          "cssVar": "--pattern-dark",
+          "value": "var(--cross-l) 0 0/192px 192px,radial-gradient(circle at 1px 1px,rgba(221,228,255,.06) .9px,transparent 1.3px) 0 0/24px 24px"
+        },
+        {
+          "name": "color.footer.text",
+          "cssVar": "--foot-text",
+          "value": "#ECEEFF"
+        },
+        {
+          "name": "color.footer.label",
+          "cssVar": "--foot-label",
+          "value": "#9aa0c8"
+        },
+        {
+          "name": "color.footer.key",
+          "cssVar": "--foot-key",
+          "value": "#7b81aa"
+        },
+        {
+          "name": "typography.statement",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontWeight": 500,
+            "fontSize": "clamp(44px,7vw,112px)",
+            "lineHeight": ".92",
+            "letterSpacing": "-.045em"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "file": "tools/v5pages.py",
+          "a": 82,
+          "b": 115,
+          "what": "markup",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L82-L115"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 268,
+          "b": 296,
+          "what": "base",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L268-L296"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 494,
+          "b": 509,
+          "what": "v8",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L494-L509"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 693,
+          "b": 742,
+          "what": "layout",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L693-L742"
+        },
+        {
+          "file": "src/v5/main.js",
+          "a": 203,
+          "b": 221,
+          "what": "mark animation",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L203-L221"
+        },
+        {
+          "file": "src/v5/main.js",
+          "a": 142,
+          "b": 162,
+          "what": "pixel mask",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L142-L162"
+        }
+      ]
+    },
+    {
+      "name": "PixelEdge",
+      "title": "Pixel edge",
+      "group": "Layout",
+      "summary": "A band of squares, 7 rows of 14px cells (10px on phones), that thins toward the far edge. It joins one area to the next instead of a straight line: the hero to the work section, the page to the footer.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/PixelEdge.md",
+      "requires": [
+        "vimaksh.css",
+        "vimaksh.js"
+      ],
+      "examples": [
+        {
+          "title": "Paper edge rising over a dark area, and the night edge above the footer",
+          "html": "<div style=\"background:var(--night);height:140px\"></div><section class=\"rise\" style=\"padding:40px var(--pad) 60px\"><canvas class=\"edge edge--top\" data-edge=\"paper\" aria-hidden=\"true\"></canvas><p class=\"t-mono label\"><span class=\"chev\">&gt;</span> A section</p><p class=\"t-big\">The paper edge sits on top of a section that rises over the area above.</p></section><footer class=\"foot\" style=\"height:160px\"><canvas class=\"edge edge--top\" data-edge=\"night\" aria-hidden=\"true\"></canvas></footer>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": "canvas.edge.edge--top[data-edge=paper|night]",
+          "kind": "element",
+          "description": "Absolutely positioned above its section; redrawn on resize and theme change."
+        },
+        {
+          "name": "[data-pixel-mask]",
+          "kind": "attribute",
+          "description": "Cuts the top of an element (the heat base) into squares with a CSS mask."
+        },
+        {
+          "name": "pixel/pixelart.js pixelEdge(canvas, {color, cell, seed, rows})",
+          "kind": "function",
+          "description": "Draw one yourself."
+        }
+      ],
+      "use": [
+        "Only where a section rises over a different surface."
+      ],
+      "do": [
+        "Use the colour of the section it belongs to."
+      ],
+      "dont": [
+        "Do not stack edges or use them as decoration inside a section."
+      ],
+      "accessibility": [
+        "Decorative: aria-hidden."
+      ],
+      "tokens": [
+        {
+          "name": "pattern.pixel-edge",
+          "cssVar": null,
+          "value": "{\"cell\":\"14px\",\"cellPhone\":\"10px\",\"rows\":7,\"seed\":3}"
+        },
+        {
+          "name": "space.edge-h",
+          "cssVar": "--edge-h",
+          "value": "98px"
+        }
+      ],
+      "sources": [
+        {
+          "file": "src/v5/v5.css",
+          "a": 360,
+          "b": 361,
+          "what": "style",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L360-L361"
+        },
+        {
+          "file": "src/v5/pixelart.js",
+          "a": 16,
+          "b": 25,
+          "what": "drawing",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelart.js#L16-L25"
+        },
+        {
+          "file": "src/v5/pixelsaas.js",
+          "a": 20,
+          "b": 31,
+          "what": "mask",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelsaas.js#L20-L31"
+        },
+        {
+          "file": "src/v5/main.js",
+          "a": 142,
+          "b": 162,
+          "what": "set-up",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L142-L162"
+        }
+      ]
+    },
+    {
+      "name": "LegalPage",
+      "title": "Legal page",
+      "group": "Layout",
+      "summary": "A single readable column (max 760px) for terms, privacy and cookies: a mono label, a t-hero title at a smaller size, the update date in mono, and 16px/1.6 body with 22px section headings.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/LegalPage.md",
+      "requires": [
+        "vimaksh.css"
+      ],
+      "examples": [
+        {
+          "title": "Cookie policy",
+          "html": "<article class=\"legal\" aria-labelledby=\"lg-h\">\n  <p class=\"t-mono label\"><span class=\"chev\">&gt;</span> Legal</p>\n  <h1 id=\"lg-h\" class=\"t-hero\">Cookie policy</h1>\n  <p class=\"t-mono upd\">Last updated 14 November 2026</p>\n  <p>This site uses as little as possible on your device.</p>\n  <h2>What we store</h2><p>We remember your light or dark theme choice in your browser’s local storage, so the site looks the way you left it. It stays on your device and is never sent to us.</p><h2>What we do not use</h2><p>We do not use advertising or tracking cookies, and we do not run third-party analytics that follow you across sites.</p><h2>Hosting</h2><p>Our hosting and security provider may set strictly necessary cookies to protect the site from abuse. These are needed for the site to work and do not track you.</p><h2>Your choices</h2><p>You can clear local storage and cookies at any time in your browser settings. The site will still work; it will just forget your theme.</p>\n</article>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": "article.legal",
+          "kind": "element",
+          "description": "max-width 760px; padding below the header."
+        },
+        {
+          "name": ".upd.t-mono",
+          "kind": "element",
+          "description": "\"Last updated <date>\"."
+        },
+        {
+          "name": "h2",
+          "kind": "element",
+          "description": "22px, 500, -.02em, 44px above."
+        }
+      ],
+      "use": [
+        "For long-form reading."
+      ],
+      "do": [
+        "Date every version."
+      ],
+      "dont": [
+        "Do not publish legal text that has not been reviewed."
+      ],
+      "accessibility": [
+        "One H1; sections are H2."
+      ],
+      "tokens": [
+        {
+          "name": "typography.hero",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontWeight": 500,
+            "fontSize": "clamp(44px,6.4vw,112px)",
+            "lineHeight": ".94",
+            "letterSpacing": "-.045em",
+            "color": "var(--strong)"
+          }
+        },
+        {
+          "name": "typography.body",
+          "cssVar": null,
+          "value": {
+            "fontFamily": "'Inter Tight',ui-sans-serif,-apple-system,'Segoe UI',sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "1.6"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "file": "tools/v5pages.py",
+          "a": 270,
+          "b": 311,
+          "what": "markup and copy",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L270-L311"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 723,
+          "b": 730,
+          "what": "style",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L723-L730"
+        }
+      ]
+    },
+    {
+      "name": "SkipLink",
+      "title": "Skip link",
+      "group": "Navigation",
+      "summary": "The first element on every page: \"Skip to content\", off screen until it receives focus, then a strong box at top left.",
+      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/SkipLink.md",
+      "requires": [
+        "vimaksh.css"
+      ],
+      "examples": [
+        {
+          "title": "Press Tab inside the frame",
+          "html": "<a class=\"skip\" href=\"#main\">Skip to content</a><main id=\"main\" style=\"padding:80px var(--pad)\"><p class=\"t-big\">Press Tab: the skip link appears at the top left.</p></main>"
+        }
+      ],
+      "code": [],
+      "api": [
+        {
+          "name": "a.skip[href=\"#main\"]",
+          "kind": "element",
+          "description": "Off screen until :focus."
+        },
+        {
+          "name": ".sr",
+          "kind": "class",
+          "description": "Visually hidden text (e.g. \"(opens in a new tab)\")."
+        }
+      ],
+      "use": [
+        "On every page, pointing at <main id=\"main\">."
+      ],
+      "do": [],
+      "dont": [],
+      "accessibility": [
+        "Required: it is the first focusable element."
+      ],
+      "tokens": [
+        {
+          "name": "color.theme.strong",
+          "cssVar": "--strong",
+          "value": {
+            "light": "#0B0A14",
+            "dark": "#F4F5FF"
+          }
+        },
+        {
+          "name": "color.theme.paper",
+          "cssVar": "--paper",
+          "value": {
+            "light": "#F4F2EE",
+            "dark": "#0F1020"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "file": "tools/v5pages.py",
+          "a": 41,
+          "b": 41,
+          "what": "markup",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L41"
+        },
+        {
+          "file": "src/v5/v5.css",
+          "a": 33,
+          "b": 35,
+          "what": "style",
+          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L33-L35"
+        }
+      ]
+    }
+  ]
+}

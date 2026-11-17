@@ -1,0 +1,45 @@
+{
+  "name": "@vimaksh/design-system",
+  "version": "0.1.0",
+  "description": "The Vimaksh design language (work.vimaksh.in) as tokens, one CSS file, behaviours, brand assets and agent-readable docs.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./vimaksh.css": "./dist/vimaksh.css",
+    "./tokens.css": "./dist/tokens.css",
+    "./tokens.json": "./dist/tokens.json",
+    "./tailwind-preset": "./dist/tailwind-preset.cjs",
+    "./tailwind.css": "./dist/tailwind.css",
+    "./vimaksh.js": "./dist/vimaksh.js",
+    "./phone.js": "./dist/vimaksh-phone.js",
+    "./pixel-hero.js": "./dist/pixel-hero.js"
+  },
+  "scripts": {
+    "tokens": "node scripts/tokens.mjs",
+    "extract": "node scripts/extract-css.mjs",
+    "css": "node scripts/css.mjs",
+    "js": "node scripts/js.mjs",
+    "assets": "node scripts/assets.mjs",
+    "docs": "node scripts/docs.mjs",
+    "build": "npm run tokens && npm run css && npm run js && npm run assets && npm run docs && npm run stories",
+    "serve": "node scripts/serve.mjs",
+    "check": "node scripts/check.mjs",
+    "shots": "node scripts/shots.mjs",
+    "storybook": "storybook dev -p 6006 -c storybook",
+    "build-storybook": "storybook build -c storybook -o _site/storybook",
+    "stories": "node scripts/stories.mjs"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "@storybook/html-vite": "^10.6.7",
+    "esbuild": "^0.28.2",
+    "fflate": "^0.8.3",
+    "intl-tel-input": "29.5.11",
+    "playwright-core": "^1.56.1",
+    "storybook": "^10.6.7",
+    "vite": "^8.3.8"
+  }
+}
