@@ -6,16 +6,16 @@ import { readFileSync } from 'node:fs';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const root = (...p) => join(ROOT, ...p);
 
-// The design system is not hosted. Agents read it from the public GitHub repo; this is the only place the
+// Agents read the files from the public GitHub repo (the docs site is on Cloudflare); this is the only place the
 // address lives. Override with VIMAKSH_DS_BASE (e.g. http://localhost:4321/dist/) for local testing.
-export const REPO = 'yakosasam797/vimaksh-design-system';
+export const REPO = 'VimakshHQ/vimaksh-design-system';
 export const BRANCH = 'main';
 export const BASE = (process.env.VIMAKSH_DS_BASE || `https://raw.githubusercontent.com/${REPO}/${BRANCH}/dist/`).replace(/\/?$/, '/');
 export const REPO_URL = `https://github.com/${REPO}`;
 export const blob = p => `${REPO_URL}/blob/${BRANCH}/${p}`;
 
 // The website the system is extracted from, pinned to the audited commit.
-export const SITE_REPO = 'https://github.com/yakosasam797/vimakshwebsite-identity-final';
+export const SITE_REPO = 'https://github.com/VimakshHQ/vimakshwebsite-identity-final';
 export const SITE_SHA = readFileSync(root('source/SOURCE_COMMIT'), 'utf8').trim();
 export const SITE_LIVE = 'https://work.vimaksh.in';
 export const siteLink = (file, a, b) => `${SITE_REPO}/blob/${SITE_SHA}/${file}${a ? `#L${a}${b && b !== a ? `-L${b}` : ''}` : ''}`;

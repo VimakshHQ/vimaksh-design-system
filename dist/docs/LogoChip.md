@@ -2,7 +2,7 @@
 
 > A product's own logo on an off-white chip in the top-left corner of a project card. Three forms: a full logo, an icon with the name, or the name alone.
 
-Vimaksh design system 0.1.0. HTML: /components/logo-chip/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /components/logo-chip/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Use it
 
@@ -49,6 +49,6 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 
 ## Sources
 
-- markup: [tools/v5pages.py:154-159](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L154-L159)
-- style: [src/v5/v5.css:591-595](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L591-L595)
-- size: [src/v5/v5.css:640-641](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L640-L641)
+- markup: [tools/v5pages.py:154-159](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L154-L159)
+- style: [src/v5/v5.css:591-595](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L591-L595)
+- size: [src/v5/v5.css:640-641](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L640-L641)

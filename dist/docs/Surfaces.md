@@ -2,7 +2,7 @@
 
 > Three paper levels and one night. Surfaces are flat and square: separated by hairlines and by the paper pattern, not by shadows.
 
-Vimaksh design system 0.1.0. HTML: /foundations/surfaces/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /foundations/surfaces/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Tokens
 
@@ -44,6 +44,6 @@ In the footer the brief is a light card (`.fbrief`) that resets the light-theme 
 
 ## Sources
 
-- rise: [src/v5/v5.css:126-128](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L126-L128)
-- block: [src/v5/v5.css:228](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L228)
-- light card on night: [src/v5/v5.css:703](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L703)
+- rise: [src/v5/v5.css:126-128](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L126-L128)
+- block: [src/v5/v5.css:228](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L228)
+- light card on night: [src/v5/v5.css:703](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L703)

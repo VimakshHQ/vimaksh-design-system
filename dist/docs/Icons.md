@@ -2,7 +2,7 @@
 
 > Every icon the site uses, ready to copy. The full icon set is still to come.
 
-Vimaksh design system 0.1.0. HTML: /icons/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /icons/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ### Chevron right (mono)
 

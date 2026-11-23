@@ -2,7 +2,7 @@
 
 > The site's only navigation: a stack of boxed mono links fixed at the bottom right, ending in a solid Menu box. On the home hero all links show; once you scroll (and on every other page, and on phones) it folds to the Menu box, which unfolds the links again.
 
-Vimaksh design system 0.1.0. HTML: /components/navigation-stack/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /components/navigation-stack/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Use it
 
@@ -67,8 +67,8 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 
 ## Sources
 
-- markup: [tools/v5pages.py:63-69](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L63-L69)
-- style: [src/v5/v5.css:335-357](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L335-L357)
-- open state: [src/v5/v5.css:583-584](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L583-L584)
-- behaviour: [src/v5/main.js:22-33](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L22-L33)
-- compact / dark: [src/v5/main.js:186-191](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L186-L191)
+- markup: [tools/v5pages.py:63-69](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L63-L69)
+- style: [src/v5/v5.css:335-357](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L335-L357)
+- open state: [src/v5/v5.css:583-584](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L583-L584)
+- behaviour: [src/v5/main.js:22-33](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L22-L33)
+- compact / dark: [src/v5/main.js:186-191](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L186-L191)

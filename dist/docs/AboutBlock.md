@@ -2,7 +2,7 @@
 
 > A short statement section: a compact pixel illustration on the left and one large paragraph (t-big) on the right, centred on one line.
 
-Vimaksh design system 0.1.0. HTML: /components/about-block/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /components/about-block/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Use it
 
@@ -55,8 +55,8 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 
 ## Sources
 
-- markup: [tools/v5pages.py:220-226](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L220-L226)
-- style: [src/v5/v5.css:609-613](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L609-L613)
-- v10: [src/v5/v5.css:643-648](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L643-L648)
-- compact: [src/v5/v5.css:689-691](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L689-L691)
-- desk: [src/v5/pixelart.js:154-175](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelart.js#L154-L175)
+- markup: [tools/v5pages.py:220-226](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L220-L226)
+- style: [src/v5/v5.css:609-613](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L609-L613)
+- v10: [src/v5/v5.css:643-648](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L643-L648)
+- compact: [src/v5/v5.css:689-691](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L689-L691)
+- desk: [src/v5/pixelart.js:154-175](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelart.js#L154-L175)

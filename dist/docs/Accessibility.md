@@ -2,7 +2,7 @@
 
 > Target WCAG 2.2 AA. Real DOM before scripts, a skip link, visible focus, labelled controls, live regions for errors, and motion that respects reduced motion. Two known contrast issues are listed below.
 
-Vimaksh design system 0.1.0. HTML: /foundations/accessibility/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /foundations/accessibility/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ### What every page has
 - A skip link to `<main id="main">`, one H1, H2 per section with `aria-labelledby`.
@@ -56,5 +56,5 @@ Controls are at least 40px high on phones (nav items, pills, the toggle 36px). K
 
 ## Sources
 
-- focus, skip, sr: [src/v5/v5.css:32-35](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L32-L35)
-- accessibility rules (DESIGN.md): [DESIGN.md:447-456](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L447-L456)
+- focus, skip, sr: [src/v5/v5.css:32-35](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L32-L35)
+- accessibility rules (DESIGN.md): [DESIGN.md:447-456](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L447-L456)

@@ -2,7 +2,7 @@
 
 > Always dark (night) in both themes. A pixel edge breaks its top, the mark flies in, a large statement sits beside the brief card, four columns of facts follow, and a heat-gradient base carries the giant white wordmark.
 
-Vimaksh design system 0.1.0. HTML: /components/footer/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /components/footer/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Use it
 
@@ -98,9 +98,9 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 
 ## Sources
 
-- markup: [tools/v5pages.py:82-115](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L82-L115)
-- base: [src/v5/v5.css:268-296](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L268-L296)
-- v8: [src/v5/v5.css:494-509](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L494-L509)
-- layout: [src/v5/v5.css:693-742](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L693-L742)
-- mark animation: [src/v5/main.js:203-221](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L203-L221)
-- pixel mask: [src/v5/main.js:142-162](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L142-L162)
+- markup: [tools/v5pages.py:82-115](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L82-L115)
+- base: [src/v5/v5.css:268-296](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L268-L296)
+- v8: [src/v5/v5.css:494-509](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L494-L509)
+- layout: [src/v5/v5.css:693-742](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L693-L742)
+- mark animation: [src/v5/main.js:203-221](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L203-L221)
+- pixel mask: [src/v5/main.js:142-162](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L142-L162)

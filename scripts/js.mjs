@@ -53,7 +53,7 @@ await build({
   entryPoints: { vimaksh: root('src/js/vimaksh.js'), 'vimaksh-phone': root('src/js/vimaksh-phone.js'), 'pixel-hero': root('src/js/pixel-hero.js') },
   outdir: root('dist'), bundle: true, splitting: false, format: 'esm', minify: true, target: 'es2020',
   legalComments: 'inline', logLevel: 'warning',
-  banner: { js: '/* Vimaksh design system: https://github.com/yakosasam797/vimaksh-design-system */' },
+  banner: { js: '/* Vimaksh design system: https://github.com/VimakshHQ/vimaksh-design-system */' },
 });
 // The pixel drawing functions as plain modules, for drawing motifs at any size.
 mkdirSync(root('dist/pixel'), { recursive: true });

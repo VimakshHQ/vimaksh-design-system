@@ -2,7 +2,7 @@
 
 > Square buttons with a mono uppercase label and a ">" chevron that nudges 5px right on hover. Primary is red; ghost has a hairline border. Both turn solid strong on hover.
 
-Vimaksh design system 0.1.0. HTML: /components/button/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /components/button/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Use it
 
@@ -75,7 +75,7 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 
 ## Sources
 
-- btn, ghost: [src/v5/v5.css:47-53](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L47-L53)
-- disabled, sent: [src/v5/v5.css:744-748](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L744-L748)
-- tbtn: [src/v5/v5.css:479-481](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L479-L481)
-- tbtn chevron: [src/v5/v5.css:711-713](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L711-L713)
+- btn, ghost: [src/v5/v5.css:47-53](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L47-L53)
+- disabled, sent: [src/v5/v5.css:744-748](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L744-L748)
+- tbtn: [src/v5/v5.css:479-481](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L479-L481)
+- tbtn chevron: [src/v5/v5.css:711-713](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L711-L713)

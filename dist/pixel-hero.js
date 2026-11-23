@@ -1,4 +1,4 @@
-/* Vimaksh design system: https://github.com/yakosasam797/vimaksh-design-system */
+/* Vimaksh design system: https://github.com/VimakshHQ/vimaksh-design-system */
 var I="attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}",z=`
 precision highp float;
 uniform vec2 uRes;        // canvas size in device px

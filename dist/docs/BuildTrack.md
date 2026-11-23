@@ -2,7 +2,7 @@
 
 > The "What we build" row: cards with a pixel tile in the item's own colour, a numbered tag, a square bullet and a short description, on a track that drifts sideways on its own and pauses on hover, touch or focus.
 
-Vimaksh design system 0.1.0. HTML: /components/build-track/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /components/build-track/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Use it
 
@@ -109,8 +109,8 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 
 ## Sources
 
-- content and card: [tools/v5pages.py:172-188](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L172-L188)
-- section: [tools/v5pages.py:228-242](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L228-L242)
-- style: [src/v5/v5.css:460-481](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L460-L481)
-- drift: [src/v5/main.js:228-277](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L228-L277)
-- pixel tiles: [src/v5/pixelsaas.js:34-112](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelsaas.js#L34-L112)
+- content and card: [tools/v5pages.py:172-188](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L172-L188)
+- section: [tools/v5pages.py:228-242](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L228-L242)
+- style: [src/v5/v5.css:460-481](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L460-L481)
+- drift: [src/v5/main.js:228-277](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L228-L277)
+- pixel tiles: [src/v5/pixelsaas.js:34-112](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelsaas.js#L34-L112)

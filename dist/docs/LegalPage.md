@@ -2,7 +2,7 @@
 
 > A single readable column (max 760px) for terms, privacy and cookies: a mono label, a t-hero title at a smaller size, the update date in mono, and 16px/1.6 body with 22px section headings.
 
-Vimaksh design system 0.1.0. HTML: /components/legal-page/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /components/legal-page/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Use it
 
@@ -55,5 +55,5 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 
 ## Sources
 
-- markup and copy: [tools/v5pages.py:270-311](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L270-L311)
-- style: [src/v5/v5.css:723-730](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L723-L730)
+- markup and copy: [tools/v5pages.py:270-311](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L270-L311)
+- style: [src/v5/v5.css:723-730](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L723-L730)

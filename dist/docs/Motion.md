@@ -2,7 +2,7 @@
 
 > One easing for almost everything, short colour changes, small nudges. The hero is the only thing that always moves.
 
-Vimaksh design system 0.1.0. HTML: /foundations/motion/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /foundations/motion/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Tokens
 
@@ -52,7 +52,7 @@ With `prefers-reduced-motion: reduce`: the grain stops, smooth scrolling is off,
 
 ## Sources
 
-- ease: [src/v5/v5.css:9](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L9)
-- reveal: [src/v5/v5.css:298-300](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L298-L300)
-- mark and reveal: [src/v5/main.js:203-226](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L203-L226)
-- reduced motion: [src/v5/v5.css:327-330](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L327-L330)
+- ease: [src/v5/v5.css:9](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L9)
+- reveal: [src/v5/v5.css:298-300](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L298-L300)
+- mark and reveal: [src/v5/main.js:203-226](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L203-L226)
+- reduced motion: [src/v5/v5.css:327-330](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L327-L330)

@@ -2,7 +2,7 @@
 
 > A tiny strong label that follows the pointer over anything with data-copy: "Copy", then "Copied ✓" (or "Copy failed") for 1.3s after a click.
 
-Vimaksh design system 0.1.0. HTML: /components/copy-tooltip/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /components/copy-tooltip/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Use it
 
@@ -50,6 +50,6 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 
 ## Sources
 
-- markup: [tools/v5pages.py:59-61](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L59-L61)
-- style: [src/v5/v5.css:108-109](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L108-L109)
-- behaviour: [src/v5/main.js:35-53](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L35-L53)
+- markup: [tools/v5pages.py:59-61](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L59-L61)
+- style: [src/v5/v5.css:108-109](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L108-L109)
+- behaviour: [src/v5/main.js:35-53](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L35-L53)

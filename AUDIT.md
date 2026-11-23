@@ -271,7 +271,7 @@ There is no icon set. The complete list:
 
 ## 7. Decisions taken (17 Nov 2026)
 
-- **Hosting:** none. The files are published as raw GitHub files from `yakosasam797/vimaksh-design-system` (`main/dist/`), and the base URL lives in `scripts/config.mjs`.
+- **Hosting:** none. The files are published as raw GitHub files from `VimakshHQ/vimaksh-design-system` (`main/dist/`), and the base URL lives in `scripts/config.mjs`.
 - **Icons:** only the icons the site already uses. The full set is `[PLACEHOLDER]` until Vimaksh supplies it.
 - **Scope:** the design system only. No second site.
 - **Defaults for unanswered gaps.** None of these invents a value:

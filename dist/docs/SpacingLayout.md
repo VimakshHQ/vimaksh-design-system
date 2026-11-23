@@ -2,7 +2,7 @@
 
 > Full-width pages with one fluid gutter, generous fluid section padding, a 14px gap between cards, and two max-width breakpoints. The values below are the ones the site uses, named.
 
-Vimaksh design system 0.1.0. HTML: /foundations/spacing-layout/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /foundations/spacing-layout/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Tokens
 
@@ -55,6 +55,6 @@ The site has no 4/8 scale and this system does not invent one. Reuse the named v
 
 ## Sources
 
-- pad, hdr: [src/v5/v5.css:9](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L9)
-- work grid: [src/v5/v5.css:137-138](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L137-L138)
-- breakpoints: [src/v5/v5.css:303-326](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L303-L326)
+- pad, hdr: [src/v5/v5.css:9](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L9)
+- work grid: [src/v5/v5.css:137-138](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L137-L138)
+- breakpoints: [src/v5/v5.css:303-326](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L303-L326)

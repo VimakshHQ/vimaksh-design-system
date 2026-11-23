@@ -7,7 +7,7 @@ Docs site: **https://vimaksh-design-system.vimaksh.workers.dev** (Cloudflare Wor
 Agents read the files from this repository's raw files (the prompt points here):
 
 ```
-https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/
+https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/
 ```
 
 ## Copy brand identity
@@ -26,7 +26,7 @@ Paste [`dist/prompt.txt`](dist/prompt.txt) into an agent working on another proj
 | `agents.md`, `llms.txt`, `llms-full.txt`, `docs/*.md`, `prompt.txt` | Docs for agents |
 | `catalog.json`, `api/*.json` | Machine-readable components, foundations, tokens, icons and examples |
 
-Install it as a package with `npm i github:yakosasam797/vimaksh-design-system`, then use `@vimaksh/design-system/vimaksh.css`.
+Install it as a package with `npm i github:VimakshHQ/vimaksh-design-system`, then use `@vimaksh/design-system/vimaksh.css`.
 
 ## Working on it
 

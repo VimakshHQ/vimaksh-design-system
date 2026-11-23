@@ -2,7 +2,7 @@
 
 > The six-arrow mark (five coral, one red), the Vimaksh wordmark, and the 3D logo sculpture. Use the files as they are, in the colours the site uses them in.
 
-Vimaksh design system 0.1.0. HTML: /brand/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /brand/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ### The mark
 Six arrows meeting at a centre: five coral, one red. The arrows form the "> <" chevrons that run through the whole system. Files: `vimaksh-mark.svg` (580×580 artboard, the original) and `vimaksh-mark-tight.svg` (cropped to the arrows, the crop the hero uses).
@@ -36,8 +36,8 @@ These follow from how the files are built and used; Vimaksh has not yet approved
 
 ## Sources
 
-- mark: [public/marks/vimaksh-mark.svg:1-8](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/public/marks/vimaksh-mark.svg#L1-L8)
-- wordmark: [public/marks/vimaksh-wordmark.svg:1-3](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/public/marks/vimaksh-wordmark.svg#L1-L3)
-- inline currentColor: [tools/v5pages.py:6-10](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L6-L10)
-- sizes: [src/v5/v5.css:571-574](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L571-L574)
-- footer mark size: [src/v5/v5.css:734-742](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L734-L742)
+- mark: [public/marks/vimaksh-mark.svg:1-8](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/public/marks/vimaksh-mark.svg#L1-L8)
+- wordmark: [public/marks/vimaksh-wordmark.svg:1-3](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/public/marks/vimaksh-wordmark.svg#L1-L3)
+- inline currentColor: [tools/v5pages.py:6-10](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L6-L10)
+- sizes: [src/v5/v5.css:571-574](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L571-L574)
+- footer mark size: [src/v5/v5.css:734-742](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L734-L742)

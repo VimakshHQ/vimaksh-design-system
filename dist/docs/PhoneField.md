@@ -2,7 +2,7 @@
 
 > intl-tel-input 29.5.11, themed to the site: a flag and +code in mono with a small red chevron, a square searchable country list on --card, India preselected and a short list of common countries first. Only valid digits can be typed.
 
-Vimaksh design system 0.1.0. HTML: /components/phone-field/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /components/phone-field/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Use it
 
@@ -53,5 +53,5 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 
 ## Sources
 
-- set-up: [src/v5/main.js:63-83](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L63-L83)
-- theme: [src/v5/v5.css:769-807](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L769-L807)
+- set-up: [src/v5/main.js:63-83](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L63-L83)
+- theme: [src/v5/v5.css:769-807](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L769-L807)

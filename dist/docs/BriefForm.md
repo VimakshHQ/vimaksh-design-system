@@ -2,7 +2,7 @@
 
 > The project brief: name, email, phone, company (optional) and a message. Fields are underlines with mono labels; email and phone are checked as you type and explained when you leave the field. It posts JSON to the form's action (the site uses /api/brief) and shows an honest result.
 
-Vimaksh design system 0.1.0. HTML: /components/brief-form/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /components/brief-form/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Use it
 
@@ -76,9 +76,9 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 
 ## Sources
 
-- markup: [tools/v5pages.py:71-80](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L71-L80)
-- fields: [src/v5/v5.css:242-251](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L242-L251)
-- footer card: [src/v5/v5.css:700-707](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L700-L707)
-- states: [src/v5/v5.css:744-760](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L744-L760)
-- checks and submit: [src/v5/main.js:84-136](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L84-L136)
-- email check: [src/v5/validate.js:1-17](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/validate.js#L1-L17)
+- markup: [tools/v5pages.py:71-80](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L71-L80)
+- fields: [src/v5/v5.css:242-251](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L242-L251)
+- footer card: [src/v5/v5.css:700-707](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L700-L707)
+- states: [src/v5/v5.css:744-760](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L744-L760)
+- checks and submit: [src/v5/main.js:84-136](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L84-L136)
+- email check: [src/v5/validate.js:1-17](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/validate.js#L1-L17)

@@ -2,7 +2,7 @@
 
 > Real product footage in square frames, the products' own logos on paper chips, and pixel illustrations drawn on a grid. No stock photography.
 
-Vimaksh design system 0.1.0. HTML: /foundations/imagery/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /foundations/imagery/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ### Product media
 Short muted loops recorded from the real product, with a poster frame, at 4:5 (4:3 on phones). Saturation .82 at rest, 1 on hover; a light darkening veil and grain on top. Play only while on screen.
@@ -29,6 +29,6 @@ Drawn square by square on a small grid (48×36 for tiles, 84×64 for the desk) a
 
 ## Sources
 
-- media: [src/v5/v5.css:140-144](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L140-L144)
-- pixel tiles: [src/v5/pixelsaas.js:1-40](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelsaas.js#L1-L40)
-- imagery rules (DESIGN.md): [DESIGN.md:469-501](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L469-L501)
+- media: [src/v5/v5.css:140-144](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L140-L144)
+- pixel tiles: [src/v5/pixelsaas.js:1-40](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelsaas.js#L1-L40)
+- imagery rules (DESIGN.md): [DESIGN.md:469-501](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L469-L501)

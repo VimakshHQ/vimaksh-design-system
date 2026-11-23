@@ -2,7 +2,7 @@
 
 > Text fields are a single underline: --rule2 at rest, red on focus and when invalid. Errors are short mono lines under the field. The send button shows "Sending…", then "Sent" in green, or the error note in red with the email as a fallback.
 
-Vimaksh design system 0.1.0. HTML: /components/inputs/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /components/inputs/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Use it
 
@@ -74,8 +74,8 @@ Thanks, <first name>. Your brief is with us, and a confirmation is on its way to
 
 ## Sources
 
-- fields: [src/v5/v5.css:247-249](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L247-L249)
-- errors: [src/v5/v5.css:755-760](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L755-L760)
-- states: [src/v5/v5.css:744-750](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L744-L750)
-- phone messages: [src/v5/main.js:63-70](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L63-L70)
-- email messages: [src/v5/validate.js:9-17](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/validate.js#L9-L17)
+- fields: [src/v5/v5.css:247-249](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L247-L249)
+- errors: [src/v5/v5.css:755-760](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L755-L760)
+- states: [src/v5/v5.css:744-750](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L744-L750)
+- phone messages: [src/v5/main.js:63-70](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L63-L70)
+- email messages: [src/v5/validate.js:9-17](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/validate.js#L9-L17)

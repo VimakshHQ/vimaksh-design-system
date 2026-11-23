@@ -2,7 +2,7 @@
 
 > Paper and ink, one red for action, and a dark night for the footer. Every role has a light and a dark value; the brand colours do not change with the theme.
 
-Vimaksh design system 0.1.0. HTML: /foundations/color/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /foundations/color/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Tokens
 
@@ -104,6 +104,6 @@ The SVG files use `#FF5F53` and `#E32112`; CSS uses `#FF5E55` and `#E42114`. The
 
 ## Sources
 
-- tokens: [src/v5/v5.css:4-18](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L4-L18)
-- pixel blues: [src/v5/pixelart.js:3](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelart.js#L3)
-- kind colours: [tools/v5pages.py:172-181](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L172-L181)
+- tokens: [src/v5/v5.css:4-18](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L4-L18)
+- pixel blues: [src/v5/pixelart.js:3](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelart.js#L3)
+- kind colours: [tools/v5pages.py:172-181](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L172-L181)

@@ -1,6 +1,6 @@
 /*! Vimaksh design system 0.1.0. The design language of work.vimaksh.in in one file.
    Needs: fonts/ next to this file. Theme: <html data-theme="light|dark">. Phone field: load vendor/intl-tel-input.css first.
-   Behaviour: <script type="module" src="vimaksh.js">. https://github.com/yakosasam797/vimaksh-design-system */
+   Behaviour: <script type="module" src="vimaksh.js">. https://github.com/VimakshHQ/vimaksh-design-system */
 /* Vimaksh tokens. Generated from tokens/tokens.json. Do not edit by hand. */
 @font-face{font-family:'Inter Tight';src:url(fonts/inter-tight.woff2) format('woff2');font-weight:100 900;font-display:swap}
 @font-face{font-family:'JetBrains Mono';src:url(fonts/jetbrains-mono-500.woff2) format('woff2');font-weight:500;font-display:swap}

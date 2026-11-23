@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "base": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/brand/",
+  "base": "https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/brand/",
   "logos": [
     {
       "file": "vimaksh-mark",
@@ -637,28 +637,28 @@
     },
     {
       "path": "zip/vimaksh-brand-all.zip",
-      "bytes": 2574287,
-      "sha256": "5ba9099508df0785b64401708edcb9722b955834acf231059093095c009d95cd"
+      "bytes": 2574280,
+      "sha256": "95cfbec558c9d76792b134644c7f7d8b9a1b442a3ea05537908b9d5af2ac77a9"
     },
     {
       "path": "zip/vimaksh-fonts.zip",
-      "bytes": 71628,
-      "sha256": "e672bdfe6ff23e1df7a70ec4a3e079ccd1a586c9902d02ca8a35f497870eee6a"
+      "bytes": 71621,
+      "sha256": "97403801ce9978456adc8bf77930f42a3aaa174b0931f7da357d07fec9d7b509"
     },
     {
       "path": "zip/vimaksh-logos-png.zip",
-      "bytes": 664114,
-      "sha256": "f133484b899525ec7bb846b5eea6cff1fc4df7cc09234acee79a429157acc545"
+      "bytes": 664107,
+      "sha256": "64a0208d245788d1baeae99c6208e70e31521fadf5ca549cf6053f7ec8202fc3"
     },
     {
       "path": "zip/vimaksh-logos-svg.zip",
-      "bytes": 13286,
-      "sha256": "27340c9c2a6702b116228eb5cf8dfe2a380f7bc3c04b719c004da2d4dee0eb3d"
+      "bytes": 13279,
+      "sha256": "3777a2bd9537ee2af8715f30c5dd95bf908d73b08000dd00ea9e760028be9cd0"
     },
     {
       "path": "zip/vimaksh-pixel-motifs.zip",
-      "bytes": 140625,
-      "sha256": "cbf97f4bb0b991d6d8a47ea4c9f5eb66e25b4125b7be5c46d982b7a01ac1997b"
+      "bytes": 140618,
+      "sha256": "0d4268b7a2dd256ed67e5355c7a8f4ff06818695d040cc830e35881dcd33849b"
     }
   ]
 }

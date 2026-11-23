@@ -195,7 +195,7 @@ ${sources}`;
   }
   return `${head}\n${mdLinks((p.mdBody || p.body || '').trim())}\n${sources}`;
 }
-const SITE_REPO_SHORT = () => `yakosasam797/vimakshwebsite-identity-final@${SITE_SHA.slice(0, 7)}`;
+const SITE_REPO_SHORT = () => `VimakshHQ/vimakshwebsite-identity-final@${SITE_SHA.slice(0, 7)}`;
 
 // ---------------------------------------------------------------- special pages' bodies
 const ICONS = [
@@ -247,7 +247,7 @@ Inter Tight (variable, 100–900) and JetBrains Mono 500, both licensed under th
 - [vimaksh.css](${BASE}vimaksh.css): tokens + type + every component, one file.
 - [tokens.css](${BASE}tokens.css), [tokens.json](${BASE}tokens.json) (W3C design tokens), [tailwind-preset.cjs](${BASE}tailwind-preset.cjs), [tailwind.css](${BASE}tailwind.css).
 - [vimaksh.js](${BASE}vimaksh.js), [vimaksh-phone.js](${BASE}vimaksh-phone.js), [pixel-hero.js](${BASE}pixel-hero.js), [pixel/](${BASE}pixel/pixelsaas.js).
-- As a package: \`npm i github:yakosasam797/vimaksh-design-system\`, then import \`@vimaksh/design-system/vimaksh.css\`.
+- As a package: \`npm i github:VimakshHQ/vimaksh-design-system\`, then import \`@vimaksh/design-system/vimaksh.css\`.
 
 ### Every file
 
@@ -256,7 +256,7 @@ Inter Tight (variable, 100–900) and JetBrains Mono 500, both licensed under th
 ${manifest.files.map(f => `| [${f.path}](${BASE}brand/${f.path}) | ${f.bytes} | \`${f.sha256.slice(0, 16)}…\` |`).join('\n')}`;
 
 const GETTING_STARTED_MD = () => `### 1. Copy the files
-From ${BASE} (or \`npm i github:yakosasam797/vimaksh-design-system\`): \`vimaksh.css\`, \`fonts/\`, \`vimaksh.js\`, \`brand/svg/\`; with a phone field \`vimaksh-phone.js\` and \`vendor/\`; with the hero \`pixel-hero.js\` (it reads \`brand/svg/vimaksh-mark.svg\` relative to itself). Keep \`fonts/\` next to \`vimaksh.css\`.
+From ${BASE} (or \`npm i github:VimakshHQ/vimaksh-design-system\`): \`vimaksh.css\`, \`fonts/\`, \`vimaksh.js\`, \`brand/svg/\`; with a phone field \`vimaksh-phone.js\` and \`vendor/\`; with the hero \`pixel-hero.js\` (it reads \`brand/svg/vimaksh-mark.svg\` relative to itself). Keep \`fonts/\` next to \`vimaksh.css\`.
 
 ### 2. The page shell
 Copy the head from [agents.md](${BASE}agents.md), section 1: the pre-paint theme script, the stylesheet, the skip link, the header, the navigation stack, \`<main id="main">\`, the footer and the module script. Set \`data-page="home"\` on the home page.

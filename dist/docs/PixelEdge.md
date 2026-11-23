@@ -2,7 +2,7 @@
 
 > A band of squares, 7 rows of 14px cells (10px on phones), that thins toward the far edge. It joins one area to the next instead of a straight line: the hero to the work section, the page to the footer.
 
-Vimaksh design system 0.1.0. HTML: /components/pixel-edge/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /components/pixel-edge/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Use it
 
@@ -49,7 +49,7 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 
 ## Sources
 
-- style: [src/v5/v5.css:360-361](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L360-L361)
-- drawing: [src/v5/pixelart.js:16-25](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelart.js#L16-L25)
-- mask: [src/v5/pixelsaas.js:20-31](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelsaas.js#L20-L31)
-- set-up: [src/v5/main.js:142-162](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L142-L162)
+- style: [src/v5/v5.css:360-361](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L360-L361)
+- drawing: [src/v5/pixelart.js:16-25](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelart.js#L16-L25)
+- mask: [src/v5/pixelsaas.js:20-31](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelsaas.js#L20-L31)
+- set-up: [src/v5/main.js:142-162](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L142-L162)

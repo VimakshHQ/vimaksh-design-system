@@ -2,7 +2,7 @@
 
 > Inter Tight for everything that is read, set large, at weight 500 with tight negative tracking. JetBrains Mono 500, small and uppercase, for labels, navigation and buttons.
 
-Vimaksh design system 0.1.0. HTML: /foundations/typography/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /foundations/typography/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Tokens
 
@@ -57,5 +57,5 @@ Source text is sentence case. Mono labels and buttons become uppercase through C
 
 ## Sources
 
-- fonts: [src/v5/v5.css:2-8](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L2-L8)
-- type classes: [src/v5/v5.css:36-43](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L36-L43)
+- fonts: [src/v5/v5.css:2-8](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L2-L8)
+- type classes: [src/v5/v5.css:36-43](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L36-L43)

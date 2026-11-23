@@ -2,7 +2,7 @@
 
 > The wordmark at top left and the theme toggle at top right. Transparent at the top of the page; once you scroll it gets its own paper backing, hides while you read down and returns when you scroll up.
 
-Vimaksh design system 0.1.0. HTML: /components/header/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /components/header/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Use it
 
@@ -71,7 +71,7 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 
 ## Sources
 
-- markup: [tools/v5pages.py:44-57](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L44-L57)
-- base: [src/v5/v5.css:58-66](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L58-L66)
-- solid / hide / wordmark: [src/v5/v5.css:563-574](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L563-L574)
-- scroll behaviour: [src/v5/main.js:171-196](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L171-L196)
+- markup: [tools/v5pages.py:44-57](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L44-L57)
+- base: [src/v5/v5.css:58-66](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L58-L66)
+- solid / hide / wordmark: [src/v5/v5.css:563-574](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L563-L574)
+- scroll behaviour: [src/v5/main.js:171-196](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L171-L196)

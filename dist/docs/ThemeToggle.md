@@ -2,7 +2,7 @@
 
 > A pill whose knob slides between sun and moon; the icon turns as it travels. The choice is saved in localStorage under "vimaksh-theme" and applied before first paint on every page.
 
-Vimaksh design system 0.1.0. HTML: /components/theme-toggle/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /components/theme-toggle/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Use it
 
@@ -78,8 +78,8 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 
 ## Sources
 
-- markup: [tools/v5pages.py:47-54](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L47-L54)
-- pre-paint script: [tools/v5pages.py:33-37](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L33-L37)
-- style: [src/v5/v5.css:69-80](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L69-L80)
-- phone size: [src/v5/v5.css:311-312](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L311-L312)
-- behaviour: [src/v5/main.js:9-20](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L9-L20)
+- markup: [tools/v5pages.py:47-54](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L47-L54)
+- pre-paint script: [tools/v5pages.py:33-37](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L33-L37)
+- style: [src/v5/v5.css:69-80](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L69-L80)
+- phone size: [src/v5/v5.css:311-312](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L311-L312)
+- behaviour: [src/v5/main.js:9-20](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L9-L20)

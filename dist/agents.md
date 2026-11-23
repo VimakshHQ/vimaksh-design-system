@@ -2,7 +2,7 @@
 
 Version 0.1.0. The design language of https://work.vimaksh.in, extracted from its code. Every value below comes from the site; nothing is invented. Where the site has no rule, this file says so and marks it `[PLACEHOLDER: …]`.
 
-All files: https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/ (raw GitHub). Download them into your project; raw GitHub serves text/plain, so a `<link>` to it will not apply.
+All files: https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/ (raw GitHub). Download them into your project; raw GitHub serves text/plain, so a `<link>` to it will not apply.
 
 ## 1. Set up a page
 
@@ -41,12 +41,12 @@ Tailwind: load `tokens.css` (or `vimaksh.css`) first, then use `tailwind-preset.
 ### Pages for Vimaksh products
 
 - The page belongs to Vimaksh: the header and the footer's giant wordmark are the Vimaksh wordmark.
-- A product (Paryatech, Vaat, …) shows its own logo, unchanged, only inside a [Logo chip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/LogoChip.md) on its media. Its name is text in the headings. Product colours stay inside product imagery; never recolour the interface to match.
+- A product (Paryatech, Vaat, …) shows its own logo, unchanged, only inside a [Logo chip](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/LogoChip.md) on its media. Its name is text in the headings. Product colours stay inside product imagery; never recolour the interface to match.
 - The brief form posts JSON to its `action` (default `/api/brief`). For another product set `data-sent` (success message; `{name}` and `{email}` are filled in) and `data-email` (fallback address). Show success only after the server answers `{"ok":true}`.
 
 ### When the site has no component for it
 
-The site has no feature grid, pricing table, FAQ, testimonial or generic card. Do not invent one. Compose from what exists: a [Section header](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/SectionHeader.md); sections padded `var(--section-top) var(--pad) var(--section-bottom)` on `var(--pattern), var(--paper)`; `.t-big` statements; 1px `--rule` hairlines; `--card` blocks with a `--rule2` border; the 14px grid gap; mono labels. Mark each such composition with a code comment `[PLACEHOLDER: component not on work.vimaksh.in]` so it can be reviewed.
+The site has no feature grid, pricing table, FAQ, testimonial or generic card. Do not invent one. Compose from what exists: a [Section header](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/SectionHeader.md); sections padded `var(--section-top) var(--pad) var(--section-bottom)` on `var(--pattern), var(--paper)`; `.t-big` statements; 1px `--rule` hairlines; `--card` blocks with a `--rule2` border; the 14px grid gap; mono labels. Mark each such composition with a code comment `[PLACEHOLDER: component not on work.vimaksh.in]` so it can be reviewed.
 
 ## 2. Hard rules
 
@@ -71,42 +71,42 @@ MUST NOT
 
 ## 3. Components
 
-- [Header](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Header.md): The wordmark at top left and the theme toggle at top right.
-- [Theme toggle](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/ThemeToggle.md): A pill whose knob slides between sun and moon; the icon turns as it travels.
-- [Navigation stack](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/NavigationStack.md): The site's only navigation: a stack of boxed mono links fixed at the bottom right, ending in a solid Menu box.
-- [Button](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Button.md): Square buttons with a mono uppercase label and a ">" chevron that nudges 5px right on hover.
-- [Text link](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/TextLink.md): A mono link with an underline in the text colour and a red chevron that nudges 4px on hover.
-- [Pill](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Pill.md): A small square mono chip that copies a value (an email, coordinates) or labels an expandable row.
-- [Copy tooltip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/CopyTooltip.md): A tiny strong label that follows the pointer over anything with data-copy: "Copy", then "Copied ✓" (or "Copy failed") for 1.3s after a click.
-- [Section header](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/SectionHeader.md): A top hairline, a "> Label" in mono, a large heading and an optional action on the right.
-- [Project card](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/ProjectCard.md): A product in the work grid: 4:5 video (4:3 on phones) with a number and the product's own logo on a paper chip, then title and mono kind, a one-line description, and a full-width visit bar.
-- [Logo chip](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/LogoChip.md): A product's own logo on an off-white chip in the top-left corner of a project card.
-- [Build card and track](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/BuildTrack.md): The "What we build" row: cards with a pixel tile in the item's own colour, a numbered tag, a square bullet and a short description, on a track that drifts sideways on its own and pauses on hover, touch or focus.
-- [About block](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/AboutBlock.md): A short statement section: a compact pixel illustration on the left and one large paragraph (t-big) on the right, centred on one line.
-- [Hero](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Hero.md): The home opening: a living pixel surface (WebGL) where a field of tiny ">" and "<" glyphs flows across paper and the Vimaksh mark assembles from the same pixels.
-- [Contact block](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/ContactBlock.md): Bordered card blocks made of rows: a red "Start a project" row that drops open the brief form, plain rows with copy pills, and a split block for the studio address and coordinates.
-- [Brief form](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/BriefForm.md): The project brief: name, email, phone, company (optional) and a message.
-- [Inputs and validation](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Inputs.md): Text fields are a single underline: --rule2 at rest, red on focus and when invalid.
-- [Phone field](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/PhoneField.md): intl-tel-input 29.5.11, themed to the site: a flag and +code in mono with a small red chevron, a square searchable country list on --card, India preselected and a short list of common countries first.
-- [Footer](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Footer.md): Always dark (night) in both themes.
-- [Pixel edge](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/PixelEdge.md): A band of squares, 7 rows of 14px cells (10px on phones), that thins toward the far edge.
-- [Legal page](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/LegalPage.md): A single readable column (max 760px) for terms, privacy and cookies: a mono label, a t-hero title at a smaller size, the update date in mono, and 16px/1.6 body with 22px section headings.
-- [Skip link](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/SkipLink.md): The first element on every page: "Skip to content", off screen until it receives focus, then a strong box at top left.
+- [Header](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Header.md): The wordmark at top left and the theme toggle at top right.
+- [Theme toggle](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/ThemeToggle.md): A pill whose knob slides between sun and moon; the icon turns as it travels.
+- [Navigation stack](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/NavigationStack.md): The site's only navigation: a stack of boxed mono links fixed at the bottom right, ending in a solid Menu box.
+- [Button](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Button.md): Square buttons with a mono uppercase label and a ">" chevron that nudges 5px right on hover.
+- [Text link](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/TextLink.md): A mono link with an underline in the text colour and a red chevron that nudges 4px on hover.
+- [Pill](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Pill.md): A small square mono chip that copies a value (an email, coordinates) or labels an expandable row.
+- [Copy tooltip](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/CopyTooltip.md): A tiny strong label that follows the pointer over anything with data-copy: "Copy", then "Copied ✓" (or "Copy failed") for 1.3s after a click.
+- [Section header](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/SectionHeader.md): A top hairline, a "> Label" in mono, a large heading and an optional action on the right.
+- [Project card](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/ProjectCard.md): A product in the work grid: 4:5 video (4:3 on phones) with a number and the product's own logo on a paper chip, then title and mono kind, a one-line description, and a full-width visit bar.
+- [Logo chip](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/LogoChip.md): A product's own logo on an off-white chip in the top-left corner of a project card.
+- [Build card and track](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/BuildTrack.md): The "What we build" row: cards with a pixel tile in the item's own colour, a numbered tag, a square bullet and a short description, on a track that drifts sideways on its own and pauses on hover, touch or focus.
+- [About block](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/AboutBlock.md): A short statement section: a compact pixel illustration on the left and one large paragraph (t-big) on the right, centred on one line.
+- [Hero](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Hero.md): The home opening: a living pixel surface (WebGL) where a field of tiny ">" and "<" glyphs flows across paper and the Vimaksh mark assembles from the same pixels.
+- [Contact block](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/ContactBlock.md): Bordered card blocks made of rows: a red "Start a project" row that drops open the brief form, plain rows with copy pills, and a split block for the studio address and coordinates.
+- [Brief form](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/BriefForm.md): The project brief: name, email, phone, company (optional) and a message.
+- [Inputs and validation](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Inputs.md): Text fields are a single underline: --rule2 at rest, red on focus and when invalid.
+- [Phone field](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/PhoneField.md): intl-tel-input 29.5.11, themed to the site: a flag and +code in mono with a small red chevron, a square searchable country list on --card, India preselected and a short list of common countries first.
+- [Footer](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Footer.md): Always dark (night) in both themes.
+- [Pixel edge](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/PixelEdge.md): A band of squares, 7 rows of 14px cells (10px on phones), that thins toward the far edge.
+- [Legal page](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/LegalPage.md): A single readable column (max 760px) for terms, privacy and cookies: a mono label, a t-hero title at a smaller size, the update date in mono, and 16px/1.6 body with 22px section headings.
+- [Skip link](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/SkipLink.md): The first element on every page: "Skip to content", off screen until it receives focus, then a strong box at top left.
 
 ## 4. Foundations
 
-- [Color](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Color.md): Paper and ink, one red for action, and a dark night for the footer.
-- [Typography](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Typography.md): Inter Tight for everything that is read, set large, at weight 500 with tight negative tracking.
-- [Spacing and layout](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/SpacingLayout.md): Full-width pages with one fluid gutter, generous fluid section padding, a 14px gap between cards, and two max-width breakpoints.
-- [Surfaces](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Surfaces.md): Three paper levels and one night.
-- [Patterns and grain](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Patterns.md): Five textures make the brand: the paper pattern, the grain, the pixel edge, the hero's chevron field and the heat gradient.
-- [Elevation](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Elevation.md): The site is flat.
-- [Motion](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Motion.md): One easing for almost everything, short colour changes, small nudges.
-- [Iconography](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Iconography.md): The site has almost no icons.
-- [Imagery](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Imagery.md): Real product footage in square frames, the products' own logos on paper chips, and pixel illustrations drawn on a grid.
-- [Voice and content](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Voice.md): Short declarative sentences, concrete nouns, active verbs.
-- [Accessibility](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Accessibility.md): Target WCAG 2.2 AA.
-- [Brand](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Brand.md), [Pixel motifs](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/PixelMotifs.md), [Icons](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Icons.md), [Downloads](https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Downloads.md)
+- [Color](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Color.md): Paper and ink, one red for action, and a dark night for the footer.
+- [Typography](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Typography.md): Inter Tight for everything that is read, set large, at weight 500 with tight negative tracking.
+- [Spacing and layout](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/SpacingLayout.md): Full-width pages with one fluid gutter, generous fluid section padding, a 14px gap between cards, and two max-width breakpoints.
+- [Surfaces](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Surfaces.md): Three paper levels and one night.
+- [Patterns and grain](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Patterns.md): Five textures make the brand: the paper pattern, the grain, the pixel edge, the hero's chevron field and the heat gradient.
+- [Elevation](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Elevation.md): The site is flat.
+- [Motion](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Motion.md): One easing for almost everything, short colour changes, small nudges.
+- [Iconography](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Iconography.md): The site has almost no icons.
+- [Imagery](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Imagery.md): Real product footage in square frames, the products' own logos on paper chips, and pixel illustrations drawn on a grid.
+- [Voice and content](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Voice.md): Short declarative sentences, concrete nouns, active verbs.
+- [Accessibility](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Accessibility.md): Target WCAG 2.2 AA.
+- [Brand](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Brand.md), [Pixel motifs](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/PixelMotifs.md), [Icons](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Icons.md), [Downloads](https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Downloads.md)
 
 ## 5. Token quick reference
 
@@ -157,7 +157,7 @@ MUST NOT
 | motion.easing.toggle | `--ease-toggle` | `cubic-bezier(.65,0,.25,1)` |
 | motion.easing.overshoot | `--ease-overshoot` | `cubic-bezier(.34,1.56,.64,1)` |
 
-Type classes: `.t-mono` 11px/1.45 500 .06em; `.t-hero` clamp(44px,6.4vw,112px)/.94 500 -.045em; `.t-statement` clamp(44px,7vw,112px)/.92 500 -.045em; `.t-section` clamp(34px,4.4vw,72px)/.96 500 -.04em; `.t-big` clamp(26px,2.9vw,48px)/1.08 450 -.03em. Every token: https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/api/tokens.json (flat, with light/dark values) or https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/tokens.json (the W3C source; same values).
+Type classes: `.t-mono` 11px/1.45 500 .06em; `.t-hero` clamp(44px,6.4vw,112px)/.94 500 -.045em; `.t-statement` clamp(44px,7vw,112px)/.92 500 -.045em; `.t-section` clamp(34px,4.4vw,72px)/.96 500 -.04em; `.t-big` clamp(26px,2.9vw,48px)/1.08 450 -.03em. Every token: https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/api/tokens.json (flat, with light/dark values) or https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/tokens.json (the W3C source; same values).
 
 ## 6. Self-check (run it before you finish)
 

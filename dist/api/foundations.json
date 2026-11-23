@@ -5,7 +5,7 @@
       "name": "Color",
       "title": "Color",
       "summary": "Paper and ink, one red for action, and a dark night for the footer. Every role has a light and a dark value; the brand colours do not change with the theme.",
-      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Color.md",
+      "markdown": "https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Color.md",
       "guidance": "### Roles, not paint\nPick a colour by its job. Every surface and text colour is a role with a light and a dark value, switched by `<html data-theme>`:\n\n| Role | Job |\n| --- | --- |\n| `--paper` | The page. Always carries the cross-and-dot pattern. |\n| `--paper2` | Sunken areas and hover fills. |\n| `--card` | Raised surfaces: blocks, media backing, dropdowns. |\n| `--ink` | Body text. |\n| `--strong` | Headings, solid UI (hover fills, the Menu box). |\n| `--soft` | Secondary text and labels. |\n| `--rule` / `--rule2` | Hairlines / control borders and input underlines. |\n| `--chip` | The translucent fill under a backdrop blur. |\n\n### Red is for action\n`--red #E42114` marks the primary action, the \">\" chevron, the one hero highlight (.hl), the focused input underline and errors. Nothing else is red. Coral `#FF5E55` is the mark's colour and the accent on the dark footer.\n\n### The footer is always night\nThe footer stays dark in both themes (`--night #0D0E1C` with the dark pattern). Its text colours are fixed footer tokens.\n\n### Blues belong to pixels\nElectric, Royal, Glow and Mist appear in the pixel graphics and the hero field. In the interface, Electric is only the focus ring.\n\n### Kind colours are only for \"What we build\"\nEach kind of software has a colour for its pixel tile, its 3px stripe and its square bullet. Never use them for interface states.\n\n### The mark's own colours\nThe SVG files use `#FF5F53` and `#E32112`; CSS uses `#FF5E55` and `#E42114`. The difference is one step and is recorded, not corrected: use the files unchanged.",
       "do": [
         "Use role variables, never raw hex, in components.",
@@ -478,21 +478,21 @@
           "a": 4,
           "b": 18,
           "what": "tokens",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L4-L18"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L4-L18"
         },
         {
           "file": "src/v5/pixelart.js",
           "a": 3,
           "b": 3,
           "what": "pixel blues",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelart.js#L3"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelart.js#L3"
         },
         {
           "file": "tools/v5pages.py",
           "a": 172,
           "b": 181,
           "what": "kind colours",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L172-L181"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L172-L181"
         }
       ]
     },
@@ -500,7 +500,7 @@
       "name": "Typography",
       "title": "Typography",
       "summary": "Inter Tight for everything that is read, set large, at weight 500 with tight negative tracking. JetBrains Mono 500, small and uppercase, for labels, navigation and buttons.",
-      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Typography.md",
+      "markdown": "https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Typography.md",
       "guidance": "### Two families, two jobs\n- **Inter Tight** (variable, 100–900): display, headings, body. Weights used: 400 body, 450 statements, 500 headings, 600 only in logo chips.\n- **JetBrains Mono 500**: labels (\"> Selected work\"), navigation, buttons, kinds, dates, coordinates, field errors. Always uppercase with wide tracking, except the dial code and field errors.\n\n### Sizes are fluid\nLarge styles use `clamp(min, vw, max)` and scale continuously; there is no fixed scale. Line-heights under 1 are deliberate for display sizes.\n\n### Labels carry a red chevron\nA section label is `<p class=\"t-mono label\"><span class=\"chev\">&gt;</span> Label</p>`. The chevron is the brand's \">\" from the mark.\n\n### Write in sentence case\nSource text is sentence case. Mono labels and buttons become uppercase through CSS, so copy stays readable and searchable.\n\n### Files\n`fonts/inter-tight.woff2` (45 KB) and `fonts/jetbrains-mono-500.woff2` (22 KB), both SIL OFL 1.1, `font-display: swap`. Preload Inter Tight.",
       "do": [
         "Use the t-* classes for the five base styles.",
@@ -773,14 +773,14 @@
           "a": 2,
           "b": 8,
           "what": "fonts",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L2-L8"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L2-L8"
         },
         {
           "file": "src/v5/v5.css",
           "a": 36,
           "b": 43,
           "what": "type classes",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L36-L43"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L36-L43"
         }
       ]
     },
@@ -788,7 +788,7 @@
       "name": "SpacingLayout",
       "title": "Spacing and layout",
       "summary": "Full-width pages with one fluid gutter, generous fluid section padding, a 14px gap between cards, and two max-width breakpoints. The values below are the ones the site uses, named.",
-      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/SpacingLayout.md",
+      "markdown": "https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/SpacingLayout.md",
       "guidance": "### The gutter\nEverything sits inside `--pad: clamp(16px, 2.6vw, 40px)` on the left and right. There is no centred max-width container: the site is full width.\n\n### Breakpoints\nDesktop first, two `max-width` breakpoints: **1100px** (three columns become two) and **760px** (one column, phone header 68px, nav stack narrower).\n\n### Grids\n- Work: `repeat(3,1fr)`, gap `clamp(40px,4vw,64px) 14px`; 2 columns ≤1100px; 1 column ≤760px.\n- Contact and footer top: two columns, one on phones.\n- Footer columns: `1fr 1.4fr 1fr 1fr`; 2 columns ≤1100px.\n- About: `clamp(220px,24vw,340px) 1fr`.\n\n### Vertical rhythm\nSections: `clamp(70px,8vw,130px)` top and `clamp(80px,9vw,140px)` bottom; compact sections `clamp(56px,6vw,96px)`; footer `clamp(90px,10vw,160px)`. Label to heading 18px; section header to content `clamp(28px,3.4vw,52px)`.\n\n### No spacing scale\nThe site has no 4/8 scale and this system does not invent one. Reuse the named values; for anything else, match the nearest existing element.",
       "do": [
         "Use --pad for every horizontal edge.",
@@ -934,21 +934,21 @@
           "a": 9,
           "b": 9,
           "what": "pad, hdr",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L9"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L9"
         },
         {
           "file": "src/v5/v5.css",
           "a": 137,
           "b": 138,
           "what": "work grid",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L137-L138"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L137-L138"
         },
         {
           "file": "src/v5/v5.css",
           "a": 303,
           "b": 326,
           "what": "breakpoints",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L303-L326"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L303-L326"
         }
       ]
     },
@@ -956,7 +956,7 @@
       "name": "Surfaces",
       "title": "Surfaces",
       "summary": "Three paper levels and one night. Surfaces are flat and square: separated by hairlines and by the paper pattern, not by shadows.",
-      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Surfaces.md",
+      "markdown": "https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Surfaces.md",
       "guidance": "### Levels\n- **Paper** (`--paper` + pattern): the page and every section.\n- **Paper 2** (`--paper2`): sunken rows, hover fills.\n- **Card** (`--card`): blocks with a `--rule2` border, media backing.\n- **Night** (`--night` + dark pattern): the footer, in both themes.\n\n### Sections rise\nSections after the hero have `position: relative` and paper backgrounds, so they slide over the sticky hero. A paper pixel edge sits on top of the first one.\n\n### A light card on night\nIn the footer the brief is a light card (`.fbrief`) that resets the light-theme roles locally and floats with the only large shadow on the site.",
       "do": [
         "Separate with 1px hairlines.",
@@ -1080,21 +1080,21 @@
           "a": 126,
           "b": 128,
           "what": "rise",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L126-L128"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L126-L128"
         },
         {
           "file": "src/v5/v5.css",
           "a": 228,
           "b": 228,
           "what": "block",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L228"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L228"
         },
         {
           "file": "src/v5/v5.css",
           "a": 703,
           "b": 703,
           "what": "light card on night",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L703"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L703"
         }
       ]
     },
@@ -1102,7 +1102,7 @@
       "name": "Patterns",
       "title": "Patterns and grain",
       "summary": "Five textures make the brand: the paper pattern, the grain, the pixel edge, the hero's chevron field and the heat gradient. Each has one job.",
-      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Patterns.md",
+      "markdown": "https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Patterns.md",
       "guidance": "### Paper pattern (everywhere)\nA 12px cross every 192px plus a 0.9px dot every 24px, ink at low opacity in light, mist in dark. Apply as `background: var(--pattern), var(--paper)`.\n\n### Grain (light theme only)\nA 220px fractal-noise tile in a fixed overlay at opacity .08, shifting in six steps every 1.2s. It is not drawn in the dark theme (black grain is invisible on dark paper). It stops with reduced motion.\n\n### Pixel edge (between areas)\nSquares thinning toward the far edge: 7 rows of 14px cells. See the Pixel edge component.\n\n### Chevron field (hero only)\nRows of 5×5 \">\" and \"<\" glyphs in Royal on Mist, flowing on a noise field; the mark is built from the same cells.\n\n### Heat gradient (footer base only)\nRed → coral → plum → royal, three radial highlights and grain at .55 overlay. It carries the giant wordmark and nothing else.",
       "do": [
         "Use each texture only in its place."
@@ -1169,28 +1169,28 @@
           "a": 10,
           "b": 14,
           "what": "pattern and grain",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L10-L14"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L10-L14"
         },
         {
           "file": "src/v5/v5.css",
           "a": 23,
           "b": 28,
           "what": "grain overlay",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L23-L28"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L23-L28"
         },
         {
           "file": "src/v5/v5.css",
           "a": 169,
           "b": 175,
           "what": "heat",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L169-L175"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L169-L175"
         },
         {
           "file": "src/v5/pixelhero.js",
           "a": 1,
           "b": 80,
           "what": "chevron field",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelhero.js#L1-L80"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelhero.js#L1-L80"
         }
       ]
     },
@@ -1198,7 +1198,7 @@
       "name": "Elevation",
       "title": "Elevation",
       "summary": "The site is flat. There are exactly four shadows, each for one object, and two backdrop blurs. There is no elevation scale.",
-      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Elevation.md",
+      "markdown": "https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Elevation.md",
       "guidance": "| Token | Value | Only on |\n| --- | --- | --- |\n| `shadow.knob` | `0 2px 8px rgba(0,0,0,.18)` | Theme toggle knob (hover: `0 2px 14px rgba(0,0,0,.25)`) |\n| `shadow.chip` | `0 1px 0 rgba(0,0,0,.08)` | Logo chip on project media |\n| `shadow.card` | `0 30px 70px -30px rgba(0,0,0,.6)` | The light brief card on the dark footer |\n| `shadow.popover` | `0 18px 40px -18px rgba(11,10,20,.35)` | Country list of the phone field |\n\nBackdrop blur: 8px under navigation items, 10px under the theme toggle, always on the translucent `--chip` fill.",
       "do": [
         "Show depth with surface colour and hairlines."
@@ -1271,28 +1271,28 @@
           "a": 73,
           "b": 79,
           "what": "knob",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L73-L79"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L73-L79"
         },
         {
           "file": "src/v5/v5.css",
           "a": 591,
           "b": 591,
           "what": "chip",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L591"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L591"
         },
         {
           "file": "src/v5/v5.css",
           "a": 703,
           "b": 703,
           "what": "card",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L703"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L703"
         },
         {
           "file": "src/v5/v5.css",
           "a": 792,
           "b": 792,
           "what": "popover",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L792"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L792"
         }
       ]
     },
@@ -1300,7 +1300,7 @@
       "name": "Motion",
       "title": "Motion",
       "summary": "One easing for almost everything, short colour changes, small nudges. The hero is the only thing that always moves.",
-      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Motion.md",
+      "markdown": "https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Motion.md",
       "guidance": "### Easing\n- **Standard** `cubic-bezier(.2,.8,.2,1)`: every transform and reveal.\n- **Toggle** `cubic-bezier(.65,0,.25,1)`: the theme knob's travel.\n- **Overshoot** `cubic-bezier(.34,1.56,.64,1)`: only the red arrow landing in the footer mark.\n\n### Durations\nHover colours .2–.25s; header and nav .35s; theme crossfade .6s; reveal .9s (opacity) / 1s (rise); media zoom 1.4s.\n\n### The vocabulary\n- **Chevron nudge**: the \">\" moves 5px right on button hover (4px on text links).\n- **Reveal**: blocks rise 22px and fade in once, staggered 80ms in threes.\n- **Media**: card video scales 1.02 → 1.07 and saturates .82 → 1 on hover.\n- **Nav unfold**: links appear from the bottom, 45ms apart.\n- **Mark assembly**: the six arrows fly in to the footer mark; the red one last, with overshoot.\n- **Track drift**: 34px/s, slower on hover.\n\n### Reduced motion\nWith `prefers-reduced-motion: reduce`: the grain stops, smooth scrolling is off, the track drifts at 18px/s, the hero runs at half speed and settles sooner.",
       "do": [
         "Animate opacity and transform only.",
@@ -1407,28 +1407,28 @@
           "a": 9,
           "b": 9,
           "what": "ease",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L9"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L9"
         },
         {
           "file": "src/v5/v5.css",
           "a": 298,
           "b": 300,
           "what": "reveal",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L298-L300"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L298-L300"
         },
         {
           "file": "src/v5/main.js",
           "a": 203,
           "b": 226,
           "what": "mark and reveal",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L203-L226"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L203-L226"
         },
         {
           "file": "src/v5/v5.css",
           "a": 327,
           "b": 330,
           "what": "reduced motion",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L327-L330"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L327-L330"
         }
       ]
     },
@@ -1436,7 +1436,7 @@
       "name": "Iconography",
       "title": "Iconography",
       "summary": "The site has almost no icons. Its arrow is the mono \">\" chevron; the only drawn icons are the sun and moon of the theme toggle. A full icon set has not been chosen yet.",
-      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Iconography.md",
+      "markdown": "https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Iconography.md",
       "guidance": "### What exists\n- **Chevrons**: `>` and `<` set in JetBrains Mono, red on paper and coral on night. They point, bracket labels (\"> Work <\") and nudge on hover.\n- **Pixel chevrons**: the 5×5 glyphs of the hero field (`brand/pixel/svg/chevron-right.svg`, `chevron-left.svg`).\n- **Sun and moon**: 24×24 viewBox, 1.6 stroke, round caps, `currentColor`. Only in the theme toggle.\n- **Menu dots**: four 4px dots that morph into an X.\n- **Disclosure triangle**: ▸ in the \"Submit brief\" pill, rotating 90° when open.\n- **Flags**: from intl-tel-input, in the phone field only.\n\nSee the [icon gallery](doc:Icons) to copy them.\n\n### Gap\n`[PLACEHOLDER: icon set to be supplied by Vimaksh]`. Until it arrives, use a chevron or a word instead of an icon. Do not import a general icon library.",
       "do": [
         "Prefer a word to an icon.",
@@ -1453,21 +1453,21 @@
           "a": 47,
           "b": 54,
           "what": "sun and moon",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L47-L54"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L47-L54"
         },
         {
           "file": "src/v5/v5.css",
           "a": 344,
           "b": 349,
           "what": "menu dots",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L344-L349"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L344-L349"
         },
         {
           "file": "src/v5/pixelhero.js",
           "a": 23,
           "b": 28,
           "what": "pixel chevrons",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelhero.js#L23-L28"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelhero.js#L23-L28"
         }
       ]
     },
@@ -1475,7 +1475,7 @@
       "name": "Imagery",
       "title": "Imagery",
       "summary": "Real product footage in square frames, the products' own logos on paper chips, and pixel illustrations drawn on a grid. No stock photography.",
-      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Imagery.md",
+      "markdown": "https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Imagery.md",
       "guidance": "### Product media\nShort muted loops recorded from the real product, with a poster frame, at 4:5 (4:3 on phones). Saturation .82 at rest, 1 on hover; a light darkening veil and grain on top. Play only while on screen.\n\n### Product logos\nThe product's own logo, unchanged, on an off-white chip at the top left of its media.\n\n### Pixel illustrations\nDrawn square by square on a small grid (48×36 for tiles, 84×64 for the desk) and scaled up with `image-rendering: pixelated`. Each What we build tile uses its kind colour. Grab them from Pixel motifs or draw new ones with `pixel/pixelsaas.js`.\n\n### Honesty\n`[PLACEHOLDER: …]` marks missing media. Do not fill a gap with stock photos, AI images of real software or people, mock laptops or fake dashboards.",
       "do": [
         "Use real captures with enough framing to understand them.",
@@ -1493,21 +1493,21 @@
           "a": 140,
           "b": 144,
           "what": "media",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L140-L144"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L140-L144"
         },
         {
           "file": "src/v5/pixelsaas.js",
           "a": 1,
           "b": 40,
           "what": "pixel tiles",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelsaas.js#L1-L40"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelsaas.js#L1-L40"
         },
         {
           "file": "DESIGN.md",
           "a": 469,
           "b": 501,
           "what": "imagery rules (DESIGN.md)",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L469-L501"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L469-L501"
         }
       ]
     },
@@ -1515,7 +1515,7 @@
       "name": "Voice",
       "title": "Voice and content",
       "summary": "Short declarative sentences, concrete nouns, active verbs. Curious and exacting without sounding severe. Never invent a fact: mark the gap.",
-      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Voice.md",
+      "markdown": "https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Voice.md",
       "guidance": "### How Vimaksh writes\n- Short declarative sentences. Concrete nouns and active verbs.\n- \"We\" for the studio; the real product name for the work.\n- Sentence case for headings, labels, buttons and navigation (CSS uppercases the mono ones).\n- One idea per sentence. Plain words: \"use\", not \"leverage\".\n- \"Boil the Ocean.\" is the one expansive idiom. Do not surround it with puns.\n\n### Examples from the site\n- Hero: \"We turn <what if?> into products, platforms and experiments you can actually use.\"\n- Section: \"Things we've built, and are building.\"\n- Footer: \"Come build what should exist.\"\n- Buttons: \"Explore our work\", \"Start a project\", \"Send brief\", \"Visit paryatech.in\".\n- Errors: \"This number is too short for the country you chose.\"\n\n### Banned\n- **Metaphors**: anchors, ships, nautical badges, thermometers, bubbles behind body copy, invented depth readings, wave puns, generic transformation claims.\n- **Adjectives** unless evidenced: award-winning, leading, global, multidisciplinary, full-service.\n- **Invented facts**: results, metrics, years of experience, client counts, client names, team names or photos, availability promises.\n\n### The placeholder convention\n`[PLACEHOLDER: …]` always means missing editorial content or an asset, never a fact. Keep it visible in review builds. An unresolved placeholder blocks publication of its component: replace it with confirmed content or remove the component. Never silently replace it with something plausible.\n\n### Open conflicts (live site vs DESIGN.md)\nThe live site is the source of truth for the look. Four pieces of live copy conflict with DESIGN.md's content rules and are waiting for a decision:\n1. \"We read every brief and reply within two working days\" (a response-time promise).\n2. Project cards are numbered 01–06.\n3. The footer shows a live clock and a full street address.\n4. \"Custom software, and nothing else\" next to the earlier \"independent experiments\" framing.\n\n`[PLACEHOLDER: Vimaksh to decide which rule wins for each]`. Until then, do not copy these four into new work.",
       "do": [
         "Say what something does in one sentence.",
@@ -1532,28 +1532,28 @@
           "a": 24,
           "b": 26,
           "what": "placeholder rule",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L24-L26"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L24-L26"
         },
         {
           "file": "DESIGN.md",
           "a": 88,
           "b": 92,
           "what": "copy voice",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L88-L92"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L88-L92"
         },
         {
           "file": "DESIGN.md",
           "a": 11,
           "b": 11,
           "what": "banned metaphors",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L11"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L11"
         },
         {
           "file": "tools/v5pages.py",
           "a": 193,
           "b": 242,
           "what": "live copy",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L193-L242"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L193-L242"
         }
       ]
     },
@@ -1561,7 +1561,7 @@
       "name": "Accessibility",
       "title": "Accessibility",
       "summary": "Target WCAG 2.2 AA. Real DOM before scripts, a skip link, visible focus, labelled controls, live regions for errors, and motion that respects reduced motion. Two known contrast issues are listed below.",
-      "markdown": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/docs/Accessibility.md",
+      "markdown": "https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/docs/Accessibility.md",
       "guidance": "### What every page has\n- A skip link to `<main id=\"main\">`, one H1, H2 per section with `aria-labelledby`.\n- Focus: `:focus-visible { outline: 2px solid var(--electric); outline-offset: 3px }`.\n- Decorative graphics (chevrons, pixel edges, giant wordmark) are `aria-hidden`; the hero canvas and pixel illustrations have `role=\"img\"` and a description.\n- Buttons for actions, links for navigation; external links say \"(opens in a new tab)\" in hidden text.\n- Form errors in `aria-live` regions inside the label; the first invalid field is focused on submit.\n- Everything readable without JavaScript, canvas or animation.\n\n### Contrast, measured\nThe contrast table on this page is computed from the tokens. Two pairs fail:\n- **Focus ring on dark paper** (Electric on `#0F1020`) is about 2.35:1, under the 3:1 needed for focus indicators. `[PLACEHOLDER: fix approved by Vimaksh, for example the coral or glow focus colour in the dark theme]`.\n- **Red text on paper** (4.15:1 light, 4.06:1 dark) is under 4.5:1 for small text. On the site it is used for decorative chevrons and short error lines; do not use it for body text.\n\n### Motion\nHonour `prefers-reduced-motion` (see Motion). Nothing requires an animation to finish before it can be read.\n\n### Touch\nControls are at least 40px high on phones (nav items, pills, the toggle 36px). Keep new targets at 44px.",
       "do": [
         "Test in both themes, with the keyboard, and at 200% zoom."
@@ -1577,14 +1577,14 @@
           "a": 32,
           "b": 35,
           "what": "focus, skip, sr",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L32-L35"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L32-L35"
         },
         {
           "file": "DESIGN.md",
           "a": 447,
           "b": 456,
           "what": "accessibility rules (DESIGN.md)",
-          "url": "https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L447-L456"
+          "url": "https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L447-L456"
         }
       ]
     }

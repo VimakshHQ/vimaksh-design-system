@@ -2,7 +2,7 @@
 
 > The site is flat. There are exactly four shadows, each for one object, and two backdrop blurs. There is no elevation scale.
 
-Vimaksh design system 0.1.0. HTML: /foundations/elevation/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /foundations/elevation/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Tokens
 
@@ -36,7 +36,7 @@ Backdrop blur: 8px under navigation items, 10px under the theme toggle, always o
 
 ## Sources
 
-- knob: [src/v5/v5.css:73-79](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L73-L79)
-- chip: [src/v5/v5.css:591](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L591)
-- card: [src/v5/v5.css:703](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L703)
-- popover: [src/v5/v5.css:792](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L792)
+- knob: [src/v5/v5.css:73-79](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L73-L79)
+- chip: [src/v5/v5.css:591](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L591)
+- card: [src/v5/v5.css:703](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L703)
+- popover: [src/v5/v5.css:792](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L792)

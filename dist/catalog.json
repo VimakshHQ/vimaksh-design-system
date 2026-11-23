@@ -1,10 +1,10 @@
 {
   "name": "Vimaksh design system",
   "version": "0.1.0",
-  "base": "https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/",
+  "base": "https://raw.githubusercontent.com/VimakshHQ/vimaksh-design-system/main/dist/",
   "source": {
     "live": "https://work.vimaksh.in",
-    "repo": "yakosasam797/vimakshwebsite-identity-final@8df1553"
+    "repo": "VimakshHQ/vimakshwebsite-identity-final@8df1553"
   },
   "themes": [
     "light",

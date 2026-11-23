@@ -2,7 +2,7 @@
 
 > Short declarative sentences, concrete nouns, active verbs. Curious and exacting without sounding severe. Never invent a fact: mark the gap.
 
-Vimaksh design system 0.1.0. HTML: /foundations/voice/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /foundations/voice/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ### How Vimaksh writes
 - Short declarative sentences. Concrete nouns and active verbs.
@@ -47,7 +47,7 @@ The live site is the source of truth for the look. Four pieces of live copy conf
 
 ## Sources
 
-- placeholder rule: [DESIGN.md:24-26](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L24-L26)
-- copy voice: [DESIGN.md:88-92](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L88-L92)
-- banned metaphors: [DESIGN.md:11](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L11)
-- live copy: [tools/v5pages.py:193-242](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L193-L242)
+- placeholder rule: [DESIGN.md:24-26](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L24-L26)
+- copy voice: [DESIGN.md:88-92](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L88-L92)
+- banned metaphors: [DESIGN.md:11](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/DESIGN.md#L11)
+- live copy: [tools/v5pages.py:193-242](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/tools/v5pages.py#L193-L242)

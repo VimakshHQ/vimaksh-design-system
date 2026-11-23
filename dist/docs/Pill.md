@@ -2,7 +2,7 @@
 
 > A small square mono chip that copies a value (an email, coordinates) or labels an expandable row. Hover fills it with strong. It is the site's chip; there is no separate tag component.
 
-Vimaksh design system 0.1.0. HTML: /components/pill/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /components/pill/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Use it
 
@@ -53,6 +53,6 @@ The markup below is copied from the live site. Inline SVGs are abbreviated: past
 
 ## Sources
 
-- style: [src/v5/v5.css:232-233](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L232-L233)
-- on the red row: [src/v5/v5.css:486-487](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L486-L487)
-- copy: [src/v5/main.js:35-53](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L35-L53)
+- style: [src/v5/v5.css:232-233](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L232-L233)
+- on the red row: [src/v5/v5.css:486-487](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L486-L487)
+- copy: [src/v5/main.js:35-53](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/main.js#L35-L53)

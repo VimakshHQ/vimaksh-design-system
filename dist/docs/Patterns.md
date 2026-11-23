@@ -2,7 +2,7 @@
 
 > Five textures make the brand: the paper pattern, the grain, the pixel edge, the hero's chevron field and the heat gradient. Each has one job.
 
-Vimaksh design system 0.1.0. HTML: /foundations/patterns/ (local docs site). Source of truth: https://work.vimaksh.in at yakosasam797/vimakshwebsite-identity-final@8df1553.
+Vimaksh design system 0.1.0. HTML: /foundations/patterns/ (local docs site). Source of truth: https://work.vimaksh.in at VimakshHQ/vimakshwebsite-identity-final@8df1553.
 
 ## Tokens
 
@@ -43,7 +43,7 @@ Red → coral → plum → royal, three radial highlights and grain at .55 overl
 
 ## Sources
 
-- pattern and grain: [src/v5/v5.css:10-14](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L10-L14)
-- grain overlay: [src/v5/v5.css:23-28](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L23-L28)
-- heat: [src/v5/v5.css:169-175](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L169-L175)
-- chevron field: [src/v5/pixelhero.js:1-80](https://github.com/yakosasam797/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelhero.js#L1-L80)
+- pattern and grain: [src/v5/v5.css:10-14](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L10-L14)
+- grain overlay: [src/v5/v5.css:23-28](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L23-L28)
+- heat: [src/v5/v5.css:169-175](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/v5.css#L169-L175)
+- chevron field: [src/v5/pixelhero.js:1-80](https://github.com/VimakshHQ/vimakshwebsite-identity-final/blob/8df1553f4fbb42d294d48a95060665928a999482/src/v5/pixelhero.js#L1-L80)
