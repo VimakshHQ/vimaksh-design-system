@@ -2,7 +2,9 @@
 
 The design language of [work.vimaksh.in](https://work.vimaksh.in), extracted from its code, for people and AI agents: tokens, one CSS file, the site's behaviour, brand assets, and docs that agents can read.
 
-It is not hosted. Agents read it from this repository's raw files:
+Docs site: **https://vimaksh-design-system.vimaksh.workers.dev** (Cloudflare Workers, static assets; Storybook at `/storybook/`).
+
+Agents read the files from this repository's raw files (the prompt points here):
 
 ```
 https://raw.githubusercontent.com/yakosasam797/vimaksh-design-system/main/dist/
@@ -35,6 +37,7 @@ npm run check        # drift checks: tokens vs website lines, CSS variables, col
 npm run serve        # docs site at http://localhost:4321
 npm run shots        # every page and example, light and dark, 1440 and 390: console errors, overflow
 npm run storybook    # Storybook on :6006 (run `npm run build` first)
+npm run deploy       # build, build Storybook, bundle into _deploy/ and publish with wrangler
 ```
 
 Everything comes from the website, at the commit in `source/SOURCE_COMMIT`:

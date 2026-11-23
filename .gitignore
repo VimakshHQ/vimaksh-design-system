@@ -4,3 +4,5 @@ _site/
 .DS_Store
 storybook-static/
 _shots/
+_deploy/
+.wrangler/

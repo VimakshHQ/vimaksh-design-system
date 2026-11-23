@@ -1,0 +1,8 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // The docs site, static only: the generated site plus dist/ at /dist/. Build with `npm run deploy`.
+  "name": "vimaksh-design-system",
+  "compatibility_date": "2026-11-13",
+  "workers_dev": true,
+  "assets": { "directory": "./_deploy", "not_found_handling": "404-page", "html_handling": "auto-trailing-slash" }
+}
